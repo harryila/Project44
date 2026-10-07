@@ -5,7 +5,7 @@ Two projects that form one system. Each folder is self-contained with its own RE
 | Folder | Half | What it does | Start with |
 |---|---|---|---|
 | [`musicML/`](musicML/) | reading | a piano performance (audio or MIDI) becomes an engraved score (MusicXML, PDF); evaluation harness, training stack, research on tuplet decoding | [`musicML/README.md`](musicML/README.md), then [`musicML/AGENTS.md`](musicML/AGENTS.md) |
-| `music-cwt/` | writing | a few bars of score become more score in the same style (compound-word transformer over kern notation) | being added |
+| [`music-cwt/`](music-cwt/) | writing | a few bars of score become more score in the same style (compound-word transformer over kern notation; code by Antoine, GitHub Toitoine1) | [`music-cwt/HANDOFF_NOTES.md`](music-cwt/HANDOFF_NOTES.md), then [`music-cwt/README.md`](music-cwt/README.md) |
 
 The two halves share one idea: a note is a bundle of parallel attributes, not a single symbol, and a
 score is something you can check like code. The reading half can also manufacture training data for
