@@ -1,0 +1,5 @@
+# Added at import (the upstream repository ships no requirements file).
+# The code imports only torch and music21; the author used Python 3.12 on Windows, torch >= 2.0, music21 >= 9.0.
+# The musicML/venv311 environment (musicML/requirements.lock) also satisfies this.
+torch>=2.0
+music21>=9.0

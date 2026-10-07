@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+venv/
+env/
+homr_env/
+
+# Model checkpoints and training artifacts
+checkpoints/
+checkpoints_*/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Datasets / corpora
+kern_data/
+melody_data/
+pdmx_data/
+kern_all/
+asap_kern/
+asap_mxl/
+kernscores_*/
+humdrum-chopin-first-editions/
+MIDI_scrapping/
+kern_scrapping/
+pdmx_scrapper/
+
+# Generated outputs and logs
+generated/
+logs/
+roundtrip_test/
+*_output/
+*.log
+*.tmp
+*.bak
+
+# Large or derived analysis files
+*.csv
+*.tsv
+*.parquet
+*.pkl
+*.pickle
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
