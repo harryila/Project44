@@ -1,0 +1,207 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "weights": {
+    "w_cov": 2.0,
+    "w_fit": 1.0,
+    "w_edit": 0.05,
+    "w_bar": 0.25,
+    "accept_margin": 0.005,
+    "max_window": 40
+  },
+  "pieces": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "gt_tuplets": 99,
+      "baseline": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "tpf": 55,
+        "tpf_missed": 21,
+        "tpf_onset": 34
+      },
+      "repaired": {
+        "meaner_overall": 10.9711,
+        "onset_err_tuplet": 47.43589743589744,
+        "onset_err_nontuplet": 10.275689223057643,
+        "n_tuplet": 78,
+        "n_nontuplet": 1197,
+        "tpf": 58,
+        "tpf_missed": 21,
+        "tpf_onset": 37
+      },
+      "windows": [
+        {
+          "lo": 39,
+          "hi": 53
+        },
+        {
+          "lo": 554,
+          "hi": 568
+        },
+        {
+          "lo": 681,
+          "hi": 694
+        },
+        {
+          "lo": 767,
+          "hi": 780
+        },
+        {
+          "lo": 819,
+          "hi": 834
+        },
+        {
+          "lo": 895,
+          "hi": 912
+        },
+        {
+          "lo": 947,
+          "hi": 975
+        },
+        {
+          "lo": 1041,
+          "hi": 1052
+        }
+      ],
+      "evidence_groups": [
+        {
+          "g": 2000,
+          "lo": 41,
+          "hi": 51,
+          "n": 10,
+          "margin": 0.0368
+        },
+        {
+          "g": 20002,
+          "lo": 556,
+          "hi": 566,
+          "n": 10,
+          "margin": 0.0261
+        },
+        {
+          "g": 26000,
+          "lo": 683,
+          "hi": 692,
+          "n": 9,
+          "margin": 0.0266
+        },
+        {
+          "g": 29002,
+          "lo": 769,
+          "hi": 778,
+          "n": 9,
+          "margin": 0.028
+        },
+        {
+          "g": 31002,
+          "lo": 821,
+          "hi": 832,
+          "n": 11,
+          "margin": 0.0596
+        },
+        {
+          "g": 34000,
+          "lo": 897,
+          "hi": 904,
+          "n": 7,
+          "margin": 0.0405
+        },
+        {
+          "g": 34001,
+          "lo": 904,
+          "hi": 910,
+          "n": 6,
+          "margin": 0.0217
+        },
+        {
+          "g": 37001,
+          "lo": 949,
+          "hi": 961,
+          "n": 12,
+          "margin": 0.0226
+        },
+        {
+          "g": 38000,
+          "lo": 961,
+          "hi": 973,
+          "n": 12,
+          "margin": 0.0434
+        },
+        {
+          "g": 43000,
+          "lo": 1043,
+          "hi": 1050,
+          "n": 7,
+          "margin": 0.021
+        }
+      ],
+      "chosen": [
+        {
+          "lo": 681,
+          "hi": 694,
+          "donor": 4,
+          "score": 1.92565,
+          "base_score": 1.793338,
+          "detail": {
+            "cov": 1.0,
+            "fit": -0.0243,
+            "edit": 1.0,
+            "bar": 0.0
+          },
+          "base_detail": {
+            "cov": 0.9231,
+            "fit": -0.035,
+            "edit": 0.0,
+            "bar": 0.0714
+          }
+        },
+        {
+          "lo": 819,
+          "hi": 834,
+          "donor": 0,
+          "score": 1.889324,
+          "base_score": 1.63242,
+          "detail": {
+            "cov": 1.0,
+            "fit": -0.0451,
+            "edit": 1.0,
+            "bar": 0.0625
+          },
+          "base_detail": {
+            "cov": 0.8667,
+            "fit": -0.054,
+            "edit": 0.0,
+            "bar": 0.1875
+          }
+        },
+        {
+          "lo": 1041,
+          "hi": 1052,
+          "donor": 0,
+          "score": 1.926771,
+          "base_score": 1.752233,
+          "detail": {
+            "cov": 1.0,
+            "fit": -0.0414,
+            "edit": 0.6364,
+            "bar": 0.0
+          },
+          "base_detail": {
+            "cov": 0.9091,
+            "fit": -0.0451,
+            "edit": 0.0,
+            "bar": 0.0833
+          }
+        }
+      ],
+      "drift_ok": false,
+      "gate_ok": false
+    }
+  },
+  "elapsed_s": 53.4
+}

@@ -1,0 +1,476 @@
+{
+  "analysis": "best-of-N post-selection secondary audit",
+  "inputs_sha256": {
+    "selections": "f1c4a6f184bc05724c4584864440149296f339fa03a1fb931178223c1fd7b9cc",
+    "confirmation": "e9a3be41ec4e10f0661ea4bfec7bcffa9388b2da718d0e742c9d648910fc035a",
+    "oracle": "4bb023cc3714880a480a488e4f185802cc30c05543f7785108f0714e8cc77e59"
+  },
+  "efficacy_pieces": [
+    "Haydn/Haydn/Keyboard_Sonatas/31-1",
+    "Brahms/Brahms/Six_Pieces_op_118/2",
+    "Debussy/Debussy/Images_Book_1/1_Reflets_dans_lEau",
+    "Beethoven/Beethoven/Piano_Sonatas/10-1",
+    "Schubert/Schubert/Impromptu_op.90_D.899/1",
+    "Chopin/Chopin/Ballades/1"
+  ],
+  "totals": {
+    "greedy": {
+      "tpf": 1248,
+      "tpf_missed": 311,
+      "tpf_onset": 937
+    },
+    "sealed_v10_1": {
+      "tpf": 1372,
+      "tpf_missed": 374,
+      "tpf_onset": 998,
+      "rho_32_against_oracle_0.5": -1.0420168067226891,
+      "macro_delta_meaner": 1.0963466666666666,
+      "guard_0.5_violations": 4
+    },
+    "minimum_model_loss": {
+      "tpf": 1239,
+      "tpf_missed": 351,
+      "tpf_onset": 888,
+      "rho_32_against_oracle_0.5": 0.07563025210084033,
+      "macro_delta_meaner": 0.12132333333333323,
+      "guard_0.5_violations": 4
+    },
+    "oracle_0.0": {
+      "tpf": 1145,
+      "tpf_missed": 290,
+      "tpf_onset": 855
+    },
+    "oracle_0.25": {
+      "tpf": 1129,
+      "tpf_missed": 288,
+      "tpf_onset": 841
+    },
+    "oracle_0.5": {
+      "tpf": 1129,
+      "tpf_missed": 288,
+      "tpf_onset": 841
+    }
+  },
+  "macro_tpf_per_gt_tuplet_pct": {
+    "greedy": 34.5034316881089,
+    "sealed_v10_1": 36.88042551289486,
+    "minimum_model_loss": 35.91781493375277,
+    "oracle_0.5": 31.10262571578731
+  },
+  "per_piece": {
+    "Haydn/Haydn/Keyboard_Sonatas/31-1": {
+      "gt_tuplets": 856,
+      "baseline_tpf": 41,
+      "sealed_tpf": 92,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 18,
+        "seed": 1018,
+        "model_loss": 0.08975118,
+        "baseline_model_loss": 0.10741869,
+        "minimum_sample_model_loss": 0.08975118,
+        "tpf": 60,
+        "delta_meaner": 0.8698600000000001
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": 0.5924092807551279,
+        "spearman_timing_tpf": -0.6411808278553643,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 3,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 3,
+          "all_eligibility": 3,
+          "timing_screen": 2
+        },
+        "guarded_surviving": {
+          "saved": 3,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "candidate",
+          "candidate": 15,
+          "tpf": 34,
+          "delta_meaner": -0.29057000000000066
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 15,
+          "tpf": 34,
+          "delta_meaner": -0.29057000000000066
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 15,
+          "tpf": 34,
+          "delta_meaner": -0.29057000000000066
+        }
+      }
+    },
+    "Brahms/Brahms/Six_Pieces_op_118/2": {
+      "gt_tuplets": 153,
+      "baseline_tpf": 16,
+      "sealed_tpf": 16,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 16,
+        "seed": 1016,
+        "model_loss": 0.09549581,
+        "baseline_model_loss": 0.15611737,
+        "minimum_sample_model_loss": 0.09549581,
+        "tpf": 40,
+        "delta_meaner": 1.878829999999999
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": -0.15418518825997807,
+        "spearman_timing_tpf": -0.6466600217141699,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 1,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 1,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        },
+        "guarded_surviving": {
+          "saved": 1,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "candidate",
+          "candidate": 8,
+          "tpf": 13,
+          "delta_meaner": -0.5178600000000007
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 8,
+          "tpf": 13,
+          "delta_meaner": -0.5178600000000007
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 8,
+          "tpf": 13,
+          "delta_meaner": -0.5178600000000007
+        }
+      }
+    },
+    "Debussy/Debussy/Images_Book_1/1_Reflets_dans_lEau": {
+      "gt_tuplets": 894,
+      "baseline_tpf": 411,
+      "sealed_tpf": 439,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 27,
+        "seed": 1027,
+        "model_loss": 0.10236883,
+        "baseline_model_loss": 0.14594871,
+        "minimum_sample_model_loss": 0.10236883,
+        "tpf": 351,
+        "delta_meaner": -2.7681000000000022
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": 0.5054542312312413,
+        "spearman_timing_tpf": 0.16646806019512772,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 10,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 3,
+          "all_eligibility": 2,
+          "timing_screen": 1
+        },
+        "guarded_surviving": {
+          "saved": 10,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "candidate",
+          "candidate": 27,
+          "tpf": 351,
+          "delta_meaner": -2.7681000000000022
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 27,
+          "tpf": 351,
+          "delta_meaner": -2.7681000000000022
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 27,
+          "tpf": 351,
+          "delta_meaner": -2.7681000000000022
+        }
+      }
+    },
+    "Beethoven/Beethoven/Piano_Sonatas/10-1": {
+      "gt_tuplets": 364,
+      "baseline_tpf": 201,
+      "sealed_tpf": 201,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 15,
+        "seed": 1015,
+        "model_loss": 0.08719827,
+        "baseline_model_loss": 0.09818415,
+        "minimum_sample_model_loss": 0.08719827,
+        "tpf": 178,
+        "delta_meaner": -0.7874300000000005
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": 0.10561140282522474,
+        "spearman_timing_tpf": 0.04077518509078242,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 18,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 4,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        },
+        "guarded_surviving": {
+          "saved": 18,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "candidate",
+          "candidate": 0,
+          "tpf": 168,
+          "delta_meaner": -0.054959999999999454
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 0,
+          "tpf": 168,
+          "delta_meaner": -0.054959999999999454
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 0,
+          "tpf": 168,
+          "delta_meaner": -0.054959999999999454
+        }
+      }
+    },
+    "Schubert/Schubert/Impromptu_op.90_D.899/1": {
+      "gt_tuplets": 1144,
+      "baseline_tpf": 224,
+      "sealed_tpf": 258,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 30,
+        "seed": 1030,
+        "model_loss": 0.08272305,
+        "baseline_model_loss": 0.0837305,
+        "minimum_sample_model_loss": 0.08272305,
+        "tpf": 247,
+        "delta_meaner": 1.0291000000000032
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": 0.5605060882910634,
+        "spearman_timing_tpf": 0.45067843147511744,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 2,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 5,
+          "all_eligibility": 1,
+          "timing_screen": 1
+        },
+        "guarded_surviving": {
+          "saved": 2,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "baseline",
+          "candidate": -1,
+          "tpf": 224,
+          "delta_meaner": 0.0
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 13,
+          "tpf": 212,
+          "delta_meaner": 0.13160000000000238
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 13,
+          "tpf": 212,
+          "delta_meaner": 0.13160000000000238
+        }
+      }
+    },
+    "Chopin/Chopin/Ballades/1": {
+      "gt_tuplets": 500,
+      "baseline_tpf": 355,
+      "sealed_tpf": 366,
+      "minimum_model_loss": {
+        "choice_set": "baseline_plus_32_samples",
+        "source": "candidate",
+        "candidate": 19,
+        "seed": 1019,
+        "model_loss": 0.08610189,
+        "baseline_model_loss": 0.08615153,
+        "minimum_sample_model_loss": 0.08610189,
+        "tpf": 363,
+        "delta_meaner": 0.5056799999999999
+      },
+      "feature_fidelity": {
+        "spearman_model_loss_tpf": -0.28122077868882944,
+        "spearman_timing_tpf": 0.10582588203277285,
+        "n": 32
+      },
+      "gate_audit": {
+        "guarded_improvements": 1,
+        "surviving": {
+          "saved": 32,
+          "model_loss_band": 1,
+          "all_eligibility": 1,
+          "timing_screen": 1
+        },
+        "guarded_surviving": {
+          "saved": 1,
+          "model_loss_band": 0,
+          "all_eligibility": 0,
+          "timing_screen": 0
+        }
+      },
+      "oracle": {
+        "0.0": {
+          "source": "candidate",
+          "candidate": 8,
+          "tpf": 355,
+          "delta_meaner": -0.0004900000000009896
+        },
+        "0.25": {
+          "source": "candidate",
+          "candidate": 31,
+          "tpf": 351,
+          "delta_meaner": 0.15108000000000033
+        },
+        "0.5": {
+          "source": "candidate",
+          "candidate": 31,
+          "tpf": 351,
+          "delta_meaner": 0.15108000000000033
+        }
+      }
+    }
+  },
+  "leave_one_piece_out": {
+    "Haydn/Haydn/Keyboard_Sonatas/31-1": {
+      "baseline_tpf": 1207,
+      "sealed_tpf": 1280,
+      "oracle_tpf": 1095,
+      "oracle_relative_reduction": 0.0927920463960232,
+      "rho_32": -0.6517857142857143
+    },
+    "Brahms/Brahms/Six_Pieces_op_118/2": {
+      "baseline_tpf": 1232,
+      "sealed_tpf": 1356,
+      "oracle_tpf": 1116,
+      "oracle_relative_reduction": 0.09415584415584416,
+      "rho_32": -1.0689655172413792
+    },
+    "Debussy/Debussy/Images_Book_1/1_Reflets_dans_lEau": {
+      "baseline_tpf": 837,
+      "sealed_tpf": 933,
+      "oracle_tpf": 778,
+      "oracle_relative_reduction": 0.07048984468339307,
+      "rho_32": -1.6271186440677967
+    },
+    "Beethoven/Beethoven/Piano_Sonatas/10-1": {
+      "baseline_tpf": 1047,
+      "sealed_tpf": 1171,
+      "oracle_tpf": 961,
+      "oracle_relative_reduction": 0.08213944603629417,
+      "rho_32": -1.441860465116279
+    },
+    "Schubert/Schubert/Impromptu_op.90_D.899/1": {
+      "baseline_tpf": 1024,
+      "sealed_tpf": 1114,
+      "oracle_tpf": 917,
+      "oracle_relative_reduction": 0.1044921875,
+      "rho_32": -0.8411214953271028
+    },
+    "Chopin/Chopin/Ballades/1": {
+      "baseline_tpf": 893,
+      "sealed_tpf": 1006,
+      "oracle_tpf": 778,
+      "oracle_relative_reduction": 0.12877939529675253,
+      "rho_32": -0.9826086956521739
+    }
+  },
+  "gate_audit": {
+    "definition": "sample TPF below greedy and MeanER no more than 0.50 points above greedy",
+    "model_delta": "candidate model loss minus greedy model loss",
+    "stages": {
+      "saved": {
+        "all_samples": 192,
+        "guarded_improvements": 35
+      },
+      "model_loss_band": {
+        "all_samples": 17,
+        "guarded_improvements": 0
+      },
+      "all_eligibility": {
+        "all_samples": 7,
+        "guarded_improvements": 0
+      },
+      "timing_screen": {
+        "all_samples": 5,
+        "guarded_improvements": 0
+      }
+    }
+  },
+  "feature_fidelity_summary": {
+    "model_loss_range": [
+      -0.28122077868882944,
+      0.5924092807551279
+    ],
+    "model_loss_median": 0.30553281702823304,
+    "timing_range": [
+      -0.6466600217141699,
+      0.45067843147511744
+    ],
+    "timing_median": 0.07330053356177764
+  }
+}

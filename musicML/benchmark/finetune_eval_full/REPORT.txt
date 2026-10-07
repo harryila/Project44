@@ -1,0 +1,27 @@
+====================================================================================
+run                                           n   MeanER  hardMeanER  vs baseline
+====================================================================================
+checkpoints/MIDI2ScoreTF.ckpt                59    11.18       18.21  (baseline)
+former/checkpoints/finetune_full/last.ckpt   59    18.10       24.29  Δ=+6.92 worse
+
+BEST fine-tuned by MeanER: /root/Music-ML-BayenLab/benchmark/finetune_eval_full/eval_last.json
+  overall MeanER 18.10 vs baseline 11.18 (+6.92)
+  hard-composer MeanER 24.29 vs baseline 18.21 (+6.08)
+
+  per-composer Δ (negative = improved):
+    Debussy         14.48 ->  16.26  (+1.78)  <- HARD
+    Beethoven        8.83 ->  10.69  (+1.85)
+    Mozart           6.20 ->   9.10  (+2.90)
+    Ravel           21.54 ->  25.52  (+3.97)  <- HARD
+    Liszt           17.13 ->  21.26  (+4.13)  <- HARD
+    Haydn            6.64 ->  12.57  (+5.93)
+    Schubert        19.50 ->  25.78  (+6.28)  <- HARD
+    Prokofiev        7.02 ->  13.71  (+6.69)
+    Bach             5.78 ->  13.42  (+7.64)
+    Schumann        12.89 ->  20.57  (+7.68)  <- HARD
+    Scriabin        10.60 ->  18.67  (+8.07)
+    Chopin           7.93 ->  16.76  (+8.82)
+    Rachmaninoff    15.47 ->  29.28  (+13.81)  <- HARD
+    Brahms           6.59 ->  21.04  (+14.45)
+
+  VERDICT: NULL — within noise (try higher LR / more steps / learned rendering)

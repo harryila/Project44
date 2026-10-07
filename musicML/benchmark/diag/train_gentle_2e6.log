@@ -1,0 +1,117 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ft_gentle_2e6 exists and is not empty.
+┏━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name             ┃ Type            ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ encoder          │ RoFormerModel   │ 13.8 M │ train │     0 │
+│ 1 │ decoder          │ RoFormerModel   │ 18.0 M │ train │     0 │
+│ 2 │ embeddings_enc   │ MIDIEmbeddings  │  278 K │ train │     0 │
+│ 3 │ embeddings_dec   │ MXLEmbeddings   │  295 K │ train │     0 │
+│ 4 │ unembeddings_dec │ MXLUnembeddings │  293 K │ train │     0 │
+│ 5 │ norm             │ LayerNorm       │  1.0 K │ train │     0 │
+└───┴──────────────────┴─────────────────┴────────┴───────┴───────┘
+Trainable params: 32.4 M                                                        
+Non-trainable params: 196 K                                                     
+Total params: 32.6 M                                                            
+Total estimated model params size (MB): 130.382                                 
+Modules in train mode: 204                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+[rank: 0] Received SIGTERM: 15
+Epoch 0/1  ━━━━╸             81/282 0:27:07 • 0:57:20 0.06it/s v_num: 0.000     
+                                                               train/total:     
+                                                               4.472            
+Traceback (most recent call last):
+  File "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/midi2scoretransformer/train.py", line 417, in <module>
+    main()
+  File "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/midi2scoretransformer/train.py", line 408, in main
+    ckpt = fit(args.stage, args.manifest, args.lr, args.max_epochs, args.out_dir,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/midi2scoretransformer/train.py", line 366, in fit
+    trainer.fit(model, train_dataloaders=train_loader, val_dataloaders=val_loader)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 469, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 352, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 192, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 270, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1368, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 154, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 239, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 123, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 166, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/optim/optimizer.py", line 533, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/optim/adam.py", line 227, in step
+    loss = closure()
+           ^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 109, in _wrap_closure
+    closure_result = closure()
+                     ^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 146, in __call__
+    self._result = self.closure(*args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 140, in closure
+    self._backward_fn(step_output.closure_loss)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 241, in backward_fn
+    call._call_strategy_hook(self.trainer, "backward", loss, optimizer)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 213, in backward
+    self.precision_plugin.backward(closure_loss, self.lightning_module, optimizer, *args, **kwargs)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 73, in backward
+    model.backward(tensor, *args, **kwargs)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1137, in backward
+    loss.backward(*args, **kwargs)
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 164678) is killed by signal: Terminated. 

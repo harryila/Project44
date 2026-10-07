@@ -1,0 +1,98 @@
+{
+  "piece": "Liszt_Mazeppa",
+  "results": [
+    {
+      "label": "baseline_0.50",
+      "args": [],
+      "transcribe_s": 323.8,
+      "muster": {
+        "PitchER": 16.9116,
+        "MissRate": 39.5563,
+        "ExtraRate": 35.1869,
+        "OnsetER": 35.0095,
+        "OffsetER": 47.7836,
+        "MeanER": 34.8896,
+        "VoiceER": 53.7417,
+        "NewMeanER": 38.0316,
+        "Pvoi": 40.8858,
+        "Rvoi": 46.4746,
+        "Fvoi": 43.5015,
+        "ScaleErr": 1.51347,
+        "HandER": 31.2917
+      }
+    },
+    {
+      "label": "onset_mpe_0.35",
+      "args": [
+        "--hft-onset-threshold",
+        "0.35",
+        "--hft-mpe-threshold",
+        "0.35"
+      ],
+      "transcribe_s": 320.0,
+      "muster": {
+        "PitchER": 17.7511,
+        "MissRate": 38.3389,
+        "ExtraRate": 34.3351,
+        "OnsetER": 31.705,
+        "OffsetER": 49.6799,
+        "MeanER": 34.362,
+        "VoiceER": 51.2687,
+        "NewMeanER": 37.1798,
+        "Pvoi": 42.8788,
+        "Rvoi": 51.0014,
+        "Fvoi": 46.5887,
+        "ScaleErr": 1.50425,
+        "HandER": 30.1636
+      }
+    },
+    {
+      "label": "onset_mpe_0.25",
+      "args": [
+        "--hft-onset-threshold",
+        "0.25",
+        "--hft-mpe-threshold",
+        "0.25"
+      ],
+      "transcribe_s": 303.9,
+      "muster": {
+        "PitchER": 18.2015,
+        "MissRate": 39.3428,
+        "ExtraRate": 34.5921,
+        "OnsetER": 33.1433,
+        "OffsetER": 45.3552,
+        "MeanER": 34.127,
+        "VoiceER": 84.8895,
+        "NewMeanER": 42.5874,
+        "Pvoi": 48.4455,
+        "Rvoi": 46.8118,
+        "Fvoi": 47.6146,
+        "ScaleErr": 1.47996,
+        "HandER": 73.5329
+      }
+    },
+    {
+      "label": "offset_mode",
+      "args": [
+        "--hft-offset-mode",
+        "offset"
+      ],
+      "transcribe_s": 267.8,
+      "muster": {
+        "PitchER": 15.521,
+        "MissRate": 38.9105,
+        "ExtraRate": 33.9514,
+        "OnsetER": 35.9991,
+        "OffsetER": 50.4364,
+        "MeanER": 34.9637,
+        "VoiceER": 52.8662,
+        "NewMeanER": 37.9474,
+        "Pvoi": 40.1575,
+        "Rvoi": 46.2275,
+        "Fvoi": 42.9793,
+        "ScaleErr": 1.60778,
+        "HandER": 32.8615
+      }
+    }
+  ]
+}

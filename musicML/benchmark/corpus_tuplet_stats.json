@@ -1,0 +1,15 @@
+{
+  "corpus": "PDMX classical (the from-scratch / SSL training corpus)",
+  "source_csv": "data/pairs_classical_clean_tuplrate.csv",
+  "definition": "tuplet_rate = fraction of a score's notes whose duration is a tuplet (non-dyadic on the 1/24-quarter grid); per scripts/compute_tuplet_rates.py",
+  "computed": "2026-06-11",
+  "n_scores": 23783,
+  "total_notes": 9108415,
+  "total_tuplet_notes": 359784,
+  "mean_per_score_tuplet_rate_pct": 1.708,
+  "note_level_tuplet_fraction_pct": 3.95,
+  "pct_scores_tuplet_free": 86.49,
+  "median_per_score_tuplet_rate_pct": 0.0,
+  "pct_scores_ge_10pct_tuplets": 5.37,
+  "p90_per_score_tuplet_rate_pct": 3.321
+}

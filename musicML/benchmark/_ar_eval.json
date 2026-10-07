@@ -1,0 +1,16 @@
+{
+  "ckpt": "checkpoints/scratch_ar/scratch_ar-epoch=29-val/total=2.6270.ckpt",
+  "results": [
+    {
+      "composer": "Scriabin",
+      "piece": "Scriabin/Etudes_op_8/11",
+      "n_notes": 1324,
+      "MeanER": 66.4844,
+      "pred_tuplets": 0,
+      "pred_notes": 1250,
+      "gt_tuplets": 99,
+      "gt_notes": 1004,
+      "tuplet_ratio": 0.0
+    }
+  ]
+}

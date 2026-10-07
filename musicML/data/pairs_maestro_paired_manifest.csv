@@ -1,0 +1,5 @@
+id,midi,mxl,chunks,n_in_tokens,n_out_tokens
+mp0000,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0000.mid,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0000.musicxml,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0000_chunks.json,129,122
+mp0001,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0001.mid,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0001.musicxml,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0001_chunks.json,405,399
+mp0002,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0002.mid,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0002.musicxml,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0002_chunks.json,366,365
+mp0003,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0003.mid,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0003.musicxml,/root/Music-ML-BayenLab/data/pairs_maestro_paired/mp0003_chunks.json,505,450

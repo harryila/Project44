@@ -1,0 +1,162 @@
+{
+  "status": "development metrics corrected; selector choices unchanged",
+  "utc": "2026-08-21T21:37:12.756872+00:00",
+  "source": "benchmark/routed_selector_v10_n32_final.json",
+  "source_sha256": "2ac7e7bbbefe77f880849d6b7bd0803d3759c0489ade9eaa3e0532f7a87e2c84",
+  "metric": {
+    "tuplet_tag": "exact MusicXML <time-modification> joined by Fmt3x GtID",
+    "muster_tuplet_decompose_sha256": "01a979984c58423d9a5f59d67d4c88015028e0917dcd9b37f53f455d7762ac10",
+    "tuplet_metrics_v2_sha256": "46c539170918c57ea8360c63ef850d6e419c60ff81e3a96343511484a4809a1b"
+  },
+  "pieces": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "route": "guarded_bestofn",
+      "config": {
+        "candidate": 2,
+        "seed": 1002
+      },
+      "baseline_hash": "be8061b2e1dfea05f2334347ca1baf31e129434b097b48ed7bd8f1e9f0871765",
+      "selected_hash": "dd24b2110c8c6a17a0e72a28534b57f1c2ddc0e082701faf58900884baf5b7c1",
+      "gt_tuplets": 99,
+      "baseline": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "n_onset_err_tuplet": 34,
+        "n_miss_tuplet": 21,
+        "n_gt_tuplet": 99,
+        "tpf": 55,
+        "tpf_missed": 21,
+        "tpf_onset": 34
+      },
+      "selected": {
+        "meaner_overall": 10.701,
+        "onset_err_tuplet": 39.53488372093023,
+        "onset_err_nontuplet": 8.60484544695071,
+        "n_tuplet": 86,
+        "n_nontuplet": 1197,
+        "n_onset_err_tuplet": 34,
+        "n_miss_tuplet": 13,
+        "n_gt_tuplet": 99,
+        "tpf": 47,
+        "tpf_missed": 13,
+        "tpf_onset": 34
+      }
+    },
+    "Mozart/Mozart/Piano_Sonatas/12-1": {
+      "route": "baseline_easy",
+      "config": null,
+      "baseline_hash": "f44db582aecd8989cd04778c164ca48977b908bc0182f88a7a906961b6b0f579",
+      "selected_hash": "f44db582aecd8989cd04778c164ca48977b908bc0182f88a7a906961b6b0f579",
+      "gt_tuplets": 36,
+      "baseline": {
+        "meaner_overall": 5.8641,
+        "onset_err_tuplet": 25.0,
+        "onset_err_nontuplet": 4.991610738255034,
+        "n_tuplet": 28,
+        "n_nontuplet": 2384,
+        "n_onset_err_tuplet": 7,
+        "n_miss_tuplet": 8,
+        "n_gt_tuplet": 36,
+        "tpf": 15,
+        "tpf_missed": 8,
+        "tpf_onset": 7
+      },
+      "selected": {
+        "meaner_overall": 5.8641,
+        "onset_err_tuplet": 25.0,
+        "onset_err_nontuplet": 4.991610738255034,
+        "n_tuplet": 28,
+        "n_nontuplet": 2384,
+        "n_onset_err_tuplet": 7,
+        "n_miss_tuplet": 8,
+        "n_gt_tuplet": 36,
+        "tpf": 15,
+        "tpf_missed": 8,
+        "tpf_onset": 7
+      }
+    },
+    "Liszt/Liszt/Annees_de_pelerinage_2/1_Gondoliera": {
+      "route": "guarded_bestofn",
+      "config": {
+        "candidate": 31,
+        "seed": 1031
+      },
+      "baseline_hash": "d15290602e94bd666c50a8039c7501805424e99aeb0db4581582958b66c8c17c",
+      "selected_hash": "74fa9a10df384fae3e0d34f3ec826a67656ed59d057b7ef9d9e9aaf17487c362",
+      "gt_tuplets": 404,
+      "baseline": {
+        "meaner_overall": 13.1445,
+        "onset_err_tuplet": 43.83116883116883,
+        "onset_err_nontuplet": 13.55,
+        "n_tuplet": 308,
+        "n_nontuplet": 2000,
+        "n_onset_err_tuplet": 135,
+        "n_miss_tuplet": 96,
+        "n_gt_tuplet": 404,
+        "tpf": 231,
+        "tpf_missed": 96,
+        "tpf_onset": 135
+      },
+      "selected": {
+        "meaner_overall": 13.3015,
+        "onset_err_tuplet": 34.36532507739938,
+        "onset_err_nontuplet": 15.188633023027927,
+        "n_tuplet": 323,
+        "n_nontuplet": 2041,
+        "n_onset_err_tuplet": 111,
+        "n_miss_tuplet": 81,
+        "n_gt_tuplet": 404,
+        "tpf": 192,
+        "tpf_missed": 81,
+        "tpf_onset": 111
+      }
+    },
+    "Ravel/Ravel/Gaspard_de_la_Nuit/1_Ondine": {
+      "route": "deterministic_phase_duration",
+      "config": {
+        "offset_mode": "eighth",
+        "offset_lambda": 1.0,
+        "dur_tau": 0.0,
+        "dur_metrical_lambda": 0.25
+      },
+      "baseline_hash": "f524f451d6a8595bc77fa6b09e3579da232a77655227a1a98b96cf1ce3eac1be",
+      "selected_hash": "8c737de1249f31cfab2860cf006c5a2b341ad1de6b525f3232df7cace3e80c63",
+      "gt_tuplets": 1321,
+      "baseline": {
+        "meaner_overall": 20.7868,
+        "onset_err_tuplet": 78.0,
+        "onset_err_nontuplet": 21.536252692031585,
+        "n_tuplet": 1100,
+        "n_nontuplet": 2786,
+        "n_onset_err_tuplet": 858,
+        "n_miss_tuplet": 221,
+        "n_gt_tuplet": 1321,
+        "tpf": 1079,
+        "tpf_missed": 221,
+        "tpf_onset": 858
+      },
+      "selected": {
+        "meaner_overall": 20.2885,
+        "onset_err_tuplet": 76.56826568265683,
+        "onset_err_nontuplet": 19.835596854896355,
+        "n_tuplet": 1084,
+        "n_nontuplet": 2798,
+        "n_onset_err_tuplet": 830,
+        "n_miss_tuplet": 237,
+        "n_gt_tuplet": 1321,
+        "tpf": 1067,
+        "tpf_missed": 237,
+        "tpf_onset": 830
+      }
+    }
+  },
+  "aggregate": {
+    "baseline_tpf": 1380,
+    "selected_tpf": 1321,
+    "macro_meaner_delta": -0.003649999999999931
+  },
+  "elapsed_s": 142.6
+}

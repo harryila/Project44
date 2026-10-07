@@ -1,0 +1,28 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_classical_clean/ssl_classical_clean-epoch=13-val/total=0.5125.ckpt",
+  "thresholds": [
+    0.5,
+    0.4
+  ],
+  "results": [
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 2,
+          "pred_notes": 1824,
+          "MeanER": 5.75788
+        },
+        "0.40": {
+          "pred_tuplets": 2,
+          "pred_notes": 1825,
+          "MeanER": 5.74898
+        }
+      }
+    }
+  ]
+}

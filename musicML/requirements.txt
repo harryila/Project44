@@ -1,0 +1,5 @@
+# The working environment is pinned in requirements.lock (Python 3.11, macOS/CPU and CUDA Linux).
+#   python3.11 -m venv venv311 && source venv311/bin/activate && pip install -r requirements.lock
+# Do NOT install hFT-Transformer/requirements.txt (pins torch 1.10.1) or mt3/setup.py into this env;
+# MT3 is optional and has its own lock: requirements-mt3.lock (separate venv_mt3).
+-r requirements.lock

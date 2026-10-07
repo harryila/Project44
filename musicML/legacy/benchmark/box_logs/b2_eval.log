@@ -1,0 +1,10 @@
+
+Wrote /root/Music-ML-BayenLab/benchmark/b2_eval/ssl_b2_ssl_b2_0.json
+
+Wrote /root/Music-ML-BayenLab/benchmark/b2_eval/ssl_b2_ssl_b2-epoch=01-val_1.json
+
+Wrote /root/Music-ML-BayenLab/benchmark/b2_eval/ssl_b2_ssl_b2-epoch=05-val_2.json
+--- offset diagnostic (does B2 place triplet phases?) ---
+  File "/root/Music-ML-BayenLab/scripts/diag_offset_phase.py", line 76, in <module>
+  File "/root/Music-ML-BayenLab/scripts/diag_offset_phase.py", line 55, in main
+SSL_B2_EVAL_DONE

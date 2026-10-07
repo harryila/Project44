@@ -1,0 +1,45 @@
+[ssl] tuplet-rate RESHAPE on: gamma=1.0 (upweight tuplet-rich unpaired scores in resampling)
+[ssl] real=822 unpaired=21402 real_frac=0.5 samples/epoch=22224
+2026-06-07 20:16:24,258 LR schedule: warmup=300 total_steps=10410 (cosine)
+2026-06-07 20:16:27,993 AUTOREGRESSIVE (causal decoder) from-scratch training ON
+2026-06-07 20:16:27,993 MASKED-SSL mode ON: 50/50 real-pair / unpaired-score; encoder dropout disabled (dataset builds surrogate), decoder prior-token dropout 75%% paired / 50%% unpaired
+2026-06-07 20:16:27,993 TUPLET-AWARE loss ON: non-dyadic (tuplet) buckets of duration/offset/downbeat upweighted x20.00 in CE (un-collapse the tuplet head)
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-06-07 20:16:28.757161: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-07 20:16:28.757256: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-07 20:16:28.759334: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-07 20:16:28.766599: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-07 20:16:29.821409: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_bal_g1.0 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+┏━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name             ┃ Type            ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ encoder          │ RoFormerModel   │ 13.8 M │ train │     0 │
+│ 1 │ decoder          │ RoFormerModel   │ 18.0 M │ train │     0 │
+│ 2 │ embeddings_enc   │ MIDIEmbeddings  │  278 K │ train │     0 │
+│ 3 │ embeddings_dec   │ MXLEmbeddings   │  295 K │ train │     0 │
+│ 4 │ unembeddings_dec │ MXLUnembeddings │  293 K │ train │     0 │
+│ 5 │ norm             │ LayerNorm       │  1.0 K │ train │     0 │
+└───┴──────────────────┴─────────────────┴────────┴───────┴───────┘
+Trainable params: 32.4 M                                                        
+Non-trainable params: 196 K                                                     
+Total params: 32.6 M                                                            
+Total estimated model params size (MB): 130.382                                 
+Modules in train mode: 204                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+`Trainer.fit` stopped: `max_epochs=15` reached.
+Epoch 14/14 ━━━━━━━━━━━━━━━━ 695/695 0:02:19 •        5.10it/s v_num: 0.000     
+                                     0:00:00                   train/total:     
+                                                               0.245 val/total: 
+                                                               0.561            
+2026-06-07 20:51:55,507 Stage ssl_bal_g1.0 best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_bal_g1.0/ssl_bal_g1.0-epoch=00-val/total=0.5049.ckpt
+Best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_bal_g1.0/ssl_bal_g1.0-epoch=00-val/total=0.5049.ckpt

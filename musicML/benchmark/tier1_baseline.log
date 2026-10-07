@@ -1,0 +1,78 @@
+Tokenizing 59 performances ...
+Loading checkpoint checkpoints/MIDI2ScoreTF.ckpt on CPU ...
+[1/59] Bach        Bach/Fugue/bwv_846                 notes=  754 MeanER=5.78 (5.4s)
+[2/59] Scriabin    Scriabin/Etudes_op_8/11            notes= 1324 MeanER=10.37 (10.2s)
+[3/59] Rachmaninoff Rachmaninoff/Preludes_op_23/4      notes= 1344 MeanER=14.37 (10.7s)
+[4/59] Rachmaninoff Rachmaninoff/Preludes_op_23/4      notes= 1345 MeanER=15.41 (9.4s)
+[5/59] Scriabin    Scriabin/Etudes_op_8/11            notes= 1346 MeanER=9.78 (8.6s)
+[6/59] Rachmaninoff Rachmaninoff/Preludes_op_23/4      notes= 1355 MeanER=16.63 (9.9s)
+[7/59] Scriabin    Scriabin/Etudes_op_8/11            notes= 1388 MeanER=11.66 (9.8s)
+[8/59] Haydn       Haydn/Keyboard_Sonatas/31-1        notes= 1609 MeanER=4.84 (13.2s)
+[9/59] Haydn       Haydn/Keyboard_Sonatas/31-1        notes= 1613 MeanER=7.34 (11.9s)
+[10/59] Haydn       Haydn/Keyboard_Sonatas/31-1        notes= 1615 MeanER=5.9 (11.4s)
+[11/59] Haydn       Haydn/Keyboard_Sonatas/31-1        notes= 1621 MeanER=8.49 (11.4s)
+[12/59] Brahms      Brahms/Six_Pieces_op_118/2         notes= 1667 MeanER=6.59 (11.8s)
+[13/59] Debussy     Debussy/Images_Book_1/1_Reflets_da notes= 2013 MeanER=14.03 (20.8s)
+[14/59] Debussy     Debussy/Images_Book_1/1_Reflets_da notes= 2019 MeanER=14.93 (18.1s)
+[15/59] Mozart      Mozart/Piano_Sonatas/12-1          notes= 2501 MeanER=6.03 (19.8s)
+[16/59] Mozart      Mozart/Piano_Sonatas/12-1          notes= 2501 MeanER=6.36 (23.5s)
+[17/59] Mozart      Mozart/Piano_Sonatas/12-1          notes= 2506 MeanER=6.07 (22.0s)
+[18/59] Mozart      Mozart/Piano_Sonatas/12-1          notes= 2507 MeanER=6.36 (24.2s)
+[19/59] Schumann    Schumann/Arabeske                  notes= 2545 MeanER=11.15 (23.5s)
+[20/59] Schumann    Schumann/Arabeske                  notes= 2582 MeanER=14.63 (23.7s)
+[21/59] Beethoven   Beethoven/Piano_Sonatas/10-1       notes= 2609 MeanER=8.83 (23.6s)
+[22/59] Liszt       Liszt/Annees_de_pelerinage_2/1_Gon notes= 2732 MeanER=20.47 (23.5s)
+[23/59] Liszt       Liszt/Annees_de_pelerinage_2/1_Gon notes= 2794 MeanER=13.79 (22.2s)
+[24/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4323 MeanER=19.83 (43.4s)
+[25/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4422 MeanER=23.47 (50.1s)
+[26/59] Prokofiev   Prokofiev/Toccata                  notes= 4453 MeanER=9.04 (66.3s)
+[27/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4464 MeanER=20.72 (44.8s)
+[28/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4514 MeanER=29.33 (54.0s)
+[29/59] Prokofiev   Prokofiev/Toccata                  notes= 4570 MeanER=8.51 (45.9s)
+[30/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4573 MeanER=21.77 (44.3s)
+[31/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4637 MeanER=18.03 (43.1s)
+[32/59] Prokofiev   Prokofiev/Toccata                  notes= 4677 MeanER=6.56 (43.3s)
+[33/59] Ravel       Ravel/Gaspard_de_la_Nuit/1_Ondine  notes= 4716 MeanER=17.64 (47.7s)
+[34/59] Prokofiev   Prokofiev/Toccata                  notes= 4723 MeanER=5.97 (47.2s)
+[35/59] Prokofiev   Prokofiev/Toccata                  notes= 4731 MeanER=3.85 (46.6s)
+[36/59] Prokofiev   Prokofiev/Toccata                  notes= 4843 MeanER=7.59 (47.9s)
+[37/59] Schubert    Schubert/Impromptu_op.90_D.899/1   notes= 4850 MeanER=18.33 (53.4s)
+[38/59] Schubert    Schubert/Impromptu_op.90_D.899/1   notes= 4917 MeanER=20.43 (53.9s)
+[39/59] Schubert    Schubert/Impromptu_op.90_D.899/1   notes= 4967 MeanER=19.46 (70.8s)
+[40/59] Schubert    Schubert/Impromptu_op.90_D.899/1   notes= 4968 MeanER=19.79 (100.5s)
+[41/59] Chopin      Chopin/Ballades/1                  notes= 4972 MeanER=8.36 (69.5s)
+[42/59] Chopin      Chopin/Ballades/1                  notes= 4984 MeanER=7.12 (58.9s)
+[43/59] Chopin      Chopin/Ballades/1                  notes= 5019 MeanER=7.4 (58.3s)
+[44/59] Prokofiev   Prokofiev/Toccata                  notes= 5030 MeanER=7.83 (77.0s)
+[45/59] Chopin      Chopin/Ballades/1                  notes= 5031 MeanER=7.27 (58.3s)
+[46/59] Chopin      Chopin/Ballades/1                  notes= 5040 MeanER=8.07 (57.8s)
+[47/59] Chopin      Chopin/Ballades/1                  notes= 5045 MeanER=7.17 (46.3s)
+[48/59] Chopin      Chopin/Ballades/1                  notes= 5046 MeanER=9.66 (46.0s)
+[49/59] Chopin      Chopin/Ballades/1                  notes= 5049 MeanER=8.72 (48.7s)
+[50/59] Chopin      Chopin/Ballades/1                  notes= 5061 MeanER=7.33 (47.5s)
+[51/59] Chopin      Chopin/Ballades/1                  notes= 5074 MeanER=8.19 (56.1s)
+[52/59] Chopin      Chopin/Ballades/1                  notes= 5080 MeanER=10.15 (53.2s)
+[53/59] Chopin      Chopin/Ballades/1                  notes= 5144 MeanER=6.72 (56.6s)
+[54/59] Chopin      Chopin/Ballades/1                  notes= 5156 MeanER=7.59 (51.6s)
+[55/59] Chopin      Chopin/Ballades/1                  notes= 5161 MeanER=7.6 (53.4s)
+[56/59] Chopin      Chopin/Ballades/1                  notes= 5169 MeanER=7.36 (48.7s)
+[57/59] Chopin      Chopin/Ballades/1                  notes= 5176 MeanER=8.27 (49.9s)
+[58/59] Chopin      Chopin/Ballades/1                  notes= 5189 MeanER=7.91 (51.3s)
+[59/59] Prokofiev   Prokofiev/Toccata                  notes= 5204 MeanER=6.83 (46.7s)
+
+========================================================================
+TIER-1 (MIDI->score) on ASAP test split — 59/59 scored
+========================================================================
+MUSTER (lower=better):       PitchER  MissRate  ExtraRate  OnsetER  OffsetER  MeanER
+  Ours         3.19    7.83    6.67   14.50   23.73   11.18
+  Paper SOTA   3.11    7.56    6.44   15.55   23.84   11.30
+
+Notation error rates (x100, lower=better):
+  NoteDeletion      12.37
+  NoteInsertion      8.62
+  NoteDuration      56.41
+  StaffAssignment    6.71
+  StemDirection     25.04
+  NoteSpelling       8.79
+
+Wrote /Users/harry/Desktop/temp/musicML/benchmark/tier1_baseline.json  (2308.0s total)

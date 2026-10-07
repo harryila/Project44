@@ -1,0 +1,100 @@
+Tokenizing 59 performances ...
+Loading checkpoint /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/finetune_full/pretrain_pdmx-epoch=02-val/total=0.2527.ckpt on CPU ...
+Traceback (most recent call last):
+  File "/root/Music-ML-BayenLab/benchmark/eval_tier1_asap.py", line 55, in load_any_checkpoint
+    return Roformer.load_from_checkpoint(ckpt_path, map_location=device, weights_only=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_helpers.py", line 130, in wrapper
+    return self.method(cls_type, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1796, in load_from_checkpoint
+    loaded = _load_from_checkpoint(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/saving.py", line 65, in _load_from_checkpoint
+    checkpoint = pl_load(checkpoint_path, map_location=map_location, weights_only=weights_only)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 1579, in load
+    return _load(
+           ^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2190, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.11/pickle.py", line 1254, in load_binpersid
+    self.append(self.persistent_load(pid))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2154, in persistent_load
+    typed_storage = load_tensor(
+                    ^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2116, in load_tensor
+    wrap_storage = restore_location(storage, location)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 1915, in restore_location
+    return default_restore_location(storage, map_location)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 734, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 667, in _deserialize
+    device = _validate_device(location, backend_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 634, in _validate_device
+    raise RuntimeError(
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Music-ML-BayenLab/benchmark/eval_tier1_asap.py", line 196, in <module>
+    main()
+  File "/root/Music-ML-BayenLab/benchmark/eval_tier1_asap.py", line 152, in main
+    model = load_any_checkpoint(args.ckpt, device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/benchmark/eval_tier1_asap.py", line 58, in load_any_checkpoint
+    return TrainableRoformer.load_from_checkpoint(ckpt_path, map_location=device, weights_only=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_helpers.py", line 130, in wrapper
+    return self.method(cls_type, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1796, in load_from_checkpoint
+    loaded = _load_from_checkpoint(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/core/saving.py", line 65, in _load_from_checkpoint
+    checkpoint = pl_load(checkpoint_path, map_location=map_location, weights_only=weights_only)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 1579, in load
+    return _load(
+           ^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2190, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.11/pickle.py", line 1254, in load_binpersid
+    self.append(self.persistent_load(pid))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2154, in persistent_load
+    typed_storage = load_tensor(
+                    ^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 2116, in load_tensor
+    wrap_storage = restore_location(storage, location)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 1915, in restore_location
+    return default_restore_location(storage, map_location)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 734, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 667, in _deserialize
+    device = _validate_device(location, backend_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/torch/serialization.py", line 634, in _validate_device
+    raise RuntimeError(
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.

@@ -1,0 +1,17 @@
+[1/2] Scriabin/Scriabin/Etudes_op_8/1 0.50=12.29
+[2/2] Mozart/Mozart/Piano_Sonatas/1 0.50=5.76
+
+=== MeanER : piece x threshold ===
+piece                               0.50
+----------------------------------------
+Scriabin/Scriabin/Etudes_op_8      12.29
+Mozart/Mozart/Piano_Sonatas         5.76
+
+=== best threshold per piece (min MeanER) ===
+  Scriabin/Scriabin/Etudes_op_8    best=0.50 (12.29)  @0.50=12.2912
+  Mozart/Mozart/Piano_Sonatas      best=0.50 (5.76)  @0.50=5.75788
+
+=== corpus-mean MeanER per threshold ===
+  thr=0.50: mean=9.025  (n=2)
+
+Wrote /root/Music-ML-BayenLab/benchmark/smoke_verify.json

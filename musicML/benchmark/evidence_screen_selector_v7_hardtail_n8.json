@@ -1,0 +1,384 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "selector": "top timing-evidence screen, then lowest chunked teacher-forced rhythm loss",
+  "screen_frac": 0.25,
+  "baseline_veto": false,
+  "pieces": {
+    "Liszt/Liszt/Annees_de_pelerinage_2/1_Gondoliera": {
+      "gt_tuplets": 404,
+      "baseline": {
+        "meaner_overall": 13.1445,
+        "onset_err_tuplet": 43.83116883116883,
+        "onset_err_nontuplet": 13.55,
+        "n_tuplet": 308,
+        "n_nontuplet": 2000,
+        "tpf": 231,
+        "tpf_missed": 96,
+        "tpf_onset": 135,
+        "model_loss": 0.03024588,
+        "loss_parts": {
+          "offset": 0.059495,
+          "duration": 0.06491,
+          "downbeat": 0.01437,
+          "pad": 0.018885
+        },
+        "timing_penalty": 2.526312,
+        "timing_per_group": 0.01295545,
+        "timing_groups": 195,
+        "timing_contra": 73
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.0698114,
+          "loss_parts": {
+            "offset": 0.293201,
+            "duration": 0.098325,
+            "downbeat": 0.048299,
+            "pad": 0.014015
+          },
+          "timing_penalty": 1.861709,
+          "timing_per_group": 0.012664685285386869,
+          "timing_groups": 147,
+          "timing_contra": 52,
+          "in_timing_screen": true
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.04750218,
+          "loss_parts": {
+            "offset": 0.09723,
+            "duration": 0.113058,
+            "downbeat": 0.036711,
+            "pad": 0.01972
+          },
+          "timing_penalty": 0.375442,
+          "timing_per_group": 0.002074264668469348,
+          "timing_groups": 181,
+          "timing_contra": 13,
+          "in_timing_screen": true
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.04470784,
+          "loss_parts": {
+            "offset": 0.096857,
+            "duration": 0.108776,
+            "downbeat": 0.020124,
+            "pad": 0.022283
+          },
+          "timing_penalty": 2.401867,
+          "timing_per_group": 0.01305362737522828,
+          "timing_groups": 184,
+          "timing_contra": 67,
+          "in_timing_screen": false
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.05702744,
+          "loss_parts": {
+            "offset": 0.138313,
+            "duration": 0.115474,
+            "downbeat": 0.047872,
+            "pad": 0.022834
+          },
+          "timing_penalty": 2.658741,
+          "timing_per_group": 0.016311291746622512,
+          "timing_groups": 163,
+          "timing_contra": 69,
+          "in_timing_screen": false
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.04288591,
+          "loss_parts": {
+            "offset": 0.081265,
+            "duration": 0.093116,
+            "downbeat": 0.027663,
+            "pad": 0.024311
+          },
+          "timing_penalty": 3.035175,
+          "timing_per_group": 0.017245314160992807,
+          "timing_groups": 176,
+          "timing_contra": 84,
+          "in_timing_screen": false
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.08306531,
+          "loss_parts": {
+            "offset": 0.307818,
+            "duration": 0.120318,
+            "downbeat": 0.078354,
+            "pad": 0.017586
+          },
+          "timing_penalty": 2.177246,
+          "timing_per_group": 0.014912644251453893,
+          "timing_groups": 146,
+          "timing_contra": 56,
+          "in_timing_screen": false
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.04651656,
+          "loss_parts": {
+            "offset": 0.100128,
+            "duration": 0.095575,
+            "downbeat": 0.037104,
+            "pad": 0.022161
+          },
+          "timing_penalty": 2.676063,
+          "timing_per_group": 0.013117958319284726,
+          "timing_groups": 204,
+          "timing_contra": 73,
+          "in_timing_screen": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.07357705,
+          "loss_parts": {
+            "offset": 0.313354,
+            "duration": 0.105431,
+            "downbeat": 0.055077,
+            "pad": 0.011476
+          },
+          "timing_penalty": 2.161882,
+          "timing_per_group": 0.01431710100047301,
+          "timing_groups": 151,
+          "timing_contra": 60,
+          "in_timing_screen": false
+        }
+      ],
+      "timing_screen": [
+        1,
+        0
+      ],
+      "selector_pick": {
+        "selected_baseline": false,
+        "i": 1,
+        "seed": 1001,
+        "model_loss": 0.04750218,
+        "loss_parts": {
+          "offset": 0.09723,
+          "duration": 0.113058,
+          "downbeat": 0.036711,
+          "pad": 0.01972
+        },
+        "timing_penalty": 0.375442,
+        "timing_per_group": 0.002074264668469348,
+        "timing_groups": 181,
+        "timing_contra": 13,
+        "in_timing_screen": true,
+        "metrics": {
+          "meaner_overall": 26.4794,
+          "onset_err_tuplet": 75.39682539682539,
+          "onset_err_nontuplet": 26.045400238948627,
+          "n_tuplet": 126,
+          "n_nontuplet": 1674,
+          "tpf": 373,
+          "tpf_missed": 278,
+          "tpf_onset": 95
+        }
+      },
+      "gate_ok": false
+    },
+    "Ravel/Ravel/Gaspard_de_la_Nuit/1_Ondine": {
+      "gt_tuplets": 4868,
+      "baseline": {
+        "meaner_overall": 20.7868,
+        "onset_err_tuplet": 35.93582887700535,
+        "onset_err_nontuplet": 78.08219178082192,
+        "n_tuplet": 3740,
+        "n_nontuplet": 146,
+        "tpf": 2472,
+        "tpf_missed": 1128,
+        "tpf_onset": 1344,
+        "model_loss": 0.0378758,
+        "loss_parts": {
+          "offset": 0.085785,
+          "duration": 0.100627,
+          "downbeat": 0.023339,
+          "pad": 0.012888
+        },
+        "timing_penalty": 2.078833,
+        "timing_per_group": 0.00519708,
+        "timing_groups": 400,
+        "timing_contra": 55
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.05383692,
+          "loss_parts": {
+            "offset": 0.122995,
+            "duration": 0.122409,
+            "downbeat": 0.055134,
+            "pad": 0.015457
+          },
+          "timing_penalty": 6.482362,
+          "timing_per_group": 0.014405249044291586,
+          "timing_groups": 450,
+          "timing_contra": 173,
+          "in_timing_screen": false
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.0480534,
+          "loss_parts": {
+            "offset": 0.121658,
+            "duration": 0.120556,
+            "downbeat": 0.03347,
+            "pad": 0.013735
+          },
+          "timing_penalty": 7.690256,
+          "timing_per_group": 0.01743822137631388,
+          "timing_groups": 441,
+          "timing_contra": 202,
+          "in_timing_screen": false
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.04892043,
+          "loss_parts": {
+            "offset": 0.118256,
+            "duration": 0.125453,
+            "downbeat": 0.036609,
+            "pad": 0.013551
+          },
+          "timing_penalty": 6.910532,
+          "timing_per_group": 0.01610846598118818,
+          "timing_groups": 429,
+          "timing_contra": 185,
+          "in_timing_screen": false
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.05175249,
+          "loss_parts": {
+            "offset": 0.13219,
+            "duration": 0.119948,
+            "downbeat": 0.04735,
+            "pad": 0.012945
+          },
+          "timing_penalty": 5.277109,
+          "timing_per_group": 0.011227891102839388,
+          "timing_groups": 470,
+          "timing_contra": 135,
+          "in_timing_screen": true
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.06914756,
+          "loss_parts": {
+            "offset": 0.166653,
+            "duration": 0.15378,
+            "downbeat": 0.077451,
+            "pad": 0.01606
+          },
+          "timing_penalty": 4.419666,
+          "timing_per_group": 0.010350505629947894,
+          "timing_groups": 427,
+          "timing_contra": 117,
+          "in_timing_screen": true
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.05454356,
+          "loss_parts": {
+            "offset": 0.135548,
+            "duration": 0.13,
+            "downbeat": 0.041159,
+            "pad": 0.017009
+          },
+          "timing_penalty": 7.970574,
+          "timing_per_group": 0.017104236085972863,
+          "timing_groups": 466,
+          "timing_contra": 204,
+          "in_timing_screen": false
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.05060057,
+          "loss_parts": {
+            "offset": 0.11452,
+            "duration": 0.123014,
+            "downbeat": 0.043026,
+            "pad": 0.015926
+          },
+          "timing_penalty": 6.833807,
+          "timing_per_group": 0.015818997597000988,
+          "timing_groups": 432,
+          "timing_contra": 179,
+          "in_timing_screen": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.04824404,
+          "loss_parts": {
+            "offset": 0.113941,
+            "duration": 0.125669,
+            "downbeat": 0.036343,
+            "pad": 0.013352
+          },
+          "timing_penalty": 6.238346,
+          "timing_per_group": 0.012377669683315827,
+          "timing_groups": 504,
+          "timing_contra": 160,
+          "in_timing_screen": false
+        }
+      ],
+      "timing_screen": [
+        4,
+        3
+      ],
+      "selector_pick": {
+        "selected_baseline": false,
+        "i": 3,
+        "seed": 1003,
+        "model_loss": 0.05175249,
+        "loss_parts": {
+          "offset": 0.13219,
+          "duration": 0.119948,
+          "downbeat": 0.04735,
+          "pad": 0.012945
+        },
+        "timing_penalty": 5.277109,
+        "timing_per_group": 0.011227891102839388,
+        "timing_groups": 470,
+        "timing_contra": 135,
+        "in_timing_screen": true,
+        "metrics": {
+          "meaner_overall": 22.3766,
+          "onset_err_tuplet": 39.66074313408724,
+          "onset_err_nontuplet": 75.51020408163265,
+          "n_tuplet": 3714,
+          "n_nontuplet": 147,
+          "tpf": 2627,
+          "tpf_missed": 1154,
+          "tpf_onset": 1473
+        }
+      },
+      "gate_ok": false
+    }
+  },
+  "elapsed_s": 1929.7
+}

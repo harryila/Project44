@@ -1,0 +1,32 @@
+  transcribing Chopin_Op10_No4 ...
+  Chopin_Op10_No4    [in-dist (ASAP train)] MeanER=2.75
+  transcribing Chopin_Op25_No11 ...
+  Chopin_Op25_No11   [in-dist (ASAP train)] MeanER=2.76
+  transcribing Liszt_Mazeppa ...
+Error in ordering at 3002 5191920
+Assertion failed: (false), function ConvertFromFmt2, file Hom_v170104.hpp, line 153.
+/Users/harry/Desktop/temp/musicML/venv311/lib/python3.11/site-packages/muster/evaluate_XML_voicePlus.sh: line 21: 65890 Abort trap: 6           $PFol/MusicXMLToHMM ${I1}.xml ${I1}_hmm.txt
+Assertion failed: (false), function ReadFile, file Hmm_v170225.hpp, line 69.
+/Users/harry/Desktop/temp/musicML/venv311/lib/python3.11/site-packages/muster/evaluate_XML_voicePlus.sh: line 24: 65901 Abort trap: 6           $PFol/ScorePerfmMatcher ${I1}_hmm.txt ${I2}_spr.txt ${I2}_pre_match.txt 0.01
+Assertion failed: (false), function ReadFile, file Hmm_v170225.hpp, line 69.
+/Users/harry/Desktop/temp/musicML/venv311/lib/python3.11/site-packages/muster/evaluate_XML_voicePlus.sh: line 25: 65910 Abort trap: 6           $PFol/ErrorDetection ${I1}_fmt3x.txt ${I1}_hmm.txt ${I2}_pre_match.txt ${I2}_err_match.txt
+Assertion failed: (false), function ReadFile, file ScorePerfmMatch_v170503.hpp, line 77.
+/Users/harry/Desktop/temp/musicML/venv311/lib/python3.11/site-packages/muster/evaluate_XML_voicePlus.sh: line 26: 65913 Abort trap: 6           $PFol/RealignmentMOHMM ${I1}_fmt3x.txt ${I1}_hmm.txt ${I2}_err_match.txt ${I2}_auto_match.txt 0.3
+Assertion failed: (false), function ReadFile, file ScorePerfmMatch_v170503.hpp, line 77.
+/Users/harry/Desktop/temp/musicML/venv311/lib/python3.11/site-packages/muster/evaluate_XML_voicePlus.sh: line 28: 65916 Abort trap: 6           $PFol/ScoreMatchEvaluation_VoicePlus ${I1}_fmt3x.txt ${I2}_fmt3x.txt ${I2}_auto_match.txt ${I2}_err_detail.txt -1 > ${I3}.txt
+rm: /tmp/claude-501/tmpe9wyjw3v/gt_hmm.txt: No such file or directory
+rm: /tmp/claude-501/tmpe9wyjw3v/est_pre_match.txt: No such file or directory
+rm: /tmp/claude-501/tmpe9wyjw3v/est_err_match.txt: No such file or directory
+['File not found: /tmp/claude-501/tmpe9wyjw3v/est_auto_match.txt\n']
+could not convert string to float: '/tmp/claude-501/tmpe9wyjw3v/est_auto_match.txt' File not found: /tmp/claude-501/tmpe9wyjw3v/est_auto_match.txt
+
+  Liszt_Mazeppa      [OUT-OF-DIST (sourced GT)] MeanER=None
+
+========================================================================
+TIER-2 (end-to-end audio->score), tag=baseline
+========================================================================
+  Chopin_Op10_No4    [in-dist (ASAP train)  ] MeanER=2.8  OnsetER=2.1  PitchER=1.8
+  Chopin_Op25_No11   [in-dist (ASAP train)  ] MeanER=2.8  OnsetER=3.6  PitchER=2.3
+  Liszt_Mazeppa      [OUT-OF-DIST (sourced GT)] MeanER=nan  OnsetER=nan  PitchER=nan
+
+Wrote /Users/harry/Desktop/temp/musicML/benchmark/tier2_baseline.json

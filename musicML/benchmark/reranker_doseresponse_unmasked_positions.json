@@ -1,0 +1,474 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "topk": 15,
+  "beta_metric": 1.0,
+  "beta_coh": 1.0,
+  "by_lambda": {
+    "0.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.3743,
+          "onset_err_tuplet": 43.58974358974359,
+          "onset_err_nontuplet": 9.40099833610649,
+          "offset_err_tuplet": 47.43589743589744,
+          "offset_err_nontuplet": 28.286189683860233,
+          "n_tuplet": 78,
+          "n_nontuplet": 1202,
+          "decoded_triplet_rate": 0.0,
+          "n_decoded_triplet": 0,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 1.15357,
+            "MissRate": 7.71449,
+            "ExtraRate": 2.0658,
+            "OnsetER": 11.4844,
+            "OffsetER": 29.4531,
+            "MeanER": 10.3743,
+            "VoiceER": 73.9844,
+            "NewMeanER": 20.976,
+            "Pvoi": 37.2753,
+            "Rvoi": 45.0656,
+            "Fvoi": 40.8019,
+            "ScaleErr": 1.23929,
+            "HandER": 62.5
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 34,
+          "n_onset_err_nontuplet": 113,
+          "n_offset_err_tuplet": 37,
+          "n_offset_err_nontuplet": 340,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 21,
+          "intermediate_sha256": {
+            "aggregate": "7ee075be3821fe8b7b637ff9c8458743ed4a71d1daef657121a507a5c17490b1",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "65e5a47e3a607e3f89bcb225060b09673f23cd2c6337c255e645c48bfed885f2",
+            "auto_match": "5bddda5791684f19a751c60cb3ffd2450406a09083e9d0977156983f7e876c05"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "offset_err_tuplet": 47.43589743589744,
+        "offset_err_nontuplet": 28.286189683860233,
+        "decoded_triplet_rate": 0.0,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "n_onset_err_tuplet": 34,
+        "n_onset_err_nontuplet": 113,
+        "n_offset_err_tuplet": 37,
+        "n_offset_err_nontuplet": 340,
+        "n_decoded_triplet": 0,
+        "n_decoded_notes": 1408
+      }
+    },
+    "1.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.5259,
+          "onset_err_tuplet": 45.45454545454545,
+          "onset_err_nontuplet": 9.333333333333334,
+          "offset_err_tuplet": 49.35064935064935,
+          "offset_err_nontuplet": 28.25,
+          "n_tuplet": 77,
+          "n_nontuplet": 1200,
+          "decoded_triplet_rate": 0.0014204545454545455,
+          "n_decoded_triplet": 2,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 1.36986,
+            "MissRate": 7.93079,
+            "ExtraRate": 2.29533,
+            "OnsetER": 11.5114,
+            "OffsetER": 29.5223,
+            "MeanER": 10.5259,
+            "VoiceER": 73.7666,
+            "NewMeanER": 21.066,
+            "Pvoi": 37.7927,
+            "Rvoi": 45.9353,
+            "Fvoi": 41.468,
+            "ScaleErr": 1.23698,
+            "HandER": 62.4119
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 35,
+          "n_onset_err_nontuplet": 112,
+          "n_offset_err_tuplet": 38,
+          "n_offset_err_nontuplet": 339,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 22,
+          "intermediate_sha256": {
+            "aggregate": "b50585c5bc2e12c25e4991f98b271ffd9e3547b35c7351930037f0d3647fa99b",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "69ca219887b43e983fd88937bc3af8fbaaa6ae76b00023fe4b0dde6cfbffb9fc",
+            "auto_match": "2474c1b0c8355dbc995c812f9f7d63a271007f199add903ade41dc97605d8f80"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.5259,
+        "onset_err_tuplet": 45.45454545454545,
+        "onset_err_nontuplet": 9.333333333333334,
+        "offset_err_tuplet": 49.35064935064935,
+        "offset_err_nontuplet": 28.25,
+        "decoded_triplet_rate": 0.0014204545454545455,
+        "n_tuplet": 77,
+        "n_nontuplet": 1200,
+        "n_onset_err_tuplet": 35,
+        "n_onset_err_nontuplet": 112,
+        "n_offset_err_tuplet": 38,
+        "n_offset_err_nontuplet": 339,
+        "n_decoded_triplet": 2,
+        "n_decoded_notes": 1408
+      }
+    },
+    "2.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.5018,
+          "onset_err_tuplet": 42.857142857142854,
+          "onset_err_nontuplet": 9.40099833610649,
+          "offset_err_tuplet": 49.35064935064935,
+          "offset_err_nontuplet": 28.618968386023294,
+          "n_tuplet": 77,
+          "n_nontuplet": 1202,
+          "decoded_triplet_rate": 0.0035511363636363635,
+          "n_decoded_triplet": 5,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 1.29776,
+            "MissRate": 7.78659,
+            "ExtraRate": 2.14231,
+            "OnsetER": 11.4152,
+            "OffsetER": 29.8671,
+            "MeanER": 10.5018,
+            "VoiceER": 73.5731,
+            "NewMeanER": 21.0137,
+            "Pvoi": 37.5287,
+            "Rvoi": 45.9811,
+            "Fvoi": 41.3271,
+            "ScaleErr": 1.24019,
+            "HandER": 62.3143
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 33,
+          "n_onset_err_nontuplet": 113,
+          "n_offset_err_tuplet": 38,
+          "n_offset_err_nontuplet": 344,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 22,
+          "intermediate_sha256": {
+            "aggregate": "79228c57510ab2ddb04b4709b6b9bfdb9b53d8c0a9679fb8356fb1d601c5be7d",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "c1fb38fbc0b374fff6b4e6b7d10f3ccb5c9b53410b803db8d7d7a14791d87fef",
+            "auto_match": "b4a843d9dcd4caad22c70bed55d5fed7db79709bd79f1e58fb9698b4c46f390d"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.5018,
+        "onset_err_tuplet": 42.857142857142854,
+        "onset_err_nontuplet": 9.40099833610649,
+        "offset_err_tuplet": 49.35064935064935,
+        "offset_err_nontuplet": 28.618968386023294,
+        "decoded_triplet_rate": 0.0035511363636363635,
+        "n_tuplet": 77,
+        "n_nontuplet": 1202,
+        "n_onset_err_tuplet": 33,
+        "n_onset_err_nontuplet": 113,
+        "n_offset_err_tuplet": 38,
+        "n_offset_err_nontuplet": 344,
+        "n_decoded_triplet": 5,
+        "n_decoded_notes": 1408
+      }
+    },
+    "3.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 14.0612,
+          "onset_err_tuplet": 43.58974358974359,
+          "onset_err_nontuplet": 15.864978902953586,
+          "offset_err_tuplet": 58.97435897435897,
+          "offset_err_nontuplet": 36.962025316455694,
+          "n_tuplet": 78,
+          "n_nontuplet": 1185,
+          "decoded_triplet_rate": 0.19957386363636365,
+          "n_decoded_triplet": 281,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 1.58616,
+            "MissRate": 8.94016,
+            "ExtraRate": 3.88128,
+            "OnsetER": 17.5772,
+            "OffsetER": 38.3215,
+            "MeanER": 14.0612,
+            "VoiceER": 74.6635,
+            "NewMeanER": 24.1616,
+            "Pvoi": 34.4724,
+            "Rvoi": 41.1812,
+            "Fvoi": 37.5293,
+            "ScaleErr": 1.32214,
+            "HandER": 63.0245
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 34,
+          "n_onset_err_nontuplet": 188,
+          "n_offset_err_tuplet": 46,
+          "n_offset_err_nontuplet": 438,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 21,
+          "intermediate_sha256": {
+            "aggregate": "8debb77f43148f60b812e46edfc8338b031638d373cdf135e4517200931470f8",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "c3c6a05d6a0db542da386204a0dc10bd10bddbd9c0b9a6554660ea1482c75ee7",
+            "auto_match": "c076a47525d9d7f9cf4ba81ef20d23a6212ea221233b980d068139696f8dc9d5"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 14.0612,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 15.864978902953586,
+        "offset_err_tuplet": 58.97435897435897,
+        "offset_err_nontuplet": 36.962025316455694,
+        "decoded_triplet_rate": 0.19957386363636365,
+        "n_tuplet": 78,
+        "n_nontuplet": 1185,
+        "n_onset_err_tuplet": 34,
+        "n_onset_err_nontuplet": 188,
+        "n_offset_err_tuplet": 46,
+        "n_offset_err_nontuplet": 438,
+        "n_decoded_triplet": 281,
+        "n_decoded_notes": 1408
+      }
+    },
+    "4.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 15.6855,
+          "onset_err_tuplet": 50.617283950617285,
+          "onset_err_nontuplet": 24.58053691275168,
+          "offset_err_tuplet": 64.19753086419753,
+          "offset_err_nontuplet": 36.3255033557047,
+          "n_tuplet": 81,
+          "n_nontuplet": 1192,
+          "decoded_triplet_rate": 0.19886363636363635,
+          "n_decoded_triplet": 280,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 1.65826,
+            "MissRate": 8.21918,
+            "ExtraRate": 4.21369,
+            "OnsetER": 26.2372,
+            "OffsetER": 38.099,
+            "MeanER": 15.6855,
+            "VoiceER": 77.3763,
+            "NewMeanER": 25.9673,
+            "Pvoi": 34.2358,
+            "Rvoi": 39.9314,
+            "Fvoi": 36.8649,
+            "ScaleErr": 1.29385,
+            "HandER": 62.7651
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 41,
+          "n_onset_err_nontuplet": 293,
+          "n_offset_err_tuplet": 52,
+          "n_offset_err_nontuplet": 433,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 18,
+          "intermediate_sha256": {
+            "aggregate": "e1780426ab78d073c76084c84259e8495132f66a2c18a27bf78d5bb173434309",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "a61bf8df7237210b2b23ba72419b1f539df3c13786a54efb7cb266a28bb0eac8",
+            "auto_match": "9245c2314c13ee464b32a16bd273aa15c33d349c2a7c1f6cf13aff164028861d"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 15.6855,
+        "onset_err_tuplet": 50.617283950617285,
+        "onset_err_nontuplet": 24.58053691275168,
+        "offset_err_tuplet": 64.19753086419753,
+        "offset_err_nontuplet": 36.3255033557047,
+        "decoded_triplet_rate": 0.19886363636363635,
+        "n_tuplet": 81,
+        "n_nontuplet": 1192,
+        "n_onset_err_tuplet": 41,
+        "n_onset_err_nontuplet": 293,
+        "n_offset_err_tuplet": 52,
+        "n_offset_err_nontuplet": 433,
+        "n_decoded_triplet": 280,
+        "n_decoded_notes": 1408
+      }
+    },
+    "6.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 19.7788,
+          "onset_err_tuplet": 52.38095238095238,
+          "onset_err_nontuplet": 24.047186932849364,
+          "offset_err_tuplet": 58.333333333333336,
+          "offset_err_nontuplet": 45.6442831215971,
+          "n_tuplet": 84,
+          "n_nontuplet": 1102,
+          "decoded_triplet_rate": 0.42542613636363635,
+          "n_decoded_triplet": 599,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 2.25291,
+            "MissRate": 13.8081,
+            "ExtraRate": 10.1515,
+            "OnsetER": 26.1383,
+            "OffsetER": 46.543,
+            "MeanER": 19.7788,
+            "VoiceER": 80.2698,
+            "NewMeanER": 29.8606,
+            "Pvoi": 29.03,
+            "Rvoi": 33.7436,
+            "Fvoi": 31.2099,
+            "ScaleErr": 1.46086,
+            "HandER": 63.575
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 44,
+          "n_onset_err_nontuplet": 265,
+          "n_offset_err_tuplet": 49,
+          "n_offset_err_nontuplet": 503,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 15,
+          "intermediate_sha256": {
+            "aggregate": "65421be8404c26a831fb9e4049abd0e5dfcf90c67e89698a8eb9e4fae21486da",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "b97b0f6b623b525a13ec621ce76713d8cd90fdf5fb9d2a25b8388d7061542493",
+            "auto_match": "b506a7a808a29797de2c8263d95a14d6da2390525bc8ccc11a4b93e1ce56397a"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 19.7788,
+        "onset_err_tuplet": 52.38095238095238,
+        "onset_err_nontuplet": 24.047186932849364,
+        "offset_err_tuplet": 58.333333333333336,
+        "offset_err_nontuplet": 45.6442831215971,
+        "decoded_triplet_rate": 0.42542613636363635,
+        "n_tuplet": 84,
+        "n_nontuplet": 1102,
+        "n_onset_err_tuplet": 44,
+        "n_onset_err_nontuplet": 265,
+        "n_offset_err_tuplet": 49,
+        "n_offset_err_nontuplet": 503,
+        "n_decoded_triplet": 599,
+        "n_decoded_notes": 1408
+      }
+    },
+    "8.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 19.9992,
+          "onset_err_tuplet": 43.75,
+          "onset_err_nontuplet": 23.333333333333332,
+          "offset_err_tuplet": 66.25,
+          "offset_err_nontuplet": 47.747747747747745,
+          "n_tuplet": 80,
+          "n_nontuplet": 1110,
+          "decoded_triplet_rate": 0.45738636363636365,
+          "n_decoded_triplet": 644,
+          "n_decoded_notes": 1408,
+          "muster": {
+            "PitchER": 2.16606,
+            "MissRate": 14.0794,
+            "ExtraRate": 10.0529,
+            "OnsetER": 24.7059,
+            "OffsetER": 48.9916,
+            "MeanER": 19.9992,
+            "VoiceER": 79.8319,
+            "NewMeanER": 29.9713,
+            "Pvoi": 30.0488,
+            "Rvoi": 35.2385,
+            "Fvoi": 32.4374,
+            "ScaleErr": 1.48761,
+            "HandER": 63.3613
+          },
+          "selfcheck_offset_ok": true,
+          "n_onset_err_tuplet": 35,
+          "n_onset_err_nontuplet": 259,
+          "n_offset_err_tuplet": 53,
+          "n_offset_err_nontuplet": 530,
+          "n_gt_tuplet": 99,
+          "n_miss_tuplet": 19,
+          "intermediate_sha256": {
+            "aggregate": "276fe6f268fe59ccfd940810e3dd52ff1cd5ffa640d94c85e2280704b9609c21",
+            "gt_xml": "3645da20686eec70bfe066e5f58a3d3f3636694aae731ce0242fded5d7171335",
+            "gt_fmt3x": "975bd85d722c4678c059a8835423729f549fc80c3ad94ee1b4f40a81049a8453",
+            "err_detail": "469ea1c6fe2001e07f99871fb28757a6f4d127408810d624d36e98d26c90c394",
+            "auto_match": "270837fa41eea4340973617218de58e52aa94c74d1044bf170932044115425ac"
+          }
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 19.9992,
+        "onset_err_tuplet": 43.75,
+        "onset_err_nontuplet": 23.333333333333332,
+        "offset_err_tuplet": 66.25,
+        "offset_err_nontuplet": 47.747747747747745,
+        "decoded_triplet_rate": 0.45738636363636365,
+        "n_tuplet": 80,
+        "n_nontuplet": 1110,
+        "n_onset_err_tuplet": 35,
+        "n_onset_err_nontuplet": 259,
+        "n_offset_err_tuplet": 53,
+        "n_offset_err_nontuplet": 530,
+        "n_decoded_triplet": 644,
+        "n_decoded_notes": 1408
+      }
+    }
+  },
+  "sanity": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "byte_identical": true,
+      "n_base": 1408,
+      "n_rerank0": 1408,
+      "n_diff": 0
+    }
+  },
+  "elapsed_s": 73.9,
+  "schema_version": 2,
+  "generated_utc": "2026-08-23T08:24:56.436952+00:00",
+  "provenance": {
+    "source_artifact": "benchmark/reranker_doseresponse.json",
+    "source_artifact_sha256": "10b2bfedb2bd3ec41829fa659e0bfae349f2471243a8ff9b3fd56754d688596a",
+    "exact_evaluator": "scripts/muster_tuplet_decompose.py",
+    "exact_evaluator_sha256": "01a979984c58423d9a5f59d67d4c88015028e0917dcd9b37f53f455d7762ac10",
+    "method": "Recomposed from preserved MUSTER correspondence and error files using exact MusicXML time-modification labels. No model decode or selector was rerun."
+  }
+}

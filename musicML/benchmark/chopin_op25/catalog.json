@@ -1,0 +1,262 @@
+[
+  {
+    "etude": "No. 1 in A-flat major",
+    "in_maestro": true,
+    "performances": 4,
+    "files": [
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_07_R1_2015_wav--3.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_07_R1_2015_wav--3.wav",
+        "duration_s": 138,
+        "title": "Etude Op. 25 No. 1",
+        "year": "2015"
+      },
+      {
+        "midi": "2013/ORIG-MIDI_03_7_6_13_Group__MID--AUDIO_10_R1_2013_wav--3.midi",
+        "audio": "2013/ORIG-MIDI_03_7_6_13_Group__MID--AUDIO_10_R1_2013_wav--3.wav",
+        "duration_s": 136,
+        "title": "Etude Op. 25 No. 1",
+        "year": "2013"
+      },
+      {
+        "midi": "2017/MIDI-Unprocessed_056_PIANO056_MID--AUDIO-split_07-07-17_Piano-e_1-05_wav--2.midi",
+        "audio": "2017/MIDI-Unprocessed_056_PIANO056_MID--AUDIO-split_07-07-17_Piano-e_1-05_wav--2.wav",
+        "duration_s": 148,
+        "title": "Etude Op. 25 No. 1 in A-flat Major",
+        "year": "2017"
+      },
+      {
+        "midi": "2017/MIDI-Unprocessed_057_PIANO057_MID--AUDIO-split_07-07-17_Piano-e_1-07_wav--4.midi",
+        "audio": "2017/MIDI-Unprocessed_057_PIANO057_MID--AUDIO-split_07-07-17_Piano-e_1-07_wav--4.wav",
+        "duration_s": 143,
+        "title": "Etude Op. 25 No. 1 in A-flat Major",
+        "year": "2017"
+      }
+    ]
+  },
+  {
+    "etude": "No. 2 in F minor",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 3 in F major",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 4 in A minor",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 5 in E minor",
+    "in_maestro": true,
+    "performances": 1,
+    "files": [
+      {
+        "midi": "2008/MIDI-Unprocessed_09_R2_2008_01-05_ORIG_MID--AUDIO_09_R2_2008_wav--2.midi",
+        "audio": "2008/MIDI-Unprocessed_09_R2_2008_01-05_ORIG_MID--AUDIO_09_R2_2008_wav--2.wav",
+        "duration_s": 182,
+        "title": "Etude Op. 25 No. 5 in E Minor",
+        "year": "2008"
+      }
+    ]
+  },
+  {
+    "etude": "No. 6 in G-sharp minor",
+    "in_maestro": true,
+    "performances": 4,
+    "files": [
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_19_R1_2015_wav--3.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_19_R1_2015_wav--3.wav",
+        "duration_s": 127,
+        "title": "Etude Op. 25 No. 6",
+        "year": "2015"
+      },
+      {
+        "midi": "2013/ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_03_R1_2013_wav--3.midi",
+        "audio": "2013/ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_03_R1_2013_wav--3.wav",
+        "duration_s": 121,
+        "title": "Etude Op. 25 No. 6",
+        "year": "2013"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_03_R1_2011_MID--AUDIO_R1-D1_17_Track17_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_03_R1_2011_MID--AUDIO_R1-D1_17_Track17_wav.wav",
+        "duration_s": 116,
+        "title": "Etude Op. 25 No. 6 in G-sharp Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_06_R1_2011_MID--AUDIO_R1-D2_16_Track16_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_06_R1_2011_MID--AUDIO_R1-D2_16_Track16_wav.wav",
+        "duration_s": 110,
+        "title": "Etude Op. 25 No. 6 in G-sharp Minor",
+        "year": "2011"
+      }
+    ]
+  },
+  {
+    "etude": "No. 7 in C-sharp minor",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 8 in D-flat major",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 9 in G-flat major",
+    "in_maestro": false,
+    "performances": 0,
+    "files": []
+  },
+  {
+    "etude": "No. 10 in B minor",
+    "in_maestro": true,
+    "performances": 4,
+    "files": [
+      {
+        "midi": "2013/ORIG-MIDI_02_7_7_13_Group__MID--AUDIO_18_R1_2013_wav--5.midi",
+        "audio": "2013/ORIG-MIDI_02_7_7_13_Group__MID--AUDIO_18_R1_2013_wav--5.wav",
+        "duration_s": 250,
+        "title": "Etude Op. 25 No. 10",
+        "year": "2013"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_20_R1_2011_MID--AUDIO_R1-D8_03_Track03_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_20_R1_2011_MID--AUDIO_R1-D8_03_Track03_wav.wav",
+        "duration_s": 244,
+        "title": "Etude Op. 25 No. 10 in B Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_22_R1_2011_MID--AUDIO_R1-D8_11_Track11_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_22_R1_2011_MID--AUDIO_R1-D8_11_Track11_wav.wav",
+        "duration_s": 238,
+        "title": "Etude Op. 25 No. 10 in B Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2017/MIDI-Unprocessed_041_PIANO041_MID--AUDIO-split_07-06-17_Piano-e_1-01_wav--3.midi",
+        "audio": "2017/MIDI-Unprocessed_041_PIANO041_MID--AUDIO-split_07-06-17_Piano-e_1-01_wav--3.wav",
+        "duration_s": 237,
+        "title": "Etude Op. 25 No. 10 in B Minor",
+        "year": "2017"
+      }
+    ]
+  },
+  {
+    "etude": "No. 11 in A minor",
+    "in_maestro": true,
+    "performances": 10,
+    "files": [
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_08_R1_2015_wav--3.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_08_R1_2015_wav--3.wav",
+        "duration_s": 218,
+        "title": "Etude Op. 25 No. 11",
+        "year": "2015"
+      },
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_18_R1_2015_wav--2.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_18_R1_2015_wav--2.wav",
+        "duration_s": 211,
+        "title": "Etude Op. 25 No. 11",
+        "year": "2015"
+      },
+      {
+        "midi": "2013/ORIG-MIDI_02_7_8_13_Group__MID--AUDIO_08_R2_2013_wav--2.midi",
+        "audio": "2013/ORIG-MIDI_02_7_8_13_Group__MID--AUDIO_08_R2_2013_wav--2.wav",
+        "duration_s": 194,
+        "title": "Etude Op. 25 No. 11",
+        "year": "2013"
+      },
+      {
+        "midi": "2008/MIDI-Unprocessed_11_R1_2008_01-04_ORIG_MID--AUDIO_11_R1_2008_wav--4.midi",
+        "audio": "2008/MIDI-Unprocessed_11_R1_2008_01-04_ORIG_MID--AUDIO_11_R1_2008_wav--4.wav",
+        "duration_s": 239,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2008"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_11_R1_2011_MID--AUDIO_R1-D4_09_Track09_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_11_R1_2011_MID--AUDIO_R1-D4_09_Track09_wav.wav",
+        "duration_s": 201,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_13_R1_2011_MID--AUDIO_R1-D5_03_Track03_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_13_R1_2011_MID--AUDIO_R1-D5_03_Track03_wav.wav",
+        "duration_s": 222,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_16_R1_2011_MID--AUDIO_R1-D6_13_Track13_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_16_R1_2011_MID--AUDIO_R1-D6_13_Track13_wav.wav",
+        "duration_s": 213,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_17_R1_2011_MID--AUDIO_R1-D7_04_Track04_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_17_R1_2011_MID--AUDIO_R1-D7_04_Track04_wav.wav",
+        "duration_s": 193,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2011"
+      },
+      {
+        "midi": "2017/MIDI-Unprocessed_051_PIANO051_MID--AUDIO-split_07-06-17_Piano-e_3-02_wav--3.midi",
+        "audio": "2017/MIDI-Unprocessed_051_PIANO051_MID--AUDIO-split_07-06-17_Piano-e_3-02_wav--3.wav",
+        "duration_s": 220,
+        "title": "Etude Op. 25 No. 11 in A Minor",
+        "year": "2017"
+      },
+      {
+        "midi": "2014/MIDI-UNPROCESSED_16-18_R1_2014_MID--AUDIO_18_R1_2014_wav--4.midi",
+        "audio": "2014/MIDI-UNPROCESSED_16-18_R1_2014_MID--AUDIO_18_R1_2014_wav--4.wav",
+        "duration_s": 222,
+        "title": "Etude in A Minor, Op. 25, No. 11",
+        "year": "2014"
+      }
+    ]
+  },
+  {
+    "etude": "No. 12 in C minor",
+    "in_maestro": true,
+    "performances": 3,
+    "files": [
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_04_R1_2015_wav--4.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_04_R1_2015_wav--4.wav",
+        "duration_s": 137,
+        "title": "Etude Op. 25 No. 12",
+        "year": "2015"
+      },
+      {
+        "midi": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_14_R1_2015_wav--4.midi",
+        "audio": "2015/MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_14_R1_2015_wav--4.wav",
+        "duration_s": 156,
+        "title": "Etude Op. 25 No. 12",
+        "year": "2015"
+      },
+      {
+        "midi": "2011/MIDI-Unprocessed_09_R1_2011_MID--AUDIO_R1-D3_14_Track14_wav.midi",
+        "audio": "2011/MIDI-Unprocessed_09_R1_2011_MID--AUDIO_R1-D3_14_Track14_wav.wav",
+        "duration_s": 138,
+        "title": "Etude Op. 25 No. 12 in C Minor",
+        "year": "2011"
+      }
+    ]
+  }
+]

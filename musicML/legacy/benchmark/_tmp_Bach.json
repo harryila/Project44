@@ -1,0 +1,16 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/MIDI2ScoreTF.ckpt",
+  "results": [
+    {
+      "composer": "Bach",
+      "piece": "Bach/Fugue/bwv_846",
+      "n_notes": 754,
+      "pred_tuplets": 0,
+      "pred_notes": 675,
+      "gt_tuplets": 0,
+      "gt_notes": 796,
+      "tuplet_ratio": null,
+      "MeanER": 5.61559
+    }
+  ]
+}

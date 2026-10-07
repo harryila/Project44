@@ -1,0 +1,239 @@
+{
+  "TwinkleTwinkle": {
+    "ref_ts": "4/4",
+    "ref_measures": 18,
+    "baseline": null,
+    "hft_baseline": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 1.0,
+      "n_pred_notes": 359,
+      "n_gt_notes": 359,
+      "xml": "outputs/transformer/xml/TwinkleTwinkle_hft_eval.musicxml"
+    },
+    "a3": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 1.0,
+      "n_pred_notes": 359,
+      "n_gt_notes": 359,
+      "xml": "outputs/improvements/twinkle/TwinkleTwinkle_a3.musicxml"
+    },
+    "a1": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 1.0,
+      "n_pred_notes": 359,
+      "n_gt_notes": 359,
+      "xml": "outputs/improvements/twinkle/TwinkleTwinkle_a1.musicxml"
+    },
+    "a2": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 1.0,
+      "n_pred_notes": 359,
+      "n_gt_notes": 359,
+      "xml": "outputs/improvements/twinkle/TwinkleTwinkle_a2.musicxml"
+    },
+    "a4": null,
+    "combined": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 0.999,
+      "n_pred_notes": 360,
+      "n_gt_notes": 359,
+      "xml": "outputs/improvements/twinkle/TwinkleTwinkle_combined.musicxml"
+    },
+    "full": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 19,
+      "measures_err_pct": 5.6,
+      "note_f1": 0.985,
+      "n_pred_notes": 368,
+      "n_gt_notes": 359,
+      "xml": "outputs/improvements/twinkle/TwinkleTwinkle_full.musicxml"
+    }
+  },
+  "Op10_No4_CsharpMinor": {
+    "ref_ts": "4/4",
+    "ref_measures": 88,
+    "baseline": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 82,
+      "measures_err_pct": 6.8,
+      "note_f1": 0.971,
+      "n_pred_notes": 2201,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/xml/Op10_No4_CsharpMinor.musicxml"
+    },
+    "hft_baseline": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 81,
+      "measures_err_pct": 8.0,
+      "note_f1": 0.97,
+      "n_pred_notes": 2197,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/xml/Op10_No4_CsharpMinor_hft.musicxml"
+    },
+    "a3": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 82,
+      "measures_err_pct": 6.8,
+      "note_f1": 0.971,
+      "n_pred_notes": 2201,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/pdf/Op10_No4_CsharpMinor_a3.musicxml"
+    },
+    "a1": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 82,
+      "measures_err_pct": 6.8,
+      "note_f1": 0.971,
+      "n_pred_notes": 2201,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/pdf/Op10_No4_CsharpMinor_a1.musicxml"
+    },
+    "a2": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 82,
+      "measures_err_pct": 6.8,
+      "note_f1": 0.972,
+      "n_pred_notes": 2200,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/pdf/Op10_No4_CsharpMinor_a2.musicxml"
+    },
+    "a4": null,
+    "combined": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 81,
+      "measures_err_pct": 8.0,
+      "note_f1": 0.973,
+      "n_pred_notes": 2209,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/pdf/Op10_No4_CsharpMinor_combined.musicxml"
+    },
+    "full": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 81,
+      "measures_err_pct": 8.0,
+      "note_f1": 0.967,
+      "n_pred_notes": 2172,
+      "n_gt_notes": 2306,
+      "xml": "benchmark/chopin_op10/transformer/pdf/Op10_No4_CsharpMinor_full.musicxml"
+    }
+  },
+  "Op25_No11_Aminor": {
+    "ref_ts": "4/4",
+    "ref_measures": 102,
+    "baseline": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 100,
+      "measures_err_pct": 2.0,
+      "note_f1": 0.978,
+      "n_pred_notes": 3170,
+      "n_gt_notes": 3241,
+      "xml": "benchmark/chopin_op25/transformer/xml/Op25_No11_Aminor.musicxml"
+    },
+    "hft_baseline": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 96,
+      "measures_err_pct": 5.9,
+      "note_f1": 0.974,
+      "n_pred_notes": 3102,
+      "n_gt_notes": 3241,
+      "xml": "benchmark/chopin_op25/transformer/xml/Op25_No11_Aminor_hft.musicxml"
+    },
+    "a3": null,
+    "a1": null,
+    "a2": null,
+    "a4": null,
+    "combined": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 98,
+      "measures_err_pct": 3.9,
+      "note_f1": 0.978,
+      "n_pred_notes": 3167,
+      "n_gt_notes": 3241,
+      "xml": "benchmark/chopin_op25/transformer/pdf/Op25_No11_Aminor_combined.musicxml"
+    },
+    "full": {
+      "time_sig": "4/4",
+      "time_sig_correct": true,
+      "measures": 96,
+      "measures_err_pct": 5.9,
+      "note_f1": 0.969,
+      "n_pred_notes": 3066,
+      "n_gt_notes": 3241,
+      "xml": "benchmark/chopin_op25/transformer/pdf/Op25_No11_Aminor_full.musicxml"
+    }
+  },
+  "Transcendental_No4_Mazeppa": {
+    "ref_ts": "4/4",
+    "ref_measures": 167,
+    "baseline": {
+      "time_sig": "3/4",
+      "time_sig_correct": false,
+      "measures": 322,
+      "measures_err_pct": 92.8,
+      "note_f1": 0.981,
+      "n_pred_notes": 6945,
+      "n_gt_notes": 7158,
+      "xml": "benchmark/liszt_transcendental/transformer/xml/Transcendental_No4_Mazeppa.musicxml"
+    },
+    "hft_baseline": {
+      "time_sig": "2/4",
+      "time_sig_correct": false,
+      "measures": 355,
+      "measures_err_pct": 112.6,
+      "note_f1": 0.959,
+      "n_pred_notes": 6604,
+      "n_gt_notes": 7158,
+      "xml": "benchmark/liszt_transcendental/transformer/xml/Transcendental_No4_Mazeppa_hft.musicxml"
+    },
+    "a3": null,
+    "a1": null,
+    "a2": null,
+    "a4": null,
+    "combined": {
+      "time_sig": "3/4",
+      "time_sig_correct": false,
+      "measures": 400,
+      "measures_err_pct": 139.5,
+      "note_f1": 0.978,
+      "n_pred_notes": 6914,
+      "n_gt_notes": 7158,
+      "xml": "benchmark/liszt_transcendental/transformer/pdf/Transcendental_No4_Mazeppa_combined.musicxml"
+    },
+    "full": {
+      "time_sig": "3/4",
+      "time_sig_correct": false,
+      "measures": 287,
+      "measures_err_pct": 71.9,
+      "note_f1": 0.936,
+      "n_pred_notes": 6307,
+      "n_gt_notes": 7158,
+      "xml": "benchmark/liszt_transcendental/transformer/pdf/Transcendental_No4_Mazeppa_full.musicxml"
+    }
+  }
+}

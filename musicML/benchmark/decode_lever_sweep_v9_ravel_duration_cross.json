@@ -1,0 +1,386 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "seed": 1234,
+  "offset_topk": 15,
+  "pieces": {
+    "Ravel/Ravel/Gaspard_de_la_Nuit/1_Ondine": {
+      "gt_tuplets": 4868,
+      "baseline": {
+        "meaner_overall": 20.7868,
+        "onset_err_tuplet": 35.93582887700535,
+        "onset_err_nontuplet": 78.08219178082192,
+        "n_tuplet_matched": 3740,
+        "n_nontuplet_matched": 146,
+        "tpf": 2472,
+        "tpf_missed": 1128,
+        "tpf_onset": 1344,
+        "decoded_triplet_count": 266,
+        "timing_per_group": 0.005197083141259018,
+        "timing_detail": {
+          "timing_penalty": 2.078833,
+          "timing_per_group": 0.00519708,
+          "timing_groups": 400,
+          "timing_contra": 55
+        },
+        "model_loss": 0.15696365,
+        "loss_parts": {
+          "offset": 0.554045,
+          "duration": 0.324498,
+          "downbeat": 0.080297,
+          "pad": 0.0381
+        }
+      },
+      "rows": [
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.0,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 20.6882,
+          "onset_err_tuplet": 35.61497326203209,
+          "onset_err_nontuplet": 78.08219178082192,
+          "n_tuplet_matched": 3740,
+          "n_nontuplet_matched": 146,
+          "tpf": 2460,
+          "tpf_missed": 1128,
+          "tpf_onset": 1332,
+          "decoded_triplet_count": 277,
+          "timing_per_group": 0.005489818697606362,
+          "timing_detail": {
+            "timing_penalty": 2.206907,
+            "timing_per_group": 0.00548982,
+            "timing_groups": 402,
+            "timing_contra": 58
+          },
+          "model_loss": 0.15620199,
+          "loss_parts": {
+            "offset": 0.552544,
+            "duration": 0.316832,
+            "downbeat": 0.080566,
+            "pad": 0.039182
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.0,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 20.3255,
+          "onset_err_tuplet": 34.41263045223441,
+          "onset_err_nontuplet": 69.93006993006993,
+          "n_tuplet_matched": 3737,
+          "n_nontuplet_matched": 143,
+          "tpf": 2417,
+          "tpf_missed": 1131,
+          "tpf_onset": 1286,
+          "decoded_triplet_count": 2,
+          "timing_per_group": 0.0014677669008992754,
+          "timing_detail": {
+            "timing_penalty": 0.503444,
+            "timing_per_group": 0.00146777,
+            "timing_groups": 343,
+            "timing_contra": 17
+          },
+          "model_loss": 0.13832753,
+          "loss_parts": {
+            "offset": 0.501864,
+            "duration": 0.286742,
+            "downbeat": 0.073451,
+            "pad": 0.02887
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.25,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 22.0534,
+          "onset_err_tuplet": 39.97839005942733,
+          "onset_err_nontuplet": 76.59574468085107,
+          "n_tuplet_matched": 3702,
+          "n_nontuplet_matched": 141,
+          "tpf": 2646,
+          "tpf_missed": 1166,
+          "tpf_onset": 1480,
+          "decoded_triplet_count": 1244,
+          "timing_per_group": 0.01859898139173318,
+          "timing_detail": {
+            "timing_penalty": 8.57413,
+            "timing_per_group": 0.01859898,
+            "timing_groups": 461,
+            "timing_contra": 222
+          },
+          "model_loss": 0.15882441,
+          "loss_parts": {
+            "offset": 0.515467,
+            "duration": 0.344479,
+            "downbeat": 0.076194,
+            "pad": 0.04702
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.25,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 22.2391,
+          "onset_err_tuplet": 38.967009194159004,
+          "onset_err_nontuplet": 76.81159420289855,
+          "n_tuplet_matched": 3698,
+          "n_nontuplet_matched": 138,
+          "tpf": 2611,
+          "tpf_missed": 1170,
+          "tpf_onset": 1441,
+          "decoded_triplet_count": 510,
+          "timing_per_group": 0.008317790283213876,
+          "timing_detail": {
+            "timing_penalty": 4.117306,
+            "timing_per_group": 0.00831779,
+            "timing_groups": 495,
+            "timing_contra": 107
+          },
+          "model_loss": 0.16297431,
+          "loss_parts": {
+            "offset": 0.54511,
+            "duration": 0.333207,
+            "downbeat": 0.108114,
+            "pad": 0.038315
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.5,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 27.3975,
+          "onset_err_tuplet": 47.740440324449594,
+          "onset_err_nontuplet": 72.35772357723577,
+          "n_tuplet_matched": 3452,
+          "n_nontuplet_matched": 123,
+          "tpf": 3064,
+          "tpf_missed": 1416,
+          "tpf_onset": 1648,
+          "decoded_triplet_count": 1176,
+          "timing_per_group": 0.014039253789516174,
+          "timing_detail": {
+            "timing_penalty": 5.292799,
+            "timing_per_group": 0.01403925,
+            "timing_groups": 377,
+            "timing_contra": 139
+          },
+          "model_loss": 0.23972379,
+          "loss_parts": {
+            "offset": 0.856923,
+            "duration": 0.572566,
+            "downbeat": 0.092953,
+            "pad": 0.04428
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 0.5,
+          "dur_tau": 0.5,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 20.8401,
+          "onset_err_tuplet": 37.25595078898101,
+          "onset_err_nontuplet": 75.71428571428571,
+          "n_tuplet_matched": 3739,
+          "n_nontuplet_matched": 140,
+          "tpf": 2522,
+          "tpf_missed": 1129,
+          "tpf_onset": 1393,
+          "decoded_triplet_count": 516,
+          "timing_per_group": 0.007458452765028557,
+          "timing_detail": {
+            "timing_penalty": 3.714309,
+            "timing_per_group": 0.00745845,
+            "timing_groups": 498,
+            "timing_contra": 102
+          },
+          "model_loss": 0.17372313,
+          "loss_parts": {
+            "offset": 0.547193,
+            "duration": 0.387245,
+            "downbeat": 0.105293,
+            "pad": 0.043671
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.0,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 20.576,
+          "onset_err_tuplet": 35.575126768081134,
+          "onset_err_nontuplet": 79.72027972027972,
+          "n_tuplet_matched": 3747,
+          "n_nontuplet_matched": 143,
+          "tpf": 2454,
+          "tpf_missed": 1121,
+          "tpf_onset": 1333,
+          "decoded_triplet_count": 290,
+          "timing_per_group": 0.005060468966887223,
+          "timing_detail": {
+            "timing_penalty": 2.04949,
+            "timing_per_group": 0.00506047,
+            "timing_groups": 405,
+            "timing_contra": 58
+          },
+          "model_loss": 0.15772387,
+          "loss_parts": {
+            "offset": 0.555052,
+            "duration": 0.328095,
+            "downbeat": 0.076174,
+            "pad": 0.0399
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.0,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 20.2885,
+          "onset_err_tuplet": 34.36747793527681,
+          "onset_err_nontuplet": 69.93006993006993,
+          "n_tuplet_matched": 3739,
+          "n_nontuplet_matched": 143,
+          "tpf": 2414,
+          "tpf_missed": 1129,
+          "tpf_onset": 1285,
+          "decoded_triplet_count": 3,
+          "timing_per_group": 0.0015865868721679976,
+          "timing_detail": {
+            "timing_penalty": 0.545786,
+            "timing_per_group": 0.00158659,
+            "timing_groups": 344,
+            "timing_contra": 18
+          },
+          "model_loss": 0.13811423,
+          "loss_parts": {
+            "offset": 0.501909,
+            "duration": 0.286496,
+            "downbeat": 0.072564,
+            "pad": 0.028871
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.25,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 21.1911,
+          "onset_err_tuplet": 37.86666666666667,
+          "onset_err_nontuplet": 78.76712328767124,
+          "n_tuplet_matched": 3750,
+          "n_nontuplet_matched": 146,
+          "tpf": 2538,
+          "tpf_missed": 1118,
+          "tpf_onset": 1420,
+          "decoded_triplet_count": 622,
+          "timing_per_group": 0.008486730989011709,
+          "timing_detail": {
+            "timing_penalty": 4.260339,
+            "timing_per_group": 0.00848673,
+            "timing_groups": 502,
+            "timing_contra": 114
+          },
+          "model_loss": 0.1688484,
+          "loss_parts": {
+            "offset": 0.528594,
+            "duration": 0.425186,
+            "downbeat": 0.083222,
+            "pad": 0.036261
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.25,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 21.8618,
+          "onset_err_tuplet": 38.22654771559881,
+          "onset_err_nontuplet": 74.82014388489209,
+          "n_tuplet_matched": 3699,
+          "n_nontuplet_matched": 139,
+          "tpf": 2583,
+          "tpf_missed": 1169,
+          "tpf_onset": 1414,
+          "decoded_triplet_count": 512,
+          "timing_per_group": 0.007752249503024073,
+          "timing_detail": {
+            "timing_penalty": 3.829611,
+            "timing_per_group": 0.00775225,
+            "timing_groups": 494,
+            "timing_contra": 101
+          },
+          "model_loss": 0.16227934,
+          "loss_parts": {
+            "offset": 0.512929,
+            "duration": 0.348378,
+            "downbeat": 0.098547,
+            "pad": 0.04428
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.5,
+          "dur_metrical_lambda": 0.0,
+          "meaner_overall": 23.6131,
+          "onset_err_tuplet": 43.61004915346805,
+          "onset_err_nontuplet": 74.14965986394557,
+          "n_tuplet_matched": 3662,
+          "n_nontuplet_matched": 147,
+          "tpf": 2803,
+          "tpf_missed": 1206,
+          "tpf_onset": 1597,
+          "decoded_triplet_count": 1610,
+          "timing_per_group": 0.02111442920302209,
+          "timing_detail": {
+            "timing_penalty": 8.846946,
+            "timing_per_group": 0.02111443,
+            "timing_groups": 419,
+            "timing_contra": 233
+          },
+          "model_loss": 0.19862149,
+          "loss_parts": {
+            "offset": 0.595099,
+            "duration": 0.488484,
+            "downbeat": 0.095333,
+            "pad": 0.053859
+          }
+        },
+        {
+          "offset_mode": "eighth",
+          "offset_lambda": 1.0,
+          "dur_tau": 0.5,
+          "dur_metrical_lambda": 0.25,
+          "meaner_overall": 21.8727,
+          "onset_err_tuplet": 39.07734056987788,
+          "onset_err_nontuplet": 72.10884353741497,
+          "n_tuplet_matched": 3685,
+          "n_nontuplet_matched": 147,
+          "tpf": 2623,
+          "tpf_missed": 1183,
+          "tpf_onset": 1440,
+          "decoded_triplet_count": 843,
+          "timing_per_group": 0.011045619854692186,
+          "timing_detail": {
+            "timing_penalty": 5.500719,
+            "timing_per_group": 0.01104562,
+            "timing_groups": 498,
+            "timing_contra": 143
+          },
+          "model_loss": 0.1819553,
+          "loss_parts": {
+            "offset": 0.541011,
+            "duration": 0.436452,
+            "downbeat": 0.093092,
+            "pad": 0.051388
+          }
+        }
+      ]
+    }
+  },
+  "elapsed_s": 528.7
+}

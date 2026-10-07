@@ -1,0 +1,217 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "selector": "z(teacher_forced_rhythm_loss)+z(v3b_timing_per_group), donor-only",
+  "pieces": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "gt_tuplets": 99,
+      "baseline": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "tpf": 55,
+        "tpf_missed": 21,
+        "tpf_onset": 34,
+        "model_loss": 0.03674056,
+        "loss_parts": {
+          "offset": 0.051854,
+          "duration": 0.16341,
+          "downbeat": 0.014863,
+          "pad": 0.003713
+        },
+        "timing_penalty": 0.326202,
+        "timing_per_group": 0.00283654,
+        "timing_groups": 115,
+        "timing_contra": 10
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.06319122,
+          "loss_parts": {
+            "offset": 0.091052,
+            "duration": 0.272683,
+            "downbeat": 0.042981,
+            "pad": 0.001462
+          },
+          "timing_penalty": 0.408703,
+          "timing_per_group": 0.0038556883484334305,
+          "timing_groups": 106,
+          "timing_contra": 12,
+          "metrics": null,
+          "model_z": 1.709641,
+          "timing_z": 0.803747,
+          "selector_score": 2.513389
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.05945373,
+          "loss_parts": {
+            "offset": 0.060053,
+            "duration": 0.226667,
+            "downbeat": 0.073707,
+            "pad": 0.003439
+          },
+          "timing_penalty": 0.406905,
+          "timing_per_group": 0.003912543380266522,
+          "timing_groups": 104,
+          "timing_contra": 9,
+          "metrics": null,
+          "model_z": 0.233219,
+          "timing_z": 0.891346,
+          "selector_score": 1.124565
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.05985068,
+          "loss_parts": {
+            "offset": 0.069539,
+            "duration": 0.2454,
+            "downbeat": 0.051833,
+            "pad": 0.004971
+          },
+          "timing_penalty": 0.260395,
+          "timing_per_group": 0.0022841680061456236,
+          "timing_groups": 114,
+          "timing_contra": 8,
+          "metrics": null,
+          "model_z": 0.390026,
+          "timing_z": -1.617545,
+          "selector_score": -1.227519
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.05671222,
+          "loss_parts": {
+            "offset": 0.097878,
+            "duration": 0.244764,
+            "downbeat": 0.025898,
+            "pad": 0.002331
+          },
+          "timing_penalty": 0.414965,
+          "timing_per_group": 0.0034871021224262225,
+          "timing_groups": 119,
+          "timing_contra": 11,
+          "metrics": null,
+          "model_z": -0.849762,
+          "timing_z": 0.235855,
+          "selector_score": -0.613907
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.05675192,
+          "loss_parts": {
+            "offset": 0.06225,
+            "duration": 0.255554,
+            "downbeat": 0.032645,
+            "pad": 0.005379
+          },
+          "timing_penalty": 0.431089,
+          "timing_per_group": 0.004145086395093338,
+          "timing_groups": 104,
+          "timing_contra": 11,
+          "metrics": null,
+          "model_z": -0.834079,
+          "timing_z": 1.249633,
+          "selector_score": 0.415554
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.05655943,
+          "loss_parts": {
+            "offset": 0.078968,
+            "duration": 0.258727,
+            "downbeat": 0.021493,
+            "pad": 0.004334
+          },
+          "timing_penalty": 0.301759,
+          "timing_per_group": 0.003079174125227456,
+          "timing_groups": 98,
+          "timing_contra": 9,
+          "metrics": null,
+          "model_z": -0.910118,
+          "timing_z": -0.392653,
+          "selector_score": -1.302772
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.05631281,
+          "loss_parts": {
+            "offset": 0.083051,
+            "duration": 0.245177,
+            "downbeat": 0.024976,
+            "pad": 0.005504
+          },
+          "timing_penalty": 0.36895,
+          "timing_per_group": 0.0035138092543098185,
+          "timing_groups": 105,
+          "timing_contra": 11,
+          "metrics": null,
+          "model_z": -1.007541,
+          "timing_z": 0.277003,
+          "selector_score": -0.730538
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.06207478,
+          "loss_parts": {
+            "offset": 0.099509,
+            "duration": 0.261018,
+            "downbeat": 0.039163,
+            "pad": 0.002198
+          },
+          "timing_penalty": 0.256223,
+          "timing_per_group": 0.0023946092739064026,
+          "timing_groups": 107,
+          "timing_contra": 6,
+          "metrics": null,
+          "model_z": 1.268613,
+          "timing_z": -1.447385,
+          "selector_score": -0.178772
+        }
+      ],
+      "selector_pick": {
+        "i": 5,
+        "seed": 1005,
+        "model_loss": 0.05655943,
+        "loss_parts": {
+          "offset": 0.078968,
+          "duration": 0.258727,
+          "downbeat": 0.021493,
+          "pad": 0.004334
+        },
+        "timing_penalty": 0.301759,
+        "timing_per_group": 0.003079174125227456,
+        "timing_groups": 98,
+        "timing_contra": 9,
+        "metrics": {
+          "meaner_overall": 11.891,
+          "onset_err_tuplet": 51.25,
+          "onset_err_nontuplet": 9.974424552429667,
+          "n_tuplet": 80,
+          "n_nontuplet": 1173,
+          "tpf": 60,
+          "tpf_missed": 19,
+          "tpf_onset": 41
+        },
+        "model_z": -0.910118,
+        "timing_z": -0.392653,
+        "selector_score": -1.302772
+      },
+      "gate_ok": false
+    }
+  },
+  "elapsed_s": 96.8
+}

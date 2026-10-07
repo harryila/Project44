@@ -1,0 +1,39 @@
+Re-ranking runs: ssl_real07 ssl_balanced  (threshold 0.50, all 14 ASAP pieces)
+  eval: ssl_real07 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_real07/last.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_real07__ssl_real07_last.json
+  eval: ssl_real07 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_real07/ssl_real07-epoch=00-val/total=0.5126.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_real07__ssl_real07-epoch_00-val_total_0.5126.json
+  eval: ssl_real07 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_real07/ssl_real07-epoch=01-val/total=0.5121.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_real07__ssl_real07-epoch_01-val_total_0.5121.json
+  eval: ssl_balanced :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/last.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_balanced__ssl_balanced_last.json
+  eval: ssl_balanced :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/ssl_balanced-epoch=00-val/total=0.5089.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_balanced__ssl_balanced-epoch_00-val_total_0.5089.json
+  eval: ssl_balanced :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/ssl_balanced-epoch=01-val/total=0.5090.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_balanced__ssl_balanced-epoch_01-val_total_0.5090.json
+
+=== RE-RANK SUMMARY (corpus-mean MeanER @ thr 0.50, lower=better) ===
+rank MeanER    n   ckpt
+1    11.791    14  ssl_tuplet20__ssl_tuplet20_last  <-- beats 11.87
+2    11.806    14  ssl_tuplet20__ssl_tuplet20-epoch_03-val_total_0.5388  <-- beats 11.87
+3    12.005    14  ssl_reshape_g1__ssl_reshape_g1-epoch_00-val_total_0.5322
+4    12.151    14  ssl_tuplet20__ssl_tuplet20-epoch_01-val_total_0.5234
+5    12.733    14  ssl_reshape_g1__ssl_reshape_g1_last
+6    12.773    14  ssl_classical_clean__ssl_classical_clean-epoch_13-val_total_0.5125
+7    12.923    14  ssl_reshape_g1__ssl_reshape_g1-epoch_02-val_total_0.5460
+8    13.544    14  ssl_classical_clean__ssl_classical_clean-epoch_06-val_total_0.5335
+9    13.651    14  ssl_real07__ssl_real07-epoch_01-val_total_0.5121
+10   13.940    14  ssl_real07__ssl_real07_last
+11   15.024    14  ssl_real07__ssl_real07-epoch_00-val_total_0.5126
+12   15.677    14  ssl_balanced__ssl_balanced_last
+13   16.001    14  ssl_balanced__ssl_balanced-epoch_00-val_total_0.5089
+14   16.066    14  ssl_balanced__ssl_balanced-epoch_01-val_total_0.5090
+
+baseline ssl_classical_clean=12.685 | best-so-far ssl_tuplet20_last=11.87 | released=10.77
+Per-ckpt JSON in benchmark/rerank/

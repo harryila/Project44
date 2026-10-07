@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "elapsed_s": 474.3
+  },
+  "pieces": [
+    {
+      "name": "Chopin_Op10_No4",
+      "dist": "in-dist",
+      "stageA_transcription": {
+        "hft_notes": 2203,
+        "gt_notes": 2306,
+        "onset_F1": 0.9736,
+        "onset_P": 0.9964,
+        "onset_R": 0.9519,
+        "onset_offset_F1": 0.5562
+      },
+      "stageB_engraving": {
+        "MeanER": 1.64,
+        "PitchER": 1.0,
+        "MissRate": 1.13,
+        "ExtraRate": 0.64,
+        "OnsetER": 0.87,
+        "OffsetER": 4.58
+      }
+    },
+    {
+      "name": "Chopin_Op25_No11",
+      "dist": "in-dist",
+      "stageA_transcription": {
+        "hft_notes": 3165,
+        "gt_notes": 3241,
+        "onset_F1": 0.9831,
+        "onset_P": 0.9949,
+        "onset_R": 0.9716,
+        "onset_offset_F1": 0.1976
+      },
+      "stageB_engraving": {
+        "MeanER": 1.4,
+        "PitchER": 0.76,
+        "MissRate": 0.79,
+        "ExtraRate": 0.38,
+        "OnsetER": 2.54,
+        "OffsetER": 2.54
+      }
+    },
+    {
+      "name": "Liszt_Mazeppa",
+      "dist": "OOD-dense",
+      "stageA_transcription": {
+        "hft_notes": 6562,
+        "gt_notes": 7158,
+        "onset_F1": 0.9516,
+        "onset_P": 0.9948,
+        "onset_R": 0.912,
+        "onset_offset_F1": 0.1838
+      },
+      "stageB_engraving": {
+        "MeanER": 32.97,
+        "PitchER": 16.64,
+        "MissRate": 35.25,
+        "ExtraRate": 34.65,
+        "OnsetER": 32.28,
+        "OffsetER": 46.03
+      }
+    }
+  ]
+}

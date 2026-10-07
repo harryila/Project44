@@ -1,0 +1,9 @@
+Wrote /root/Music-ML-BayenLab/benchmark/seg_eval/segctrl_seg_ctrl-epoch00-val.json
+Wrote /root/Music-ML-BayenLab/benchmark/seg_eval/segctrl_seg_ctrl.json
+Wrote /root/Music-ML-BayenLab/benchmark/seg_eval/segctrl_seg_ctrl-epoch01-val.json
+--- seg_ctrl offset diagnostic (last) ---
+PRED offsets: 1408 notes, 0 at triplet phases (0.000%)
+GT   offsets: 1382 notes, 66 at triplet phases (4.776%)
+PRED phase histogram (phase:count) for triplet phases 4,8,16,20:
+VERDICT: POSITIONAL INFERENCE LEVERS DOOMED — model quantizes offsets to binary; needs beat-relative OUTPUT (B2)
+SEGCTRL_EVAL_DONE

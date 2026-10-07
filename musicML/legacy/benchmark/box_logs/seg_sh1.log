@@ -1,0 +1,14 @@
+shard 1/2: 100 pieces, win=384
+  10/100 pieces | windows ok=28 skip=0 fail=0
+  20/100 pieces | windows ok=67 skip=0 fail=0
+  30/100 pieces | windows ok=106 skip=0 fail=0
+  40/100 pieces | windows ok=151 skip=0 fail=0
+  50/100 pieces | windows ok=202 skip=0 fail=0
+  60/100 pieces | windows ok=255 skip=0 fail=0
+  70/100 pieces | windows ok=303 skip=0 fail=0
+beam: WARNING: Found a messed up beam pair <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/partial/right>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>, at index 9 of 
+[None, None, None, None, None, <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>, <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>/<music21.beam.Beam 3/partial/left>>, <music21.beam.Beams <music21.beam.Beam 1/stop>>, None, <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/partial/right>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>]
+  80/100 pieces | windows ok=351 skip=0 fail=0
+  90/100 pieces | windows ok=402 skip=0 fail=0
+  100/100 pieces | windows ok=458 skip=0 fail=0
+SHARD 1 DONE: 458 windows, skip=0, fail=0 -> /root/datasets/maestro_segments/manifest_shard1.csv

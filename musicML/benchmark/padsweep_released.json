@@ -1,0 +1,701 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/MIDI2ScoreTF.ckpt",
+  "thresholds": [
+    0.6,
+    0.55,
+    0.5,
+    0.45,
+    0.4,
+    0.35,
+    0.3,
+    0.25
+  ],
+  "results": [
+    {
+      "composer": "Bach",
+      "piece": "Bach/Fugue/bwv_846",
+      "n_notes": 754,
+      "gt_tuplets": 0,
+      "gt_notes": 796,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.55": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.50": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.45": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.40": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.35": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.30": {
+          "pred_tuplets": 0,
+          "pred_notes": 675,
+          "MeanER": 5.61559
+        },
+        "0.25": {
+          "pred_tuplets": 0,
+          "pred_notes": 676,
+          "MeanER": 5.6142
+        }
+      }
+    },
+    {
+      "composer": "Scriabin",
+      "piece": "Scriabin/Etudes_op_8/11",
+      "n_notes": 1324,
+      "gt_tuplets": 99,
+      "gt_notes": 1004,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 0,
+          "pred_notes": 944,
+          "MeanER": 10.3954
+        },
+        "0.55": {
+          "pred_tuplets": 0,
+          "pred_notes": 945,
+          "MeanER": 10.3743
+        },
+        "0.50": {
+          "pred_tuplets": 0,
+          "pred_notes": 945,
+          "MeanER": 10.3743
+        },
+        "0.45": {
+          "pred_tuplets": 0,
+          "pred_notes": 945,
+          "MeanER": 10.3743
+        },
+        "0.40": {
+          "pred_tuplets": 0,
+          "pred_notes": 945,
+          "MeanER": 10.3743
+        },
+        "0.35": {
+          "pred_tuplets": 0,
+          "pred_notes": 947,
+          "MeanER": 10.2694
+        },
+        "0.30": {
+          "pred_tuplets": 0,
+          "pred_notes": 947,
+          "MeanER": 10.2694
+        },
+        "0.25": {
+          "pred_tuplets": 0,
+          "pred_notes": 948,
+          "MeanER": 10.2999
+        }
+      }
+    },
+    {
+      "composer": "Rachmaninoff",
+      "piece": "Rachmaninoff/Preludes_op_23/4",
+      "n_notes": 1344,
+      "gt_tuplets": 641,
+      "gt_notes": 1019,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.55": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.50": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.45": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.40": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.35": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.30": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        },
+        "0.25": {
+          "pred_tuplets": 134,
+          "pred_notes": 1029,
+          "MeanER": 14.4385
+        }
+      }
+    },
+    {
+      "composer": "Haydn",
+      "piece": "Haydn/Keyboard_Sonatas/31-1",
+      "n_notes": 1609,
+      "gt_tuplets": 860,
+      "gt_notes": 1416,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 711,
+          "pred_notes": 1395,
+          "MeanER": 4.93557
+        },
+        "0.55": {
+          "pred_tuplets": 711,
+          "pred_notes": 1395,
+          "MeanER": 4.91931
+        },
+        "0.50": {
+          "pred_tuplets": 711,
+          "pred_notes": 1395,
+          "MeanER": 4.91931
+        },
+        "0.45": {
+          "pred_tuplets": 711,
+          "pred_notes": 1395,
+          "MeanER": 4.91931
+        },
+        "0.40": {
+          "pred_tuplets": 711,
+          "pred_notes": 1396,
+          "MeanER": 5.0036
+        },
+        "0.35": {
+          "pred_tuplets": 711,
+          "pred_notes": 1397,
+          "MeanER": 5.02978
+        },
+        "0.30": {
+          "pred_tuplets": 711,
+          "pred_notes": 1397,
+          "MeanER": 5.02978
+        },
+        "0.25": {
+          "pred_tuplets": 711,
+          "pred_notes": 1398,
+          "MeanER": 5.1231
+        }
+      }
+    },
+    {
+      "composer": "Brahms",
+      "piece": "Brahms/Six_Pieces_op_118/2",
+      "n_notes": 1667,
+      "gt_tuplets": 154,
+      "gt_notes": 1400,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.55": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.50": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.45": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.40": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.35": {
+          "pred_tuplets": 224,
+          "pred_notes": 1319,
+          "MeanER": 6.62992
+        },
+        "0.30": {
+          "pred_tuplets": 224,
+          "pred_notes": 1320,
+          "MeanER": 6.654
+        },
+        "0.25": {
+          "pred_tuplets": 224,
+          "pred_notes": 1320,
+          "MeanER": 6.654
+        }
+      }
+    },
+    {
+      "composer": "Debussy",
+      "piece": "Debussy/Images_Book_1/1_Reflets_dans_lEau",
+      "n_notes": 2013,
+      "gt_tuplets": 804,
+      "gt_notes": 1661,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 672,
+          "pred_notes": 1465,
+          "MeanER": 12.7349
+        },
+        "0.55": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.50": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.45": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.40": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.35": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.30": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        },
+        "0.25": {
+          "pred_tuplets": 672,
+          "pred_notes": 1466,
+          "MeanER": 12.7193
+        }
+      }
+    },
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 0,
+          "pred_notes": 1880,
+          "MeanER": 5.8641
+        },
+        "0.55": {
+          "pred_tuplets": 0,
+          "pred_notes": 1880,
+          "MeanER": 5.8641
+        },
+        "0.50": {
+          "pred_tuplets": 0,
+          "pred_notes": 1880,
+          "MeanER": 5.8641
+        },
+        "0.45": {
+          "pred_tuplets": 0,
+          "pred_notes": 1881,
+          "MeanER": 5.8641
+        },
+        "0.40": {
+          "pred_tuplets": 0,
+          "pred_notes": 1882,
+          "MeanER": 5.87212
+        },
+        "0.35": {
+          "pred_tuplets": 0,
+          "pred_notes": 1884,
+          "MeanER": 5.86976
+        },
+        "0.30": {
+          "pred_tuplets": 0,
+          "pred_notes": 1884,
+          "MeanER": 5.86976
+        },
+        "0.25": {
+          "pred_tuplets": 0,
+          "pred_notes": 1884,
+          "MeanER": 5.86976
+        }
+      }
+    },
+    {
+      "composer": "Schumann",
+      "piece": "Schumann/Arabeske",
+      "n_notes": 2545,
+      "gt_tuplets": 8,
+      "gt_notes": 2723,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1498
+        },
+        "0.55": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1498
+        },
+        "0.50": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1498
+        },
+        "0.45": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1483
+        },
+        "0.40": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1483
+        },
+        "0.35": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1555
+        },
+        "0.30": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1627
+        },
+        "0.25": {
+          "pred_tuplets": 9,
+          "pred_notes": 2361,
+          "MeanER": 11.1627
+        }
+      }
+    },
+    {
+      "composer": "Beethoven",
+      "piece": "Beethoven/Piano_Sonatas/10-1",
+      "n_notes": 2609,
+      "gt_tuplets": 364,
+      "gt_notes": 2515,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 91,
+          "pred_notes": 2251,
+          "MeanER": 8.75241
+        },
+        "0.55": {
+          "pred_tuplets": 91,
+          "pred_notes": 2254,
+          "MeanER": 8.77646
+        },
+        "0.50": {
+          "pred_tuplets": 91,
+          "pred_notes": 2256,
+          "MeanER": 8.82338
+        },
+        "0.45": {
+          "pred_tuplets": 91,
+          "pred_notes": 2257,
+          "MeanER": 8.83948
+        },
+        "0.40": {
+          "pred_tuplets": 91,
+          "pred_notes": 2259,
+          "MeanER": 8.82111
+        },
+        "0.35": {
+          "pred_tuplets": 91,
+          "pred_notes": 2260,
+          "MeanER": 8.8206
+        },
+        "0.30": {
+          "pred_tuplets": 91,
+          "pred_notes": 2261,
+          "MeanER": 8.77564
+        },
+        "0.25": {
+          "pred_tuplets": 91,
+          "pred_notes": 2262,
+          "MeanER": 8.7318
+        }
+      }
+    },
+    {
+      "composer": "Liszt",
+      "piece": "Liszt/Annees_de_pelerinage_2/1_Gondoliera",
+      "n_notes": 2732,
+      "gt_tuplets": 402,
+      "gt_notes": 1932,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 639,
+          "pred_notes": 1650,
+          "MeanER": 13.6306
+        },
+        "0.55": {
+          "pred_tuplets": 644,
+          "pred_notes": 1656,
+          "MeanER": 13.627
+        },
+        "0.50": {
+          "pred_tuplets": 675,
+          "pred_notes": 1687,
+          "MeanER": 13.2797
+        },
+        "0.45": {
+          "pred_tuplets": 675,
+          "pred_notes": 1688,
+          "MeanER": 13.3039
+        },
+        "0.40": {
+          "pred_tuplets": 676,
+          "pred_notes": 1689,
+          "MeanER": 13.3099
+        },
+        "0.35": {
+          "pred_tuplets": 676,
+          "pred_notes": 1689,
+          "MeanER": 13.3099
+        },
+        "0.30": {
+          "pred_tuplets": 678,
+          "pred_notes": 1694,
+          "MeanER": 13.4009
+        },
+        "0.25": {
+          "pred_tuplets": 678,
+          "pred_notes": 1694,
+          "MeanER": 13.4086
+        }
+      }
+    },
+    {
+      "composer": "Ravel",
+      "piece": "Ravel/Gaspard_de_la_Nuit/1_Ondine",
+      "n_notes": 4323,
+      "gt_tuplets": 1281,
+      "gt_notes": 3749,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 383,
+          "pred_notes": 3219,
+          "MeanER": 21.1607
+        },
+        "0.55": {
+          "pred_tuplets": 384,
+          "pred_notes": 3220,
+          "MeanER": 21.159
+        },
+        "0.50": {
+          "pred_tuplets": 384,
+          "pred_notes": 3248,
+          "MeanER": 20.8016
+        },
+        "0.45": {
+          "pred_tuplets": 384,
+          "pred_notes": 3252,
+          "MeanER": 20.7731
+        },
+        "0.40": {
+          "pred_tuplets": 384,
+          "pred_notes": 3252,
+          "MeanER": 20.7776
+        },
+        "0.35": {
+          "pred_tuplets": 384,
+          "pred_notes": 3252,
+          "MeanER": 20.7916
+        },
+        "0.30": {
+          "pred_tuplets": 384,
+          "pred_notes": 3254,
+          "MeanER": 20.8157
+        },
+        "0.25": {
+          "pred_tuplets": 384,
+          "pred_notes": 3254,
+          "MeanER": 20.8386
+        }
+      }
+    },
+    {
+      "composer": "Prokofiev",
+      "piece": "Prokofiev/Toccata",
+      "n_notes": 4453,
+      "gt_tuplets": 0,
+      "gt_notes": 3257,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 21,
+          "pred_notes": 2988,
+          "MeanER": 9.8101
+        },
+        "0.55": {
+          "pred_tuplets": 21,
+          "pred_notes": 3012,
+          "MeanER": 9.43838
+        },
+        "0.50": {
+          "pred_tuplets": 21,
+          "pred_notes": 3020,
+          "MeanER": 9.32201
+        },
+        "0.45": {
+          "pred_tuplets": 21,
+          "pred_notes": 3020,
+          "MeanER": 9.31643
+        },
+        "0.40": {
+          "pred_tuplets": 21,
+          "pred_notes": 3022,
+          "MeanER": 9.35061
+        },
+        "0.35": {
+          "pred_tuplets": 21,
+          "pred_notes": 3024,
+          "MeanER": 9.37495
+        },
+        "0.30": {
+          "pred_tuplets": 21,
+          "pred_notes": 3025,
+          "MeanER": 9.42667
+        },
+        "0.25": {
+          "pred_tuplets": 21,
+          "pred_notes": 3027,
+          "MeanER": 9.48292
+        }
+      }
+    },
+    {
+      "composer": "Schubert",
+      "piece": "Schubert/Impromptu_op.90_D.899/1",
+      "n_notes": 4850,
+      "gt_tuplets": 1059,
+      "gt_notes": 2514,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 1066,
+          "pred_notes": 2955,
+          "MeanER": 18.3146
+        },
+        "0.55": {
+          "pred_tuplets": 1067,
+          "pred_notes": 2958,
+          "MeanER": 18.3069
+        },
+        "0.50": {
+          "pred_tuplets": 1072,
+          "pred_notes": 2964,
+          "MeanER": 18.3052
+        },
+        "0.45": {
+          "pred_tuplets": 1073,
+          "pred_notes": 2965,
+          "MeanER": 18.3645
+        },
+        "0.40": {
+          "pred_tuplets": 1073,
+          "pred_notes": 2966,
+          "MeanER": 18.3677
+        },
+        "0.35": {
+          "pred_tuplets": 1073,
+          "pred_notes": 2966,
+          "MeanER": 18.3704
+        },
+        "0.30": {
+          "pred_tuplets": 1073,
+          "pred_notes": 2966,
+          "MeanER": 18.3704
+        },
+        "0.25": {
+          "pred_tuplets": 1073,
+          "pred_notes": 2966,
+          "MeanER": 18.367
+        }
+      }
+    },
+    {
+      "composer": "Chopin",
+      "piece": "Chopin/Ballades/1",
+      "n_notes": 4972,
+      "gt_tuplets": 432,
+      "gt_notes": 3842,
+      "per_threshold": {
+        "0.60": {
+          "pred_tuplets": 259,
+          "pred_notes": 3403,
+          "MeanER": 8.86899
+        },
+        "0.55": {
+          "pred_tuplets": 259,
+          "pred_notes": 3403,
+          "MeanER": 8.86899
+        },
+        "0.50": {
+          "pred_tuplets": 260,
+          "pred_notes": 3436,
+          "MeanER": 8.54756
+        },
+        "0.45": {
+          "pred_tuplets": 260,
+          "pred_notes": 3436,
+          "MeanER": 8.55161
+        },
+        "0.40": {
+          "pred_tuplets": 260,
+          "pred_notes": 3436,
+          "MeanER": 8.55991
+        },
+        "0.35": {
+          "pred_tuplets": 260,
+          "pred_notes": 3437,
+          "MeanER": 8.55737
+        },
+        "0.30": {
+          "pred_tuplets": 260,
+          "pred_notes": 3438,
+          "MeanER": 8.55737
+        },
+        "0.25": {
+          "pred_tuplets": 260,
+          "pred_notes": 3439,
+          "MeanER": 8.56142
+        }
+      }
+    }
+  ]
+}

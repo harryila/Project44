@@ -1,0 +1,302 @@
+000000	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/15/Qmbdh8CFKpgrwS5F6cFfJWnGr7CSJ4Akktk4ddKhMJqrJC.mxl
+000002	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/21/QmTgb9HhhuNLdem4DpNiuFuNimhw8A1vrrnEkzUgYt8tnH.mxl
+000031	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/1/QmT2Zvc4xJWkpgQsKn13QDMr5faZCgfC64p6a7mpV6yYUN.mxl
+000039	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/15/23/QmXhcJJQ7Dk1T8D5MP8efYkMm6mxDrjb99ciySSRSbTEcf.mxl
+000044	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/24/QmdHSx47usav5WJgHUzFAGpMHxTei85qaR5Ktdqg6nfV51.mxl
+000046	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/35/Qmao7tURfu3vbJLgRU4HzYTG3ndg9hK8yvJPszowEAJVVA.mxl
+000047	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/11/QmNbzDKaoK7fXCBQATpsHATejN6siUBZtMah9nhz8FwkKL.mxl
+000049	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/51/QmUWQAsui5QwBDU8QNr42BTs1NtnSo6y6tdbjvaeTmYmGy.mxl
+000058	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/12/QmQBqekTkHcA8rxw9W8s3a1q3qza7NZ2GsBjYfPytCteLe.mxl
+000069	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/14/22/QmWGsnzzFL71DkctxgzGAV5KgKiCjQ9ARumMXpaixoDmAv.mxl
+000087	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/38/QmaqmoN9YB53i1oFJpCkkpzTY742R16s2VzgBpY9RGHce3.mxl
+000091	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/57/QmPZYeA6zJ1RciHnQ2rzHAinb5cgGNuawtFuzfsYzU6v1x.mxl
+000134	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/1/Qmb23rF3sGfTFAnWmBR1K3dJkMqmFCQrP13tcWTNY2PiRp.mxl
+000135	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/24/QmWHVh7NYgieoZbCLGzr19yf4dZTCwQtmFfYgrD3uUS3CQ.mxl
+000136	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/18/QmREn5Ez6ELSTEheXPM5A41i9pXgza8JVBhUFrb8pTMU8m.mxl
+000143	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/44/QmRti8rjGj5sxGnfhYMQhXWVtBL1zQ4j2TPjrxEv9VjwpT.mxl
+000144	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/12/QmQB5GvugNsDU7F9JBXWcchTkevFpL2pU1Ld6BdKVmN1Qm.mxl
+000152	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/20/QmRFbWzzRjnkmUSuZKj6VjpNXTa86dCSSHfkB8JoLFRD9B.mxl
+000163	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/53/QmYXsqz8pAoCmfK6GYehYL9w4TJ9bGEm7T4ZnhYDqEj3Yp.mxl
+000170	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/25/QmeiuQJi9oFpg1Dx6v4o2cYVivn2rLVKJxMNNd1rTFEcJZ.mxl
+000176	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/30/QmcLqN3mkoSr3ZHPMPXXDD1YtrzX4axwAXs6EAxopyPXMR.mxl
+000184	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/14/3/QmW43JNBQDMyE5uQbuQHhoMcWhDV3oxy6smsY8Qab73Wox.mxl
+000187	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/37/QmRPY7k78ASwjcrpqt7q9HFS9Z8asCsKPR7bcn78GKzcyq.mxl
+000188	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/13/QmQcFx15qxYfdKnyfSpsAMSmd5ianYMxSkPv1Gukk2L4C8.mxl
+000190	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/29/QmaK4J8zVrPZdfXVZiYzfEZVaK9CfHBMx8mGbadJPe6iLL.mxl
+000192	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/40/QmarPD1V7oGWkDWVBJ18gsoMQ7smfb28nGW9qZuvP5kgeN.mxl
+000193	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/24/QmPHGaVnRpT3xbrYF2N2vkjqSzMF2AyamU9gDQsN8phZxS.mxl
+000195	render:parse: IndexError: attempting to access index -1 while elements is of size 0	/Users/harry/datasets/pdmx/mxl/11/49/QmTVcUQj7CXVQFU4chpZsoAkPghozmvrZ3VJMHBmmjHB6M.mxl
+000196	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/1/QmZ2NJXfm1XHi4MaJPzMj63zXoxozsMXVJihG1QPTcN9aH.mxl
+000197	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/10/QmQAJ9tqqyAycd6ngtYxsYvBYxPZbJYwbn7P3u4gudt5FZ.mxl
+000201	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/31/QmTmpyK8yT8ysmHr9nwtrbHTSDVUXpfPHyPH2ySMCQsuk1.mxl
+000204	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/53/QmbXkwkwn5eV5MvxYUqcDmxynyHUasSJGtWxShsz2Sr6Vf.mxl
+000207	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/2/12/QmcBS68vicQW2qTEikMRgsLnjzKM6eSZddJWj1WwJpphNh.mxl
+000208	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/54/QmeyoU2VeccFZq4vzaGpykDVXMT9hyhmQUrpF19EY7HZb8.mxl
+000210	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/15/QmPdqZDsNygKeTjVp5VdqYVUhsLP4TLhzuJEzjM7UL4QDJ.mxl
+000244	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/8/Qma9LpgkyVQT3QGHbirfiW9G5V1L5iKdj6QeDFVHq9okAH.mxl
+000271	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/37/QmUPaCtDY77NyKwvxbzCjk5C3yGspScG7JXYgSrnEf9aJ5.mxl
+000305	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/28/QmZkUAGYXbvoQPAHCux3JWAzHUWchc1RQN5a1xUT3iWStd.mxl
+000328	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/44/QmatxGAriTvVuaFeCU4uii7hUs7dc8UCPoMf9zmVwc3at4.mxl
+000362	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/18/QmbEV4R28enecAcqpeZKfTDVVhPDyGqpw8U47S35mHPspK.mxl
+000375	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/14/9/QmWaDLkaw33Ce6KWuHPwDAE7fPbTayhN9kHwWp9Kgr71yM.mxl
+000382	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/21/QmZgE12nTQmtbbwavJk8DUfF6fwSJXqeXEEA2fzsvKaBv2.mxl
+000388	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/13/21/QmVg9GgBqKxLAGmCc5EBC7jheaR5orCEQofmYFg3fNsee6.mxl
+000391	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/44/QmQtd5oR9MfkK4Jk5pByNBsFRF4JahCZSahg1J6AHHLaBM.mxl
+000394	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/51/QmYWKeWZXn22mBZu19LHn5tZBVQmPdqsTs4AenPab1uTgb.mxl
+000408	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/1/Qma2kmiYM6Wa8J5whjB8EqcPTiDBPULXNRFk3Uvj5iX5do.mxl
+000412	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/8/QmZ9u6CSoapZz6mf3DikKbYc8WPYabR1fMTgeZoVgrqNCn.mxl
+000422	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/20/QmWFrdBTJUSbbZUpLSk4UdMPjEnM8tqc8QmpFXePQTnHLn.mxl
+000434	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/4/QmU5TvFSchsGPm36AME3TqoPSmDB7WQ3L5BWpARobkia1K.mxl
+000436	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/50/QmQwsDxpo5oPDKycteKCuXikrdpLrjiiDNfxBFVfw53vPo.mxl
+000439	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/46/QmUuXSKuYAQFAwvCyH2LMeJq4Mw79GESktKR1CwJB5axpy.mxl
+000442	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/43/QmeSkDtPdjrTssduo1vgT4tJ4XkxwFeVgir4KAor4rt2aR.mxl
+000448	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/39/QmPQAYcqYygkmvhbcVujNJdGGNdH5Jkt1EXA6YC6xaHm1a.mxl
+000453	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/31/QmamrMSw678V1dV6n1VL4BJ5tWXKeomcs9Rxe9tSzfQvEV.mxl
+000456	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/23/QmahgtAZBHsW53eU836qSBoAkdkntkWMawQGrbpjH4BFgq.mxl
+000459	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/36/QmSpd7VJduCD2SKVix6nracuUbH6gGp6k5XaC4ZrnBgupU.mxl
+000463	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/56/QmUzMgqatNWKKAH3gGsukqZFeKAAMpbvx5nHxxbQSVvuwJ.mxl
+000598	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/57/QmdZ39Ff7BRgC9wF1YB2fZ879wzroQkRSXEeKjGBPwkfiB.mxl
+000642	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/8/Qmb9vx2GqKdECSw6Sckw2pGXHcVUvR8LoA8Xzcip9kHS9u.mxl
+000709	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/41/QmQRXQQGyirQES88KjDfbPidFsPDFCCu25o4qQY6JUWCHG.mxl
+000740	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/48/QmYvc7J5mX8wG3VoQNWRygt82K1bSDVkrHLBGRXqtBq3i8.mxl
+000783	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/45/QmPTr7rg7qzBjUe7NSwM29tyuoKESFhd1L3ps51xMWBzw5.mxl
+000793	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/14/QmTCZSgdVNdhgqMQMCNMoH3Y9FQuigaRcD2D57u6eW3mZK.mxl
+000806	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/34/QmTNtNEbhoDQAyQWphdc1TGY8DNRuLdmWUESnv9hw6EFbR.mxl
+000855	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/48/QmPvoWVxCjUvwH4orome2FGBRZ1bbf3f8yTNGB7v558AE4.mxl
+000861	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/16/QmbDMBRigNKqjFMTJL96L1xs22kGNU648QwD1UjEL5w3LG.mxl
+000872	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/7/QmR83sy9d7azMMSmq4PXHEcE92kyHM67pMhQnnhkysRZHU.mxl
+000895	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/17/QmNepjPcgyTjCZRysxvS2UZDHxrx293gh61L8xPKmcf5RU.mxl
+000910	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/40/QmZrKUCf5inY3TYnm5tX8LHYy4FMZN94ywjM7NrQ6VYNHP.mxl
+000912	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/39/QmRQq6zm4GpVKxwfefj1pudzznrfobTJqb7WZvbZjG6UAj.mxl
+000919	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/43/QmYSBxZTtkCejWsy6ro9u3wu2pMhdxaPSMrEad5ez9tG6r.mxl
+000927	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/12/QmeBnbxChdWn6oUub5TNSJWzNJcyJTsmx2UbCmFVjkbSfE.mxl
+000928	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/23/QmdhCiYDFkcHXSLju51295ejNofaTbA7YRR5JPrEynQ6i5.mxl
+000930	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/6/48/QmNvz484oPxHqxGtFgTf5zizqrWZhRXoStraR6XtBdpugQ.mxl
+000938	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/3/Qmc4zrFwai1fgqD9aKkfxGtv7dAvgyetMif3j2RjtnYrcP.mxl
+000945	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/15/45/QmXThHPW3rTBg4ZtQUtnqYFpiQbGUjKBZyKN5iJf4sFUbc.mxl
+000951	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/0/Qmd1r3VkpGbZRzXbDvC8FwVDkZsenijdYzxjSygNJffx6m.mxl
+000958	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/15/51/QmXWpCwGCMGNz63iBBbZ5f4F6mvGYxvHVwHpirF3G95stt.mxl
+000982	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/56/QmTzB5cucYG7UbYtCA5PxfPv3a6M9ZL1wzDLWHPYZvfCQP.mxl
+001020	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/49/QmeVfH6zWHfnb77E3EykzqwVEmc1w5ntHdD27t6Y6a5A4t.mxl
+001027	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/8/51/QmQWDXjD8CLbtFrev6zf7LJMFdJ35gmaYf2wj5r2Xkz8mY.mxl
+001028	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/43/QmTSfm7RX8b2urLki9kR2DDpyVwPNXg1sv5FqbHn9T6Y5n.mxl
+001034	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/23/QmUhoyBDJvh3hodot9aWHkeNRjW1h3BNEyU8ta1RyZU4MQ.mxl
+001049	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/12/QmcBG2SuLsbNBzvPe4iZS9dsaJ8tmHbb9A2s8D2MhJBaK2.mxl
+001050	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/49/QmYV7mgtmcW1YrtSzjaxdenM3Did2wqcWuJBPTTxb6SsKG.mxl
+001070	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/9/QmSa6dJzD5aKzdfijVdkh1ahwkWehmPFKb1GaeF7jX4nbV.mxl
+001130	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/49/QmPVS4Q9xGT7w83q8R9z41KB1uKFqVBgDhQ81kAhUrxMxd.mxl
+001410	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/41/QmZR6oea65vyq4eWqNL4wS8eEkKDcrfFmqAtLNL4ivQVTg.mxl
+001503	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/56/QmZzWrv8KU7eNWJxAQvx418uWy5Djr58YyQ6afLBdDDdDd.mxl
+001538	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/42/QmNsEp6CcrWFThNokCTPKQndGzeTM2Zu7TQgEtHtncLdxi.mxl
+001539	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/22/QmfGJaw547E9JsThUAbhcjs3HuFhpJVhbNs8FToxqBHmUf.mxl
+001628	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/7/QmW8fc6p3ajg8nZfc7nYoEm6Py2L2gQk1U5VABpaS3ZfK8.mxl
+001675	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/56/QmUzqz37EhctBa6osRmbbLnRZAFP9d1Xo8S5xteGtDUj5Z.mxl
+001764	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/48/QmUv7a2A5EoAU4MkkPw8GffH74vFiwystqUXPvoUKqR1ja.mxl
+001899	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/31/QmTmA4g8o99Msz5nREiNZJv3Cv52Jo3VoXByPQPFAw59U9.mxl
+001910	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/3/QmZ4ZwNXcE2om35Aw1551v4VzZctV7tu1ML6zYHMZSzLZE.mxl
+001914	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/57/QmYZ9A5AoBheJy2WgdkRZDKusT2KeYdNafu3ZvyRBhPUny.mxl
+001933	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/56/QmNzpqqqSWnq5YMAPLFbgW14B3gECVoQeyA5WxW6fTbFtm.mxl
+001978	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/10/QmaADCjw6NxDvBnANRsZTCNAiMqWB1DanaJYXHzeGVRPhH.mxl
+001989	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/21/QmbgyNdPxnThZbyoFEpPEqvVck938TKUH8fR2dFNwD6aWq.mxl
+002016	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/1/Qmb2uQ6i9NNTK8CQVN4kqcjfSQgs3qbhXHWcSY9Qtn2iR4.mxl
+002019	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/2/30/QmcLNWTh1wAM5C8c6hUVFir8bpurfezD2URZbKrH8pZisU.mxl
+002032	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/9/Qmaau6ghHLtpXpKCDh1L3WDWzCa7VfZADkqf6b2yjMPmJq.mxl
+002071	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/11/QmRb7Mjm7z7pHJ8ySSjnPW1sfWCpbMT7qK9LYu8muhV1tf.mxl
+002100	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/6/41/QmNRMeWFRhHKMBCe8QenwTmALbDPkdH8KwfhgXpwUCQE9f.mxl
+002105	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/18/QmbExWdYMgeNiSyisiSwYKUrBaUeqGfdQNhDztWKDdkCto.mxl
+002106	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/34/QmXN7iuLGr6S8UP5FKcYTMx66MZBWfTHxWExd2mh9rDTyC.mxl
+002134	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/16/QmSDzs2eestyStqqunrRJUJxDi3g8i5YpomTrLd1JHpv6K.mxl
+002135	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/6/QmS7Nk2mEaztG16uomhG6iZkrZKNAYXKBkmESqTkth5HnU.mxl
+002139	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/30/QmZLgwnKTHcsb5oh9SeETGETmSw2PHkixr7cDiBPSdXNMv.mxl
+002143	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/49/QmPVbAmJBig7zpHqpNaZ3oCB3UwpwdZ3oa867sY4xbMEqm.mxl
+002153	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/13/QmYcx7aYwnqLQkrpMTTYji7xUJPdvHr5QdaCgrK6APVJ7E.mxl
+002174	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/42/QmasA843jrN9tEHKcNaFZFNBCTR2D1XoAzewTLHwDVxxf1.mxl
+002198	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/54/QmRyJdH8iZDXBxkZEAMLX5XV1Z4f8wS5Mgq3jk9gq1fhER.mxl
+002228	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/2/46/QmcuwE19pkQfgY9N7pACd9SgDKR9KCAhJxD2L3FDyEvU1x.mxl
+002244	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/41/QmYRch5AFwodt425UNMwRq4BZGq2JnUEYV3KfqKXyuqEkc.mxl
+002247	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/32/QmTMMMNjW2fAR6g3NqYYB2ayQbqByY2rHbY7GLxHccM127.mxl
+002269	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/10/QmcA6vT7JzJgEKEVuKM33XQNQrqaA2GN4ZbJZj5RfVcRwv.mxl
+002270	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/39/QmfQBWWHjQd6ma11Vy3zTj9nHLcfP5S8km1sgDL5tNxQmL.mxl
+002271	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/20/QmXFTbUJaFD4wNxgUy8Ee5z7GzizfqzdMqNkfqteG5hiF9.mxl
+002274	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/48/QmbvGTAKEQYw3aEEaFB2bYBv5zLUWkXNeosLNjZJ781saz.mxl
+002276	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/13/0/QmV1ARweiAC8GpYAWaWvrYu7M5QUMGYYiEMGdkxJ85ZNwS.mxl
+002286	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/54/QmZyDCfN5gZDRWxcg6guuMrkhFVr6gF1Fia7VDHVz8RkiR.mxl
+002305	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/12/QmPBT9PYLPgeEPzTwWyeaREPpNxfT7g4nvBXBxb55rSAD3.mxl
+002326	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/6/21/QmNgwJXvh8TrwwSWiwE1ATTk2wCUy92vL6Ft377U3AUuV1.mxl
+002515	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/43/QmRSmsgKK1weetGQSwQu6GPnKe1pBH5URDV3NcxRAgdDaC.mxl
+002567	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/37/QmQP68aYgNC3GJhqTcBqYKnECxU5K9c7uxyhYdgFq6s21A.mxl
+002619	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/20/QmWFBDCBZuSdqgDp1G8mFTe6rdhsj7qizjTWBCCgQRc6f2.mxl
+002637	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/34/QmcNbPJ7PdVDZo38nX6NKZmaKzUHsU2tRVFaTJiN3BULeT.mxl
+002640	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/51/QmfWGk5BhNf4duE3Pc5WwphsAZqsf5KJRPJE3Gtj7JGk98.mxl
+002646	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/8/QmU92GcZvbbnDyth77qEve2LdqhZ4CMEcjwsSdY3enigYc.mxl
+002661	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/2/QmZ3nz7PoEHAxEh5U8vwV5y9ywEALiYHLgxjcFYqguBwn7.mxl
+002674	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/37/QmdPK43pHDRYXkzAZ45fV5yB9nmShMR5pCQzcYTSYvoTqk.mxl
+002675	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/7/Qmd8jatY1qpwWwxU5TEDXML1kJjCWKLFq44FPYk39ztiUa.mxl
+002689	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/11/QmRb8jXcYWP8v7vXpw6We4fXJpCSsKCBey3tcwaHmP5abr.mxl
+002697	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/57/QmTZN7NqurySxSVvyA9NxcJZybuaKAaenXGJEmSCswGAMt.mxl
+002722	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/2/QmY3EodLiG3BApRCiyf6p4a3jPaBRDB3ufL3EEx7Rr1Maw.mxl
+002723	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/52/QmVxsp5DA3xdRwDSys84RTUoNyC877XEsvGeiuE9b1iKsw.mxl
+002731	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/53/QmVXNAaFm5zLWiwvYZCcpQUSUqCd2ArBZ7KaYEfien4y4U.mxl
+002766	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/46/QmPuduNb3spBcWQBWEMchPW6Ps4Yz9195aFRgEm2chAppp.mxl
+002771	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/23/QmZhTH6mS7kANg6qpVSBdNfw9zWq3ZHDfZbfaG2HTzVAj1.mxl
+002777	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/14/QmWCUCPNVT6pSbxguEgjhSwgkEKxjsqznNE3JfvGr5o9qM.mxl
+002797	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/0/QmX1g1mQmvf6EFQX5ZGTFZeP7y8acqRAcdQ9BMwkEJzXLV.mxl
+002830	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/26/Qmdj3GtwS83h9n8c9ut3WZ5CUJGNRuuDJBgEF8UNPevdPK.mxl
+002859	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/27/QmQJ1kCntoxuf4dQe8BL6dhThD775YHhw2STjk8HkCGBrd.mxl
+002863	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/10/QmQAKi5tNZ6Khpr8diDmjuUD41uwYDuBbvaoCvWPjyJjaZ.mxl
+002871	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/37/QmUPzdxNxzAGUA9mi9eE5rJ38chCoJiG5VhtnZiNeESjuC.mxl
+002879	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/28/QmUkNgwqpeNaP7PMg6Bm5vwPJ5zdnEbzHMnQ23YnY3gYkR.mxl
+002944	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/21/QmSggWupxYCPEgP7K2rCNC5ckDaKTYCJnSXgpuVndMVref.mxl
+002950	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/45/QmRTs2Yu9UWmsBFWUKrBtNn57R7VmAF7uoyVRfjCYMjrrP.mxl
+003026	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/35/QmeokWbUHJLwGAD9pxGG8231y7bgbpJA2z5Zvs9SjEZZkJ.mxl
+003041	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/54/QmPyp5uPKuLXRgq6iYbp7vWcHEZiMN8duQjCgZahwkXNV3.mxl
+003068	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/39/QmUQSrfq7WhBpqATjudecs9C3riuMDQCWR6vDgsT6ouT7k.mxl
+003076	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/31/QmdmSav7tQ1DcWY8JSAemweWdaFdGrGmpTV5HWhYhEMnwv.mxl
+003107	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/2/Qme3s8QuiuKHgQZQqBoJK9zwcxJHYQfcvipHFr2h7JNswm.mxl
+003114	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/13/QmRc9goE2GJZtn7hRURHQAktT12tS7qoA1ug5g5AcE1xLj.mxl
+003118	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/41/QmYRjz8My9sQSUJLPoELiGyPMnpoG8rqWYkf9SgU8zCWAs.mxl
+003138	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/50/QmewxKyN6V7tad9m4YurcApKvRfLLcHwgZphLUSAZXt1fu.mxl
+003153	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/53/QmeXRf4ttyXfLyibJ1TGxSrd2zPBry59sJ9FjW6gbpqCPQ.mxl
+003171	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/16/9/QmYaqxVogYJxvzyu426JWP1277QGGbnaPr6mM4vNDqkh9i.mxl
+003173	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/4/QmR5LmGs6wL4m4tMiVNpsfhVKEXGouKR6TUm2F2HdZ9Twx.mxl
+003183	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/9/10/QmRAKih4KdSUa7KcQEFS5w7sXzav57ryLstqjxndL5RgFH.mxl
+003197	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/42/QmZsP4dV6nAnFtSsAtGKgKbRyhLBYbM4kVPZCd67HBWvAb.mxl
+003199	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/11/51/QmTWyYRfP1APhXm5qUJs36a8ajcyA1ZgDsgDBxY3bZNeHe.mxl
+003212	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/24/QmUHSSxRGNUUJUk8mhsfjvncdAwMYfzitMTp7NrJecweZk.mxl
+003213	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/13/QmNc3ryui9ffjYKWwPSJ1oy2GL9gNDERgmfxFYM6mkU9NL.mxl
+003221	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/20/QmaF82NA4FM2bJpSYmhtbUUihQ2gwALNMjcmXLvoUB5n3h.mxl
+003222	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/33/QmbnUEhZvSNhaHb6xFmqDk94y9czZLchqRq9DEUS4z9Jbn.mxl
+003230	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/53/QmPXUzuMXckyyhdHxkBAcnsATKDFBqu7azmv7q44xgasos.mxl
+003238	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/3/QmR4kvV9jggaJyMvrfJVXCMpbhq1GSK8opGssAf56mpkeY.mxl
+003240	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/6/QmZ7ghbTGwxYcQmw32CSrJE3azShQVNprMNDQLvyabkXS3.mxl
+003242	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/8/Qme9bTrEgyJ7m1hQ7DehDpfph4K1H7mb9R6XfK2ve84KvC.mxl
+003243	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/2/Qmd3abHS63xParc16gWmjJiosWoyE1QMRnLnsxok7iLsQW.mxl
+003249	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/34/QmSNxiu82mkwZDQBBdzXvDmoDcyFpUKaNn5PGPFsCoD6mP.mxl
+003271	render:no_notes_in_score	/Users/harry/datasets/pdmx/mxl/12/24/QmUHmJxJ1aMLZzKUQ87wHuusCuUeubjV5fyoGchYwMoUwp.mxl
+003272	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/42/QmPsNqqUekF4ZSFmaQtEBsHUx5caRyqqznz1H36s6rePg6.mxl
+003280	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/4/QmS5dnkAqRWueadnAZMf9dC5KiucemenyTwR1TRNtsa5jM.mxl
+003297	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/11/QmdbyvYtDGded4f4eC4G8JPfJ9Vxtd7pbPmBRBipewVjrW.mxl
+003303	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/0/Qma1wPEPbMLT5M95GTcNuv7L4iyxDku6NKz61TVWj2DUYs.mxl
+003312	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/1/18/QmbESz54GpPafGmCDyi3MQ5XAZhRcWJJAkhAPMbhCJzTAg.mxl
+003350	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/33/QmPnUVHkrLB7o1tUxBw1PKW76Vfo9uQNMaedhiDTRfNbJL.mxl
+003351	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/56/QmYzW2KzjfJQCA8h359cEdRsyUVX86GosYQdgQEibwPcuE.mxl
+003354	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/15/13/QmXcick1sMgDDwSvvhRYBExHBRdDgy4Jvbv6egRks9LkP2.mxl
+003403	render:no_notes_in_score	/Users/harry/datasets/pdmx/mxl/17/26/QmZjLG2t3Mc3tmA71seWzJnFBeonLw1W5YbKUB5jCQ7NVU.mxl
+003452	render:parse: AttributeError: 'PercussionChord' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/45/QmZThiY1YGX62hDEB9mXbasVHyMiSjxJB5htwT2jPH8KWL.mxl
+003459	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/48/QmdvKdjTrn4vYYgUyLLsTMBnWNQJqRCUR29Usm6Y4Vozpw.mxl
+003461	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/4/40/QmerLJkr9Sj6jWmZ5hPbqTgDW1xSRwpcnbKHg9EuPCxfcJ.mxl
+003464	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/6/35/QmNoUKqgJAmgnbmytfgmJYKTTBbzKszMtJSow9C7uKSqEC.mxl
+003479	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/15/9/QmXavbLLiP2Gu5Eixr8m8fRw5aNMsnvJQcHsKhCRZd4dVM.mxl
+003487	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/33/QmRnE6Pa7niHB6j61qE823e6rzQ6tiVn7PF6CRjeTAMfMx.mxl
+003496	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/41/QmPRghDGrSwT9SAtkvozTMu4yYHDSnQCRKEd9uLS57UUWL.mxl
+003498	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/17/25/QmZi7JUwxM78YKf4BuvaHerocUPQmusGmUYZUYLCTsvNoo.mxl
+003499	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/6/42/QmNswWZLeKquajobfpVqGRHs2YQpp8no1TugsgmPWHQnv1.mxl
+003504	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/33/QmWngdKrdjDytE6QH2xRV2DtAMvUDTUnQwjYDZq77XnoAh.mxl
+003505	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/7/QmS8Hqazv4f6gJFSgTyssDTAzt45XMm4QLCE5pJ5VtBcgS.mxl
+003574	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/39/QmTQ9XwtfrTWyJhezwaycMcKPhhcGAu4AnNyGr2X5khWq7.mxl
+003589	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/2/3/Qmc47QHbUxQTjwtM8YERE1NcRNfuRd961evVD3CneFLMCh.mxl
+003626	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/36/QmYpume8T8E9uCiPcHXvsuE7JTYEid3g1p8ZK85wyHtNvQ.mxl
+003659	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/14/5/QmW6oYrt1qqjRbVawZt8XFbh3TS7QQ4TML73xgq9WFQY92.mxl
+003670	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/13/23/QmVhcbD7EuacyUL7nJKUksTqqsSZWuCpJLm2tQdNqYwTwX.mxl
+003673	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/21/QmSgKnij5nifcaAYJDimjRBYhey3rv7jqJx4G46u6ryHG6.mxl
+003699	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/56/QmXzMko8p8poBS8ZLDbvgqLGZdpNb7SLQeSJ8fFFELoQvz.mxl
+003724	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/42/QmXsaMgB58tL36a3BrHLxUXDcZBVCNiUefbY6oEbRkmvvU.mxl
+003802	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/0/QmY1Q4K1ACF1yPbaFEKYJzEgh6cBRMcwHY3WwaBwdtBuRt.mxl
+003809	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/29/QmaKEjcdDmf6A3bfbyD8gAs3Emb2BowhJQ3dvc6VvKca3F.mxl
+003817	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/23/QmXhhnM8GLtsH87KcikgU3C8d6p3L2HFyZ6oYQRqgA2A1K.mxl
+003820	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/0/1/Qma2gdwe2HhovvRk1Zda7wwBV6jz1s4JQm6H8CXqcDjB3L.mxl
+003937	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/12/QmWBpJXBV9YeeUXEsfz5c1akL532fZ9d4aCJ8S6NcMi7Af.mxl
+003943	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/15/QmedYp2KQyAKhUhoR4m12TpoerFooS7MZnC6DnT3bJ5JTX.mxl
+003946	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/55/QmTY8jQQv8jNK362vzB4EJUvS8tg1GQcTgZczVWwgrc1as.mxl
+003959	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/44/QmPtCSEScFt5SLDUVP9WxSDKYffnZwGBTJJurrSYfXX9Ho.mxl
+004011	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/53/QmNX8TFTw1HKXHKZDab3NdzxZ75LqXJat5kpc5kNs7h72N.mxl
+004013	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/52/QmXxUiZswgHa75JNhYskHHWv5FdPP8xVdSM4ZBEYLdwM6g.mxl
+004053	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/25/QmZiFwEYmZxyfuQdNVswSxLUcRJxLyyBy3AWKRMtyrzUoY.mxl
+004054	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/38/QmTqDN9JTqXXoKYX2TXhoLetmeVGK2MX4pE6EQugmaaBZ9.mxl
+004057	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/36/QmXpJJipBiQktKVo2udpaEtrn1GiYyH5d6oaUQh6RHfrn4.mxl
+004081	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/51/QmcWGtY6KWZNdntiGS3PGkyMLUHWRQ59gEbT5GAST9bASS.mxl
+004087	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/50/QmdwQgZGgthwT1r7voESqAyA6VWqZue7LQcbbSnSqkVjrv.mxl
+004116	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/40/QmerYioycxuCNyS5GGKaCPxLe8eVbakYn59Zq9752Skk22.mxl
+004118	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/25/QmaiBh9iRwK6x72x9U7JsMf2fCreBpTKnAMn1XCYFfzcmF.mxl
+004123	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/48/QmVvtpmUD93sfCByHPPdix51kG9Ur7KJJWBXpMPSJNGaSM.mxl
+004129	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/31/QmXmDkYqezPdCJybRDggEV3f61FrNJdpvAZnv9fRmBvNfL.mxl
+004156	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/7/Qma8TDZdP5i24MSXacpuivNvC8PHhHRu8wgite6ofA1PHb.mxl
+004157	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/44/QmQtPswgG5KcAZhciAspCitbhz6jSF21XuKFm8mjX9zt8V.mxl
+004176	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/5/QmW6xQiTiq5myD7GZVJKSAXox45V2QA34gFTL9Bk3Gv7Ep.mxl
+004192	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/23/QmQhrD26fasiNaauXncDcjeZNbrpHywdAiBqAVG8Acr83h.mxl
+004239	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/15/QmVdKGtx6fYQ945TRZAd8WSGeVZdXsTwcdj9Uosp3bsZYw.mxl
+004276	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/16/QmaDsHYKa9YJWqyUxemEYoysgZpy528M8Eu95Grg6Mh3mE.mxl
+004330	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/57/QmZZEGZz4eR7SN72eW1V8iPCT1iDugjGXprnRE1oxnk55m.mxl
+004357	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/57/QmbZaNDzKXjgR2Q5dZ7LnwKMZPcSqAQcoefjjLU9sTYS7M.mxl
+004365	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/40/QmPr9uoisjeEu6tdd4bzUfLLgY5arK3MvgD8EyQbSX7WCP.mxl
+004385	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/43/QmRSyLkovdL26JcAzznEkeweWMzrrWNjs4hCgCQKqcKH93.mxl
+004391	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/16/QmQDBuuetA5K6KzhsVJRTRmGWxu9hmG8FCA4Yp6UoiVPNP.mxl
+004404	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/16/QmQDb5KZ7MLAbeBJFzjN3RCL8c3gYuBoARWnBzeYTC3Tyk.mxl
+004421	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/43/QmWSB8Ayve8casLYaRJrAPUo5erBxaCph9fnVW8NkmHEx1.mxl
+004424	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/34/QmPNEWBL1zh2dThcv7LTwDZ74rxKgedDdCWrrzRcgaKJCb.mxl
+004432	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/44/QmStkdohTFsXbmhP7yZxvZTEb8NjguQfgXmm6zNJiRgTqg.mxl
+004433	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/55/QmSYqpmtFTHppJjbpDvQi4p5z8UdXDugFEaVZAZidW6bA3.mxl
+004448	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/5/QmQ6jbZ8GE18KD5p9h8HdWb5Ej7TVbw3UWQUtMU5kq23EZ.mxl
+004461	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/18/QmVE1DsyebJmduh2bBaC3im73HbFgU9SccPVAAezxsnAx8.mxl
+004499	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/15/QmYdHfHozBfDjLe5cLQevQxCModsP7C9zSkEnfZYcRDvuT.mxl
+004527	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/11/QmXbau9ywwYjpGj12DWVSrd1BYnrQpFMsXT9nDYWv1kpLT.mxl
+004528	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/25/QmXir25YmMw3msQkBqMDMryEXvgqadcmfUW3VUtcjzeJcw.mxl
+004529	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/55/QmXYs2fsU69igGRr7ogAxxVE449gYgnVLvUpJYLzxTxSYF.mxl
+004538	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/14/57/QmWZ5iE6MzKcbXL3rbkECPz8bmgFdn1j4jR84pqBR2E3j8.mxl
+004547	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/53/QmQXcbbQN2NJZLMwn1FJZCL6PwwaZjGP8pPzJLyt59L13o.mxl
+004657	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/37/QmePS1ouKRVV3s5ghsxDD5rcoLNP5e5t1Q5oenz6VV43aj.mxl
+004689	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/10/QmcAn3TfHjvAWjSwHiqgq5rJGoQdz324TAb48PwodTtjrU.mxl
+004694	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/33/QmdnbcuHYipPQcPvNGYFqyyUY5JAwne5sPgk6kGu6NYaSr.mxl
+004695	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/38/QmYqWqatoMzZc5UUQenC1Au14nqyfK8k12FcQ97MVJXci5.mxl
+004699	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/10/55/QmSYS6UrUrqYJ4G65YAJYaY1KEdR3TaPMnySwDVDQ8nM8e.mxl
+004763	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/5/QmV6fGHxSnxddZvVjHGqgpY3ujDb4o9eBmBbeJ4ncL333s.mxl
+004773	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/6/Qmc7a5FFFBWtbycqXN51TXg6DAGGHfCeYcwirkvDtJQcpf.mxl
+004775	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/7/23/QmPhH6S1bp1t536hpxB1jd5mLc91f6wRNY2Mzt6kxdaLeH.mxl
+004841	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/57/QmaZt6saksQtJNt2Npdke5qM5C4RKdZAHgV3gZ4PrJuaRy.mxl
+004887	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/31/QmdmAAPxWUuB88Maa4gtqVHWsfs6UP3zwG86nWmVGW6WFR.mxl
+004888	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/12/QmdBPvbxUXQ9z2yHY58KRDXNikRT2AXwJf3DS3kaKXQsCx.mxl
+004899	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/22/QmeGy3HjfMF8XeiSDCK4yG854UXhoxfZAqc3XwgkgdiZNS.mxl
+004927	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/12/2/QmU3QEUQpppEPLDBvHPmaqZydMiLezSyqAnHTUJqoSGneV.mxl
+004936	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/20/QmbFTwd1HVvGBgkoNVNrpMD2RnToK2PC1811LcTDwzLkXB.mxl
+004941	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/4/Qmd5Xq1Gsne4TBpWKBrg88R2AuXrzoo5chvwCaubHvms1Z.mxl
+004943	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/7/Qmd8tCGJTdcaTaHEJXjybzTZzZRagznDPEY1re459EHJSh.mxl
+004947	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/55/QmRYifER3bRT4Z6ET6h94NoZ2gvkeUDv1EV1pLGoHPwaAJ.mxl
+004957	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/47/QmTUsaBsXmQ6dU65fM3LAAAi96u9eXySBK62tntfVTGxos.mxl
+004960	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/45/QmVTBd2S1oDoWNZpDjk7dTUenwG3NpJorKgFsJWnf6Jnkf.mxl
+005015	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/21/QmcgZo4Ma5L2gYxsuBQtvbcWaPoBTzJb2z62fSENio5XDQ.mxl
+005020	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/10/35/QmSo5AGB9UAeUbZKuHdsV855JwgFRJ5scrui65By1zVik1.mxl
+005024	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/12/42/QmUsWWNtMiVvuk3XgJsRZ1Ttq5UJ4mEpu5cGQECyNjKFg2.mxl
+005030	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/26/QmajiALpkU2oPgkg87Hey8JxKTpby7Ej6QwigLTu8pjfHH.mxl
+005031	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/47/QmaUEXyngr2Mgo6bSpMpj9Dd4JYXnB6ieACMehTtHqYPMK.mxl
+005042	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/15/QmVdfoVSmNsC57Pufc6pofTQN1uPvaYT6fE5UWrjHjZDrG.mxl
+005046	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/6/47/QmNUzxbjUfhh2atWG9NjsmMNV9DUz8KyK13XYh2qCow2hf.mxl
+005047	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/38/QmXq4GDL1S9tiAUQCKooUEXSbcxPRbDC81UGoedQqU4pmz.mxl
+005100	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/1/23/QmbhZ4GpYrFp3dir92NTftcQApa6zsWp4Xibzbh2od5iPL.mxl
+005103	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/21/QmcgYpDx9B74YK1XDXiiCgiabhBfYEUznqQGM9Lfd2U5DQ.mxl
+005107	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/3/14/QmdCgtb2fWR3TBRBj4VC9QfsUd2aemVFq3FVrMZRbaooxc.mxl
+005123	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/43/QmaSNNQX54kSn9YTfSjsF13HrvtTw81XmtYAcM2hW7gFjc.mxl
+005178	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/24/QmQH2VVck5VKET8USKZLLS3BLqLDv9ygcaqSz1eMbU3ckx.mxl
+005187	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/51/QmfW7buooXHwPUVDc5symQngwo3dEihfoJ8jaWm4GtgtuT.mxl
+005265	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/48/QmZvWNqwQCMcGYRSXugbXd2xJLvzM7VkAv3NXpMp57DyuA.mxl
+005289	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/53/QmRXP2gs9SiXo1W5oByXQzFRKjQTUwpriV6ercidpg75C8.mxl
+005313	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/55/QmcYzmyHgmDFeK4K4SHiU3FYnGs8tubh971PhH6S1tq64C.mxl
+005330	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/16/QmYD2rNwTk72iaRScBq6wz3BaAC98gBcbQbUtQe8WP5846.mxl
+005335	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/48/Qmav31M7CFHc5SnwWXqDGPWnuE1mXteXLVkNdsefuq8BVs.mxl
+005354	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/16/31/QmYmPFcxToJKhkTh8Moo3Bw1qJU3cE718F4pP9U8LMDZDe.mxl
+005384	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/31/QmZmST7BLaN7roihcUb51peNLyvrnETrPAneUm4bi4SF4U.mxl
+005386	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/11/44/QmTt5Gpr8Y67ejf5tM1DUBTRZgDN2gkhGtTcyq1BujC3Ry.mxl
+005403	render:parse: AttributeError: 'Unpitched' object has no attribute 'pitch'	/Users/harry/datasets/pdmx/mxl/3/47/QmdUrpW6GYpoTGEbnmhXoHtaED4TQxiRNWEZujUHY5XZuG.mxl
+005415	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/41/QmfRbd5ygo1i9iyYYw2UWkKdkpZdNXrVeBiWYZgDnSdfxF.mxl
+005433	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/48/QmcvsrpWsLVLCziDPRKLMuypnsubYhZfKS9Fo4osww1US1.mxl
+005453	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/4/28/QmekMBMf9Gdo6pKRMZaLLuXR4CDJcF96BTeKruFmkVkTg1.mxl
+005462	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/39/QmfQWWrgD1Szh8LXunEUQ815QvcVYizxBLwa4q7Dz8rqtx.mxl
+005512	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/2/27/QmcJAmU5vEMYS88mdEbVePn9qkxPy1KgWy4HvBxLvfMgUb.mxl
+005515	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/7/48/QmPv8JTRWMCMD9dWNE1vrD6NSxdaDXcsCFZQSHFZ9QAWDf.mxl
+005530	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/9/2/QmR3dwmBhrPVhigUyz2jvSSgwnXPfjqmJjseo2qQb5rGh4.mxl
+005534	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/0/0/Qma1tdUqcc6MHZKdE9KhkEarJ23gY67HWdxd5Q7owdxoUT.mxl
+005535	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/8/31/QmQmNu3iDBtwuMwXUgrrUc6jFUeabePZzVKqVeUiTJNxb2.mxl
+005536	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/17/30/QmZLpj6ARr8uUasJ3EUUktitfS5hsczqH27zerAb4Lx5L4.mxl
+005539	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/13/52/QmVxuwfeau7SVCgHLmVBCgfGw3aBPkphU91GFkwWZRwQnc.mxl
+005542	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/5/43/QmfS1sPuDsXjvb4ubJgFCfugACn9QxSuZw4916QWBKLzoo.mxl
+005544	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/52/QmXxAgQQLjNkZkU6P4kfRqW1JkaFFxpvD8jnky75ANaNzh.mxl
+005546	render:parse: ExpanderException: cannot expand Stream: badly formed repeats or repeat expressions	/Users/harry/datasets/pdmx/mxl/15/2/QmX3FKkzjRBT5XoG5FaQmhZjJaych1n8DAnEtRBCrVm84Q.mxl

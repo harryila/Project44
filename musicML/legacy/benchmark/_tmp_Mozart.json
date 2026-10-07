@@ -1,0 +1,16 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_recipe/ssl_recipe-epoch=12-val/total=0.5194.ckpt",
+  "results": [
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "pred_tuplets": 88,
+      "pred_notes": 1873,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "tuplet_ratio": 2.4444444444444446,
+      "MeanER": 6.5919
+    }
+  ]
+}

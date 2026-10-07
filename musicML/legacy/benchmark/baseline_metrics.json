@@ -1,0 +1,39 @@
+{
+  "TwinkleTwinkle": null,
+  "Op10_No4_CsharpMinor": {
+    "xml": "benchmark/chopin_op10/transformer/xml/Op10_No4_CsharpMinor.musicxml",
+    "ref_ts": "4/4",
+    "ref_measures": 88,
+    "time_sig": "4/4",
+    "time_sig_correct": true,
+    "measures": 82,
+    "measures_err_pct": 6.8,
+    "note_f1": 0.9709,
+    "n_pred_notes": 2201,
+    "n_gt_notes": 2306
+  },
+  "Op25_No11_Aminor": {
+    "xml": "benchmark/chopin_op25/transformer/xml/Op25_No11_Aminor.musicxml",
+    "ref_ts": "4/4",
+    "ref_measures": 102,
+    "time_sig": "4/4",
+    "time_sig_correct": true,
+    "measures": 100,
+    "measures_err_pct": 2.0,
+    "note_f1": 0.9783,
+    "n_pred_notes": 3170,
+    "n_gt_notes": 3241
+  },
+  "Transcendental_No4_Mazeppa": {
+    "xml": "benchmark/liszt_transcendental/transformer/xml/Transcendental_No4_Mazeppa.musicxml",
+    "ref_ts": "4/4",
+    "ref_measures": 167,
+    "time_sig": "3/4",
+    "time_sig_correct": false,
+    "measures": 322,
+    "measures_err_pct": 92.8,
+    "note_f1": 0.9812,
+    "n_pred_notes": 6945,
+    "n_gt_notes": 7158
+  }
+}

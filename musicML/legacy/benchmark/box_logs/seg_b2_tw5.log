@@ -1,0 +1,45 @@
+2026-06-08 23:24:20,713 B2 beat-relative tokenization ENABLED (within-quarter offset + quarter_idx head)
+[mixed] real=822 synth=828 target_real_frac=0.4 samples/epoch=1650
+2026-06-08 23:24:22,618 LR schedule: warmup=400 total_steps=2040 (cosine)
+2026-06-08 23:24:26,463 B2 warm-start: loaded 198/205 params; fresh-init 7 (offset/quarter_idx): ['embeddings_dec.embeddings.offset.weight', 'embeddings_dec.embeddings.quarter_idx.bias', 'embeddings_dec.embeddings.quarter_idx.weight', 'unembeddings_dec.embeddings.offset.bias', 'unembeddings_dec.embeddings.offset.weight', 'unembeddings_dec.embeddings.quarter_idx.bias']
+2026-06-08 23:24:26,484 AUTOREGRESSIVE (causal decoder) from-scratch training ON
+2026-06-08 23:24:26,485 TUPLET-AWARE loss ON: non-dyadic (tuplet) buckets of duration/offset/downbeat upweighted x5.00 in CE (un-collapse the tuplet head)
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-06-08 23:24:27.199951: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-08 23:24:27.200042: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-08 23:24:27.201237: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-08 23:24:27.206221: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-08 23:24:28.268560: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2_tw5 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+┏━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name             ┃ Type            ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ encoder          │ RoFormerModel   │ 13.8 M │ train │     0 │
+│ 1 │ decoder          │ RoFormerModel   │ 18.0 M │ train │     0 │
+│ 2 │ embeddings_enc   │ MIDIEmbeddings  │  278 K │ train │     0 │
+│ 3 │ embeddings_dec   │ MXLEmbeddings   │  247 K │ train │     0 │
+│ 4 │ unembeddings_dec │ MXLUnembeddings │  244 K │ train │     0 │
+│ 5 │ norm             │ LayerNorm       │  1.0 K │ train │     0 │
+└───┴──────────────────┴─────────────────┴────────┴───────┴───────┘
+Trainable params: 32.3 M                                                        
+Non-trainable params: 196 K                                                     
+Total params: 32.5 M                                                            
+Total estimated model params size (MB): 129.995                                 
+Modules in train mode: 206                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+`Trainer.fit` stopped: `max_epochs=40` reached.
+Epoch 39/39 ━━━━━━━━━━━━━━━━━ 52/52 0:00:11 • 0:00:00 5.08it/s v_num: 0.000     
+                                                               train/total:     
+                                                               3.047 val/total: 
+                                                               0.682            
+2026-06-08 23:33:35,747 Stage seg_b2_tw5 best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2_tw5/seg_b2_tw5-epoch=34-val/total=0.6800.ckpt
+Best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2_tw5/seg_b2_tw5-epoch=34-val/total=0.6800.ckpt

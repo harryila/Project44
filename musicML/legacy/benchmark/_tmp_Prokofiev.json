@@ -1,0 +1,16 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_bigc/ssl_bigc-epoch=11-val/total=0.4996.ckpt",
+  "results": [
+    {
+      "composer": "Prokofiev",
+      "piece": "Prokofiev/Toccata",
+      "n_notes": 4453,
+      "pred_tuplets": 4,
+      "pred_notes": 2575,
+      "gt_tuplets": 0,
+      "gt_notes": 3257,
+      "tuplet_ratio": null,
+      "MeanER": 10.5104
+    }
+  ]
+}

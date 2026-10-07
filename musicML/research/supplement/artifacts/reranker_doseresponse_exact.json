@@ -1,0 +1,369 @@
+{
+  "schema_version": 3,
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "topk": 15,
+  "beta_metric": 1.0,
+  "beta_coh": 1.0,
+  "emission_population": "generated notes with pad probability > 0.5",
+  "by_lambda": {
+    "0.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.3743,
+          "onset_err_tuplet": 43.58974358974359,
+          "onset_err_nontuplet": 9.40099833610649,
+          "offset_err_tuplet": 47.43589743589744,
+          "offset_err_nontuplet": 28.286189683860233,
+          "n_tuplet": 78,
+          "n_nontuplet": 1202,
+          "decoded_triplet_rate": 0.0,
+          "n_decoded_triplet": 0,
+          "n_decoded_notes": 1307,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 1.15357,
+            "MissRate": 7.71449,
+            "ExtraRate": 2.0658,
+            "OnsetER": 11.4844,
+            "OffsetER": 29.4531,
+            "MeanER": 10.3743,
+            "VoiceER": 73.9844,
+            "NewMeanER": 20.976,
+            "Pvoi": 37.2753,
+            "Rvoi": 45.0656,
+            "Fvoi": 40.8019,
+            "ScaleErr": 1.23929,
+            "HandER": 62.5
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "offset_err_tuplet": 47.43589743589744,
+        "offset_err_nontuplet": 28.286189683860233,
+        "decoded_triplet_rate": 0.0,
+        "n_decoded_triplet": 0,
+        "n_decoded_notes": 1307,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202
+      }
+    },
+    "1.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.5259,
+          "onset_err_tuplet": 45.45454545454545,
+          "onset_err_nontuplet": 9.333333333333334,
+          "offset_err_tuplet": 49.35064935064935,
+          "offset_err_nontuplet": 28.25,
+          "n_tuplet": 77,
+          "n_nontuplet": 1200,
+          "decoded_triplet_rate": 0.001530221882172915,
+          "n_decoded_triplet": 2,
+          "n_decoded_notes": 1307,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 1.36986,
+            "MissRate": 7.93079,
+            "ExtraRate": 2.29533,
+            "OnsetER": 11.5114,
+            "OffsetER": 29.5223,
+            "MeanER": 10.5259,
+            "VoiceER": 73.7666,
+            "NewMeanER": 21.066,
+            "Pvoi": 37.7927,
+            "Rvoi": 45.9353,
+            "Fvoi": 41.468,
+            "ScaleErr": 1.23698,
+            "HandER": 62.4119
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.5259,
+        "onset_err_tuplet": 45.45454545454545,
+        "onset_err_nontuplet": 9.333333333333334,
+        "offset_err_tuplet": 49.35064935064935,
+        "offset_err_nontuplet": 28.25,
+        "decoded_triplet_rate": 0.001530221882172915,
+        "n_decoded_triplet": 2,
+        "n_decoded_notes": 1307,
+        "n_tuplet": 77,
+        "n_nontuplet": 1200
+      }
+    },
+    "2.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 10.5018,
+          "onset_err_tuplet": 42.857142857142854,
+          "onset_err_nontuplet": 9.40099833610649,
+          "offset_err_tuplet": 49.35064935064935,
+          "offset_err_nontuplet": 28.618968386023294,
+          "n_tuplet": 77,
+          "n_nontuplet": 1202,
+          "decoded_triplet_rate": 0.00382262996941896,
+          "n_decoded_triplet": 5,
+          "n_decoded_notes": 1308,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 1.29776,
+            "MissRate": 7.78659,
+            "ExtraRate": 2.14231,
+            "OnsetER": 11.4152,
+            "OffsetER": 29.8671,
+            "MeanER": 10.5018,
+            "VoiceER": 73.5731,
+            "NewMeanER": 21.0137,
+            "Pvoi": 37.5287,
+            "Rvoi": 45.9811,
+            "Fvoi": 41.3271,
+            "ScaleErr": 1.24019,
+            "HandER": 62.3143
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 10.5018,
+        "onset_err_tuplet": 42.857142857142854,
+        "onset_err_nontuplet": 9.40099833610649,
+        "offset_err_tuplet": 49.35064935064935,
+        "offset_err_nontuplet": 28.618968386023294,
+        "decoded_triplet_rate": 0.00382262996941896,
+        "n_decoded_triplet": 5,
+        "n_decoded_notes": 1308,
+        "n_tuplet": 77,
+        "n_nontuplet": 1202
+      }
+    },
+    "3.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 14.0612,
+          "onset_err_tuplet": 43.58974358974359,
+          "onset_err_nontuplet": 15.864978902953586,
+          "offset_err_tuplet": 58.97435897435897,
+          "offset_err_nontuplet": 36.962025316455694,
+          "n_tuplet": 78,
+          "n_nontuplet": 1185,
+          "decoded_triplet_rate": 0.2143401983218917,
+          "n_decoded_triplet": 281,
+          "n_decoded_notes": 1311,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 1.58616,
+            "MissRate": 8.94016,
+            "ExtraRate": 3.88128,
+            "OnsetER": 17.5772,
+            "OffsetER": 38.3215,
+            "MeanER": 14.0612,
+            "VoiceER": 74.6635,
+            "NewMeanER": 24.1616,
+            "Pvoi": 34.4724,
+            "Rvoi": 41.1812,
+            "Fvoi": 37.5293,
+            "ScaleErr": 1.32214,
+            "HandER": 63.0245
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 14.0612,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 15.864978902953586,
+        "offset_err_tuplet": 58.97435897435897,
+        "offset_err_nontuplet": 36.962025316455694,
+        "decoded_triplet_rate": 0.2143401983218917,
+        "n_decoded_triplet": 281,
+        "n_decoded_notes": 1311,
+        "n_tuplet": 78,
+        "n_nontuplet": 1185
+      }
+    },
+    "4.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 15.6855,
+          "onset_err_tuplet": 50.617283950617285,
+          "onset_err_nontuplet": 24.58053691275168,
+          "offset_err_tuplet": 64.19753086419753,
+          "offset_err_nontuplet": 36.3255033557047,
+          "n_tuplet": 81,
+          "n_nontuplet": 1192,
+          "decoded_triplet_rate": 0.21325209444021326,
+          "n_decoded_triplet": 280,
+          "n_decoded_notes": 1313,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 1.65826,
+            "MissRate": 8.21918,
+            "ExtraRate": 4.21369,
+            "OnsetER": 26.2372,
+            "OffsetER": 38.099,
+            "MeanER": 15.6855,
+            "VoiceER": 77.3763,
+            "NewMeanER": 25.9673,
+            "Pvoi": 34.2358,
+            "Rvoi": 39.9314,
+            "Fvoi": 36.8649,
+            "ScaleErr": 1.29385,
+            "HandER": 62.7651
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 15.6855,
+        "onset_err_tuplet": 50.617283950617285,
+        "onset_err_nontuplet": 24.58053691275168,
+        "offset_err_tuplet": 64.19753086419753,
+        "offset_err_nontuplet": 36.3255033557047,
+        "decoded_triplet_rate": 0.21325209444021326,
+        "n_decoded_triplet": 280,
+        "n_decoded_notes": 1313,
+        "n_tuplet": 81,
+        "n_nontuplet": 1192
+      }
+    },
+    "6.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 19.7788,
+          "onset_err_tuplet": 52.38095238095238,
+          "onset_err_nontuplet": 24.047186932849364,
+          "offset_err_tuplet": 58.333333333333336,
+          "offset_err_nontuplet": 45.6442831215971,
+          "n_tuplet": 84,
+          "n_nontuplet": 1102,
+          "decoded_triplet_rate": 0.4548215641609719,
+          "n_decoded_triplet": 599,
+          "n_decoded_notes": 1317,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 2.25291,
+            "MissRate": 13.8081,
+            "ExtraRate": 10.1515,
+            "OnsetER": 26.1383,
+            "OffsetER": 46.543,
+            "MeanER": 19.7788,
+            "VoiceER": 80.2698,
+            "NewMeanER": 29.8606,
+            "Pvoi": 29.03,
+            "Rvoi": 33.7436,
+            "Fvoi": 31.2099,
+            "ScaleErr": 1.46086,
+            "HandER": 63.575
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 19.7788,
+        "onset_err_tuplet": 52.38095238095238,
+        "onset_err_nontuplet": 24.047186932849364,
+        "offset_err_tuplet": 58.333333333333336,
+        "offset_err_nontuplet": 45.6442831215971,
+        "decoded_triplet_rate": 0.4548215641609719,
+        "n_decoded_triplet": 599,
+        "n_decoded_notes": 1317,
+        "n_tuplet": 84,
+        "n_nontuplet": 1102
+      }
+    },
+    "8.0": {
+      "per_piece": [
+        {
+          "composer": "Scriabin",
+          "piece": "Scriabin/Etudes_op_8/11",
+          "n_notes": 1324,
+          "meaner_overall": 19.9992,
+          "onset_err_tuplet": 43.75,
+          "onset_err_nontuplet": 23.333333333333332,
+          "offset_err_tuplet": 66.25,
+          "offset_err_nontuplet": 47.747747747747745,
+          "n_tuplet": 80,
+          "n_nontuplet": 1110,
+          "decoded_triplet_rate": 0.4919786096256685,
+          "n_decoded_triplet": 644,
+          "n_decoded_notes": 1309,
+          "n_decoded_positions": 1408,
+          "keep_rule": "pad probability > 0.5",
+          "muster": {
+            "PitchER": 2.16606,
+            "MissRate": 14.0794,
+            "ExtraRate": 10.0529,
+            "OnsetER": 24.7059,
+            "OffsetER": 48.9916,
+            "MeanER": 19.9992,
+            "VoiceER": 79.8319,
+            "NewMeanER": 29.9713,
+            "Pvoi": 30.0488,
+            "Rvoi": 35.2385,
+            "Fvoi": 32.4374,
+            "ScaleErr": 1.48761,
+            "HandER": 63.3613
+          },
+          "selfcheck_offset_ok": true
+        }
+      ],
+      "aggregate": {
+        "meaner_overall": 19.9992,
+        "onset_err_tuplet": 43.75,
+        "onset_err_nontuplet": 23.333333333333332,
+        "offset_err_tuplet": 66.25,
+        "offset_err_nontuplet": 47.747747747747745,
+        "decoded_triplet_rate": 0.4919786096256685,
+        "n_decoded_triplet": 644,
+        "n_decoded_notes": 1309,
+        "n_tuplet": 80,
+        "n_nontuplet": 1110
+      }
+    }
+  },
+  "sanity": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "byte_identical": true,
+      "n_base": 1307,
+      "n_rerank0": 1307,
+      "n_diff": 0
+    }
+  },
+  "elapsed_s": 77.3,
+  "generated_utc": "2026-08-23T08:42:14.925545+00:00",
+  "provenance": {
+    "runner_sha256": "266b35a94962695c2b48673c0b4a32c6564eb90d3bdc776db92754b40d7c70af",
+    "checkpoint_sha256": "7b8ec6e3da365b97443fb67a8f0b37d63997e93c152d665d43cb2011245db638",
+    "exact_evaluator_sha256": "01a979984c58423d9a5f59d67d4c88015028e0917dcd9b37f53f455d7762ac10",
+    "precision": "CPU FP32 with autocast disabled"
+  }
+}

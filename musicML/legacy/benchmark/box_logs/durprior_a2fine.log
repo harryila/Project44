@@ -1,0 +1,9 @@
+=== A2 lambda=0.25 ===
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l0.25.json
+=== A2 lambda=0.75 ===
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l0.75.json
+=== A2 lambda=1.5 ===
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l1.5.json
+=== A2 lambda=3.0 ===
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l3.0.json
+GPU0_A2_FINE_DONE

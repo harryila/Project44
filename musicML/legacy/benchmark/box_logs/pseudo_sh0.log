@@ -1,0 +1,12 @@
+shard 0/2: 100 of 200 MAESTRO pieces
+  10/100 ok=10 fail=0
+  20/100 ok=20 fail=0
+  30/100 ok=30 fail=0
+  40/100 ok=40 fail=0
+  50/100 ok=50 fail=0
+  60/100 ok=60 fail=0
+  70/100 ok=70 fail=0
+  80/100 ok=80 fail=0
+  90/100 ok=90 fail=0
+  100/100 ok=100 fail=0
+SHARD 0 DONE ok=100 fail=0

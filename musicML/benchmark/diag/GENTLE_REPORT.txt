@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/root/Music-ML-BayenLab/scripts/compare_eval.py", line 77, in <module>
+    main()
+  File "/root/Music-ML-BayenLab/scripts/compare_eval.py", line 42, in main
+    runs = [load(p) for p in paths]
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Music-ML-BayenLab/scripts/compare_eval.py", line 42, in <listcomp>
+    runs = [load(p) for p in paths]
+            ^^^^^^^
+  File "/root/Music-ML-BayenLab/scripts/compare_eval.py", line 18, in load
+    d = json.load(open(path))
+                  ^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'benchmark/diag/gentle_2e6.json'

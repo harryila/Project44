@@ -1,0 +1,25 @@
+mxl,composer,title,n_notes,containment,matched_eval,is_leak
+./mxl/8/6/QmQ7dQTkFbV7E6hpqVgqDa6SuK6nR7NpXEHQMv61cbcwoc.mxl,Johannes Brahms,Brahms Intermezzo Op. 118 No. 2 (A Major) [unedited],1845,1.0,ASAP:Brahms:../../MIDI2ScoreTransformer/data/asap-dataset/Brahms/Six_Pieces_op_118/2,True
+./mxl/15/19/QmXfsufN6c4bKT27xkebfWYrhuHspwYwV9ysUphZTqppdR.mxl,F. Chopin,Chopin Frédéric Études Op. 10 4. Étude in A minor Paganini,2253,0.9887,BENCH:Chopin_Op10_No4,True
+./mxl/3/37/QmdPjReRn2xf8pU9pyEGDf2k3VqmV7jaQEDAxo2E5rAzKD.mxl,F. Chopin,12 ÉTUDES OP 10 NO 4,2253,0.9887,BENCH:Chopin_Op10_No4,True
+./mxl/4/22/QmeGXMTQpSbJ6jE6ftaE9H18khnx9gf3VqWRREphykRe8V.mxl,Frédéric Chopin,Frédéric Chopin: Étude in C-sharp minor Op.10 No.4 Torrent,2230,0.9614,BENCH:Chopin_Op10_No4,True
+./mxl/10/37/QmSPa6QSmEchfAtyX44R7MiAf9gbhsCuwDVuN44grpx4DB.mxl,S. Rachmaninoff,Rachmaninoff - Prelude op. 23 no. 4 in D major (with fingering pedals and tips),1358,0.9565,ASAP:Rachmaninoff:../../MIDI2ScoreTransformer/data/asap-dataset/Rachmaninoff/Preludes_op_23/4,True
+./mxl/6/17/QmNeV6QdqXjtzYSWPEosSnrGwAwQ9ig3K79XFeiSXtVC8p.mxl,Johann Sebastian Bach 1685 - 1750,Prelude and Fugue 1 - OpenWTC,1405,0.9494,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/6/47/QmNUb9naFC7iTu4pG8qErcXarTucy5V6jiGEWqKvjvBHXP.mxl,J.S. Bach,Fuga 1 in C - Dur BWV 846 J.S Bach,770,0.9418,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/17/28/QmZkzoT5d8K6ccxJsPEQCxG9DaUEnQsdRBP2iPB2aDpBG4.mxl,Johann Sebastian Bach 1685 1750,Prelude and Fugue 1 - OpenWTC,1407,0.9368,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/11/33/QmTn8wTPAeDZgaeisVzWjKYJefMVkmQX1o112sNY51zKho.mxl,Franz Liszt S.162,Liszt Venezia e Napoli I (Revised Version),2678,0.9237,ASAP:Liszt:../../MIDI2ScoreTransformer/data/asap-dataset/Liszt/Annees_de_pelerinage_2/1_Gondoliera,True
+./mxl/12/13/QmUczEbMnSFuuunCn3z6JzLSpZQDeJ1FCpf8yMKVGcETzM.mxl,Bach,Bach: WTC Fugue 1 (BWV 846),797,0.9191,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/2/21/QmcgjQVzWTS3bA51emSjoVANNB8B6uCZ6mQMA5qG7jbKWD.mxl,Frédéric Chopin,Frédéric Chopin: Étude in A minor Op.25 No.11 Winter Wind,3181,0.9136,BENCH:Chopin_Op25_No11,True
+./mxl/11/27/QmTJYYLf7PaqwbZ4h3tQ4eDnGnX9gG1SBDaKjiixKp2gD2.mxl,J. S. Bach,J. S. Bach - Fugue in C Major BWV 846 WTC 1 (real audio),766,0.9064,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/11/10/QmTAKD3Srv4x1ukkkJQDy5nkbpmP7aQKDbn2GoDdff76Hs.mxl,Chopin,Chopin - Ballade no. 1 in G minor Op. 23,5258,0.8919,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/16/5/QmY6GufYLQwCPBNzMQXLJvh392FMu2y1FtH28RqS9CqnZV.mxl,Frédéric Chopin,Chopin - Ballade No. 1 in G Minor - Op. 23,5240,0.8919,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/10/30/QmSLWP7sjUP95JdbSqdx6Beek9TZAbdQmNcdqqqbGYSocj.mxl,F. F. Chopin,Chopin's Ballade No. 1 in G minor,5232,0.8672,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/14/3/QmW4wY8pYo4Bh7pSLjiXUpRQu9URm1dZSRZ47v4ZmHdRyd.mxl,F. F. Chopin,Chopin's Ballade No. 1 in G minor,5232,0.8672,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/13/10/QmVAcwUxZrRgFUMQ5U2fHqSAyq7ywgQm42zgkK3rSQVqjR.mxl,F.Chopin Op.23.,Ballade No.1 (F.Chopin Op.23),5268,0.8621,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/9/48/QmRvks9HDbqarYwbzWSwjUo7M7AsWZgpBik988QLyhGCQ8.mxl,Frédérick Chopin,Chopin Ballade No. 1 (Complete) Piano solo,5259,0.857,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/12/18/QmUEiCWnvL2qgpmz2yQ2AgvmBi9bCE5wYfqGgmfFhXVnjM.mxl,J.S.BACH,Fuga I,786,0.8521,ASAP:Bach:../../MIDI2ScoreTransformer/data/asap-dataset/Bach/Fugue/bwv_846,True
+./mxl/17/6/QmZ7WCre5Zr79gdGfJACdL9AZV76FF8ncqwAvaaBkQBuif.mxl,Franz Schubert Op 90 N 1,Impromptu in C minor n 1 Op. 90 Franz Schubert,4051,0.8475,ASAP:Schubert:../../MIDI2ScoreTransformer/data/asap-dataset/Schubert/Impromptu_op.90_D.899/1,True
+./mxl/3/49/QmdVeJb4QjMx5kcpVHjdd6AQVXwpsMzTUidvPtoo8GfdDn.mxl,Johannes Brahms Op. 118 No. 2,Brahms- Intermezzo Op. 118 No. 2,1775,0.8393,ASAP:Brahms:../../MIDI2ScoreTransformer/data/asap-dataset/Brahms/Six_Pieces_op_118/2,True
+./mxl/9/36/QmRpx65z3gP9ri3AC7KP92SjzqPs3hYxWXLEpsncMgtS9E.mxl,Frederic Chopin,Chopin - Ballade No. 1 in G Minor,5209,0.8232,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,True
+./mxl/4/11/Qmeb3vLkJLD8BwF65dcxmgVy4kpt4Jt4f5b9NVwkySNwbD.mxl,Franz Liszt,Mazeppa from Transcendental Études,7208,0.7818,BENCH:Liszt_Mazeppa,True
+./mxl/11/46/QmTunBoJKMe6y2dmHMEfHWo3EF4rgXV85XHJ64pjKvSrcC.mxl,Frédérick Chopin,Chopin Ballade No. 1 Excerpts from the movie The Pianist (Piano solo),1951,0.3091,ASAP:Chopin:../../MIDI2ScoreTransformer/data/asap-dataset/Chopin/Ballades/1,False

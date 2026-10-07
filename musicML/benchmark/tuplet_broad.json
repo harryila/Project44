@@ -1,0 +1,60 @@
+{
+  "ckpt": "checkpoints/broad_mix/broad_mix-epoch=14-val/total=0.6435.ckpt",
+  "results": [
+    {
+      "composer": "Scriabin",
+      "piece": "Scriabin/Etudes_op_8/11",
+      "n_notes": 1324,
+      "MeanER": 15.4323,
+      "pred_tuplets": 0,
+      "pred_notes": 945,
+      "gt_tuplets": 99,
+      "gt_notes": 1004,
+      "tuplet_ratio": 0.0
+    },
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "MeanER": 7.33077,
+      "pred_tuplets": 0,
+      "pred_notes": 1861,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "tuplet_ratio": 0.0
+    },
+    {
+      "composer": "Liszt",
+      "piece": "Liszt/Annees_de_pelerinage_2/1_Gondoliera",
+      "n_notes": 2732,
+      "MeanER": 24.1684,
+      "pred_tuplets": 198,
+      "pred_notes": 1565,
+      "gt_tuplets": 402,
+      "gt_notes": 1932,
+      "tuplet_ratio": 0.4925373134328358
+    },
+    {
+      "composer": "Ravel",
+      "piece": "Ravel/Gaspard_de_la_Nuit/1_Ondine",
+      "n_notes": 4323,
+      "MeanER": 23.1728,
+      "pred_tuplets": 32,
+      "pred_notes": 3349,
+      "gt_tuplets": 1281,
+      "gt_notes": 3749,
+      "tuplet_ratio": 0.02498048399687744
+    },
+    {
+      "composer": "Prokofiev",
+      "piece": "Prokofiev/Toccata",
+      "n_notes": 4453,
+      "MeanER": 18.9276,
+      "pred_tuplets": 0,
+      "pred_notes": 2532,
+      "gt_tuplets": 0,
+      "gt_notes": 3257,
+      "tuplet_ratio": null
+    }
+  ]
+}

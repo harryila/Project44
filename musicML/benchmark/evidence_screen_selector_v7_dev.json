@@ -1,0 +1,198 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "selector": "top timing-evidence screen, then lowest chunked teacher-forced rhythm loss",
+  "screen_frac": 0.25,
+  "baseline_veto": false,
+  "pieces": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "gt_tuplets": 99,
+      "baseline": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "tpf": 55,
+        "tpf_missed": 21,
+        "tpf_onset": 34,
+        "model_loss": 0.03674056,
+        "loss_parts": {
+          "offset": 0.051854,
+          "duration": 0.16341,
+          "downbeat": 0.014863,
+          "pad": 0.003713
+        },
+        "timing_penalty": 0.326202,
+        "timing_per_group": 0.00283654,
+        "timing_groups": 115,
+        "timing_contra": 10
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.06319122,
+          "loss_parts": {
+            "offset": 0.091052,
+            "duration": 0.272683,
+            "downbeat": 0.042981,
+            "pad": 0.001462
+          },
+          "timing_penalty": 0.408703,
+          "timing_per_group": 0.0038556883484334305,
+          "timing_groups": 106,
+          "timing_contra": 12,
+          "in_timing_screen": false
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.05945373,
+          "loss_parts": {
+            "offset": 0.060053,
+            "duration": 0.226667,
+            "downbeat": 0.073707,
+            "pad": 0.003439
+          },
+          "timing_penalty": 0.406905,
+          "timing_per_group": 0.003912543380266522,
+          "timing_groups": 104,
+          "timing_contra": 9,
+          "in_timing_screen": false
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.05985068,
+          "loss_parts": {
+            "offset": 0.069539,
+            "duration": 0.2454,
+            "downbeat": 0.051833,
+            "pad": 0.004971
+          },
+          "timing_penalty": 0.260395,
+          "timing_per_group": 0.0022841680061456236,
+          "timing_groups": 114,
+          "timing_contra": 8,
+          "in_timing_screen": true
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.05671222,
+          "loss_parts": {
+            "offset": 0.097878,
+            "duration": 0.244764,
+            "downbeat": 0.025898,
+            "pad": 0.002331
+          },
+          "timing_penalty": 0.414965,
+          "timing_per_group": 0.0034871021224262225,
+          "timing_groups": 119,
+          "timing_contra": 11,
+          "in_timing_screen": false
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.05675192,
+          "loss_parts": {
+            "offset": 0.06225,
+            "duration": 0.255554,
+            "downbeat": 0.032645,
+            "pad": 0.005379
+          },
+          "timing_penalty": 0.431089,
+          "timing_per_group": 0.004145086395093338,
+          "timing_groups": 104,
+          "timing_contra": 11,
+          "in_timing_screen": false
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.05655943,
+          "loss_parts": {
+            "offset": 0.078968,
+            "duration": 0.258727,
+            "downbeat": 0.021493,
+            "pad": 0.004334
+          },
+          "timing_penalty": 0.301759,
+          "timing_per_group": 0.003079174125227456,
+          "timing_groups": 98,
+          "timing_contra": 9,
+          "in_timing_screen": false
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.05631281,
+          "loss_parts": {
+            "offset": 0.083051,
+            "duration": 0.245177,
+            "downbeat": 0.024976,
+            "pad": 0.005504
+          },
+          "timing_penalty": 0.36895,
+          "timing_per_group": 0.0035138092543098185,
+          "timing_groups": 105,
+          "timing_contra": 11,
+          "in_timing_screen": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.06207478,
+          "loss_parts": {
+            "offset": 0.099509,
+            "duration": 0.261018,
+            "downbeat": 0.039163,
+            "pad": 0.002198
+          },
+          "timing_penalty": 0.256223,
+          "timing_per_group": 0.0023946092739064026,
+          "timing_groups": 107,
+          "timing_contra": 6,
+          "in_timing_screen": true
+        }
+      ],
+      "timing_screen": [
+        2,
+        7
+      ],
+      "selector_pick": {
+        "selected_baseline": false,
+        "i": 2,
+        "seed": 1002,
+        "model_loss": 0.05985068,
+        "loss_parts": {
+          "offset": 0.069539,
+          "duration": 0.2454,
+          "downbeat": 0.051833,
+          "pad": 0.004971
+        },
+        "timing_penalty": 0.260395,
+        "timing_per_group": 0.0022841680061456236,
+        "timing_groups": 114,
+        "timing_contra": 8,
+        "in_timing_screen": true,
+        "metrics": {
+          "meaner_overall": 10.701,
+          "onset_err_tuplet": 39.53488372093023,
+          "onset_err_nontuplet": 8.60484544695071,
+          "n_tuplet": 86,
+          "n_nontuplet": 1197,
+          "tpf": 47,
+          "tpf_missed": 13,
+          "tpf_onset": 34
+        }
+      },
+      "gate_ok": true
+    }
+  },
+  "elapsed_s": 86.9
+}

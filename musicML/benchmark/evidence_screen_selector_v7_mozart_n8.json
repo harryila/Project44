@@ -1,0 +1,198 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "selector": "top timing-evidence screen, then lowest chunked teacher-forced rhythm loss",
+  "screen_frac": 0.25,
+  "baseline_veto": false,
+  "pieces": {
+    "Mozart/Mozart/Piano_Sonatas/12-1": {
+      "gt_tuplets": 36,
+      "baseline": {
+        "meaner_overall": 5.8641,
+        "onset_err_tuplet": 25.0,
+        "onset_err_nontuplet": 4.991610738255034,
+        "n_tuplet": 28,
+        "n_nontuplet": 2384,
+        "tpf": 15,
+        "tpf_missed": 8,
+        "tpf_onset": 7,
+        "model_loss": 0.02428724,
+        "loss_parts": {
+          "offset": 0.026222,
+          "duration": 0.08841,
+          "downbeat": 0.022924,
+          "pad": 0.005112
+        },
+        "timing_penalty": 0.131179,
+        "timing_per_group": 0.00058562,
+        "timing_groups": 224,
+        "timing_contra": 3
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.03311452,
+          "loss_parts": {
+            "offset": 0.047245,
+            "duration": 0.134494,
+            "downbeat": 0.021812,
+            "pad": 0.003689
+          },
+          "timing_penalty": 0.339458,
+          "timing_per_group": 0.0014568993025117331,
+          "timing_groups": 233,
+          "timing_contra": 8,
+          "in_timing_screen": false
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.03156085,
+          "loss_parts": {
+            "offset": 0.059531,
+            "duration": 0.117991,
+            "downbeat": 0.013975,
+            "pad": 0.005673
+          },
+          "timing_penalty": 0.149346,
+          "timing_per_group": 0.0007698254920921411,
+          "timing_groups": 194,
+          "timing_contra": 4,
+          "in_timing_screen": true
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.03149435,
+          "loss_parts": {
+            "offset": 0.043419,
+            "duration": 0.121882,
+            "downbeat": 0.023785,
+            "pad": 0.00448
+          },
+          "timing_penalty": 0.186022,
+          "timing_per_group": 0.0008194790640734295,
+          "timing_groups": 227,
+          "timing_contra": 4,
+          "in_timing_screen": false
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.03216122,
+          "loss_parts": {
+            "offset": 0.056721,
+            "duration": 0.111968,
+            "downbeat": 0.030055,
+            "pad": 0.002922
+          },
+          "timing_penalty": 0.352318,
+          "timing_per_group": 0.0016014454558550266,
+          "timing_groups": 220,
+          "timing_contra": 8,
+          "in_timing_screen": false
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.03674278,
+          "loss_parts": {
+            "offset": 0.05642,
+            "duration": 0.121167,
+            "downbeat": 0.037595,
+            "pad": 0.006155
+          },
+          "timing_penalty": 0.332803,
+          "timing_per_group": 0.0015479199066864991,
+          "timing_groups": 215,
+          "timing_contra": 7,
+          "in_timing_screen": false
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.02984574,
+          "loss_parts": {
+            "offset": 0.043887,
+            "duration": 0.128209,
+            "downbeat": 0.009599,
+            "pad": 0.004925
+          },
+          "timing_penalty": 0.086285,
+          "timing_per_group": 0.0003767919006509146,
+          "timing_groups": 229,
+          "timing_contra": 3,
+          "in_timing_screen": true
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.03803267,
+          "loss_parts": {
+            "offset": 0.063665,
+            "duration": 0.138492,
+            "downbeat": 0.028667,
+            "pad": 0.005233
+          },
+          "timing_penalty": 0.445483,
+          "timing_per_group": 0.0019538740293135273,
+          "timing_groups": 228,
+          "timing_contra": 13,
+          "in_timing_screen": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.03244043,
+          "loss_parts": {
+            "offset": 0.044465,
+            "duration": 0.112991,
+            "downbeat": 0.036516,
+            "pad": 0.003639
+          },
+          "timing_penalty": 0.154472,
+          "timing_per_group": 0.0008581771784431656,
+          "timing_groups": 180,
+          "timing_contra": 4,
+          "in_timing_screen": false
+        }
+      ],
+      "timing_screen": [
+        5,
+        1
+      ],
+      "selector_pick": {
+        "selected_baseline": false,
+        "i": 5,
+        "seed": 1005,
+        "model_loss": 0.02984574,
+        "loss_parts": {
+          "offset": 0.043887,
+          "duration": 0.128209,
+          "downbeat": 0.009599,
+          "pad": 0.004925
+        },
+        "timing_penalty": 0.086285,
+        "timing_per_group": 0.0003767919006509146,
+        "timing_groups": 229,
+        "timing_contra": 3,
+        "in_timing_screen": true,
+        "metrics": {
+          "meaner_overall": 6.12243,
+          "onset_err_tuplet": 16.129032258064516,
+          "onset_err_nontuplet": 6.176470588235294,
+          "n_tuplet": 31,
+          "n_nontuplet": 2380,
+          "tpf": 10,
+          "tpf_missed": 5,
+          "tpf_onset": 5
+        }
+      },
+      "gate_ok": true
+    }
+  },
+  "elapsed_s": 194.2
+}

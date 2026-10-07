@@ -1,0 +1,70 @@
+2026-06-08 20:30:23,659 B2 beat-relative tokenization ENABLED (within-quarter offset + quarter_idx head)
+[mixed] real=822 synth=828 target_real_frac=0.4 samples/epoch=1650
+2026-06-08 20:30:25,499 LR schedule: warmup=400 total_steps=2040 (cosine)
+2026-06-08 20:30:29,276 B2 warm-start: loaded 198/205 params; fresh-init 7 (offset/quarter_idx): ['embeddings_dec.embeddings.offset.weight', 'embeddings_dec.embeddings.quarter_idx.bias', 'embeddings_dec.embeddings.quarter_idx.weight', 'unembeddings_dec.embeddings.offset.bias', 'unembeddings_dec.embeddings.offset.weight', 'unembeddings_dec.embeddings.quarter_idx.bias']
+2026-06-08 20:30:29,295 AUTOREGRESSIVE (causal decoder) from-scratch training ON
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-06-08 20:30:30.047348: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-08 20:30:30.047442: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-08 20:30:30.048853: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-08 20:30:30.054648: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-08 20:30:31.088876: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+┏━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name             ┃ Type            ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ encoder          │ RoFormerModel   │ 13.8 M │ train │     0 │
+│ 1 │ decoder          │ RoFormerModel   │ 18.0 M │ train │     0 │
+│ 2 │ embeddings_enc   │ MIDIEmbeddings  │  278 K │ train │     0 │
+│ 3 │ embeddings_dec   │ MXLEmbeddings   │  247 K │ train │     0 │
+│ 4 │ unembeddings_dec │ MXLUnembeddings │  244 K │ train │     0 │
+│ 5 │ norm             │ LayerNorm       │  1.0 K │ train │     0 │
+└───┴──────────────────┴─────────────────┴────────┴───────┴───────┘
+Trainable params: 32.3 M                                                        
+Non-trainable params: 196 K                                                     
+Total params: 32.5 M                                                            
+Total estimated model params size (MB): 129.995                                 
+Modules in train mode: 206                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (20, 58.5-60.0, F#4, start) → (21, 60.5-60.75, F#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (3, 11.0-12.0, D-4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (20, 37.875-38.0, C5, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (12, 45.0-46.0, D-4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (2, 5.0-6.0, D-4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (21, 31.25-31.5, G3, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (27, 78.5-79.0, E-3, None) → (28, 79.5-79.75, E-3, stop), ignoring9.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (18, 215/3-145/2, F5, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (17, 68.0-70.0, A-4, start) → (20, 76.5-78.5, A-4, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (22, 81.5-82.5, C5, start) → (24, 85.5-86.5, C5, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 87.5-88.5, G-5, start) → (26, 1063/12-266/3, F#5, None), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (26, 90.0-90.5, B4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (26, 1079/12-90, F#5, None) → (27, 90.5-91.5, G-5, stop), ignoring9.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+`Trainer.fit` stopped: `max_epochs=40` reached.
+Epoch 39/39 ━━━━━━━━━━━━━━━━━ 52/52 0:00:10 • 0:00:00 5.18it/s v_num: 0.000     
+                                                               train/total:     
+                                                               4.796 val/total: 
+                                                               0.723            
+2026-06-08 20:39:45,418 Stage seg_b2 best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2/seg_b2-epoch=38-val/total=0.7226.ckpt
+Best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/seg_b2/seg_b2-epoch=38-val/total=0.7226.ckpt

@@ -1,0 +1,171 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "streams": [
+    "offset",
+    "duration"
+  ],
+  "pieces": {
+    "Scriabin/Scriabin/Etudes_op_8/11": {
+      "baseline": {
+        "meaner_overall": 10.3743,
+        "onset_err_tuplet": 43.58974358974359,
+        "onset_err_nontuplet": 9.40099833610649,
+        "n_tuplet": 78,
+        "n_nontuplet": 1202,
+        "verifier": 0.0,
+        "n": 1408,
+        "v1": 0,
+        "v2": 0,
+        "trip_onset_rate": 0.0
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "verifier": 0.001065340909090909,
+          "n": 1408,
+          "v1": 1,
+          "v2": 1,
+          "trip_onset_rate": 0.002130681818181818,
+          "meaner_overall": 12.9253,
+          "onset_err_tuplet": 47.5,
+          "onset_err_nontuplet": 10.051993067590988,
+          "n_tuplet": 80,
+          "n_nontuplet": 1154
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "verifier": 0.001065340909090909,
+          "n": 1408,
+          "v1": 0,
+          "v2": 3,
+          "trip_onset_rate": 0.002130681818181818,
+          "meaner_overall": 12.2277,
+          "onset_err_tuplet": 50.68493150684932,
+          "onset_err_nontuplet": 10.450297366185216,
+          "n_tuplet": 73,
+          "n_nontuplet": 1177
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "verifier": 0.0035511363636363635,
+          "n": 1408,
+          "v1": 3,
+          "v2": 4,
+          "trip_onset_rate": 0.002130681818181818,
+          "meaner_overall": 10.701,
+          "onset_err_tuplet": 39.53488372093023,
+          "onset_err_nontuplet": 8.60484544695071,
+          "n_tuplet": 86,
+          "n_nontuplet": 1197
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "verifier": 0.001065340909090909,
+          "n": 1408,
+          "v1": 0,
+          "v2": 3,
+          "trip_onset_rate": 0.005681818181818182,
+          "meaner_overall": 11.3123,
+          "onset_err_tuplet": 43.90243902439025,
+          "onset_err_nontuplet": 9.825145711906744,
+          "n_tuplet": 82,
+          "n_nontuplet": 1201
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "verifier": 0.0024857954545454545,
+          "n": 1408,
+          "v1": 1,
+          "v2": 5,
+          "trip_onset_rate": 0.006392045454545455,
+          "meaner_overall": 10.5255,
+          "onset_err_tuplet": 52.5,
+          "onset_err_nontuplet": 7.11892797319933,
+          "n_tuplet": 80,
+          "n_nontuplet": 1194
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "verifier": 0.0,
+          "n": 1408,
+          "v1": 0,
+          "v2": 0,
+          "trip_onset_rate": 0.0,
+          "meaner_overall": 11.891,
+          "onset_err_tuplet": 51.25,
+          "onset_err_nontuplet": 9.974424552429667,
+          "n_tuplet": 80,
+          "n_nontuplet": 1173
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "verifier": 0.00390625,
+          "n": 1408,
+          "v1": 2,
+          "v2": 7,
+          "trip_onset_rate": 0.005681818181818182,
+          "meaner_overall": 11.909,
+          "onset_err_tuplet": 43.421052631578945,
+          "onset_err_nontuplet": 9.268707482993197,
+          "n_tuplet": 76,
+          "n_nontuplet": 1176
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "verifier": 0.0,
+          "n": 1408,
+          "v1": 0,
+          "v2": 0,
+          "trip_onset_rate": 0.0,
+          "meaner_overall": 11.8423,
+          "onset_err_tuplet": 42.16867469879518,
+          "onset_err_nontuplet": 10.687022900763358,
+          "n_tuplet": 83,
+          "n_nontuplet": 1179
+        }
+      ],
+      "verifier_pick": {
+        "i": 5,
+        "seed": 1005,
+        "verifier": 0.0,
+        "n": 1408,
+        "v1": 0,
+        "v2": 0,
+        "trip_onset_rate": 0.0,
+        "meaner_overall": 11.891,
+        "onset_err_tuplet": 51.25,
+        "onset_err_nontuplet": 9.974424552429667,
+        "n_tuplet": 80,
+        "n_nontuplet": 1173
+      },
+      "oracle_pick": {
+        "i": 4,
+        "seed": 1004,
+        "verifier": 0.0024857954545454545,
+        "n": 1408,
+        "v1": 1,
+        "v2": 5,
+        "trip_onset_rate": 0.006392045454545455,
+        "meaner_overall": 10.5255,
+        "onset_err_tuplet": 52.5,
+        "onset_err_nontuplet": 7.11892797319933,
+        "n_tuplet": 80,
+        "n_nontuplet": 1194
+      },
+      "mean_candidate_meaner": 11.6667625,
+      "argmax_seed_invariant": true
+    }
+  },
+  "elapsed_s": 156.6
+}

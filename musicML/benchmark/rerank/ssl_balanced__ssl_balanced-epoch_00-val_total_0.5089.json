@@ -1,0 +1,204 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/ssl_balanced-epoch=00-val/total=0.5089.ckpt",
+  "thresholds": [
+    0.5
+  ],
+  "results": [
+    {
+      "composer": "Bach",
+      "piece": "Bach/Fugue/bwv_846",
+      "n_notes": 754,
+      "gt_tuplets": 0,
+      "gt_notes": 796,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 441,
+          "pred_notes": 652,
+          "MeanER": 15.0019
+        }
+      }
+    },
+    {
+      "composer": "Scriabin",
+      "piece": "Scriabin/Etudes_op_8/11",
+      "n_notes": 1324,
+      "gt_tuplets": 99,
+      "gt_notes": 1004,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 0,
+          "pred_notes": 978,
+          "MeanER": 13.0409
+        }
+      }
+    },
+    {
+      "composer": "Rachmaninoff",
+      "piece": "Rachmaninoff/Preludes_op_23/4",
+      "n_notes": 1344,
+      "gt_tuplets": 641,
+      "gt_notes": 1019,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 985,
+          "pred_notes": 1037,
+          "MeanER": 18.2306
+        }
+      }
+    },
+    {
+      "composer": "Haydn",
+      "piece": "Haydn/Keyboard_Sonatas/31-1",
+      "n_notes": 1609,
+      "gt_tuplets": 860,
+      "gt_notes": 1416,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 266,
+          "pred_notes": 1391,
+          "MeanER": 10.9402
+        }
+      }
+    },
+    {
+      "composer": "Brahms",
+      "piece": "Brahms/Six_Pieces_op_118/2",
+      "n_notes": 1667,
+      "gt_tuplets": 154,
+      "gt_notes": 1400,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 1166,
+          "pred_notes": 1290,
+          "MeanER": 14.3298
+        }
+      }
+    },
+    {
+      "composer": "Debussy",
+      "piece": "Debussy/Images_Book_1/1_Reflets_dans_lEau",
+      "n_notes": 2013,
+      "gt_tuplets": 804,
+      "gt_notes": 1661,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 1386,
+          "pred_notes": 1470,
+          "MeanER": 13.1442
+        }
+      }
+    },
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 738,
+          "pred_notes": 1861,
+          "MeanER": 8.36237
+        }
+      }
+    },
+    {
+      "composer": "Schumann",
+      "piece": "Schumann/Arabeske",
+      "n_notes": 2545,
+      "gt_tuplets": 8,
+      "gt_notes": 2723,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 1652,
+          "pred_notes": 1980,
+          "MeanER": 22.2625
+        }
+      }
+    },
+    {
+      "composer": "Beethoven",
+      "piece": "Beethoven/Piano_Sonatas/10-1",
+      "n_notes": 2609,
+      "gt_tuplets": 364,
+      "gt_notes": 2515,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 1798,
+          "pred_notes": 2184,
+          "MeanER": 14.7818
+        }
+      }
+    },
+    {
+      "composer": "Liszt",
+      "piece": "Liszt/Annees_de_pelerinage_2/1_Gondoliera",
+      "n_notes": 2732,
+      "gt_tuplets": 402,
+      "gt_notes": 1932,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 1065,
+          "pred_notes": 1220,
+          "MeanER": 20.1053
+        }
+      }
+    },
+    {
+      "composer": "Ravel",
+      "piece": "Ravel/Gaspard_de_la_Nuit/1_Ondine",
+      "n_notes": 4323,
+      "gt_tuplets": 1281,
+      "gt_notes": 3749,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 3287,
+          "pred_notes": 3452,
+          "MeanER": 22.8624
+        }
+      }
+    },
+    {
+      "composer": "Prokofiev",
+      "piece": "Prokofiev/Toccata",
+      "n_notes": 4453,
+      "gt_tuplets": 0,
+      "gt_notes": 3257,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 2519,
+          "pred_notes": 2554,
+          "MeanER": 12.1828
+        }
+      }
+    },
+    {
+      "composer": "Schubert",
+      "piece": "Schubert/Impromptu_op.90_D.899/1",
+      "n_notes": 4850,
+      "gt_tuplets": 1059,
+      "gt_notes": 2514,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 2562,
+          "pred_notes": 3069,
+          "MeanER": 20.5717
+        }
+      }
+    },
+    {
+      "composer": "Chopin",
+      "piece": "Chopin/Ballades/1",
+      "n_notes": 4972,
+      "gt_tuplets": 432,
+      "gt_notes": 3842,
+      "per_threshold": {
+        "0.50": {
+          "pred_tuplets": 2649,
+          "pred_notes": 3401,
+          "MeanER": 18.1936
+        }
+      }
+    }
+  ]
+}

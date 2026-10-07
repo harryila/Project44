@@ -1,0 +1,89 @@
+# Virtual environments
+venv/
+venv311/
+venv_mt3/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+
+# Model weights: never in git (scripts/fetch_assets.sh quickstart)
+*.ckpt
+*.pth
+*.safetensors
+*.pt
+!data/duration_priors.pt
+!data/offset_phase_prior.pt
+MIDI2ScoreTransformer/checkpoints/
+checkpoints_backup/**/*.ckpt
+mt3/checkpoints/
+hFT-Transformer/checkpoint/
+wandb/
+# (checkpoints_backup/**/lightning_logs holds hparams.yaml and metrics.csv training records: kept)
+
+# Regenerable outputs (midi/ holds a few tracked demo transcriptions and stays)
+/outputs/
+/logs/
+*.pre.wav
+*.log
+!legacy/benchmark/box_logs/*.log
+!data/pairs_april_errors.log
+!benchmark/diag/*.log
+!benchmark/tier1_baseline.log
+!benchmark/tier2_baseline.log
+nohup.out
+*.pid
+
+# Benchmark: MAESTRO audio and MIDI (scripts/fetch_assets.sh quickstart), scratch dirs
+benchmark/*/audio/*.wav
+benchmark/*/midi/*.midi
+benchmark/*_work*/
+!benchmark/rerank_work/
+benchmark/*_out/
+!benchmark/tier2_out/
+benchmark/pretrain_eval/
+
+# Data corpora and caches (scripts/fetch_assets.sh data, or rebuild from PDMX)
+data/pairs*/
+data/cache_*/
+data/render_test/
+data/pdmx_piano_subset.csv
+data/pdmx_piano_subset.deduped.csv
+legacy/data/pairs/
+legacy/data/cache_pdmx/
+legacy/data/render_test/
+MIDI2ScoreTransformer/data/cache/
+MIDI2ScoreTransformer/data/asap-dataset/
+
+# Downloaded assets staging
+assets/_downloads/
+
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.toc
+*.vrb
+*.xdv
+*.synctex.gz
+
+# Editor and agent state
+.DS_Store
+.cursor/
+.claude/
+.vscode/
+.idea/

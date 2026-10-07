@@ -1,0 +1,60 @@
+{
+  "ckpt": "checkpoints/ar_full2/ar_full2-epoch=02-val/total=1.4901.ckpt",
+  "results": [
+    {
+      "composer": "Bach",
+      "piece": "Bach/Fugue/bwv_846",
+      "n_notes": 754,
+      "MeanER": 42.9608,
+      "pred_tuplets": 0,
+      "pred_notes": 703,
+      "gt_tuplets": 0,
+      "gt_notes": 796,
+      "tuplet_ratio": null
+    },
+    {
+      "composer": "Scriabin",
+      "piece": "Scriabin/Etudes_op_8/11",
+      "n_notes": 1324,
+      "MeanER": 49.8313,
+      "pred_tuplets": 0,
+      "pred_notes": 1094,
+      "gt_tuplets": 99,
+      "gt_notes": 1004,
+      "tuplet_ratio": 0.0
+    },
+    {
+      "composer": "Mozart",
+      "piece": "Mozart/Piano_Sonatas/12-1",
+      "n_notes": 2501,
+      "MeanER": 43.9063,
+      "pred_tuplets": 0,
+      "pred_notes": 590,
+      "gt_tuplets": 36,
+      "gt_notes": 1919,
+      "tuplet_ratio": 0.0
+    },
+    {
+      "composer": "Ravel",
+      "piece": "Ravel/Gaspard_de_la_Nuit/1_Ondine",
+      "n_notes": 4323,
+      "MeanER": 53.1395,
+      "pred_tuplets": 0,
+      "pred_notes": 1361,
+      "gt_tuplets": 1281,
+      "gt_notes": 3749,
+      "tuplet_ratio": 0.0
+    },
+    {
+      "composer": "Prokofiev",
+      "piece": "Prokofiev/Toccata",
+      "n_notes": 4453,
+      "MeanER": 38.5158,
+      "pred_tuplets": 0,
+      "pred_notes": 599,
+      "gt_tuplets": 0,
+      "gt_notes": 3257,
+      "tuplet_ratio": null
+    }
+  ]
+}

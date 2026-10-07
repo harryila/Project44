@@ -1,0 +1,49 @@
+CKPT=/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_tuplet20/last.ckpt  PRIORS=/root/Music-ML-BayenLab/data/duration_priors.pt  configs=10
+=== tau=0 lambda=0 -> benchmark/durprior_tuplet20/t0_l0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l0.json
+=== tau=0.5 lambda=0 -> benchmark/durprior_tuplet20/t0.5_l0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0.5_l0.json
+=== tau=1.0 lambda=0 -> benchmark/durprior_tuplet20/t1.0_l0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t1.0_l0.json
+=== tau=1.5 lambda=0 -> benchmark/durprior_tuplet20/t1.5_l0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t1.5_l0.json
+=== tau=2.0 lambda=0 -> benchmark/durprior_tuplet20/t2.0_l0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t2.0_l0.json
+=== tau=0 lambda=0.5 -> benchmark/durprior_tuplet20/t0_l0.5.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l0.5.json
+=== tau=0 lambda=1.0 -> benchmark/durprior_tuplet20/t0_l1.0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l1.0.json
+=== tau=0 lambda=2.0 -> benchmark/durprior_tuplet20/t0_l2.0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t0_l2.0.json
+=== tau=1.0 lambda=1.0 -> benchmark/durprior_tuplet20/t1.0_l1.0.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t1.0_l1.0.json
+=== tau=1.5 lambda=0.5 -> benchmark/durprior_tuplet20/t1.5_l0.5.json ===
+
+Wrote /root/Music-ML-BayenLab/benchmark/durprior_tuplet20/t1.5_l0.5.json
+
+=== SUMMARY (corpus-mean MeanER @0.50, lower better; baseline=tau0/lam0) ===
+MeanER   n   pred_tup gt_tup config
+11.456   14  902      6140   t0_l0.75  <-- beats 11.87
+11.544   14  121      6140   t0_l0.25  <-- beats 11.87
+11.637   14  823      6140   t0_l0.5  <-- beats 11.87
+11.676   14  2954     6140   t0_l0  <-- beats 11.87
+11.810   14  216      6140   t0_l1.0  <-- beats 11.87
+11.951   14  1153     6140   t1.0_l1.0
+12.281   14  42       6140   t0_l2.0
+12.733   14  159      6140   t0_l1.5
+13.027   14  2        6140   t0_l3.0
+13.909   14  6395     6140   t0.5_l0
+31.072   14  25926    6140   t1.5_l0.5
+32.956   14  25402    6140   t1.0_l0
+38.134   13  26764    6140   t1.5_l0
+42.347   13  27953    6140   t2.0_l0
+JSON in benchmark/durprior_tuplet20/

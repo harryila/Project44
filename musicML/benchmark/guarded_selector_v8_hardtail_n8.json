@@ -1,0 +1,467 @@
+{
+  "ckpt": "checkpoints/MIDI2ScoreTF.ckpt",
+  "n": 8,
+  "topk": 15,
+  "temp": 0.7,
+  "selector": "baseline competes; timing-improving, coverage-safe, model-safe donors only",
+  "screen_frac": 0.5,
+  "max_keep_delta_frac": 0.03,
+  "max_model_delta": 0.03,
+  "pieces": {
+    "Liszt/Liszt/Annees_de_pelerinage_2/1_Gondoliera": {
+      "gt_tuplets": 404,
+      "baseline": {
+        "meaner_overall": 13.1445,
+        "onset_err_tuplet": 43.83116883116883,
+        "onset_err_nontuplet": 13.55,
+        "n_tuplet": 308,
+        "n_nontuplet": 2000,
+        "tpf": 231,
+        "tpf_missed": 96,
+        "tpf_onset": 135,
+        "model_loss": 0.10108454,
+        "loss_parts": {
+          "offset": 0.325965,
+          "duration": 0.162847,
+          "downbeat": 0.044943,
+          "pad": 0.048793
+        },
+        "timing_penalty": 2.526312,
+        "timing_per_group": 0.012955445162718984,
+        "timing_groups": 195,
+        "timing_contra": 73,
+        "keep_count": 2445,
+        "trip_phase_count": 494
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.15680487,
+          "loss_parts": {
+            "offset": 0.650991,
+            "duration": 0.203019,
+            "downbeat": 0.07355,
+            "pad": 0.052696
+          },
+          "timing_penalty": 1.861709,
+          "timing_per_group": 0.012664685285386869,
+          "timing_groups": 147,
+          "timing_contra": 52,
+          "keep_count": 2546,
+          "trip_phase_count": 659,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.04130879345603272,
+          "coverage_ok": false,
+          "model_delta": 0.05572033000000001,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.13244527,
+          "loss_parts": {
+            "offset": 0.558197,
+            "duration": 0.161327,
+            "downbeat": 0.08697,
+            "pad": 0.035533
+          },
+          "timing_penalty": 0.375442,
+          "timing_per_group": 0.002074264668469348,
+          "timing_groups": 181,
+          "timing_contra": 13,
+          "keep_count": 2514,
+          "trip_phase_count": 23,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.02822085889570552,
+          "coverage_ok": true,
+          "model_delta": 0.03136073,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.1261985,
+          "loss_parts": {
+            "offset": 0.40846,
+            "duration": 0.238997,
+            "downbeat": 0.058182,
+            "pad": 0.049
+          },
+          "timing_penalty": 2.401867,
+          "timing_per_group": 0.01305362737522828,
+          "timing_groups": 184,
+          "timing_contra": 67,
+          "keep_count": 2492,
+          "trip_phase_count": 555,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.019222903885480574,
+          "coverage_ok": true,
+          "model_delta": 0.02511395999999999,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.1658133,
+          "loss_parts": {
+            "offset": 0.668945,
+            "duration": 0.231228,
+            "downbeat": 0.095725,
+            "pad": 0.048441
+          },
+          "timing_penalty": 2.658741,
+          "timing_per_group": 0.016311291746622512,
+          "timing_groups": 163,
+          "timing_contra": 69,
+          "keep_count": 2483,
+          "trip_phase_count": 588,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.015541922290388548,
+          "coverage_ok": true,
+          "model_delta": 0.06472876,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.11089084,
+          "loss_parts": {
+            "offset": 0.324644,
+            "duration": 0.193366,
+            "downbeat": 0.050365,
+            "pad": 0.05692
+          },
+          "timing_penalty": 3.035175,
+          "timing_per_group": 0.017245314160992807,
+          "timing_groups": 176,
+          "timing_contra": 84,
+          "keep_count": 2453,
+          "trip_phase_count": 576,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0032719836400817996,
+          "coverage_ok": true,
+          "model_delta": 0.009806300000000004,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.17970877,
+          "loss_parts": {
+            "offset": 0.759522,
+            "duration": 0.2282,
+            "downbeat": 0.109792,
+            "pad": 0.048175
+          },
+          "timing_penalty": 2.177246,
+          "timing_per_group": 0.014912644251453893,
+          "timing_groups": 146,
+          "timing_contra": 56,
+          "keep_count": 2542,
+          "trip_phase_count": 683,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.03967280163599182,
+          "coverage_ok": false,
+          "model_delta": 0.07862422999999999,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.12776572,
+          "loss_parts": {
+            "offset": 0.364656,
+            "duration": 0.211469,
+            "downbeat": 0.070568,
+            "pad": 0.066312
+          },
+          "timing_penalty": 2.676063,
+          "timing_per_group": 0.013117958319284726,
+          "timing_groups": 204,
+          "timing_contra": 73,
+          "keep_count": 2458,
+          "trip_phase_count": 642,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.005316973415132925,
+          "coverage_ok": true,
+          "model_delta": 0.02668118,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.17186733,
+          "loss_parts": {
+            "offset": 0.769761,
+            "duration": 0.218678,
+            "downbeat": 0.088079,
+            "pad": 0.041866
+          },
+          "timing_penalty": 2.161882,
+          "timing_per_group": 0.01431710100047301,
+          "timing_groups": 151,
+          "timing_contra": 60,
+          "keep_count": 2578,
+          "trip_phase_count": 679,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.05439672801635992,
+          "coverage_ok": false,
+          "model_delta": 0.07078279000000001,
+          "model_ok": false,
+          "eligible": false
+        }
+      ],
+      "timing_screen": [],
+      "selector_pick": {
+        "selected_baseline": true,
+        "metrics": {
+          "meaner_overall": 13.1445,
+          "onset_err_tuplet": 43.83116883116883,
+          "onset_err_nontuplet": 13.55,
+          "n_tuplet": 308,
+          "n_nontuplet": 2000,
+          "tpf": 231,
+          "tpf_missed": 96,
+          "tpf_onset": 135
+        }
+      },
+      "gate_ok": false
+    },
+    "Ravel/Ravel/Gaspard_de_la_Nuit/1_Ondine": {
+      "gt_tuplets": 4868,
+      "baseline": {
+        "meaner_overall": 20.7868,
+        "onset_err_tuplet": 35.93582887700535,
+        "onset_err_nontuplet": 78.08219178082192,
+        "n_tuplet": 3740,
+        "n_nontuplet": 146,
+        "tpf": 2472,
+        "tpf_missed": 1128,
+        "tpf_onset": 1344,
+        "model_loss": 0.15696365,
+        "loss_parts": {
+          "offset": 0.554045,
+          "duration": 0.324498,
+          "downbeat": 0.080297,
+          "pad": 0.0381
+        },
+        "timing_penalty": 2.078833,
+        "timing_per_group": 0.005197083141259018,
+        "timing_groups": 400,
+        "timing_contra": 55,
+        "keep_count": 4229,
+        "trip_phase_count": 266
+      },
+      "candidates": [
+        {
+          "i": 0,
+          "seed": 1000,
+          "model_loss": 0.18656919,
+          "loss_parts": {
+            "offset": 0.627069,
+            "duration": 0.348034,
+            "downbeat": 0.118685,
+            "pad": 0.055159
+          },
+          "timing_penalty": 6.482362,
+          "timing_per_group": 0.014405249044291586,
+          "timing_groups": 450,
+          "timing_contra": 173,
+          "keep_count": 4198,
+          "trip_phase_count": 1126,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.007330338141404587,
+          "coverage_ok": true,
+          "model_delta": 0.029605539999999986,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 1,
+          "seed": 1001,
+          "model_loss": 0.20293132,
+          "loss_parts": {
+            "offset": 0.626148,
+            "duration": 0.509076,
+            "downbeat": 0.100065,
+            "pad": 0.04643
+          },
+          "timing_penalty": 7.690256,
+          "timing_per_group": 0.01743822137631388,
+          "timing_groups": 441,
+          "timing_contra": 202,
+          "keep_count": 4216,
+          "trip_phase_count": 1323,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0030740127689761173,
+          "coverage_ok": true,
+          "model_delta": 0.04596766999999999,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 2,
+          "seed": 1002,
+          "model_loss": 0.16353573,
+          "loss_parts": {
+            "offset": 0.487069,
+            "duration": 0.399374,
+            "downbeat": 0.096981,
+            "pad": 0.038523
+          },
+          "timing_penalty": 6.910532,
+          "timing_per_group": 0.01610846598118818,
+          "timing_groups": 429,
+          "timing_contra": 185,
+          "keep_count": 4216,
+          "trip_phase_count": 1126,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0030740127689761173,
+          "coverage_ok": true,
+          "model_delta": 0.00657207999999998,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 3,
+          "seed": 1003,
+          "model_loss": 0.17820946,
+          "loss_parts": {
+            "offset": 0.571924,
+            "duration": 0.398635,
+            "downbeat": 0.112643,
+            "pad": 0.03988
+          },
+          "timing_penalty": 5.277109,
+          "timing_per_group": 0.011227891102839388,
+          "timing_groups": 470,
+          "timing_contra": 135,
+          "keep_count": 4226,
+          "trip_phase_count": 846,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0007093875620714117,
+          "coverage_ok": true,
+          "model_delta": 0.021245809999999976,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 4,
+          "seed": 1004,
+          "model_loss": 0.19766728,
+          "loss_parts": {
+            "offset": 0.551206,
+            "duration": 0.434139,
+            "downbeat": 0.180749,
+            "pad": 0.045108
+          },
+          "timing_penalty": 4.419666,
+          "timing_per_group": 0.010350505629947894,
+          "timing_groups": 427,
+          "timing_contra": 117,
+          "keep_count": 4223,
+          "trip_phase_count": 603,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0014187751241428233,
+          "coverage_ok": true,
+          "model_delta": 0.04070362999999999,
+          "model_ok": false,
+          "eligible": false
+        },
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.18097899,
+          "loss_parts": {
+            "offset": 0.604132,
+            "duration": 0.411004,
+            "downbeat": 0.087262,
+            "pad": 0.04367
+          },
+          "timing_penalty": 7.970574,
+          "timing_per_group": 0.017104236085972863,
+          "timing_groups": 466,
+          "timing_contra": 204,
+          "keep_count": 4214,
+          "trip_phase_count": 1385,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0035469378103570584,
+          "coverage_ok": true,
+          "model_delta": 0.024015339999999996,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 6,
+          "seed": 1006,
+          "model_loss": 0.16532789,
+          "loss_parts": {
+            "offset": 0.533768,
+            "duration": 0.345522,
+            "downbeat": 0.099303,
+            "pad": 0.04557
+          },
+          "timing_penalty": 6.833807,
+          "timing_per_group": 0.015818997597000988,
+          "timing_groups": 432,
+          "timing_contra": 179,
+          "keep_count": 4205,
+          "trip_phase_count": 1111,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.005675100496571293,
+          "coverage_ok": true,
+          "model_delta": 0.008364239999999995,
+          "model_ok": true,
+          "eligible": false
+        },
+        {
+          "i": 7,
+          "seed": 1007,
+          "model_loss": 0.17290261,
+          "loss_parts": {
+            "offset": 0.560404,
+            "duration": 0.365951,
+            "downbeat": 0.089579,
+            "pad": 0.051442
+          },
+          "timing_penalty": 6.238346,
+          "timing_per_group": 0.012377669683315827,
+          "timing_groups": 504,
+          "timing_contra": 160,
+          "keep_count": 4219,
+          "trip_phase_count": 976,
+          "timing_improves_baseline": false,
+          "keep_delta_frac": 0.0023646252069047056,
+          "coverage_ok": true,
+          "model_delta": 0.015938960000000002,
+          "model_ok": true,
+          "eligible": false
+        }
+      ],
+      "timing_screen": [],
+      "selector_pick": {
+        "selected_baseline": true,
+        "metrics": {
+          "meaner_overall": 20.7868,
+          "onset_err_tuplet": 35.93582887700535,
+          "onset_err_nontuplet": 78.08219178082192,
+          "n_tuplet": 3740,
+          "n_nontuplet": 146,
+          "tpf": 2472,
+          "tpf_missed": 1128,
+          "tpf_onset": 1344
+        }
+      },
+      "gate_ok": false
+    }
+  },
+  "elapsed_s": 369.6
+}

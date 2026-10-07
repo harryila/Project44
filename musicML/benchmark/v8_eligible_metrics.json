@@ -1,0 +1,560 @@
+{
+  "source": "/Users/harry/Desktop/temp/musicML/benchmark/guarded_selector_v8_heldout_n32.json",
+  "pieces": {
+    "Mozart/Mozart/Piano_Sonatas/12-1": {
+      "gt_tuplets": 36,
+      "baseline": {
+        "meaner_overall": 5.8641,
+        "onset_err_tuplet": 25.0,
+        "onset_err_nontuplet": 4.991610738255034,
+        "n_tuplet": 28,
+        "n_nontuplet": 2384,
+        "tpf": 15,
+        "tpf_missed": 8,
+        "tpf_onset": 7
+      },
+      "candidates": [
+        {
+          "i": 5,
+          "seed": 1005,
+          "model_loss": 0.08688262,
+          "loss_parts": {
+            "offset": 0.247625,
+            "duration": 0.252225,
+            "downbeat": 0.029885,
+            "pad": 0.019894
+          },
+          "timing_penalty": 0.086285,
+          "timing_per_group": 0.0003767919006509146,
+          "timing_groups": 229,
+          "timing_contra": 3,
+          "keep_count": 2449,
+          "trip_phase_count": 4,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0012234910277324632,
+          "coverage_ok": true,
+          "model_delta": 0.014504679999999992,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 6.12243,
+            "onset_err_tuplet": 16.129032258064516,
+            "onset_err_nontuplet": 6.176470588235294,
+            "n_tuplet": 31,
+            "n_nontuplet": 2380,
+            "tpf": 10,
+            "tpf_missed": 5,
+            "tpf_onset": 5
+          }
+        },
+        {
+          "i": 9,
+          "seed": 1009,
+          "model_loss": 0.09491912,
+          "loss_parts": {
+            "offset": 0.318035,
+            "duration": 0.237364,
+            "downbeat": 0.044319,
+            "pad": 0.016647
+          },
+          "timing_penalty": 0.103425,
+          "timing_per_group": 0.0005414911733240927,
+          "timing_groups": 191,
+          "timing_contra": 3,
+          "keep_count": 2466,
+          "trip_phase_count": 5,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.005709624796084829,
+          "coverage_ok": true,
+          "model_delta": 0.022541179999999994,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 6.44961,
+            "onset_err_tuplet": 8.823529411764707,
+            "onset_err_nontuplet": 6.438127090301004,
+            "n_tuplet": 34,
+            "n_nontuplet": 2392,
+            "tpf": 5,
+            "tpf_missed": 2,
+            "tpf_onset": 3
+          }
+        },
+        {
+          "i": 10,
+          "seed": 1010,
+          "model_loss": 0.08393143,
+          "loss_parts": {
+            "offset": 0.245802,
+            "duration": 0.218579,
+            "downbeat": 0.048735,
+            "pad": 0.017148
+          },
+          "timing_penalty": 0.111013,
+          "timing_per_group": 0.0004890451439333721,
+          "timing_groups": 227,
+          "timing_contra": 2,
+          "keep_count": 2453,
+          "trip_phase_count": 3,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0004078303425774878,
+          "coverage_ok": true,
+          "model_delta": 0.01155349,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 6.17342,
+            "onset_err_tuplet": 27.586206896551722,
+            "onset_err_nontuplet": 5.459890802183956,
+            "n_tuplet": 29,
+            "n_nontuplet": 2381,
+            "tpf": 15,
+            "tpf_missed": 7,
+            "tpf_onset": 8
+          }
+        },
+        {
+          "i": 11,
+          "seed": 1011,
+          "model_loss": 0.0888476,
+          "loss_parts": {
+            "offset": 0.277922,
+            "duration": 0.230507,
+            "downbeat": 0.05426,
+            "pad": 0.012916
+          },
+          "timing_penalty": 0.096025,
+          "timing_per_group": 0.0004175021589964736,
+          "timing_groups": 230,
+          "timing_contra": 3,
+          "keep_count": 2468,
+          "trip_phase_count": 8,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0065252854812398045,
+          "coverage_ok": true,
+          "model_delta": 0.016469659999999997,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 6.77754,
+            "onset_err_tuplet": 38.70967741935484,
+            "onset_err_nontuplet": 6.9630872483221475,
+            "n_tuplet": 31,
+            "n_nontuplet": 2384,
+            "tpf": 17,
+            "tpf_missed": 5,
+            "tpf_onset": 12
+          }
+        },
+        {
+          "i": 19,
+          "seed": 1019,
+          "model_loss": 0.09248342,
+          "loss_parts": {
+            "offset": 0.255332,
+            "duration": 0.220549,
+            "downbeat": 0.078854,
+            "pad": 0.018803
+          },
+          "timing_penalty": 0.090437,
+          "timing_per_group": 0.0004347942606714233,
+          "timing_groups": 208,
+          "timing_contra": 3,
+          "keep_count": 2446,
+          "trip_phase_count": 7,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0024469820554649264,
+          "coverage_ok": true,
+          "model_delta": 0.020105479999999995,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 7.34133,
+            "onset_err_tuplet": 9.375,
+            "onset_err_nontuplet": 6.643806258036863,
+            "n_tuplet": 32,
+            "n_nontuplet": 2333,
+            "tpf": 7,
+            "tpf_missed": 4,
+            "tpf_onset": 3
+          }
+        },
+        {
+          "i": 29,
+          "seed": 1029,
+          "model_loss": 0.08306673,
+          "loss_parts": {
+            "offset": 0.280998,
+            "duration": 0.208034,
+            "downbeat": 0.037458,
+            "pad": 0.014337
+          },
+          "timing_penalty": 0.030477,
+          "timing_per_group": 0.00013193330970165913,
+          "timing_groups": 231,
+          "timing_contra": 1,
+          "keep_count": 2459,
+          "trip_phase_count": 2,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0028548123980424145,
+          "coverage_ok": true,
+          "model_delta": 0.010688790000000004,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 6.46466,
+            "onset_err_tuplet": 25.925925925925927,
+            "onset_err_nontuplet": 6.268405553218343,
+            "n_tuplet": 27,
+            "n_nontuplet": 2377,
+            "tpf": 16,
+            "tpf_missed": 9,
+            "tpf_onset": 7
+          }
+        }
+      ]
+    },
+    "Liszt/Liszt/Annees_de_pelerinage_2/1_Gondoliera": {
+      "gt_tuplets": 404,
+      "baseline": {
+        "meaner_overall": 13.1445,
+        "onset_err_tuplet": 43.83116883116883,
+        "onset_err_nontuplet": 13.55,
+        "n_tuplet": 308,
+        "n_nontuplet": 2000,
+        "tpf": 231,
+        "tpf_missed": 96,
+        "tpf_onset": 135
+      },
+      "candidates": [
+        {
+          "i": 10,
+          "seed": 1010,
+          "model_loss": 0.11295522,
+          "loss_parts": {
+            "offset": 0.352996,
+            "duration": 0.189826,
+            "downbeat": 0.062787,
+            "pad": 0.049951
+          },
+          "timing_penalty": 2.21424,
+          "timing_per_group": 0.012099674219545359,
+          "timing_groups": 183,
+          "timing_contra": 64,
+          "keep_count": 2444,
+          "trip_phase_count": 521,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.00040899795501022495,
+          "coverage_ok": true,
+          "model_delta": 0.011870679999999995,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 14.6654,
+            "onset_err_tuplet": 42.48366013071895,
+            "onset_err_nontuplet": 15.202876219825372,
+            "n_tuplet": 306,
+            "n_nontuplet": 1947,
+            "tpf": 228,
+            "tpf_missed": 98,
+            "tpf_onset": 130
+          }
+        },
+        {
+          "i": 20,
+          "seed": 1020,
+          "model_loss": 0.12958308,
+          "loss_parts": {
+            "offset": 0.413628,
+            "duration": 0.204086,
+            "downbeat": 0.078171,
+            "pad": 0.056786
+          },
+          "timing_penalty": 2.142876,
+          "timing_per_group": 0.011398277097572278,
+          "timing_groups": 188,
+          "timing_contra": 65,
+          "keep_count": 2435,
+          "trip_phase_count": 486,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.00408997955010225,
+          "coverage_ok": true,
+          "model_delta": 0.02849853999999999,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 15.1814,
+            "onset_err_tuplet": 35.31598513011152,
+            "onset_err_nontuplet": 15.854922279792746,
+            "n_tuplet": 269,
+            "n_nontuplet": 1930,
+            "tpf": 230,
+            "tpf_missed": 135,
+            "tpf_onset": 95
+          }
+        },
+        {
+          "i": 23,
+          "seed": 1023,
+          "model_loss": 0.1272452,
+          "loss_parts": {
+            "offset": 0.375121,
+            "duration": 0.207022,
+            "downbeat": 0.086047,
+            "pad": 0.057823
+          },
+          "timing_penalty": 2.297322,
+          "timing_per_group": 0.011841863873648557,
+          "timing_groups": 194,
+          "timing_contra": 63,
+          "keep_count": 2480,
+          "trip_phase_count": 491,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.014314928425357873,
+          "coverage_ok": true,
+          "model_delta": 0.026160660000000002,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 13.032,
+            "onset_err_tuplet": 37.85488958990536,
+            "onset_err_nontuplet": 13.99402390438247,
+            "n_tuplet": 317,
+            "n_nontuplet": 2008,
+            "tpf": 207,
+            "tpf_missed": 87,
+            "tpf_onset": 120
+          }
+        },
+        {
+          "i": 28,
+          "seed": 1028,
+          "model_loss": 0.12828145,
+          "loss_parts": {
+            "offset": 0.408674,
+            "duration": 0.263138,
+            "downbeat": 0.057804,
+            "pad": 0.045917
+          },
+          "timing_penalty": 2.779256,
+          "timing_per_group": 0.012083719572131923,
+          "timing_groups": 230,
+          "timing_contra": 78,
+          "keep_count": 2495,
+          "trip_phase_count": 553,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.02044989775051125,
+          "coverage_ok": true,
+          "model_delta": 0.02719690999999999,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 17.3631,
+            "onset_err_tuplet": 42.465753424657535,
+            "onset_err_nontuplet": 23.484462557310238,
+            "n_tuplet": 219,
+            "n_nontuplet": 1963,
+            "tpf": 278,
+            "tpf_missed": 185,
+            "tpf_onset": 93
+          }
+        },
+        {
+          "i": 29,
+          "seed": 1029,
+          "model_loss": 0.1161476,
+          "loss_parts": {
+            "offset": 0.342825,
+            "duration": 0.204975,
+            "downbeat": 0.060729,
+            "pad": 0.054998
+          },
+          "timing_penalty": 2.054198,
+          "timing_per_group": 0.012155019834811773,
+          "timing_groups": 169,
+          "timing_contra": 58,
+          "keep_count": 2450,
+          "trip_phase_count": 450,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.002044989775051125,
+          "coverage_ok": true,
+          "model_delta": 0.015063060000000003,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 15.1538,
+            "onset_err_tuplet": 36.774193548387096,
+            "onset_err_nontuplet": 16.05385810460901,
+            "n_tuplet": 155,
+            "n_nontuplet": 1931,
+            "tpf": 306,
+            "tpf_missed": 249,
+            "tpf_onset": 57
+          }
+        }
+      ]
+    },
+    "Ravel/Ravel/Gaspard_de_la_Nuit/1_Ondine": {
+      "gt_tuplets": 4868,
+      "baseline": {
+        "meaner_overall": 20.7868,
+        "onset_err_tuplet": 35.93582887700535,
+        "onset_err_nontuplet": 78.08219178082192,
+        "n_tuplet": 3740,
+        "n_nontuplet": 146,
+        "tpf": 2472,
+        "tpf_missed": 1128,
+        "tpf_onset": 1344
+      },
+      "candidates": [
+        {
+          "i": 13,
+          "seed": 1013,
+          "model_loss": 0.1720879,
+          "loss_parts": {
+            "offset": 0.607308,
+            "duration": 0.33083,
+            "downbeat": 0.123066,
+            "pad": 0.035269
+          },
+          "timing_penalty": 2.00498,
+          "timing_per_group": 0.00481966446811862,
+          "timing_groups": 416,
+          "timing_contra": 61,
+          "keep_count": 4253,
+          "trip_phase_count": 310,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.005675100496571293,
+          "coverage_ok": true,
+          "model_delta": 0.015124249999999978,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 23.2389,
+            "onset_err_tuplet": 37.946305009687244,
+            "onset_err_nontuplet": 81.15942028985508,
+            "n_tuplet": 3613,
+            "n_nontuplet": 138,
+            "tpf": 2626,
+            "tpf_missed": 1255,
+            "tpf_onset": 1371
+          }
+        },
+        {
+          "i": 16,
+          "seed": 1016,
+          "model_loss": 0.16867034,
+          "loss_parts": {
+            "offset": 0.626171,
+            "duration": 0.307812,
+            "downbeat": 0.111149,
+            "pad": 0.035561
+          },
+          "timing_penalty": 2.159765,
+          "timing_per_group": 0.004036944114093233,
+          "timing_groups": 535,
+          "timing_contra": 58,
+          "keep_count": 4258,
+          "trip_phase_count": 269,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.006857413100023646,
+          "coverage_ok": true,
+          "model_delta": 0.011706689999999992,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": false,
+          "metrics": {
+            "meaner_overall": 23.6997,
+            "onset_err_tuplet": 39.80989656136427,
+            "onset_err_nontuplet": 81.15942028985508,
+            "n_tuplet": 3577,
+            "n_nontuplet": 138,
+            "tpf": 2715,
+            "tpf_missed": 1291,
+            "tpf_onset": 1424
+          }
+        },
+        {
+          "i": 27,
+          "seed": 1027,
+          "model_loss": 0.15165744,
+          "loss_parts": {
+            "offset": 0.519593,
+            "duration": 0.295643,
+            "downbeat": 0.107819,
+            "pad": 0.034013
+          },
+          "timing_penalty": 1.098527,
+          "timing_per_group": 0.0021582071645783064,
+          "timing_groups": 509,
+          "timing_contra": 33,
+          "keep_count": 4255,
+          "trip_phase_count": 11,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.0061480255379522345,
+          "coverage_ok": true,
+          "model_delta": -0.005306210000000006,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 22.2298,
+            "onset_err_tuplet": 36.025358324145536,
+            "onset_err_nontuplet": 69.92481203007519,
+            "n_tuplet": 3628,
+            "n_nontuplet": 133,
+            "tpf": 2547,
+            "tpf_missed": 1240,
+            "tpf_onset": 1307
+          }
+        },
+        {
+          "i": 30,
+          "seed": 1030,
+          "model_loss": 0.15634944,
+          "loss_parts": {
+            "offset": 0.544631,
+            "duration": 0.25769,
+            "downbeat": 0.115712,
+            "pad": 0.045132
+          },
+          "timing_penalty": 2.1199,
+          "timing_per_group": 0.003992277779642293,
+          "timing_groups": 531,
+          "timing_contra": 61,
+          "keep_count": 4213,
+          "trip_phase_count": 275,
+          "timing_improves_baseline": true,
+          "keep_delta_frac": 0.003783400331047529,
+          "coverage_ok": true,
+          "model_delta": -0.0006142100000000039,
+          "model_ok": true,
+          "eligible": true,
+          "in_timing_screen": true,
+          "metrics": {
+            "meaner_overall": 21.8084,
+            "onset_err_tuplet": 37.381146427601195,
+            "onset_err_nontuplet": 73.38129496402878,
+            "n_tuplet": 3681,
+            "n_nontuplet": 139,
+            "tpf": 2563,
+            "tpf_missed": 1187,
+            "tpf_onset": 1376
+          }
+        }
+      ]
+    }
+  }
+}

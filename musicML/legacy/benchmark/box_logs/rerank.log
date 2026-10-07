@@ -1,0 +1,39 @@
+Re-ranking runs: ssl_tuplet20 ssl_reshape_g1 ssl_classical_clean  (threshold 0.50, all 14 ASAP pieces)
+  eval: ssl_tuplet20 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_tuplet20/last.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_tuplet20__ssl_tuplet20_last.json
+  eval: ssl_tuplet20 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_tuplet20/ssl_tuplet20-epoch=01-val/total=0.5234.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_tuplet20__ssl_tuplet20-epoch_01-val_total_0.5234.json
+  eval: ssl_tuplet20 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_tuplet20/ssl_tuplet20-epoch=03-val/total=0.5388.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_tuplet20__ssl_tuplet20-epoch_03-val_total_0.5388.json
+  eval: ssl_reshape_g1 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_reshape_g1/last.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_reshape_g1__ssl_reshape_g1_last.json
+  eval: ssl_reshape_g1 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_reshape_g1/ssl_reshape_g1-epoch=00-val/total=0.5322.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_reshape_g1__ssl_reshape_g1-epoch_00-val_total_0.5322.json
+  eval: ssl_reshape_g1 :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_reshape_g1/ssl_reshape_g1-epoch=02-val/total=0.5460.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_reshape_g1__ssl_reshape_g1-epoch_02-val_total_0.5460.json
+  eval: ssl_classical_clean :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_classical_clean/ssl_classical_clean-epoch=06-val/total=0.5335.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_classical_clean__ssl_classical_clean-epoch_06-val_total_0.5335.json
+  eval: ssl_classical_clean :: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_classical_clean/ssl_classical_clean-epoch=13-val/total=0.5125.ckpt
+
+Wrote /root/Music-ML-BayenLab/benchmark/rerank/ssl_classical_clean__ssl_classical_clean-epoch_13-val_total_0.5125.json
+
+=== RE-RANK SUMMARY (corpus-mean MeanER @ thr 0.50, lower=better) ===
+rank MeanER    n   ckpt
+1    11.791    14  ssl_tuplet20__ssl_tuplet20_last  <-- beats 11.87
+2    11.806    14  ssl_tuplet20__ssl_tuplet20-epoch_03-val_total_0.5388  <-- beats 11.87
+3    12.005    14  ssl_reshape_g1__ssl_reshape_g1-epoch_00-val_total_0.5322
+4    12.151    14  ssl_tuplet20__ssl_tuplet20-epoch_01-val_total_0.5234
+5    12.733    14  ssl_reshape_g1__ssl_reshape_g1_last
+6    12.773    14  ssl_classical_clean__ssl_classical_clean-epoch_13-val_total_0.5125
+7    12.923    14  ssl_reshape_g1__ssl_reshape_g1-epoch_02-val_total_0.5460
+8    13.544    14  ssl_classical_clean__ssl_classical_clean-epoch_06-val_total_0.5335
+
+baseline ssl_classical_clean=12.685 | best-so-far ssl_tuplet20_last=11.87 | released=10.77
+Per-ckpt JSON in benchmark/rerank/

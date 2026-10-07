@@ -1,0 +1,29 @@
+scoring 23780 pairs for tuplet_rate...
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 55 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    2.2s
+[Parallel(n_jobs=-1)]: Done 3438 tasks      | elapsed:    2.4s
+[Parallel(n_jobs=-1)]: Done 11502 tasks      | elapsed:    2.8s
+[Parallel(n_jobs=-1)]: Done 19890 tasks      | elapsed:    3.1s
+[Parallel(n_jobs=-1)]: Done 22062 tasks      | elapsed:    3.4s
+[Parallel(n_jobs=-1)]: Done 22998 tasks      | elapsed:    3.7s
+[Parallel(n_jobs=-1)]: Done 23780 out of 23780 | elapsed:    3.8s finished
+
+wrote data/pairs_classical_rebuilt_tuplrate.csv  (23780 rows, 0 NaN)
+tuplet_rate distribution:
+  p  0: 0.0000
+  p 10: 0.0000
+  p 25: 0.0000
+  p 50: 0.0000
+  p 75: 0.0000
+  p 90: 0.0330
+  p 95: 0.1071
+  p 99: 0.3554
+  p100: 0.9969
+  mean: 0.0171
+  fraction of scores with ZERO tuplets:    0.865
+  fraction with tuplet_rate > 0.05:        0.084
+  fraction with tuplet_rate > 0.15:        0.036
+  exposure-weighted mean tuplet_rate (floor=0.05, gamma=0.0): 0.0171
+  exposure-weighted mean tuplet_rate (floor=0.05, gamma=1.0): 0.0910
+  exposure-weighted mean tuplet_rate (floor=0.05, gamma=2.0): 0.3361
+  exposure-weighted mean tuplet_rate (floor=0.05, gamma=3.0): 0.5735

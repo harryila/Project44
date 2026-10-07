@@ -1,0 +1,16 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_classical_clean/ssl_classical_clean-epoch=13-val/total=0.5125.ckpt",
+  "results": [
+    {
+      "composer": "Ravel",
+      "piece": "Ravel/Gaspard_de_la_Nuit/1_Ondine",
+      "n_notes": 4323,
+      "pred_tuplets": 0,
+      "pred_notes": 3442,
+      "gt_tuplets": 1281,
+      "gt_notes": 3749,
+      "tuplet_ratio": 0.0,
+      "MeanER": 20.4838
+    }
+  ]
+}

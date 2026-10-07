@@ -1,0 +1,14 @@
+shard 0/2: 100 pieces, win=384
+  10/100 pieces | windows ok=27 skip=0 fail=0
+  20/100 pieces | windows ok=66 skip=0 fail=0
+  30/100 pieces | windows ok=106 skip=0 fail=0
+  40/100 pieces | windows ok=154 skip=0 fail=0
+  50/100 pieces | windows ok=201 skip=0 fail=0
+  60/100 pieces | windows ok=245 skip=0 fail=0
+  70/100 pieces | windows ok=293 skip=0 fail=0
+beam: WARNING: Found a messed up beam pair <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/partial/right>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>, at index 9 of 
+[<music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>, <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>, <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>, <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>, <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>, <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>, None, <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/partial/right>>, <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>]
+  80/100 pieces | windows ok=345 skip=0 fail=0
+  90/100 pieces | windows ok=402 skip=0 fail=0
+  100/100 pieces | windows ok=461 skip=0 fail=0
+SHARD 0 DONE: 461 windows, skip=0, fail=0 -> /root/datasets/maestro_segments/manifest_shard0.csv

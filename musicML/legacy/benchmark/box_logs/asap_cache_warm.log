@@ -1,0 +1,22 @@
+Warming ASAP cache: 967 samples, 64 workers
+  50/967  ok=50 fail=0  4s
+  100/967  ok=100 fail=0  5s
+  150/967  ok=150 fail=0  7s
+  200/967  ok=200 fail=0  18s
+  250/967  ok=250 fail=0  26s
+  300/967  ok=300 fail=0  31s
+  350/967  ok=350 fail=0  38s
+  400/967  ok=400 fail=0  47s
+  450/967  ok=450 fail=0  52s
+  500/967  ok=500 fail=0  63s
+  550/967  ok=550 fail=0  72s
+  600/967  ok=600 fail=0  80s
+  650/967  ok=650 fail=0  86s
+  700/967  ok=700 fail=0  89s
+  750/967  ok=750 fail=0  95s
+  800/967  ok=800 fail=0  100s
+  850/967  ok=850 fail=0  106s
+  900/967  ok=900 fail=0  116s
+  950/967  ok=950 fail=0  129s
+  967/967  ok=967 fail=0  151s
+DONE: ok=967 fail=0 in 152s

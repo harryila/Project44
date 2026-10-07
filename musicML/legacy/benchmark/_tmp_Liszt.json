@@ -1,0 +1,16 @@
+{
+  "ckpt": "/root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/MIDI2ScoreTF.ckpt",
+  "results": [
+    {
+      "composer": "Liszt",
+      "piece": "Liszt/Annees_de_pelerinage_2/1_Gondoliera",
+      "n_notes": 2732,
+      "pred_tuplets": 682,
+      "pred_notes": 1696,
+      "gt_tuplets": 402,
+      "gt_notes": 1932,
+      "tuplet_ratio": 1.6965174129353233,
+      "MeanER": 13.1445
+    }
+  ]
+}

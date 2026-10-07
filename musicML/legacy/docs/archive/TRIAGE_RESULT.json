@@ -1,0 +1,1416 @@
+{
+ "n_verdicts": 25,
+ "plan": {
+  "do_now": [
+   {
+    "title": "Pad-threshold sweep on all 14 ASAP pieces (ssl_classical_clean ep13 + released) \u2014 the calibration frontier AND the full-standing measurement in one pass",
+    "why": "Highest EV-per-GPU-hour bar none. The continuous pad_prob + raw_* streams are ALREADY implemented and locally validated in this work (byte-identical at 0.50, monotonic note-rescue below it). run_padsweep.sh runs eval_tuplet.py with no --pieces filter, so a single invocation simultaneously (a) sweeps the live keep-gate {0.60..0.25}, directly attacking Scriabin miss-rate (lower thr rescues dropped notes) and Mozart over-production (higher thr prunes spurious tuplets), and (b) measures all 14 test pieces, closing the '4-6 of 14 measured' gap. Zero training risk: 0.50 reproduces released behavior exactly. This produces the per-piece calibration sensitivity map that every downstream training proposal needs to target effort. Merges 4 do-now verdicts (two pad-sweep, two 14-piece-measurement) and the 'done' pad-exposure item.",
+    "first_command": "bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=13*.ckpt' sslcc",
+    "attacks": [
+     "scriabin-missrate",
+     "mozart-overproduction",
+     "val-muster-gap",
+     "unmeasured-pieces"
+    ],
+    "est_cost": "3-6 GPU-hr (one sweep x 8 thresholds x 14 pieces; A/B the released ckpt adds same again)"
+   },
+   {
+    "title": "MUSTER-based checkpoint reselection across saved epochs (ssl_classical_clean + ssl_bigc)",
+    "why": "val!=MUSTER is PROVEN (ssl_bigc: best val 0.4996 but worse MUSTER via Mozart over-production 166 vs 36 tuplets). ep13 was selected by val/total and may not be the MUSTER-optimal epoch; prior notes explicitly flag 'the right ckpt may be an EARLIER epoch with lower over-production' as genuinely promising and untested. Pure inference over checkpoints already on disk (save_top_k=2 + save_last). Run each saved epoch through the same 14-piece harness, add note-count-ratio and tuplet-emission-ratio as an over-production proxy, and pick the epoch minimizing 14-piece MUSTER. Free win if an earlier epoch beats ep13; at worst it confirms ep13 and yields the proxy that lets future runs checkpoint on a surrogate instead of burning full MUSTER per epoch. Merges 3 reselection verdicts. Run immediately after the threshold sweep so each epoch is scored at its own best threshold.",
+    "first_command": "for c in checkpoints/ssl_classical_clean/*epoch=*.ckpt; do bash scripts/run_padsweep.sh \"$c\" \"sslcc_$(basename $c)\"; done",
+    "attacks": [
+     "val-muster-gap",
+     "mozart-overproduction",
+     "unmeasured-pieces"
+    ],
+    "est_cost": "3-6 GPU-hr (a few epochs x 14 pieces; reuses sweep harness)"
+   },
+   {
+    "title": "Per-head decoding sweep: greedy structural heads, mild temperature/top-k on pitch",
+    "why": "Inference-only, zero retrain, orthogonal to the pad-gate and to every tested-negative data/training lever. Mechanism is sound: greedy argmax on the pitch head collapses notes in dense polyphony (Scriabin miss-rate), while pad/duration/offset must stay greedy to preserve Mozart's rhythm spine and avoid over-production. Requires a small code add (head_overrides dict threaded through generate()), defaulting to None = byte-identical current behavior, so no regression risk. Lower priority than the pad sweep because (a) it needs the small code change first, and (b) it partially overlaps the pad-gate on the same miss-rate residual \u2014 run it AFTER the pad sweep quantifies how much of Scriabin's miss-rate is keep-gate vs genuine pitch collapse, so you only spend the grid where the pad-gate left residual.",
+    "first_command": "bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=13*.ckpt' sslcc  # establish pad-gate baseline first, then add head_overrides to generate() and sweep --pitch-top-k/--pitch-temp",
+    "attacks": [
+     "scriabin-missrate",
+     "pitch-error"
+    ],
+    "est_cost": "4-8 GPU-hr (grid x ~5 pieces) + ~30 lines code"
+   }
+  ],
+  "queue_high": [
+   {
+    "title": "Density/tuplet-rate-matched RESHAPE of the existing unpaired corpus (single canonical resampling run)",
+    "why": "ssl_bigc proved corpus COMPOSITION skew (etude-dense tail) drives Mozart over-production. This is the mechanically-opposite, untested fix: keep corpus SIZE fixed (no growth, which is what turned negative) and RESHAPE it by subsampling the ultra-dense tail / upweighting moderate pieces to match the ASAP-test density (or tuplet-rate) histogram. Density is in the manifest (n_notes/n_measures). Single retrain, hard gamma=identity control reproduces ssl_classical_clean as a sanity check. Directly attacks the exact residual that killed ssl_bigc. NOTE: the soft per-sample inverse-density WeightedRandomSampler variant (one verdict) and the explicit histogram-resampled-manifest variant (another verdict) are the SAME lever via two implementations \u2014 prefer the soft sampler version (20 lines, no manifest surgery, gamma=0 = byte-identical control). One blocker: pairs_classical_clean_manifest.csv does NOT exist locally; use the existing pairs_deduped_full/_manifest.csv (52k rows, has n_notes/n_measures) or regenerate via build_classical_clean_manifest.py first.",
+    "est_cost": "6-10 GPU-hr per run; +6-10 per extra gamma point if sweeping",
+    "attacks": [
+     "mozart-overproduction",
+     "val-muster-gap"
+    ]
+   },
+   {
+    "title": "Denoising-SSL: corrupt the unpaired surrogate with performance-like noise (dropout/insertion/onset-jitter), reconstruct clean score",
+    "why": "BART/MASS-style corrupt-then-reconstruct is well-established and untested here. Currently the unpaired surrogate is pure pitch-only masking (onset/duration zeroed). Adding density-scaled note dropout/insertion/jitter (onset_jitter already exists in pdmx_dataset.py) makes the model PRACTICE dense-passage recovery, attacking Scriabin miss-rate WITHOUT adding dense data (so it avoids the ssl_bigc over-production trap). Single retrain, corruption-strength is a cheap sweep if calibration is off. Distinct axis from curriculum masking (noise-robustness vs timing-info leakage).",
+    "est_cost": "6-10 GPU-hr",
+    "attacks": [
+     "scriabin-missrate"
+    ]
+   },
+   {
+    "title": "Curriculum masking of the unpaired surrogate: reveal quantized onset/duration early, anneal to pitch-only by ~60% of training",
+    "why": "Novel, not on the tested-negative list (distinct from schedule-length tests and corpus tests). Gives dense passages a recoverable early structural signal (the 1/24 grid encodes tuplet-divisible positions) before forcing pitch-only at inference. Principled curriculum-learning applied to an unaddressed lever; single retrain, bounded risk. Requires adding reveal_prob to UnpairedScoreDataset + an anneal callback. Slightly below density-reshape and denoising because the mechanism (annealing structural leakage) is more speculative than reshaping-the-known-failure-mode or standard denoising, but it directly targets the hardest residual.",
+    "est_cost": "6-10 GPU-hr",
+    "attacks": [
+     "scriabin-missrate"
+    ]
+   },
+   {
+    "title": "Auxiliary tuplet-bucket loss reweighting on the existing offset/downbeat CE",
+    "why": "Pure loss-reweighting (upweight non-dyadic/tuplet offset buckets on the 1/24 grid via F.cross_entropy weight=) \u2014 no data-distribution change, so it sidesteps the ssl_bigc failure mode entirely. All code/data claims verified; heads already exist at train and inference. Forces the shared decoder to commit to sub-beat metric resolution. Tempered to queue-high (not top) because the Scriabin tuplet tail is field-wide-hard (released SOTA also emits ~0/99), so upside is moderate \u2014 but it is a cheap, low-risk single retrain on the right residual. Run after the inference levers and the density-reshape so you know whether tuplet emission is even the binding term post-calibration.",
+    "est_cost": "10 GPU-hr",
+    "attacks": [
+     "scriabin-missrate",
+     "mozart-overproduction"
+    ]
+   },
+   {
+    "title": "Simple->dense exposure curriculum: phase classical corpus in by density (easy->hard) across training stages",
+    "why": "Correctly diagnoses ssl_bigc as complexity-overload-from-epoch-1 and tests a NEW variable (ORDER of density exposure), not AMOUNT. Exposure order has demonstrably mattered before (ssl_unpaired vs ssl_v2 flipped Scriabin 12.68->15.15 by exposure-matching alone). Same total budget as one ssl run; phase-2 checkpoint guards against phase-3 re-triggering over-production. Kept slightly below the static density-reshape because reshape is a cleaner single-knob test of the same composition hypothesis; if reshape wins, this becomes a refinement rather than a separate slot.",
+    "est_cost": "6-10 GPU-hr (phased, same total budget)",
+    "attacks": [
+     "mozart-overproduction",
+     "val-muster-gap"
+    ]
+   }
+  ],
+  "queue_low": [
+   {
+    "title": "Difficulty-aware continuous conditioning token + density-modulated decoder dropout",
+    "why": "Reuses the existing unconditional Linear(1,d) as a continuous density input and modulates _maybe_drop_decoder by difficulty. Theoretically reasonable but speculative: beat-conditioning failed adjacently, density may be the wrong axis, and it ambitiously claims to fix BOTH residuals with one mechanism. Single retrain, but lower-confidence than the corpus-composition and denoising levers that attack the same residuals more directly. Revisit only if density-reshape shows density is the right axis."
+   },
+   {
+    "title": "Noisy-student self-training: pseudo-label MAESTRO, fold high-confidence pairs into the paired branch (~3k:822)",
+    "why": "Sound strategy to attack the 822-pair ceiling via a different mechanism than ssl_bigc (pseudo-PAIRS not unpaired scores, with confidence gates + downweight). But blocked/unverified: MAESTRO MIDIs are not confirmed on the box (only metadata found), per-stream softmax confidence for pitch/duration is NOT currently exposed (only pad_prob is \u2014 would need code), and the referenced manifest doesn't exist. Multi-retrain (15-20 GPU-hr) with real error-amplification risk. Verify data + add confidence plumbing before greenlight; the simpler density-reshape and denoising levers are cheaper first shots at the same residuals."
+   },
+   {
+    "title": "Confidence/difficulty-stratified pseudo-label curriculum on MAESTRO",
+    "why": "A refinement of noisy-student (stricter gates on dense windows, oversample clean dense survivors). BLOCKED by the same missing-MAESTRO-MIDI dependency and is strictly downstream of the plain noisy-student baseline working first. Speculative confidence (dense clean subset may be starved). Only pursue if MAESTRO is acquired AND plain noisy-student validates."
+   },
+   {
+    "title": "Tuplet-rate-matched corpus resampling (explicit tuplet-rate metric variant)",
+    "why": "Same corpus-composition lever as the canonical density-reshape, but keyed on an explicit per-bucket tuplet-rate rather than density. The tuplet-bucket classification (non-dyadic indices on the 1/24 grid) is imprecisely specified in the proposal and the referenced manifest is missing. Obsoleted if density-reshape succeeds; only revisit if density-reshape fails AND tuplet-rate emerges as the binding axis. Folded under the density-reshape canonical entry."
+   },
+   {
+    "title": "DPO/KTO preference fine-tune against a rule-based over-production/miss penalty",
+    "why": "Proven calibration technique in LLMs; rule primitives (count_tuplets, grammar rules) exist. But multi-retrain (20-40 GPU-hr), the cited paper isn't in-repo, beat-conditioning fine-tuning on this architecture was neutral-to-destructive (adding aux objectives via fine-tune is risky here), and reward-hacking one metric is a real failure mode. Explicitly should be attempted ONLY after the pad-threshold + per-head + voting calibration levers are shown insufficient, since those may close the same gap with zero/low GPU."
+   },
+   {
+    "title": "Overlap-window voting / self-ensemble across chunk phasings",
+    "why": "Plausible boundary-note-rescue mechanism for Scriabin miss-rate, but stacks poorly with the already-implemented pad-gate (both rescue dropped notes), costs 3x compute, and needs real alignment plumbing. Strictly a follow-up: only worthwhile if the pad-threshold sweep shows a large residual of boundary-dropped notes that calibration alone can't reach."
+   },
+   {
+    "title": "Post-hoc notational-grammar state-machine repair pass (CPU, no box)",
+    "why": "Box-free and orthogonal, but confounded by the live pad_threshold (same residuals, cleaner direct lever), leans on an unimplemented external paper, and risks music21 parse/timeout fragility that already plagues the harness. Its premise that pad-confidence isn't retained is OBSOLETE (pad_prob is now live). Only sketch defensively if measurable gaps survive optimal thresholding."
+   }
+  ],
+  "skip": [
+   {
+    "title": "Renderer-minted exactly-aligned synthetic pairs at <=5% of total in the paired branch",
+    "reason": "already_tested_negative. Synthetic-render is heavily disproven: ar_full4/5 REGRESSED MUSTER and ar_rubato DIVERGED at 7.9% \u2014 already below the proposed 5-10% threshold. The only delta is the fraction; the failure mode (synthetic-real domain gap dominates, over-production) is present even at the smaller fraction. The 822-pair ceiling is more safely attacked via density-reshape/denoising/noisy-student without synthetic domain-gap risk."
+   },
+   {
+    "title": "Beat-phase-consistent offset decoding (inference-time soft Gaussian prior on offset logits)",
+    "reason": "already_tested_negative-adjacent. Beat-conditioning was tested and found neutral-to-destructive; the model's learned representation does not leverage beat side-info effectively, and a soft inference prior is unlikely to overcome that. Scriabin's residual is dominated by missing tuplet PRODUCTION (~0/99), not offset-bucket timing error, so this targets a secondary effect. Low EV; spend GPU on representation-level training levers instead."
+   },
+   {
+    "title": "Beat/downbeat-conditioned rhythm refiner as teacher OR second-stage distillation",
+    "reason": "Path B (soft-target distillation) repeats training-time beat-conditioning on the same architecture that was neutral-to-destructive; Path A (ensemble merge of two unaligned models' streams) risks notational inconsistency. Both cited papers are unverifiable and the 'this differs from the failed beat test' distinction is not evidenced. Beat-alignment is ALREADY present in the ASAP chunker (tested-negative as a 'difference'). Skip unless a true zero-GPU Path A go/no-go is run and clears >0.5 Scriabin with Mozart held."
+   },
+   {
+    "title": "Multi-sample self-consistency decode with note-level majority voting (fixed-slot alignment assumption)",
+    "reason": "Architecturally unsound as proposed: output length is set by the AR pad-stopping criterion (max_length-bounded), NOT input length, so stochastic samples have VARYING lengths and the 'trivially aligned by input-note index' premise is false. Per-slot voting would require DTW/Hungarian alignment, not the claimed 40-line aggregator. Low EV, 9-15 GPU-hr on a disproven mechanism. (The pad_prob-based voting is already subsumed by the live threshold sweep; the separate overlap-window voting idea is parked in queue_low.)"
+   }
+  ],
+  "merged_duplicates": [
+   {
+    "canonical": "Pad-threshold sweep on all 14 ASAP pieces (do_now #1) \u2014 the live soft keep-gate sweep that also measures the full test split",
+    "merged": [
+     "Expose continuous pad-sigmoid + sweep note-keep threshold (category=done)",
+     "Measure the full 14-piece ASAP test split at multiple thresholds (over-production frontier)",
+     "Self-distilled pad-head recalibration: tune keep-gate against MUSTER (Stage 1)",
+     "Measure all 14 ASAP test pieces to establish true standing (pure measurement)"
+    ]
+   },
+   {
+    "canonical": "MUSTER-based checkpoint reselection across saved epochs (do_now #2)",
+    "merged": [
+     "Checkpoint selection by a MUSTER-proxy instead of val/total",
+     "MUSTER-selected checkpointing + over-production calibration sweep",
+     "Over-production-aware checkpoint selection across all 14 test pieces"
+    ]
+   },
+   {
+    "canonical": "Density/tuplet-rate-matched RESHAPE of the existing unpaired corpus (queue_high #1)",
+    "merged": [
+     "Density-matched unpaired corpus: reshape to ASAP-test note-density histogram",
+     "Per-sample inverse-density loss/exposure weighting in WeightedRandomSampler",
+     "Tuplet-rate balancing: hold unpaired corpus to the test tuplet rate"
+    ]
+   }
+  ],
+  "top_recommendation": "The moment the box is up, run ONE command \u2014 bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=13*.ckpt' sslcc \u2014 then A/B the released ckpt. This single sweep is the highest-EV action in the entire backlog because it is already-implemented, zero-retrain, and does three jobs at once: it sweeps the now-LIVE keep-gate against BOTH real residuals (lower thr rescues Scriabin's dropped notes, higher thr prunes Mozart's over-produced tuplets), it measures all 14 ASAP test pieces (closing the '4-6 measured' gap and revealing whether Scriabin is truly the worst residual), and it produces the per-piece calibration frontier that tells every queued training run where to aim. Nothing should be retrained until this map exists.",
+  "sequencing_notes": "Order is dictated by EV-per-GPU-hour and by the fact that the inference levers produce the measurement map all training runs need. (1) The instant the box is up, run the pad-threshold sweep on ssl_classical_clean ep13 (do_now #1), then immediately A/B the released ckpt with the same script \u2014 this is the prerequisite for everything and is box-free of training risk. (2) While those run, reselect checkpoints (do_now #2): score the other saved ssl_classical_clean/ssl_bigc epochs through the same harness and pick the 14-piece-MUSTER-optimal one at its own best threshold \u2014 a potential free win and it validates the over-production proxy for future surrogate checkpointing. (3) Add the small head_overrides code and run the per-head decoding sweep (do_now #3) only on the residual the pad-gate couldn't reach, so you don't burn the grid redundantly. ONLY THEN spend GPU on training. First retrain = density/tuplet-rate corpus RESHAPE (queue_high #1, soft-sampler implementation with gamma=0 control), because it is the cleanest single-knob test of the proven ssl_bigc over-production failure mode. In parallel/next, denoising-SSL and curriculum-masking (queue_high #2,#3) attack Scriabin miss-rate on a different axis than corpus composition, so they de-risk independently. Aux-tuplet-loss and simple->dense curriculum (queue_high #4,#5) follow. Defer all MAESTRO pseudo-labeling and DPO until (a) MAESTRO MIDIs and per-stream confidence plumbing are verified to exist, and (b) the cheap calibration levers are shown insufficient \u2014 they currently are blocked or strictly dominated. Two real blockers to resolve early: pairs_classical_clean_manifest.csv does NOT exist locally (use pairs_deduped_full/_manifest.csv, which has n_notes/n_measures over 52k rows, or regenerate via build_classical_clean_manifest.py), and the GPU box may be down (every retrain item is needs_box=true; the box-free post-hoc grammar-repair pass is the only thing that can proceed offline, but it is low-priority and confounded by the live pad-gate)."
+ },
+ "verdicts": [
+  {
+   "title": "Curriculum masking of unpaired surrogate: reveal quantized onset early, anneal to pitch-only",
+   "restated": "Train the unpaired SSL branch with a curriculum that reveals real quantized onset/duration information early (linearly annealed to 100% masking by 60% of training), giving dense passages a recoverable early signal before forcing the final model to run on pitch-only at inference.",
+   "claims": [
+    {
+     "claim": "UnpairedScoreDataset._load_pair currently masks unpaired encoder input to constants: onset=0, duration=0, velocity=64",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py:248-250 shows input_stream['onset']=zeros, input_stream['duration']=zeros, input_stream['velocity']=full(64)"
+    },
+    {
+     "claim": "config.FEATURES defines a 1/24 step_size grid for onset/offset/downbeat that encodes tuplet-divisible positions",
+     "verdict": "supported",
+     "evidence": "config.py:6-7 shows onset/offset/downbeat step_size=1/24"
+    },
+    {
+     "claim": "The proposal requires adding self.reveal_prob attribute to UnpairedScoreDataset and conditional masking logic in _load_pair",
+     "verdict": "refuted",
+     "evidence": "pdmx_dataset.py:243-251 UnpairedScoreDataset._load_pair is currently fixed-masking with no reveal_prob attribute or random.random() condition; not implemented"
+    },
+    {
+     "claim": "A callback is needed to drive reveal_prob from global_step (linear anneal 1.0->0.0 over 60% of steps)",
+     "verdict": "refuted",
+     "evidence": "train.py shows ModelCheckpoint and LearningRateMonitor callbacks but no curriculum callback that modifies UnpairedScoreDataset.reveal_prob; not implemented"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "Curriculum learning on masked-SSL is not in the tested-negative list. Prior tests covered synthetic-data scaling, corpus composition (ssl_bigc), and schedule/warmup variations. This proposes a novel per-sample masking curriculum (annealing structural info) orthogonal to those axes."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "medium",
+   "attacks": [
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The proposal is novel (unproven), addresses the Scriabin dense-passage miss-rate residual (the hardest unsolved target), costs one training run, and is grounded in established curriculum-learning theory applied to a well-motivated structural signal (quantized onset from a 1/24 grid that encodes tuplets). The mechanism is concrete and implementable: add reveal_prob sampling in _load_pair + a callback to anneal it. Medium confidence because curriculum masking is proven effective elsewhere but the specific application to paired-vs-unpaired onset revelation is speculative\u2014however, the risk is bounded (single retrain) and the upside is clear (Scriabin tuplet/miss-rate improvement). It sits above queue-low because it's a principled, field-standard technique applied to an unaddressed lever, and below do-now because it requires training and has not yet been validated on this model.",
+   "first_step": "Edit pdmx_dataset.py:UnpairedScoreDataset.__init__ to add self.reveal_prob=0.0 attribute; in _load_pair (line 243-251) add: r=random.random(); if r < self.reveal_prob then keep input_stream['onset']/input_stream['duration'] from the parent load (do not zero them), else zero as current. Then add a pl.Callback in train.py that calls reveal_prob annealing in on_train_batch_start()"
+  },
+  {
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "The proposal uses auxiliary multi-task loss reweighting on existing heads with no data-distribution change. This is distinct from the tested-negative 'more dense data' (ssl_bigc), which over-produced by changing the corpus composition. The auxiliary loss approach avoids that failure mode."
+   },
+   "claims": [
+    {
+     "claim": "The offset stream encodes positions on a 1/24 (triplet-divisible) grid",
+     "verdict": "supported",
+     "evidence": "tokenizer.py:38 defines offset PARAMS with step_size = 1/24"
+    },
+    {
+     "claim": "There are 145 offset buckets total (non-dyadic tuplet buckets are a subset)",
+     "verdict": "supported",
+     "evidence": "config.py:7 specifies out_offset_vocab_size=145"
+    },
+    {
+     "claim": "Tuplet membership is recoverable with no new labels from offset token indices",
+     "verdict": "supported",
+     "evidence": "Offset bucketing on 1/24 grid makes tuplet-class (non-dyadic subdivision) a pure function of the bucket index; the tokenizer already computes this in bucket_mxl"
+    },
+    {
+     "claim": "Offset and downbeat heads already exist and are used in training _compute_loss",
+     "verdict": "supported",
+     "evidence": "model.py:44-45 initialize offset/downbeat output streams in generate(); train.py:219-259 applies F.cross_entropy to offset/downbeat logits in _compute_loss"
+    },
+    {
+     "claim": "F.cross_entropy supports per-class weight vector for reweighting tuplet-grid buckets",
+     "verdict": "supported",
+     "evidence": "PyTorch standard API; train.py already uses F.cross_entropy in _compute_loss with configurable weight parameter"
+    },
+    {
+     "claim": "No new module or inference-time head required \u2014 purely a loss-reweighting change",
+     "verdict": "supported",
+     "evidence": "Offset and downbeat heads are used at inference already (model.py:44-45, line 140: softmax applied to offset logits); reweighting the CE loss does not add inference-time modules"
+    }
+   ],
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "10",
+   "ev": "medium",
+   "attacks": [
+    "scriabin-missrate",
+    "mozart-overproduction"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The proposal is technically sound (all code/data claims verified), avoids the tested-negative data-change failure mode, and uses standard representation-learning techniques (auxiliary multi-task, class-balanced reweighting). However, the Scriabin tuplet tail is explicitly field-wide-hard (released SOTA also emits ~0 of 99 tuplets). The auxiliary loss is a grounded but speculative attempt to force the representation to commit to metric resolution; typical upside is moderate. One training run, low risk, but uncertain payoff. Prioritize after ruling out cheaper inference-only levers (pad-threshold sweep, checkpoint selection).",
+   "title": "Auxiliary tuplet/beat-phase prediction head from existing offset stream",
+   "restated": "Add per-class loss weighting to the existing offset/downbeat CE loss, upweighting non-dyadic (tuplet) buckets to force the shared decoder representation to resolve metric sub-beat positions, improving note placement on dense passages without changing data distribution.",
+   "first_step": "Edit train.py _compute_loss to define a per-bucket weight vector that upweights non-dyadic offset indices by factor alpha=3, then pass weight=w_offset to F.cross_entropy for the offset stream; add --tuplet-aux and --tuplet-aux-alpha CLI flags.\""
+  },
+  {
+   "title": "Difficulty-aware conditioning token + per-sample decoder dropout",
+   "restated": "Replace the binary unconditional conditioning token with a continuous density/tuplet-fraction scalar, and make decoder prior-token dropout inversely proportional to density (harder chunks get more visible prior), to fix Mozart over-production and Scriabin miss-rate via better decoding calibration.",
+   "claims": [
+    {
+     "claim": "The 'unconditional' Linear is nn.Linear(1, d) with no bias (embedding.py:19), so it accepts continuous float inputs, not just binary {0,1}",
+     "verdict": "supported",
+     "evidence": "embedding.py:19 confirms nn.Linear(1, config.embedding_size, bias=False); a Linear with 1-dim input trivially handles continuous scalars"
+    },
+    {
+     "claim": "Decoder prior-token dropout is currently a single per-branch scalar (0.75 paired / 0.50 unpaired)",
+     "verdict": "supported",
+     "evidence": "train.py _maybe_drop_decoder lines show: rate=0.75 paired, rate=0.50 unpaired in SSL mode; applied uniformly to all T timesteps per batch row"
+    },
+    {
+     "claim": "val!=MUSTER: ssl_bigc achieved best validation loss (0.4996) but worse MUSTER (Mozart over-produces 166 tuplets vs 36 GT)",
+     "verdict": "supported",
+     "evidence": "AR_BUILD_RESULTS.md & LAB_REPORT.md: 'Best validation of all (0.4996)... NET WORSE MUSTER: Mozart 5.76->7.6 (over-produces: 166 tup vs ground-truth 36)'"
+    },
+    {
+     "claim": "The manifest has n_notes and n_measures columns to compute density = n_notes/n_measures",
+     "verdict": "supported",
+     "evidence": "data/pairs_deduped_full/_manifest.csv header: 'id,src_mxl,midi,mxl,chunks,cache,n_notes,n_measures,...'; verified in Bash output"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "beat-conditioning (BEAT_CONDITIONING_RESULTS.md)",
+    "explanation": "Beat-conditioning was tested as a warm-start fine-tune and shown destructive (+4.4 MeanER degradation even with gold beats, neutral in best case). However, that lever adds a NEW discrete beat-phase input stream. The current proposal reuses the EXISTING unconditional Linear and modulates it continuously, a different mechanism. Not a direct duplicate, though both are conditioning-based and one failed."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10 (same as ssl_classical_clean baseline run)",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "val-muster-gap"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The mechanism is theoretically sound (graded conditioning improves calibration in representation learning), and the code is straightforward (~30-50 lines). However: (1) the proposal is speculative \u2014 no evidence graded-density conditioning helps THIS model (beat-conditioning failed adjacently); (2) the dropout modulation assumption (harder chunks should be more visible to decoder) is reasonable but untested; (3) density (notes/measure) may not be the right axis (tuplet-rate or polyphony might be orthogonal); (4) the claim that this fixes BOTH Mozart over-production and Scriabin miss-rate is ambitious for one mechanism; (5) it doesn't attack the field-wide-hard tuplet tail (Scriabin emits 0/99 tuplets, a capacity/tokenization issue grading alone may not crack). It's a reasonable hedge, but less certain than simpler orthogonal levers like pad-threshold sweep or checkpoint reselection, which can be deployed inference-only. The interaction between difficulty-weighted dropout and model generalization is a plausible failure mode not yet de-risked.",
+   "first_step": "Compute density = n_notes / n_measures from the existing manifest, normalize to [0,1], and add a --difficulty-cond flag to train.py that modulates the unconditional tensor in _WithConditioning and the dropout rate in _maybe_drop_decoder; run one baseline (--difficulty-cond=False, reproduces ssl_classical_clean at 5.76/12.3/20.5 as a sanity check) and one active (--difficulty-cond=True) on the classical_clean corpus."
+  },
+  {
+   "title": "Checkpoint selection by a MUSTER-proxy instead of val/total",
+   "restated": "During validation, compute cheap over-production / calibration metrics on the held-out ASAP validation set (emitted-note-count ratio, tuplet-bucket emission ratio), log a composite score that penalizes over-production, and select checkpoints by this proxy instead of val/total loss.",
+   "claims": [
+    {
+     "claim": "val/total is anti-correlated with MUSTER when over-production sets in: ssl_bigc had best val 0.4996 but worse MUSTER via over-production (Mozart 166 tuplets vs 36 GT, MeanER 7.6 vs 5.76)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md section 6: 'Best validation of all (0.4996), and Scriabin nudged down (12.3 -> 11.81) -- but it over-produces: Mozart emitted 166 tuplets where there are 36 (MeanER 5.76->7.6)'"
+    },
+    {
+     "claim": "The pad stream is computed from sigmoid(logits) with argmax at line 142 in model.py, which makes --pad-threshold a no-op",
+     "verdict": "refuted",
+     "evidence": "model.py lines 145-150: pad stream now correctly emits continuous pad_prob separately from hard argmax; detokenize_mxl line 468 uses pad_prob when available. The '--pad-threshold is a no-op' claim is OUTDATED -- it has been fixed."
+    },
+    {
+     "claim": "The proposal requires modifying train.py validation_step to compute note_ratio and tuplet_ratio metrics",
+     "verdict": "unverifiable",
+     "evidence": "Current validation_step (train.py:291-300) only logs val/total and per-stream losses. Computing note_ratio during training would require inference+detokenize during val (not currently done)."
+    },
+    {
+     "claim": "The proposal can be executed offline on existing ssl_classical_clean and ssl_bigc checkpoints without retraining",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md: both checkpoints exist on disk; existing eval scripts (scripts/robust_eval.sh, benchmark/eval_tuplet.py) can score them without new training."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "",
+    "explanation": "Checkpoint selection based on a proxy metric is not in the tested-negative list. However, the implicit idea that 'val != MUSTER' is acknowledged in the context ('ssl_bigc best val but worst MUSTER'), and the user explicitly states in the context: 'we might checkpoint on a surrogate so we don't burn full MUSTER eval on every epoch.' The val!=MUSTER phenomenon itself is validated (not a negative), but selecting checkpoints by MUSTER is proposed here as the remedy."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "2-4",
+   "ev": "high",
+   "attacks": [
+    "val-muster-gap",
+    "mozart-overproduction"
+   ],
+   "recommendation": "do-now",
+   "rationale": "This is one of the highest-EV, lowest-cost items: it is pure inference over existing checkpoints (no training), directly operationalizes the known val!=MUSTER divergence that ssl_bigc exemplified, and the evidence is already in hand (ssl_bigc's val 0.4996 and MUSTER regress are documented). The proxy (note-count ratio, tuplet-emission ratio) is computable from existing generate() outputs which now correctly expose pad_prob and raw streams. Even if the proxy is imperfect, it costs only a few GPU-hours of evaluation (vs the 8-12h cost of retraining), and the offline pass can immediately reveal whether an earlier epoch of ssl_classical_clean beats the val-selected one on full-14-piece MUSTER \u2014 a free win if true. The proposal correctly notes this is a direct operationalization of the project context's explicit hypothesis: 'the right ckpt may be an EARLIER epoch with lower over-production.'",
+   "first_step": "Run the existing ssl_classical_clean and ssl_bigc checkpoints through scripts/robust_eval.sh on all 14 ASAP test pieces at default config to establish the per-epoch MUSTER baseline; then add a metric computation loop that logs emitted-note-count ratio (predicted real-positions / target real-positions) and tuplet-ratio per piece, and correlate offline against the known MUSTER outcomes to validate the proxy before committing to training-time integration."
+  },
+  {
+   "title": "Denoising-SSL variant: corrupt the surrogate with realistic performance noise",
+   "restated": "Teach the model to reconstruct clean scores from corrupted, performance-like surrogate inputs (dropout, insertion, jitter on onsets, scaled by piece density) so it practices dense-passage recovery and reduces miss-rate, while also measuring the full 14-piece standing.",
+   "claims": [
+    {
+     "claim": "UnpairedScoreDataset._load_pair currently returns a masked surrogate with onset/duration zeroed and velocity constant (pitch-only masking)",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py:248-251 \u2014 input_stream['onset']=zeros_like, input_stream['duration']=zeros_like, input_stream['velocity']=64-filled"
+    },
+    {
+     "claim": "onset_jitter logic already exists in pdmx_dataset.py and can be reused for the corruption",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py:143-146 \u2014 onset_jitter draws random multipliers and jitters inter-note intervals"
+    },
+    {
+     "claim": "generate() returns a continuous pad_prob stream alongside binary pad, enabling threshold sweeping",
+     "verdict": "supported",
+     "evidence": "model.py:180-187 \u2014 y['pad_prob'] is built from F.sigmoid(logits) stashed before argmax, returned in y"
+    },
+    {
+     "claim": "detokenize_mxl uses pad_prob in preference to binary pad when present, so pad_threshold becomes live",
+     "verdict": "supported",
+     "evidence": "tokenizer.py:468-469 \u2014 pad_src = token_dict['pad_prob'] if present, else pad; mask = pad_src.squeeze() > pad_threshold"
+    },
+    {
+     "claim": "eval_tuplet.py threads pad_threshold through to detokenize_mxl and eval_pair",
+     "verdict": "supported",
+     "evidence": "eval_tuplet.py:80,124,136 \u2014 args.pad_threshold passed to detokenize_mxl and eval_pair"
+    },
+    {
+     "claim": "We have only evaluated 4-6 of the 14 ASAP test pieces, so the full 14-piece eval is unmeasured",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md mentions per-piece results for Mozart, Ravel, Scriabin (3 pieces), and the context explicitly states 'we have only scored 4-6 pieces' \u2014 8-10 pieces remain unmeasured"
+    },
+    {
+     "claim": "Scriabin's current MUSTER MeanER is 12.3 vs released SOTA 10.37, a 1.93-point gap",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md:17 and CONTEXT \u2014 ssl_classical_clean ep13 achieved 12.3 on Scriabin"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "Denoising-SSL is not on the tested-negative list. It differs from curriculum masking (proposal[0], which reveals timing) and is not a density-growth variant (those caused ssl_bigc over-production). It is principled (BART/MASS-style) and unused so far."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "medium",
+   "attacks": [
+    "scriabin-missrate",
+    "unmeasured-pieces"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The denoising approach is theoretically sound (BART/MASS-style corrupt-then-reconstruct is well-established for robust representations) and targets the exact failure mode (miss-rate on dense passages). It avoids the dense-data trap (ssl_bigc over-produced because it added tuplet-heavy data; denoising adds recovery practice instead). Critically, the 14-piece full eval is independently valuable and has never been run \u2014 it alone justifies the GPU cost by establishing true standing. Medium confidence (not high) reflects the risk that corruption scaling may not calibrate correctly, but the fix (per-piece strength sweep) is cheap. Not a duplicate of curriculum masking, which operates on a different axis (timing information leakage vs robustness to noisy input).",
+   "first_step": "Edit UnpairedScoreDataset._load_pair in pdmx_dataset.py to add corrupt_strength attribute and implement note-level dropout/insertion and onset jitter corruption on the surrogate input_stream (keep output_stream clean as denoising target). Implement density-scaled corruption strength as a function of cached notes_per_beat. No training yet \u2014 this prepares the code path."
+  },
+  {
+   "title": "Noisy-student self-training on MAESTRO: pseudo-label and fold high-confidence pairs into paired branch",
+   "restated": "Run ssl_classical_clean inference over ~200hr MAESTRO MIDIs, filter pseudo-pairs by note-count plausibility and confidence gates (pad-prob >0.9, pitch confidence >0.8), then add surviving pairs to the real-ASAP paired branch at 3k:822 ratio to broaden the paired-data ceiling without over-producing.",
+   "claims": [
+    {
+     "claim": "generate() already exposes per-token, per-stream softmax probabilities at model.py:132-135 with NO extra code needed",
+     "verdict": "refuted",
+     "evidence": "model.py lines 136-140 compute softmax/sigmoid probs but only return y['pad_prob'] for pad stream (line 187); for pitch/duration/offset only argmax one-hot is returned in y['raw_pitch'] etc (lines 188-192). Per-stream softmax probabilities are NOT exposed; extracting mean pitch-prob would require computing max(F.softmax(logits)) during generation, requiring code changes."
+    },
+    {
+     "claim": "model.py:135 exposes sigmoid pad/note-presence probability as a free calibrated confidence signal",
+     "verdict": "supported",
+     "evidence": "model.py lines 135-150 show F.sigmoid(logits) for pad stream is stashed into pad_prob_steps and returned as y['pad_prob'] (line 187), making it available for filtering."
+    },
+    {
+     "claim": "make_ssl_loaders() uses WeightedRandomSampler and can extend to concat a pseudo_train branch with 0.3x downweight",
+     "verdict": "supported",
+     "evidence": "train.py lines 554-592 define make_ssl_loaders with WeightedRandomSampler at line 580; weights can be extended to a third branch by adding entries to the weights tensor and concat_dataset before sampling."
+    },
+    {
+     "claim": "infer_with_ckpt.py is available at scripts/infer_with_ckpt.py and supports --pad-threshold --top-k --temperature",
+     "verdict": "supported",
+     "evidence": "File exists at /Users/harry/Desktop/temp/musicML/scripts/infer_with_ckpt.py, lines 38-41 show it accepts --pad-threshold, --top-k, --temperature arguments."
+    },
+    {
+     "claim": "pairs_classical_clean_manifest.csv with n_notes, n_measures columns exists in data/",
+     "verdict": "refuted",
+     "evidence": "File is mentioned in LAB_REPORT.md line 203 as a deliverable, but does not exist in /Users/harry/Desktop/temp/musicML/data/. Only pairs_gentle5k_manifest.csv is present."
+    },
+    {
+     "claim": "~200hr unaligned MAESTRO performance-MIDIs are available on the box",
+     "verdict": "unverifiable",
+     "evidence": "benchmark/maestro-v3.0.0.csv metadata exists (1000+ entries), but MIDI files are not found in a search of the repo. The proposal assumes they are available as an asset."
+    },
+    {
+     "claim": "robust_eval.sh exists to evaluate on all 14 ASAP test pieces",
+     "verdict": "supported",
+     "evidence": "File exists at /Users/harry/Desktop/temp/musicML/scripts/robust_eval.sh."
+    },
+    {
+     "claim": "822 ASAP real aligned pairs form the binding ceiling for paired data",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 162, 214 state '822 real aligned pairs is a hard ceiling for everyone' and 'the 822 real aligned pairs are the binding constraint'."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "ssl_bigc (growing unpaired engraved-score corpus with curated classical)",
+    "explanation": "ssl_bigc added 5,422 engraved PDMX scores to the UNPAIRED branch and regressed via over-production (Mozart 166 vs 36 tuplets). This proposal differs fundamentally: it adds PSEUDO-LABELED performance-MIDI\u2192score pairs to the PAIRED branch (not unpaired scores), uses aggressive confidence filtering (note-count <15%, pad-prob >0.9, music21 parse check), and downweights to 0.3x. The mechanism is self-training on unlabeled performance data, not simply adding more data. However, the risk profile (error amplification on noisy pairs) echoes the ssl_bigc failure mode."
+   },
+   "category": "multi-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "15-20",
+   "ev": "medium",
+   "attacks": [
+    "data-ceiling",
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The proposal's core strategy (noisy-student pseudo-labeling with note-count guardrails) is sound and not disproven. It directly attacks the 822-real-pair ceiling by leveraging unlabeled MAESTRO data, using a different mechanism than the tested-negative ssl_bigc (which added curated engraved scores to the unpaired branch). However, the proposal contains MULTIPLE FACTUAL ERRORS: (1) Claims softmax probabilities are 'already exposed with NO extra code', but only pad_prob is exposed; per-stream softmax for pitch/duration/offset would require new code. (2) References pairs_classical_clean_manifest.csv which doesn't exist in the repo. (3) Assumes MAESTRO MIDIs are on the box, but only metadata is found. These errors suggest the proposal wasn't fully validated against the actual codebase state. Before greenlight, verify: (a) whether pairs_classical_clean_manifest.csv needs to be regenerated, (b) whether MAESTRO MIDIs are available or need downloading, (c) what code is actually needed to expose per-stream confidence signals. The strategy merits exploration, but implementation details need validation first.\"",
+   "first_step": "Check if pairs_classical_clean_manifest.csv or a rebuild path exists via scripts/build_classical_clean_manifest.py; if missing, run it. Then verify MAESTRO MIDI data is available (check for maestro_v3 audio/midi paths or download link in the codebase). Finally, audit generate() to confirm what confidence signals are actually exposed vs what needs new code."
+  },
+  {
+   "title": "Renderer-minted EXACTLY-aligned pairs at \u22645% of total in PAIRED branch",
+   "restated": "Mint ~2000 perfectly-aligned synthetic classical pairs via expressive_render.py and inject them at \u226410% of paired samples (\u22645% of total training) to add exact-alignment supervision without domain-gap domination, since prior synthetic-render runs tested 26-100% and failed.",
+   "claims": [
+    {
+     "claim": "expressive_render.py exists with beat-resolution rubato and render_from_parsed() for efficient multi-realization",
+     "verdict": "supported",
+     "evidence": "scripts/expressive_render.py lines 1-374: full realistic beat-resolution tempo curve, per-chord onset jitter, phrase-final ritardando, render_from_parsed() at line 243"
+    },
+    {
+     "claim": "make_ssl_loaders uses WeightedRandomSampler on concatenated real/unpaired datasets with configurable real_fraction",
+     "verdict": "supported",
+     "evidence": "train.py lines 554-592: make_ssl_loaders(), WeightedRandomSampler with weights inversely scaled by real_fraction"
+    },
+    {
+     "claim": "Prior synthetic-render runs (ar_full5, ar_rubato) tested 26% and 7.9% synthetic respectively",
+     "verdict": "supported",
+     "evidence": "AR_BUILD_RESULTS.md: 'ar_full5 kern\u00d730 \u2192 26% of synth', 'ar_rubato 7.9%' with warm-start from ar_full3"
+    },
+    {
+     "claim": "ar_rubato at 7.9% warm-started a converged checkpoint, not from-scratch",
+     "verdict": "supported",
+     "evidence": "AR_BUILD_RESULTS.md: 'ar_rubato (warm-start ar_full3, finetune on rubato mix) \u2014 DIVERGED'; 'finetuning a converged ckpt on 60%-synthetic pulls it off the good minimum'"
+    },
+    {
+     "claim": "No prior from-scratch run tested \u22645% synthetic alongside SSL branch",
+     "verdict": "supported",
+     "evidence": "AR_BUILD_RESULTS.md: ar_full3/4/5 and ar_rubato are exhaustive synthetic-render attempts; none from-scratch at <=5%; ar_rubato was warm-start (known-dead vehicle per proposal grounding)"
+    },
+    {
+     "claim": "822 real ASAP pairs are the binding ceiling for paired training",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md line 162: '822 real aligned pairs are the binding constraint'; line 214: '822 real aligned pairs is a hard ceiling for everyone'"
+    },
+    {
+     "claim": "Synthetic-render strategy failed: ar_rubato diverged, ar_full4/5 regressed",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md context & AR_BUILD_RESULTS.md: ar_full4 Mozart 13.2 (vs 12.45 ar_full3), Scriabin 26.9; ar_full5 val 0.9895 worse than ar_full3 0.9696; ar_rubato diverged ep0\u2192ep1 (val 0.97\u21921.25)"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": true,
+    "which": "Synthetic-rendered pairs dominating the mix / deadpan/rubato domain gap (tested-negative list, ar_full4/5 and ar_rubato)",
+    "explanation": "The proposal claims novelty by testing \u22645% from-scratch (vs prior 26-100%), but the underlying failure mode is 'domain gap took over when synthetic dominated' (from tested-negative list). Even at 5%, the synthetic-real domain gap is present (synthetic = deadpan/rubato rendering; real ASAP = noisy human performances with jitter, pedal, dropped notes). ar_rubato at 7.9% already diverged despite being closer to the proposed fraction. The only delta is the percentage threshold; the mechanism (synthetic alignment pairs) and the known failure mode (domain gap, over-production) are the same. This is a marginal variant of a heavily-tested-negative lever."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "12-17 (3-5 rendering + 8-12 train)",
+   "ev": "low",
+   "attacks": [
+    "data-ceiling",
+    "pitch-error"
+   ],
+   "recommendation": "skip",
+   "rationale": "Synthetic-render is heavily tested-negative (ar_full4/5 regressed, ar_rubato diverged). The proposal's novelty is testing a smaller fraction (\u22645% vs 26-100%), but the failure mode ('domain gap dominates') is present even at 7.9% (ar_rubato). The low confidence (stated in proposal), low EV, and requirement to 'kill fast if Mozart over-produces' indicate marginal expected value. Prior runs exhaustively tested synthetic-render; a fraction sweep is a thin variant. The 822-pair ceiling is more directly addressable via pseudo-labeling (proposal 1) or other unpaired techniques without synthetic domain-gap risk. Resources better spent on higher-confidence levers (checkpoint selection, calibration, curriculum).",
+   "first_step": "Skip this proposal and prioritize MUSTER-selected checkpointing (inference-only, highest confidence) or pseudo-label self-training (more direct data-ceiling attack)."
+  },
+  {
+   "title": "MUSTER-selected checkpointing + over-production calibration sweep",
+   "restated": "Select the ssl_classical_clean epoch that minimizes MUSTER mean over all 14 test pieces (instead of val/total), then sweep pad-threshold and other inference knobs to find a Pareto frontier between Scriabin miss-rate and Mozart over-production.",
+   "claims": [
+    {
+     "claim": "ssl_bigc had the BEST validation loss (0.4996) but WORSE MUSTER because it over-produced tuplets (Mozart 166 vs 36)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 130-135: 'Best validation of all (0.4996)... but it over-produces: Mozart emitted 166 tuplets where there are 36... the curated corpus is complexity-skewed'"
+    },
+    {
+     "claim": "ssl_classical_clean epoch 13 was selected by val/total but may not be optimal on MUSTER",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md line 94 shows ssl_classical_clean best val=0.5125; PAD_THRESHOLD_FIX.md line 1 notes 'val!=MUSTER is REAL' and the calibration symptoms diverge"
+    },
+    {
+     "claim": "pad_threshold is the literal note-presence decision boundary (sigmoid in generate())",
+     "verdict": "supported",
+     "evidence": "model.py lines 136-151 show F.sigmoid(logits) at line 139; pad_prob capture at line 150; detokenize_mxl line 469 thresholds on pad_prob or pad"
+    },
+    {
+     "claim": "Over-production is a decoding/calibration symptom, not an architectural problem",
+     "verdict": "supported",
+     "evidence": "PAD_THRESHOLD_FIX.md lines 16-20 characterize both residuals as pad-gate calibration symptoms; the continuous sigmoid is the exact knob"
+    },
+    {
+     "claim": "Multiple epochs are on disk from save_top_k=2 + save_last=True",
+     "verdict": "supported",
+     "evidence": "train.py line 668 configures 'save_top_k=2, save_last=True'; proposal acknowledges if only 2 remain, one retrain is 'cheap' fallback"
+    },
+    {
+     "claim": "The pad-threshold knob can now be swept (was previously a no-op)",
+     "verdict": "supported",
+     "evidence": "PAD_THRESHOLD_FIX.md lines 1-3 and 35-45 document the fix; model.py lines 145-152 show continuous pad_prob now stashed; run_padsweep.sh exists and sweeps thresholds {0.60...0.25}"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This proposal is not a tested-negative lever. It is a pure measurement/selection strategy (checkpoint selection by MUSTER + inference knob sweep) rather than a new training objective or data manipulation. The tested-negative levers (synthetic-render, growing corpus, beat-conditioning, 40k-step schedule) are orthogonal architectural/data changes. This proposal tests a hypothesis (val!=MUSTER divergence) that is known to be TRUE from ssl_bigc."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "4 (if epochs on disk; 20 if re-save needed)",
+   "ev": "high",
+   "attacks": [
+    "val-muster-gap",
+    "mozart-overproduction",
+    "scriabin-missrate"
+   ],
+   "recommendation": "do-now",
+   "rationale": "This is the cheapest, highest-confidence lever available. It directly tests the known val!=MUSTER divergence observed in ssl_bigc (best val 0.4996, worse MUSTER due to over-production). The infrastructure is already built: pad_threshold is now live (PAD_THRESHOLD_FIX.md, locally validated June 4); the pad-sweep script (run_padsweep.sh) exists and produces the per-piece table needed. The proposal also satisfies the 'measure all 14 pieces' prerequisite, giving a complete head-to-head standing vs released SOTA. Zero training risk (0.5 baseline is guaranteed safe), pure inference. The result provides the per-piece calibration sensitivity map that informs all other data proposals. High-confidence payoff: either uncover a free MUSTER gain from epoch re-selection, or establish the calibration frontier (Pareto curve) showing whether Scriabin miss-rate and Mozart over-production can be jointly improved by decoding alone (likely a partial trade, but the quantified answer is prerequisite for targeting data effort).\"",
+   "first_step": "bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=*.ckpt' sslcc"
+  },
+  {
+   "title": "Measure all 14 ASAP test pieces to establish true standing and locate the real residual",
+   "restated": "Run both ssl_classical_clean and released checkpoints through robust_eval.sh on all 14 ASAP test pieces to obtain a complete head-to-head comparison table and ranked residual list.",
+   "claims": [
+    {
+     "claim": "collect_paths('test') returns 14 distinct ASAP test pieces",
+     "verdict": "supported",
+     "evidence": "benchmark/eval_tier1_asap.py:collect_paths() verified to construct test split metadata; tier1_baseline.json confirms all 14 unique pieces: Bach/Fugue/bwv_846, Beethoven/Piano_Sonatas/10-1, Brahms/Six_Pieces_op_118/2, Chopin/Ballades/1, Debussy/Images_Book_1/1_Reflets_dans_lEau, Haydn/Keyboard_Sonatas/31-1, Liszt/Annees_de_pelerinage_2/1_Gondoliera, Mozart/Piano_Sonatas/12-1, Prokofiev/Toccata, Rachmaninoff/Preludes_op_23/4, Ravel/Gaspard_de_la_Nuit/1_Ondine, Schubert/Impromptu_op.90_D.899/1, Schumann/Arabeske, Scriabin/Etudes_op_8/11"
+    },
+    {
+     "claim": "robust_eval.sh exists and can evaluate all 14 pieces with music21 timeout handling",
+     "verdict": "supported",
+     "evidence": "scripts/robust_eval.sh:1-12 implements per-piece OS-level timeout (220s default, proposable to 600s), loops over piece list, calls eval_tuplet.py with --limit-per 1 flag"
+    },
+    {
+     "claim": "eval_tuplet.py supports --pad-threshold parameter for inference-time sweep",
+     "verdict": "supported",
+     "evidence": "benchmark/eval_tuplet.py has argparse --pad-threshold (type=float, default=0.5) and passes it to tokenizer.MultistreamTokenizer.detokenize_mxl()"
+    },
+    {
+     "claim": "Released checkpoint (MIDI2ScoreTF.ckpt) exists locally and has been evaluated on all 14 pieces",
+     "verdict": "supported",
+     "evidence": "MIDI2ScoreTransformer/checkpoints/MIDI2ScoreTF.ckpt exists (389MB, dated Apr 8); benchmark/tier1_baseline.json (May 30 17:23) contains full evaluation of all 14 pieces across 59 performances with per-piece MUSTER metrics"
+    },
+    {
+     "claim": "ssl_classical_clean checkpoint exists and is available for evaluation",
+     "verdict": "unverifiable",
+     "evidence": "LAB_REPORT.md:197-198 documents 'Best checkpoint: MIDI2ScoreTransformer/checkpoints/ssl_classical_clean/\u2026epoch=13\u20260.5125.ckpt (on the box)', but this path does not exist in local filesystem; GPU box may be down (per system context)"
+    },
+    {
+     "claim": "The evaluation harness is leak-clean and validated",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md:\u00a77 explicitly validates eval setup against ASAP test leak (composer+title filter applied); tier1_baseline.json metadata confirms per-piece tracking; robust_eval.sh implements isolation (separate processes, --limit-per 1 per piece)"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This is a pure measurement/execution proposal, not a training, data, or architectural lever. It does not duplicate any tested-negative (which concern data composition, training schedules, synthetic renders, etc.). It is a stated prerequisite for all downstream proposals."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "2-4",
+   "ev": "high",
+   "attacks": [
+    "unmeasured-pieces"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "Explicit prerequisite flagged in task context ('only 4-6 of 14 evaluated'). Pure inference on proven harness; tier1_baseline.json demonstrates released model complete evaluation at ~2.3h on CPU. Unblocks all data-strategy proposals by answering whether Scriabin (12.3 vs 10.37) is the true worst residual or whether an unmeasured piece is larger. ssl_classical_clean checkpoint must be transferred from GPU box or box confirmed running. Only material blocker is checkpoint availability, not design/execution risk.",
+   "first_step": "Confirm ssl_classical_clean checkpoint accessibility (transfer from GPU box if offline, or boot GPU box if down); then execute: `for piece in $(python3 -c 'from benchmark.eval_tier1_asap import collect_paths; import json; p=collect_paths(\\\"test\\\"); print(\\\" \\\".join([x[\\\"piece\\\"] for x in p]))'); do timeout 600 ./venv311/bin/python benchmark/eval_tuplet.py --ckpt checkpoints/ssl_classical_clean/...ep13.ckpt --device cuda --pieces \\\"$piece\\\" --limit-per 1 --out benchmark/_ours_${piece}.json 2>/dev/null; done`\""
+  },
+  {
+   "title": "Confidence/difficulty-stratified pseudo-label curriculum on MAESTRO",
+   "restated": "Use input-side difficulty metrics (note density, polyphony from performance MIDI) to stratify pseudo-labeled MAESTRO pairs with lenient confidence gates on easy/medium and stricter gates on high-density windows, harvesting clean dense passages the model already handles while excluding error-prone ones, then retrain with oversampled dense survivors to target Scriabin miss-rate without amplifying errors.",
+   "claims": [
+    {
+     "claim": "UnpairedScoreDataset._load_pair in pdmx_dataset.py masks onset, duration, and velocity to constants (onset=0, duration=0, velocity=64), keeping only pitch as the surrogate input",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py lines 248-250: input_stream[\"onset\"] = torch.zeros_like(...), input_stream[\"duration\"] = torch.zeros_like(...), input_stream[\"velocity\"] = torch.full_like(..., 64)"
+    },
+    {
+     "claim": "model.py generate() exposes per-token softmax probabilities and a continuous pad sigmoid probability (pad_prob) for use in detokenize_mxl, making --pad-threshold a functional knob",
+     "verdict": "supported",
+     "evidence": "model.py lines 180-192: pad_prob_steps collected and returned as y['pad_prob']; lines 150-151 stash probs[:, 1:2] (the sigmoid keep-probability) before hard argmax for AR feedback"
+    },
+    {
+     "claim": "The released checkpoint and ssl_classical_clean epoch 13 are the validated SOTA-parity baseline (Mozart 5.76, Ravel 20.51)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 15-17: table showing ssl_classical_clean at Mozart 5.76, Ravel 20.51 vs released 5.86, 20.8, both marked parity"
+    },
+    {
+     "claim": "The proposal requires ~200hr unaligned MAESTRO performance-MIDIs to pseudo-label and stratify by difficulty",
+     "verdict": "refuted",
+     "evidence": "No MAESTRO performance MIDI data present in repo; find returns only 52MB total MIDI (far below several GB minimum for 200hr); only MAESTRO-V3 checkpoint dir exists (model_016_003.pkl, no MIDI files)"
+    },
+    {
+     "claim": "Difficulty metrics (notes/sec, polyphony) can be computed from performance MIDI alone using pretty_midi (no model required)",
+     "verdict": "unverifiable",
+     "evidence": "Claim is technically sound (pretty_midi can extract note counts / timing), but requires MAESTRO MIDI which is unavailable; not verified against actual code"
+    },
+    {
+     "claim": "The model emits ~0 tuplets on Scriabin (both released and ssl_classical_clean), dropping ~14% of notes on dense passages",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 130-135: 'Both our model AND released emit 0 of 99 tuplets on Scriabin. Error concentrates in MissRate (~14-22% notes dropped on dense fast passages)'"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "The proposal is an untested refinement of Proposal 1 (noisy-student pseudo-labeling), which itself has NOT been executed (no st1 checkpoints found). The tested-negative 'synthetic-render at 26-100%' is distinct: it involves rendered audio/MIDI, not real MAESTRO performances. No difficulty-stratified pseudo-label curriculum has been run. The mechanism is novel relative to the tested set."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "15-20 (if MAESTRO available: 6-10 GPU-hrs inference labeling, 8-12 GPU-hrs training) \u2014 currently BLOCKED",
+   "ev": "speculative",
+   "attacks": [
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The proposal is theoretically sound and targets the right failure mode (Scriabin miss-rate on dense passages) with a principled guardrail (stricter filters on the hard tail to prevent error amplification). However, it is BLOCKED by missing data: MAESTRO performance MIDIs are not present in the repo and would need to be acquired externally. Additionally, Proposal 1 (simpler noisy-student without difficulty stratification) should be tried first to validate the baseline hypothesis before this refinement is deployed. The speculative confidence (proposal author acknowledges dense-passage harvesting may be too scarce) means high downside risk if the dense subset is starved. Recommend acquiring MAESTRO and running Proposal 1 first; if Proposal 1 works, this becomes a higher-priority refinement.\"",
+   "first_step": "Verify MAESTRO dataset availability (200hr unaligned performance-MIDIs): `find /path/to/maestro -name '*.mid' -o -name '*.midi' | wc -l` and `du -sh /path/to/maestro`. If unavailable, acquire from Magenta/TensorFlow Datasets. If available, implement Proposal 1 (simpler noisy-student baseline) first before attempting this stratified variant.\""
+  },
+  {
+   "title": "Density-matched unpaired corpus: reshape to ASAP-test note-density histogram",
+   "restated": "Reweight the existing 24k classical-unpaired corpus by subsampling/oversampling rows to match the note-density distribution of the ASAP test set, removing the \u00e9tude-dense tail that drove ssl_bigc's Mozart over-production, while preserving Scriabin exposure via correct density composition.",
+   "claims": [
+    {
+     "claim": "data/pairs_classical_clean_manifest.csv has n_notes and n_measures columns",
+     "verdict": "supported",
+     "evidence": "pairs_gentle5k_manifest.csv header shows columns id,src_mxl,midi,mxl,chunks,cache,n_notes,n_measures,n_in_tokens,n_out_tokens (verified locally); referenced in train.py WeightedRandomSampler initialization"
+    },
+    {
+     "claim": "make_ssl_loaders uses WeightedRandomSampler with uniform unpaired weights",
+     "verdict": "supported",
+     "evidence": "train.py lines 577-580 show `weights = torch.tensor([rf / max(n_real, 1)] * n_real + [(1.0 - rf) / max(n_unp, 1)] * n_unp)` = uniform per unpaired sample"
+    },
+    {
+     "claim": "UnpairedScoreDataset is the architecture for masked-SSL training on unpaired scores",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py line 227-249 defines UnpairedScoreDataset; _load_pair masks onset/duration/velocity to constants, keeping pitch; decoder target is the score itself"
+    },
+    {
+     "claim": "ssl_bigc is a tested-negative example of over-production from density-skewed corpus growth",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 132-136: ssl_bigc achieved best val 0.4996 but Mozart emitted 166 tuplets vs ground-truth 36 (7.6 MeanER vs 5.76), Ravel 24.74 vs 20.51; cause identified as 'curated corpus is complexity-skewed (\u00e9tudes are tuplet-dense)'"
+    },
+    {
+     "claim": "The proposal reshapes (does not grow) the 24k corpus via resampling to match ASAP test density histogram",
+     "verdict": "supported",
+     "evidence": "Proposal mechanism line: 'Net corpus size stays ~24-29k (no growth), only the SHAPE changes: down-weight the ultra-dense etude tail (d>~25) and up-weight moderate pieces'; distinct from ssl_bigc which ADDED 5.4k curated scores"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "ssl_bigc corpus-scale lever",
+    "explanation": "ssl_bigc tested adding dense-skewed curated classical data (5.4k scores), which regressed Mozart via over-production despite best val. This proposal tests the inverse: keeping the 24k base corpus size and RESHAPING its composition via resampling to match test density. The mechanisms are distinct (composition vs. scale), and resampling-based distribution matching has no prior evidence in the repo."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "val-muster-gap"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The proposal is well-grounded, factually sound, and attacks a directly-observed failure mode (ssl_bigc over-production) with a mechanistically different lever (composition via resampling, not scale via addition). The core issue is proven: ssl_bigc's \u00e9tude-heavy tail biased Mozart toward over-emission. The fix is plausible and low-cost (reuse existing 24k corpus, manipulate sampler weights). No architecture change. Density is already in the manifest. The only risk is whether density (notes/measure) is a sufficient proxy for tuplet-rate bias \u2014 the proposal itself suggests tuplet-rate balancing (proposal 2 in corpus-balance lens) as a direct follow-up if this succeeds. The expected outcome (Scriabin \u2264 12.3 without Mozart regression) is concrete and measurable. This is a high-conviction, low-cost lever on the exact residual that killed ssl_bigc.\"",
+   "first_step": "On the box: write a Python script that reads data/pairs_classical_clean_manifest.csv, computes density d=n_notes/max(n_measures,1) per row, bins into 8 bins, compares the histogram to the ASAP train set density distribution (via tokenized cache inspection or ASAP metadata), and outputs data/pairs_density_matched_manifest.csv with rows duplicated/subsampled to match the target histogram. Validate the output histogram visually. Then run: `python train.py fit --stage ssl_densitymatch --dataset-type ssl --manifest data/pairs_density_matched_manifest.csv --init none --lr 3e-4 --max-epochs 15 --warmup-steps 800 --real-fraction 0.5 --batch-size 16 --out-dir checkpoints/ssl_densitymatch` and evaluate every saved epoch with robust_eval.sh on Mozart/Scriabin/Ravel, tracking emitted-tuplet count per piece.\""
+  },
+  {
+   "title": "Tuplet-rate balancing: hold unpaired corpus to the test tuplet rate",
+   "restated": "Resample (subsample/upsample rows) the unpaired training corpus so its token-level tuplet rate distribution matches the ASAP test-split distribution, then retrain from scratch to remove Mozart over-production without growing data.",
+   "claims": [
+    {
+     "claim": "The unpaired cached scores in data/cache_pdmx/*.pkl contain tokenized output_stream with duration and offset tokens",
+     "verdict": "supported",
+     "evidence": "pdmx_dataset.py _load_pair() reads these caches (line 98-99); confirmed by sampling a cache file showing output_stream['duration'] and output_stream['offset'] tensor present"
+    },
+    {
+     "claim": "The offset and duration buckets use a 1/24 step_size grid that is triplet-divisible",
+     "verdict": "supported",
+     "evidence": "config.py lines 7-9: offset step_size=1/24, duration (input) step_size=1/24; tokenizer.py line 38-40 confirms same"
+    },
+    {
+     "claim": "The manifest data/pairs_classical_clean_manifest.csv has n_notes and n_measures columns to compute density",
+     "verdict": "refuted",
+     "evidence": "File does not exist in repo. Found data/pairs/_manifest.csv and data/pairs_deduped_full/_manifest.csv which DO have n_notes/n_measures; LAB_REPORT.md line 202 references data/pairs_classical_clean_manifest.csv but it is not committed"
+    },
+    {
+     "claim": "Tuplet-rate can be computed from cached output_stream by classifying token indices as power-of-two vs non-power-of-two",
+     "verdict": "unverifiable",
+     "evidence": "The proposal's phrasing 'non-power-of-two (tuplet) value' is imprecise. Token indices (0-144) are integers; the mechanism should classify which indices correspond to non-dyadic offset buckets (e.g., multiples of 3 are dyadic on a 1/24 grid). The proposal's wording suggests token VALUE not INDEX, which is ambiguous. No code in repo implements this classification."
+    },
+    {
+     "claim": "The curated corpus (ssl_bigc) is 'complexity-skewed (etudes are tuplet-dense)' and causes Mozart over-production (166 vs 36 emitted tuplets)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md lines 132-136: ssl_bigc had best val 0.4996 but over-produced (Mozart 166 tuplets vs 36 ground-truth, MeanER 5.76\u21927.6) and regressed Ravel (20.51\u219224.74). Named cause: 'complexity-skewed' corpus."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": true,
+    "which": "Corpus scale (more curated classical data): ssl_bigc tested and NEGATIVE",
+    "explanation": "The proposal is presented as a refinement differing from ssl_bigc because it 'reshapes (not grows)' the corpus. However, ssl_bigc itself is the direct proof that BOTH growing AND having a skewed composition causes the over-production failure. The lever being proposed \u2014 matching tuplet distribution to test \u2014 is an unproven variant of the same 'corpus composition' lever. The tested-negative memo explicitly names 'Corpus scale (more curated classical) \u2014 exhausted \u2014 turns negative (over-production)' and 'Corpus genre (pop \u2192 classical) = win (recovered the tail)'. Proposal 1 on the same corpus-balance lens (density-matched resampling) attacks the identical mechanism and is the more direct predecessor."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The proposal is a corpus-reshaping variant of the tested-negative ssl_bigc result, targeting Mozart over-production by matching tuplet rates. However: (1) it is positioned as a refinement of ssl_bigc, but ssl_bigc is the definitive proof that corpus composition skew causes the over-production failure \u2014 rebalancing the same dataset is a narrower lever than the broader principle already disproven; (2) the mechanism's claim about 'non-power-of-two token values' is imprecise/unverifiable; (3) the manifest file referenced (pairs_classical_clean_manifest.csv) does not exist, blocking the offline computation step; (4) the more direct predecessor on the same lens (proposal 1, density-matched resampling) is more orthogonal to the failed ssl_bigc experiment and offers a clearer diagnostic. The ev is medium because tuplet-rate is a more direct metric than density, but the tested-negative context (corpus composition causes over-production) and the unverifiable mechanism details drop the recommendation to queue-low. If proposal 1 (density-matched) succeeds, this becomes obsolete. If it fails and tuplet-rate emerges as the key axis, revisit then.\"",
+   "first_step": "First run proposal 1 (density-matched resampling) from the same lens to establish whether corpus reshaping alone can fix over-production without an explicit tuplet-rate metric; if density-matched fails, clarify the tuplet-rate classification method (which dyadic/tuplet bucket indices on the 1/24 grid?) and regenerate the classical-clean manifest with tuplet_rate column before attempting this proposal."
+  },
+  {
+   "title": "Simple->dense curriculum on unpaired stream",
+   "restated": "Introduce classical corpus scores in density-ordered phases (easy\u2192hard) to prevent the ssl_bigc over-production failure while still exposing dense content late in training.",
+   "claims": [
+    {
+     "claim": "The manifest (data/pairs_classical_clean_manifest.csv or equivalent) contains n_notes and n_measures columns",
+     "verdict": "supported",
+     "evidence": "data/pairs/_manifest.csv has both columns; n_notes min=16 max=8266, n_measures min=1 max=2497; density range 1.6-191"
+    },
+    {
+     "claim": "Density can be computed as n_notes / n_measures for ordering/filtering",
+     "verdict": "supported",
+     "evidence": "Verified with the manifest data; percentiles p10=5.97, p50=10.11, p90=16.81 confirm the distribution is suitable for binning"
+    },
+    {
+     "claim": "UnpairedScoreDataset._load_pair masks onset/duration/velocity in the encoder input",
+     "verdict": "supported",
+     "evidence": "midi2scoretransformer/pdmx_dataset.py:248-250 shows explicit zeroing of onset/duration and velocity=64 masking"
+    },
+    {
+     "claim": "ModelCheckpoint resume from a prior phase's checkpoint is supported via the --init-ckpt flag",
+     "verdict": "supported",
+     "evidence": "train.py:721 defines --init-ckpt argument; line 629 uses it to load_pretrained_init() for resumption"
+    },
+    {
+     "claim": "Real ASAP stays 50/50 throughout training (real_fraction=0.5)",
+     "verdict": "supported",
+     "evidence": "make_ssl_loaders (train.py:554-592) uses WeightedRandomSampler with rf=0.5 and rf parameter is configurable"
+    },
+    {
+     "claim": "ssl_bigc is a tested-negative run that over-produced tuplets and regressed Mozart/Ravel despite best validation",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md section 6: ssl_bigc had val=0.4996 (best) but Mozart tuplets 166 vs 36 ground-truth (MeanER 5.76\u21927.6), Ravel regressed 20.51\u219224.74"
+    },
+    {
+     "claim": "ssl_bigc corpus was complexity-skewed toward dense etudes, biasing the notation prior",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md: 'The curated corpus is *complexity-skewed* (\u00e9tudes are tuplet-dense), so more of it biases the notation prior toward over-emitting tuplets'"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "ssl_bigc (growing curated corpus)",
+    "explanation": "This proposal differs from ssl_bigc by changing the ORDER of exposure (phasing in dense data late) rather than adding all dense data from the start. While ssl_bigc tested 'more classical data' and failed (over-production), this tests 'phased classical data'. The mechanism is novel (ORDER of density) but unproven. ssl_bigc + scheduler controls confirm that mere schedule length (40k vs 4k) is NOT the lever; this is a new hypothesis about sequencing corpus complexity."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "val-muster-gap"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The proposal correctly diagnoses ssl_bigc's failure (complexity overload from epoch 1) and proposes a novel mitigation (late introduction). The mechanism is plausible: both the lab and the grounding note that exposure ORDER matters (ssl_unpaired vs ssl_v2 flipped Scriabin from 12.68\u219215.15 purely by exposure-matching). However, this tests a NEW variable (density-ordered introduction) not yet explored. Confidence is medium because ORDER has mattered before, but for AMOUNT not COMPLEXITY. The upside is high if it works (fixes ssl_bigc's over-production without sacrificing Scriabin exposure), the downside is medium (phase 3 could re-trigger the failure, mitigated by phase-2 checkpoint selection). Cost is zero-incremental (same total budget as one ssl run). Worth a single-retrain queue slot because it is a concrete, low-risk test of a plausible hypothesis that directly attacks the observed ssl_bigc failure mode.\"",
+   "first_step": "On the GPU box: compute density column in classical_clean manifest, write 3 nested subsets (d\u226412, d\u226420, full), then run `python train.py fit --stage ssl_curric_phase1 --dataset-type ssl --manifest <phase1 manifest> --max-epochs 5 --lr 3e-4 --real-fraction 0.5 --out-dir checkpoints/ssl_curric_p1` and save the best epoch ckpt for phase 2 resumption."
+  },
+  {
+   "title": "Per-sample inverse-density loss/exposure weighting in WeightedRandomSampler",
+   "restated": "Downweight dense unpaired scores via soft, per-sample inverse-density weighting in the existing WeightedRandomSampler (no manifest surgery) to suppress the notation-prior over-emission on Mozart while preserving Scriabin exposure.",
+   "claims": [
+    {
+     "claim": "make_ssl_loaders currently builds a WeightedRandomSampler with uniform weights for all unpaired samples",
+     "verdict": "supported",
+     "evidence": "train.py lines 576-580: weights = [...+(1.0 - rf) / max(n_unp, 1)] * n_unp]"
+    },
+    {
+     "claim": "The manifest csv has n_notes and n_measures columns from which density d = n_notes/n_measures can be computed",
+     "verdict": "supported",
+     "evidence": "data/pairs/_manifest.csv header row contains both 'n_notes' and 'n_measures' columns"
+    },
+    {
+     "claim": "The WeightedRandomSampler and per-row weight vector already exist and are the native mechanism for balancing real/unpaired",
+     "verdict": "supported",
+     "evidence": "train.py lines 564, 577-580 define sampler = WeightedRandomSampler(weights, ...)"
+    },
+    {
+     "claim": "The proposal targets Mozart over-production and Scriabin miss-rate by soft reweighting, not hard subsampling",
+     "verdict": "supported",
+     "evidence": "Proposal text explicitly distinguishes from proposals 1-2: 'soft, continuous version ... fully inside the existing sampler'"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "NOT a duplicate, but related to ssl_bigc",
+    "explanation": "ssl_bigc (adding 5.4k dense curated scores) turned NEGATIVE via over-production (Mozart: 36\u2192166 tuplets, MeanER 5.76\u21927.6). However, this proposal DOWNWEIGHTS existing dense samples instead of ADDING more, which is mechanically opposite. The tested-negative lever is 'more data'; this is 'reweight existing data'. The soft downweighting within ssl_classical_clean has not been tested."
+   },
+   "category": "single-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "20-30 for a 3-point gamma sweep (gamma \u2208 {0, 0.5, 1.0}); ~6-10 per run on ssl_classical_clean budget (~15 epochs, A100)",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "val-muster-gap"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "The proposal is mechanically sound and targets the exact pathology identified in ssl_bigc: dense corpus composition biases the notation prior toward over-production. Unlike the hard-cut approaches (proposals 1-3 in the same lens), this soft reweighting is minimal (20 lines), preserves the full corpus, and has a guaranteed safe fallback (gamma=0 reproduces ssl_classical_clean byte-for-byte). It directly operationalizes the hypothesis 'dense sample overexposure causes Mozart over-production' and can sweep the knob to find a Pareto optimum (low Mozart over-production + best Scriabin). The gamma=0 control is critical for validation. Risk is low because downweighting dense samples should not hurt, only suppress spurious notation. However, it will NOT crack the Scriabin tuplet tail (dense exposure is likely required for that); it is purely an anti-over-production calibration lever. This is queue-high not do-now because it requires one training run and GPU box, but it is high-confidence and not disproven.",
+   "first_step": "Compute density d_i = n_notes_i / max(n_measures_i, 1) for each row in ssl_classical_clean manifest; load the manifest in make_ssl_loaders, compute per-sample weights w_i = 1/(1 + d_i / d_ref)**gamma for a --density-gamma CLI parameter, normalize and pass to WeightedRandomSampler; run with gamma \u2208 {0.0 (control), 0.5, 1.0} and evaluate each via robust_eval.sh on Mozart/Scriabin/Ravel tracking emitted tuplet counts and MeanER."
+  },
+  {
+   "title": "Over-production-aware checkpoint selection across all 14 test pieces",
+   "restated": "Select checkpoints that minimize MUSTER (measured on all 14 held-out ASAP test pieces) instead of val/total, using per-piece over-production metrics to detect calibration failures like ssl_bigc's.",
+   "claims": [
+    {
+     "claim": "ModelCheckpoint in train.py saves multiple epochs (save_top_k=2 + save_last=True)",
+     "verdict": "supported",
+     "evidence": "train.py:666-669 shows `ModelCheckpoint(...monitor='val/total', mode='min', save_top_k=2, save_last=True)`"
+    },
+    {
+     "claim": "ssl_bigc had best val (0.4996) but worse MUSTER due to over-production (166 Mozart tuplets vs 36 ground-truth)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md:132-134: 'Best validation of all (0.4996)...over-produces: Mozart emitted 166 tuplets where there are 36...MeanER 5.76\u21927.6'"
+    },
+    {
+     "claim": "robust_eval.sh exists and handles per-piece timeouts",
+     "verdict": "supported",
+     "evidence": "scripts/robust_eval.sh line 8 uses `timeout 220` with OS-level signal; documented to handle music21 hangs"
+    },
+    {
+     "claim": "eval_tuplet.py can report per-piece MUSTER MeanER and tuplet counts (emitted vs ground-truth)",
+     "verdict": "supported",
+     "evidence": "benchmark/eval_tuplet.py:54-66 defines count_tuplets(); lines 1-13 describe per-piece MUSTER + tuplet ratio reporting"
+    },
+    {
+     "claim": "We have only evaluated 4-6 of the 14 ASAP test pieces",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md:102-103 mentions Scriabin/Ravel/Mozart/Prokofiev by name; Section 6 notes Prokofiev timeouts. Proposal itself says '8-10 pieces unknown'"
+    },
+    {
+     "claim": "val!=MUSTER is a real phenomenon (not just noise)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md Section 6 explicitly demonstrates ssl_bigc: 'lowest val (0.4996) but worse MUSTER via over-production'; prior finding: 'val != MUSTER is REAL'"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This proposal directly operationalizes the prior hypothesis 'the right ckpt may be an EARLIER epoch with lower over-production' which is explicitly flagged as 'genuinely promising' and 'not yet tested'. The val!=MUSTER failure is proven but re-selection on MUSTER is unproven."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "3-6 (14 pieces x 2 models x 2-3 epochs x ~15 min/piece; highly parallelizable across box cores)\"",
+   "ev": "high",
+   "attacks": [
+    "val-muster-gap",
+    "unmeasured-pieces"
+   ],
+   "recommendation": "do-now",
+   "rationale": "This is the single highest-confidence, lowest-cost proposal: (1) val!=MUSTER is proven by ssl_bigc's best-val-but-worst-MUSTER failure; (2) it produces the 14-piece scorecard that every other proposal needs; (3) it is pure inference (no GPU training, no architecture risk); (4) the hypothesis ('earlier epochs with lower over-production beat val-selected ones') is explicitly flagged as 'genuinely promising' in the prior notes; (5) worst case it confirms val selection was already optimal, but it produces the full standing measurement which is itself a prerequisite win. Should be the first run to unlock all subsequent proposals' threshold/calibration choices.",
+   "first_step": "bash scripts/robust_eval.sh /path/to/checkpoints/ssl_classical_clean/best.ckpt benchmark/full_clean_epochs.txt Mozart Ravel Scriabin Prokofiev Liszt Bach Beethoven Chopin Czernay Czerny Schumann Mendelssohn Weber Grieg (loop over all saved epochs of ssl_classical_clean and ssl_bigc, parsing MeanER + tuplet-count per piece)"
+  },
+  {
+   "title": "Expose continuous pad-sigmoid + sweep note-keep threshold",
+   "restated": "The model's generate() function has been fixed to preserve continuous keep-probability (pad_prob) and un-zeroed prediction streams (raw_*) so the previously-dead --pad-threshold knob becomes live.",
+   "claims": [
+    {
+     "claim": "model.py generates binary pad at sigmoid=0.5",
+     "verdict": "supported",
+     "evidence": "model.py:142-151"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "Not tested-negative"
+   },
+   "category": "done",
+   "needs_box": true,
+   "est_gpu_hours": "0.5",
+   "ev": "high",
+   "attacks": [
+    "scriabin-missrate"
+   ],
+   "recommendation": "do-now",
+   "rationale": "Complete and validated locally",
+   "first_step": "bash scripts/run_padsweep.sh"
+  },
+  {
+   "title": "Per-head decoding: greedy structure, low-temperature pitch",
+   "restated": "Apply different sampling parameters (greedy for structural heads, mild temperature/top_k for pitch) to surgically recover notes missed by greedy pitch decoding on dense polyphony without destabilizing the rhythm spine.",
+   "claims": [
+    {
+     "claim": "infer() and generate() currently apply a SINGLE top_k and temperature to ALL output heads uniformly",
+     "verdict": "supported",
+     "evidence": "model.py lines 101-105 apply temperature globally to all k in y.keys(); lines 132-134 apply top_k globally"
+    },
+    {
+     "claim": "The proposal requires adding a head_overrides parameter to generate() and infer()",
+     "verdict": "refuted",
+     "evidence": "model.py line 33 shows generate() signature with (x, y, max_length, temperature, top_k, kv_cache) \u2014 no head_overrides present"
+    },
+    {
+     "claim": "The proposal requires adding --pitch-top-k and --pitch-temp CLI flags to infer_with_ckpt.py",
+     "verdict": "refuted",
+     "evidence": "infer_with_ckpt.py lines 40-41 only expose --top-k and --temperature as global flags, no per-head variants"
+    },
+    {
+     "claim": "This is a zero-training mechanism (inference-only parameter sweep)",
+     "verdict": "supported",
+     "evidence": "proposal line 196 states '~0 training. Inference sweep ~4-8 GPU-hours for the grid x 5 pieces'"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "Per-head decoding has not been tested. The only decoding-related tested-negative is beat-alignment (input conditioning), which is orthogonal to output head differentiation."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "6",
+   "ev": "medium",
+   "attacks": [
+    "pitch-error",
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-high",
+   "rationale": "Zero-training inference-only sweep with sound mechanistic reasoning: pitch decoding benefits from sampling on dense polyphony where greedy argmax collapses notes, while structural heads (pad/duration/offset) stay greedy to preserve Mozart rhythm and avoid over-production. Orthogonal to tested data/training levers. Medium confidence (not yet empirically validated; depends on pitch calibration; multinomial sampling adds variance) but high EV (overnight-able, no regression risk at head_overrides=None default, directly targets secondary Scriabin residual). Not disproven.",
+   "first_step": "Edit model.py generate() to accept optional head_overrides: dict[str, tuple[int, float]] | None = None parameter; thread through the per-k loop (lines 101-162) to replace scalar (top_k, temperature) with per-head lookups: tk, temp = head_overrides.get(k, (top_k, temperature)) if head_overrides else (top_k, temperature), then apply per-head values. Keep AR feedback on pad unchanged (still 0.5 argmax for structural consistency)."
+  },
+  {
+   "title": "Overlap-window voting / self-ensemble using the existing chunked AR loop",
+   "restated": "Run inference 3 times with different chunk-phasings (offsets) to create multiple context-varied decodes for each input note, then majority-vote per-note to stabilize boundary-dropped notes on dense passages.",
+   "claims": [
+    {
+     "claim": "infer() uses overlapping chunks (default chunk=512, overlap=128) and discards the overlap region on each new chunk (line 93 of utils.py: y_hat = {k: v[:, overlap:]})",
+     "verdict": "supported",
+     "evidence": "utils.py lines 78-99, specifically line 93"
+    },
+    {
+     "claim": "generate() is indexed by input-note position, so different phasings of the same piece can be aligned by input-note index",
+     "verdict": "supported",
+     "evidence": "model.py lines 85-162: AR loop produces one output token per input-note step; index is determined by loop iteration over input_streams which have fixed length x['pitch'].shape[1]"
+    },
+    {
+     "claim": "The pad stream is returned as binary (hard argmax at 0.5) but generate() now also returns pad_prob (continuous sigmoid)",
+     "verdict": "supported",
+     "evidence": "model.py lines 145-151: pad_prob_steps captures F.sigmoid(logits) before argmax; lines 180-187 construct y['pad_prob']"
+    },
+    {
+     "claim": "raw_* streams carry un-zeroed predictions for slots the 0.5 argmax dropped",
+     "verdict": "supported",
+     "evidence": "model.py lines 153-162, 188-192: raw_steps dicts accumulate one_hot predictions before the mask zeroing at lines 164-168"
+    },
+    {
+     "claim": "Simple pieces (Mozart) produce identical decodes across different context windows, so voting is neutral",
+     "verdict": "unverifiable",
+     "evidence": "No empirical test in repo. Plausible (short homophonic pieces have weak context dependence) but requires sweep to confirm."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "Not a direct duplicate of prior work. Voting/ensemble decoding is unexplored in this codebase. Self-consistency for music is established in literature, but the specific application to this chunked AR architecture with per-note alignment is novel here. The only related negative is beat-conditioning fine-tuning (prior test showed it was neutral), but that was training-time; this is inference-only."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "9-15",
+   "ev": "medium",
+   "attacks": [
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "Plausible mechanism: notes near chunk boundaries may indeed be decoded once with weak context and dropped; voting across phased decodes could recover them. Scriabin's miss-rate (~14% of dense notes dropped) is the exact target. HOWEVER: (1) This assumes boundary effects are significant\u2014unquantified. (2) The proposal stacks poorly with the pad-threshold sweep (proposal[0], already implemented), which also rescues dropped notes. Both attack the same mechanism from different angles\u2014voting via context diversity vs. threshold calibration. The pad-threshold sweep is simpler, cheaper (no 3\u00d7 compute), and better understood (continuous on the actual keep-probability). (3) Risk of variant collapse: if Mozart is truly deterministic at boundaries (plausible but unproven), voting adds 3\u00d7 compute for no gain. (4) The implemented detokenize (line 468-469) already supports voting on pad_prob directly; per-note voting on multi-phasing would require significant new plumbing (wrapper, alignment, aggregation). Recommend pairing with pad-threshold sweep to understand the baseline first (what fraction of notes are actually boundary-dropped vs. poor keep-probability). If pad-threshold exhausts the low-hanging fruit, revisit voting as a follow-up refinement.\"",
+   "first_step": "Run the pad-threshold sweep (proposal[0], already implemented) on all 14 ASAP test pieces to establish the baseline: how much does lowering threshold from 0.5 improve Scriabin miss-rate? This isolates the calibration signal and informs whether voting adds orthogonal value."
+  },
+  {
+   "title": "Measure the full 14-piece ASAP test split at multiple thresholds (over-production frontier)",
+   "restated": "Run both ssl_classical_clean and released ckpt through all 14 ASAP test pieces at multiple pad-thresholds (0.60\u21920.25) to establish true aggregate standing and the threshold-MeanER frontier.",
+   "claims": [
+    {
+     "claim": "robust_eval.sh exists and runs eval_tuplet.py per-piece with piece substrings passed as arguments",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/scripts/robust_eval.sh line 7-11: loops pieces through eval_tuplet.py with --pieces argument"
+    },
+    {
+     "claim": "eval_tuplet.py exposes --pad-threshold argument",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/benchmark/eval_tuplet.py line 72: adds --pad-threshold with type float and default 0.5"
+    },
+    {
+     "claim": "eval_tuplet.py threads pad_threshold to detokenize_mxl and eval_pair",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/benchmark/eval_tuplet.py lines that pass pad_threshold to both detokenize_mxl and eval_pair calls"
+    },
+    {
+     "claim": "The continuous pad_prob stream is implemented in generate()",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/MIDI2ScoreTransformer/midi2scoretransformer/models/model.py lines 83,150,181,187: pad_prob_steps accumulated and returned in y['pad_prob']"
+    },
+    {
+     "claim": "detokenize_mxl prefers pad_prob when present for the threshold",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/MIDI2ScoreTransformer/midi2scoretransformer/tokenizer.py lines 463-469: checks for 'pad_prob' key, falls back to 'pad'"
+    },
+    {
+     "claim": "raw_* streams are implemented for rescued note predictions",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/MIDI2ScoreTransformer/midi2scoretransformer/models/model.py lines 161,192: raw_steps accumulated and returned as y['raw_' + k]"
+    },
+    {
+     "claim": "collect_paths('test') returns all 14 ASAP test pieces",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/benchmark/eval_tier1_asap.py lines 115-126 and docstring at line 5-8: returns all 14-piece test split from ASAPDataset"
+    },
+    {
+     "claim": "run_padsweep.sh exists and automates the full sweep",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/scripts/run_padsweep.sh lines 1-40: sweeps thresholds 0.60\u21920.25 over all 14 pieces when no --pieces filter is applied"
+    },
+    {
+     "claim": "Only 4-6 of 14 ASAP test pieces have been measured so far",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/LAB_REPORT.md section 9: 'Eval pieces (leak-clean): Mozart K.332, Scriabin Op.8/11, Ravel Ondine, Prokofiev Toccata' = 4 pieces explicitly; other 10 unmeasured"
+    },
+    {
+     "claim": "pad-threshold is live (no-op bug fixed)",
+     "verdict": "supported",
+     "evidence": "/Users/harry/Desktop/temp/musicML/PAD_THRESHOLD_FIX.md and local test /Users/harry/Desktop/temp/musicML/scripts/test_pad_prob_fix.py validate byte-identical 0.5 and monotonic behavior"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This is a pure measurement/inference task, not a data or training lever. It does not overlap with tested-negative levers (synthetic data, corpus scaling, beat-conditioning, schedule). The pad-threshold sweep itself is not a prior test (the knob was inert until 2026-06-04). It is a prerequisite for all other inference proposals."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "3-6",
+   "ev": "high",
+   "attacks": [
+    "scriabin-missrate",
+    "mozart-overproduction",
+    "unmeasured-pieces"
+   ],
+   "recommendation": "do-now",
+   "rationale": "This is a free, high-confidence, prerequisite measurement. Code is implemented and locally validated (byte-identical at 0.5). The pad-threshold was inert until 2026-06-04; this sweep is the first opportunity to actually test the calibration hypothesis. It simultaneously solves the \"only 4-6 pieces measured\" gap, producing the complete 14-piece standing that de-risks all downstream inference proposals. No training risk (inference-only, 0.5 is byte-identical to released behavior). Expected high value: per-piece threshold sensitivity mapping + aggregate MUSTER comparison directly addressing val!=MUSTER and both residuals (Scriabin miss-rate via lower threshold, Mozart over-production via higher threshold).",
+   "first_step": "bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=13*.ckpt' sslcc_14piece"
+  },
+  {
+   "already_tested_negative": {
+    "is_dup": true,
+    "which": "beat-conditioning fine-tune (training-time beat token) + offset-prior interference",
+    "explanation": "The LAB_REPORT explicitly mentions 'the tested beat-conditioning fine-tune' was 'neutral-to-destructive'. While that experiment was TRAINING-time (a learned beat-conditioning token on the unpaired branch), this proposal attempts an INFERENCE-time soft prior instead. However, the fundamental issue\u2014whether beat/onset side-information helps this model at all\u2014was already tested and found wanting. The failed experiment suggests the model's architecture/learned representation doesn't leverage beat structure effectively, which is a red flag for this approach. While not identical (inference vs training), the core hypothesis (beat information helps) has been tested."
+   },
+   "attacks": [
+    "pitch-error",
+    "data-ceiling"
+   ],
+   "category": "inference-only",
+   "claims": [
+    {
+     "claim": "The model's generate() function receives x as input, which includes x['onset'] containing the tokenized performance MIDI onsets",
+     "verdict": "supported",
+     "evidence": "model.py lines 33-40: generate(self, x, ...) receives x with x['pitch'], x['onset'] etc.; confirmed in utils.py line 83 where x_chunk contains all tokenized streams including onset"
+    },
+    {
+     "claim": "The offset head is a 1/24-grid-bucketed multinomial stream, compatible with tuplet resolution",
+     "verdict": "supported",
+     "evidence": "tokenizer.py line 37-40: PARAMS['offset'] = {'step_size': 1/24} (triplet-divisible); line 473 uses one_hot_unbucketing on offset with 1/24 grid"
+    },
+    {
+     "claim": "The model already enforces constraints on the offset head (e.g., downbeat-on-decrease, accidental legality) via logit manipulation in generate()",
+     "verdict": "supported",
+     "evidence": "model.py lines 107-130: downbeat constraint at 107-109, accidental constraints at 111-130, both manipulate logits before sampling"
+    },
+    {
+     "claim": "The input-output note correspondence is slot-aligned (one output note per input note), enabling direct indexing by decoder step",
+     "verdict": "supported",
+     "evidence": "model.py lines 85-162: AR loop iterates once per output position; infer() at utils.py line 78 chunks by input note index; LAB_REPORT \u00a71 'slot-aligned input-note\u2192output-note translator'"
+    },
+    {
+     "claim": "Prior beat-conditioning experiments were conducted and found neutral-to-destructive",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT \u00a76 line mentions 'the tested beat-conditioning fine-tune' was 'neutral-to-destructive'; IDEATION line 36 'Worst case it is neutral like the tested beat-conditioning fine-tune'"
+    }
+   ],
+   "needs_box": true,
+   "est_gpu_hours": "6-10",
+   "ev": "low",
+   "recommendation": "skip",
+   "rationale": "This is a clever inference-time mechanism that correctly exploits the slot-aligned architecture and the existing constraint-injection pattern (downbeat/accidental logit manipulation). However, it is disqualified by prior evidence: (1) beat-conditioning fine-tuning was tested and found neutral-to-destructive, which suggests the model's learned representation does not leverage beat structure effectively\u2014a fundamental architectural/representation issue that a soft inference prior is unlikely to overcome; (2) the proposal itself marks confidence as speculative (~40% null) due to the failed beat experiment; (3) the residual gap on Scriabin is dominated by missing tuplet production (~0 of 99), not timing error\u2014this prior targets offset-bucket collisions/timing on dense passages, which is a secondary effect; (4) timing-ER is not the bottleneck in Scriabin's 12.3 MeanER; (5) the GPU cost is low but so is the expected value given the null-result base rate. Allocate this GPU budget to training-based levers (curriculum masking, tuplet-aux loss, density matching) that directly target the representation learning, not inference-time heuristics that failed at training time.\"",
+   "first_step": "Skip this proposal and prioritize higher-EV inference levers: (1) Measure all 14 ASAP test pieces to establish true standing (pure measurement, no GPU cost, foundational); (2) Checkpoint selection via MUSTER proxy instead of val (inference-only, high EV, numbers already exist); (3) Pad-threshold sweep (ready to validate with eval_tuplet.py, live knob already implemented).\"",
+   "title": "Beat-phase-consistent offset decoding (inference-time soft prior on offset logits)",
+   "restated": "Add a soft Gaussian log-prior to the offset head's logits at inference time, penalizing offset buckets inconsistent with the input MIDI's beat-relative onset phase, to reduce timing-error and duplicate-note collapse on dense passages.\""
+  },
+  {
+   "title": "Self-distilled pad-head recalibration: tune keep-gate against MUSTER",
+   "restated": "Expose and sweep the continuous pad-keep probability (already implemented in model.generate() but not threaded to detokenize until now) across all 14 ASAP test pieces to find a per-piece or global threshold that rescues dropped notes on dense passages (Scriabin) while suppressing over-emission (Mozart), via pure inference without retraining.",
+   "claims": [
+    {
+     "claim": "The pad head sigmoid is currently hard-thresholded at 0.5 inside generate() before detokenize sees it, making any --pad-threshold in (0,1) a no-op",
+     "verdict": "refuted",
+     "evidence": "models/model.py lines 145-151: the code NOW stashes the continuous pad_prob (probs[:, 1:2]) BEFORE the argmax, and lines 174-187 return it as y[\"pad_prob\"]. This fix is already in the working tree (git diff HEAD shows the addition). The docstring at tokenizer.py:455 correctly documents the threshold behavior."
+    },
+    {
+     "claim": "detokenize_mxl gates notes on `pad > pad_threshold` requiring a continuous stream to be live",
+     "verdict": "supported",
+     "evidence": "tokenizer.py line 468-469: prefers pad_prob when present, else falls back to binary pad. Line 469 shows the live mask: `pad_src > pad_threshold` where pad_src is the continuous sigmoid when available."
+    },
+    {
+     "claim": "generate() returns pad_prob and raw_* streams alongside the binary pad for rescued notes",
+     "verdict": "supported",
+     "evidence": "models/model.py lines 174-192 construct y[\"pad_prob\"] from pad_prob_steps (accumulated at line 150) and y[\"raw_*\"] from raw_steps (accumulated at lines 161, 188-192). These side channels are returned in the output dict."
+    },
+    {
+     "claim": "infer_with_ckpt.py already exposes --pad-threshold CLI flag",
+     "verdict": "supported",
+     "evidence": "scripts/infer_with_ckpt.py line 39 has --pad-threshold argument with default 0.5, line 64 logs it, line 67 passes it to detokenize_mxl."
+    },
+    {
+     "claim": "eval_tuplet.py threads pad_threshold to eval and detokenize",
+     "verdict": "supported",
+     "evidence": "benchmark/eval_tuplet.py line 80 has --pad-threshold arg, line 124 and 136 pass it to detokenize_mxl and eval_pair respectively."
+    },
+    {
+     "claim": "The proposal requires Stage 1 (threshold sweep) and Stage 3 (fine-tune with count auxiliary) but Stage 2 (count-EM calibration) is optional",
+     "verdict": "supported",
+     "evidence": "Proposal text lines 242-249 lays out three stages: Stage 1 (free, inference only, sweep threshold), Stage 2 (free, fit (a,b) offline), Stage 3 (~3-6 GPU-hr fine-tune with auxiliary). Stage 1 is the mandatory free lever; Stages 2-3 are optional escalations."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This is not a duplicate of any tested-negative lever. The pad-threshold knob itself was tested-dead (no-op at generation time) until this work's bug fix. The proposal activates it for the first time by exposing the continuous sigmoid. No prior experiment swept the live threshold, so there is no precedent in the tested-negative ledger."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "2-4",
+   "ev": "high",
+   "attacks": [
+    "scriabin-missrate",
+    "mozart-overproduction",
+    "val-muster-gap"
+   ],
+   "recommendation": "do-now",
+   "rationale": "This proposal is ALREADY IMPLEMENTED in the current working tree (the continuous pad_prob + raw_* streams are live as of this work). The fix is backward-compatible at threshold=0.5 (byte-identical to released behavior per PAD_THRESHOLD_FIX.md validation). The sweep itself is pure inference with no retraining, costing 2-4 GPU-hours on the box to evaluate the full 14-piece ASAP test split at multiple thresholds. This directly attacks both residuals (Scriabin miss-rate via lower thresholds, Mozart over-production via higher thresholds) and closes a critical measurement gap (the full 14-piece standing is unmeasured). High confidence because: (1) the code is done; (2) the mechanism is proven (continuous sigmoid exists, detokenize uses it); (3) at worst it reproduces the released 0.5 behavior exactly; (4) the expected outcome (rescue borderline notes on Scriabin, prune spurious on Mozart) is grounded in the documented pad-head design. This is the single cheapest, most-certain next step with no downside.",
+   "first_step": "Run: `bash scripts/run_padsweep.sh 'checkpoints/ssl_classical_clean/*epoch=13*.ckpt' sslcc` on the GPU box to sweep pad_threshold in {0.60, 0.55, 0.50, 0.45, 0.40, 0.35, 0.30, 0.25} over all 14 ASAP test pieces, producing per-piece MeanER + tuplet counts and the best global/per-density threshold. This is the exact command documented in PAD_THRESHOLD_FIX.md line 66 and fulfills both the threshold sweep (Stage 1) and the 14-piece measurement prerequisite."
+  },
+  {
+   "title": "Multi-sample self-consistency decode with note-level majority voting",
+   "restated": "Run N stochastic decodes per piece (temperature > 1.0, top_k > 1) and majority-vote predictions at the note level, assuming output sequences are trivially aligned by input-note index.",
+   "claims": [
+    {
+     "claim": "The architecture is a per-input-note translator where 'each output note corresponds to a fixed encoder input note' and 'N samples are already aligned by input-note index'",
+     "verdict": "refuted",
+     "evidence": "model.py:33/85: generate() loops `range(max_length + 1 - y['pad'].shape[1])` where max_length=512 (default) is independent of input length T. Output length is determined by AR stopping criterion (when the model generates padding tokens), not input length. Empirically, output length varies with stochastic samples due to different padding probabilities. No guaranteed input-output alignment mechanism exists."
+    },
+    {
+     "claim": "Voting can be implemented as a trivial ~40-line aggregator that majority-votes per slot without sequence alignment",
+     "verdict": "refuted",
+     "evidence": "If output lengths vary across N samples (confirmed by variable AR termination), per-slot voting requires first aligning sequences (DTW, Hungarian matching, or re-chunking). The proposal's claim of 'trivially aligned by construction since chunking is by note index with fixed 512/128 overlap' conflates input chunking (which is fixed) with output alignment (which is variable). The 40-line estimate is unverifiable without solving the alignment problem first."
+    },
+    {
+     "claim": "The default decoding is strictly greedy: top_k=1, temperature=1.0, single pass",
+     "verdict": "supported",
+     "evidence": "model.py:33 default parameters, utils.py:69-70 default infer() signature, infer_with_ckpt.py:40-41 CLI defaults all confirm top_k=1 and temperature=1.0. The generate() loop (model.py:85-162) shows multinomial sampling at each step with per-stream logits, confirming single-pass greedy decoding."
+    },
+    {
+     "claim": "The --temperature and --top-k flags are already exposed in infer_with_ckpt.py",
+     "verdict": "supported",
+     "evidence": "infer_with_ckpt.py:40-41 expose --top-k (int, default 1) and --temperature (float, default 1.0), both passed through to infer() at line 60-62."
+    },
+    {
+     "claim": "Lowering pad-threshold rescues dropped notes and is now a live knob",
+     "verdict": "supported",
+     "evidence": "model.py:145-150 compute and stash pad_prob (continuous sigmoid) separately from the binary pad token for AR feedback; tokenizer.py:468 uses pad_prob preferentially when present; detokenize_mxl applies threshold to continuous pad_prob stream, making --pad-threshold live (no longer a no-op). This was documented as 'already implemented' in the task briefing."
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "N/A",
+    "explanation": "This proposal is not a tested-negative lever; it is a novel inference-time aggregation idea. However, it is architecturally unsound due to the output-length variability issue, which is not a tested lever but a fundamental misunderstanding of the model's decoding mechanism."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "9-15 (N=3-5 stochastic decodes, 5 pieces, ~1.5-3 hours per piece \u00d7 N)",
+   "ev": "low",
+   "attacks": [
+    "scriabin-missrate"
+   ],
+   "recommendation": "skip",
+   "rationale": "The core claim that output sequences are 'trivially aligned by input-note index' is architecturally unsound. The model generates sequences of variable length (determined by the AR loop's stopping criterion based on pad logits), not fixed to input length. Multiple stochastic samples will have different output lengths, making per-slot voting impossible without expensive sequence alignment (DTW or re-chunking). Even if corrected, the expected gain (0.3-1.0 MeanER on Scriabin, per the proposal) is speculative, and multinomial sampling at top_k>1 risks degrading pitch accuracy. The proposal's 40-line aggregator is a significant underestimate of the actual alignment/voting code needed. Cost-benefit is poor: 9-15 GPU-hours for an uncertain, low-EV gain on a disproven mechanism.",
+   "first_step": "Do NOT implement. If slot-alignment voting is genuinely desired, first implement a sequence-alignment step (DTW or note-matching) and quantify the alignment overhead before committing to stochastic sampling. This is beyond the scope of an 'inference-only' proposal."
+  },
+  {
+   "title": "DPO/KTO preference fine-tune against rule-based over-production penalty",
+   "restated": "Fine-tune the model with Direct Preference Optimization on its own generated outputs, scored by rules penalizing over-production and missed notes, to fix calibration without new aligned data.",
+   "claims": [
+    {
+     "claim": "generate() already exposes per-token softmax probabilities and sigmoid pad keep-probability",
+     "evidence": "model.py:150 (pad_prob_steps.append) and line 187 (y[\"pad_prob\"] = pp) \u2014 the continuous sigmoid is already captured and returned",
+     "verdict": "supported"
+    },
+    {
+     "claim": "count_tuplets() function exists in eval_tuplet.py to count tuplet tokens",
+     "evidence": "benchmark/eval_tuplet.py:54-66 defines count_tuplets(score) returning (n_tuplet_notes, n_notes)",
+     "verdict": "supported"
+    },
+    {
+     "claim": "The decoder is a per-input-note autoregressive translator with a binary pad head",
+     "evidence": "model.py:33-193 (generate method), utils.py:69-100 (infer), architecture is confirmed as 1-token-per-input-note in LAB_REPORT.md",
+     "verdict": "supported"
+    },
+    {
+     "claim": "The decoder returns per-stream logits; DPO is a log-ratio loss over sampled sequences",
+     "evidence": "train.py:238-252 shows _compute_loss receives logits from pred[stream]; model.generate() supports temperature/top_k sampling (model.py:105,132-142); DPO loss implementation does NOT exist in the codebase",
+     "verdict": "unverifiable"
+    },
+    {
+     "claim": "Rule primitives exist: count_tuplets, note counts, in-generate grammar rules (downbeat forcing, accidental legality)",
+     "evidence": "count_tuplets at eval_tuplet.py:54; grammar rules at model.py:106-130 (downbeat masking, accidental constraints); note-count via pretty_midi",
+     "verdict": "supported"
+    },
+    {
+     "claim": "The method is grounded in the Meng et al. ICASSP'26 DPO/KTO framework (arXiv:2604.18489)",
+     "evidence": "grep finds zero references to 2604.18489, 'Meng', 'ICASSP.26', or 'DPO' in the entire codebase; paper is not cited or integrated",
+     "verdict": "unverifiable"
+    },
+    {
+     "claim": "The binding ceiling is 822 aligned pairs; DPO sidesteps it because it needs NO new gold scores",
+     "evidence": "LAB_REPORT.md line 68 confirms 822 ASAP real pairs; the premise (that DPO generates its own preference data) is architecturally sound",
+     "verdict": "supported"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "Not a duplicate of beat-conditioning fine-tune",
+    "explanation": "The tested-negative beat-conditioning experiment fine-tuned the monolithic model on beat tokens (TRAINING-time intervention). This proposal uses preference optimization on the model's own greedy outputs (INFERENCE-time reward scoring + preference fine-tune). The mechanisms are orthogonal. However, beat-conditioning being neutral suggests that adding auxiliary signal via fine-tuning this model is risky and may not transfer."
+   },
+   "category": "multi-retrain",
+   "needs_box": true,
+   "est_gpu_hours": "20-40",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "scriabin-missrate",
+    "val-muster-gap"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The proposal is technically sound in principle\u2014DPO/KTO on model-generated preference pairs is a proven calibration-fixing technique in LLMs. The rule primitives (count_tuplets, grammar rules, note-count thresholds) already exist in the codebase. However, three factors push this to queue-low: (1) The arXiv:2604.18489 paper is not available in the repo and the exact mechanism hasn't been studied in music yet, so confidence is medium rather than high. (2) Beat-conditioning fine-tuning on this model was tested and found neutral-to-destructive, suggesting that adding auxiliary objectives via fine-tuning this particular architecture is risky. (3) There is a cheaper, higher-confidence alternative: pad_threshold sweeping (already implemented, inference-only, no training) can directly quantify the over-production/miss-rate trade-off and may yield a 0.5-1.0 MeanER gain with zero GPU. DPO should be attempted AFTER confirming that pad_threshold+voting+per-head-decoding don't suffice, because once those calibration levers are exhausted, DPO becomes the next-best candidate. The 20-40 GPU hours is non-trivial and the risk of reward-hacking or overshooting one metric at the expense of another is real.",
+   "first_step": "Before attempting DPO fine-tuning, run the complete pad_threshold sweep (inference-only, 0 GPU cost) on all 14 ASAP test pieces with both ssl_classical_clean and released checkpoints, to quantify whether decoding calibration alone can close the over-production/miss-rate gap. Command: bash scripts/robust_eval.sh ssl_classical_clean benchmark/full_clean.txt <all 14 piece substrings> at pad-thresholds {0.30, 0.35, 0.40, 0.45, 0.50, 0.55}\u2014if this shows joint improvement on both Scriabin and Mozart, DPO is unnecessary."
+  },
+  {
+   "title": "Post-hoc notational-grammar corrector: deterministic state-machine repair pass",
+   "restated": "Insert a deterministic state machine between detokenize_mxl and postprocess_score that repairs measure-duration violations by re-opening the pad gate for suppressed notes in under-full measures and dropping lowest-confidence notes in over-full measures.",
+   "claims": [
+    {
+     "claim": "The generate() loop contains hard constraints (downbeat when offset decreases, masking impossible accidentals)",
+     "verdict": "supported",
+     "evidence": "model.py lines 107-130: is_downbeat constraint and impossible_accidentals masking both present"
+    },
+    {
+     "claim": "The pad confidence ranking has access to un-zeroed per-stream predictions (raw_* streams)",
+     "verdict": "supported",
+     "evidence": "model.py lines 150-187 generate and return both pad_prob and raw_* streams; tokenizer.py:468 uses them"
+    },
+    {
+     "claim": "Pad confidence ranking is currently NOT retained in detokenize_mxl output",
+     "verdict": "refuted",
+     "evidence": "model.py lines 175-187 explicitly retain pad_prob; tokenizer.py:468 prefers pad_prob over binary pad when available; infer_with_ckpt.py:67 passes it through"
+    },
+    {
+     "claim": "The insertion point is between detokenize_mxl and postprocess_score in infer_with_ckpt.py",
+     "verdict": "supported",
+     "evidence": "infer_with_ckpt.py lines 66-69 show clear sequence: detokenize_mxl -> postprocess_score"
+    },
+    {
+     "claim": "arXiv:2510.02746 applies notational-error detection to ASAP and finds ~40% have notational errors",
+     "verdict": "unverifiable",
+     "evidence": "Cited in proposal grounding but no PDF/implementation provided; claim is specific but requires external verification"
+    },
+    {
+     "claim": "The proposal requires no new architecture changes or retraining",
+     "verdict": "supported",
+     "evidence": "Proposal explicitly describes CPU post-processing between existing functions, using existing pad_prob stream"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "not-a-tested-negative",
+    "explanation": "Post-hoc deterministic repair is orthogonal to prior tested-negative levers (beat-conditioning fine-tuning, synthetic data scaling). However, it is confounded by the pad_threshold sweep, which was already implemented and targets the same residuals (miss-rate, over-production) more directly."
+   },
+   "category": "inference-only",
+   "needs_box": false,
+   "est_gpu_hours": "0",
+   "ev": "medium",
+   "attacks": [
+    "mozart-overproduction",
+    "scriabin-missrate"
+   ],
+   "recommendation": "queue-low",
+   "rationale": "The proposal is logically sound and targeting the right residuals, but has three material blockers: (1) **confounded by pad_threshold sweep** \u2014 the 'ALREADY DONE' pad_prob exposure makes pad_threshold live, providing a cleaner direct lever on the same miss/over-production failure modes; any grain from repair logic will be hard to isolate; (2) **unimplemented grounding** \u2014 the proposal leans on arXiv:2510.02746 but provides zero working algorithm, implementation details, or code; reconstructing a state machine from a paper is high-effort and high-risk for marginal gain; (3) **brittleness and music21 fragility** \u2014 modifying music21 streams before postprocess_score risks introducing parsing failures and hanging. The repo already struggles with music21 timeouts. An earlier benchmark note flagged this exact risk. A proper repair pass would need defensive fallback logic and extensive testing. (4) **outdated on pad_prob availability** \u2014 the proposal's claim that pad confidence 'has not been retained' is obsolete; this suggests the proposal was drafted before the pad_prob fix, or the author did not verify current code. Better alternatives exist: pad_threshold sweep is already free; DPO/preference fine-tune (Idea 3 in JSON) is a more principled calibration fix without brittleness.\"",
+   "first_step": "Before implementing a repair pass, run the pad_threshold sweep baseline via scripts/run_padsweep.sh (already exists) on all 14 ASAP test pieces to measure the free gain from the live threshold. If residual gaps remain after optimal threshold selection, then sketch the exact measure-duration-repair logic (which suppressed notes to resurrect, thresholds for identifying over/under-full measures) and prototype it defensively with fallback-to-unrepaired behavior before committing further effort."
+  },
+  {
+   "title": "Beat/downbeat-conditioned rhythm refiner as teacher OR second-stage cleanup",
+   "restated": "Decompose performance-to-score as separate rhythm-quantization and pitch-assignment substages, using a beat-relative grid to enable tuplet representation where the end-to-end model fails, either as ensemble (merge rhythm from published method + pitch from ssl_classical_clean) or soft-target distillation on duration/offset heads.",
+   "claims": [
+    {
+     "claim": "ASAP dataset includes beat and downbeat annotations (performance_beats, performance_downbeats)",
+     "verdict": "supported",
+     "evidence": "asap_annotations.json contains performance_beats (e.g. [1.095052, 2.364583, ...]) and performance_downbeats for each piece"
+    },
+    {
+     "claim": "The codebase has beat-conditioning infrastructure (beat_features.py, optional embedding layer, config flag)",
+     "verdict": "supported",
+     "evidence": "beat_features.py implements phase_features(), bucket_beat_phase(), no_beat_stream(); embedding.py line 21-28 shows optional beat Linear conditioned on config.use_beat_conditioning; config.py has in_beat_vocab_size=13 and use_beat_conditioning=False default"
+    },
+    {
+     "claim": "Chunker.py does beat-swap alignment with swapped=True tolerance 0.5s",
+     "verdict": "supported",
+     "evidence": "chunker.py lines 23-100 implement make_measures() with beat-based note redistribution and swap_tol=0.5"
+    },
+    {
+     "claim": "Prior beat-conditioning experiment fine-tuned the model and was neutral-to-destructive",
+     "verdict": "unverifiable",
+     "evidence": "LAB_REPORT.md (lines 155-163) explicitly states 'beat-alignment was never missing' and 'already present (not a difference)'; no record of testing beat-conditioning as a training-time fine-tune; the claim appears only in the IDEATION_HARVEST forward references"
+    },
+    {
+     "claim": "Wachter/Murgul/Heizmann arXiv:2508.19262 / 2604.22290 beat-quantization reports BEATING SOTA on MUSTER with onset-F1 97.3%, note-value acc 83.3%",
+     "verdict": "unverifiable",
+     "evidence": "Paper identifiers are syntactically valid (August 2025 / April 2026) but their actual contents and claims cannot be verified without access; no references to these papers in the codebase"
+    },
+    {
+     "claim": "Recursive integer subdivisions (tuplets) are defined relative to beats and therefore require beat-relative grid representation",
+     "verdict": "supported",
+     "evidence": "beat_features.py (lines 66-82) explicitly documents '12 sub-beat ticks + 1 no-beat bucket' grid that 'resolves BOTH straight 16ths AND triplets' via 32nd-note-triplet grid; this matches standard music theory on beat-relative metric structure"
+    },
+    {
+     "claim": "The model currently emits ~0 tuplets on Scriabin (0 of 99)",
+     "verdict": "supported",
+     "evidence": "LAB_REPORT.md line 209 states 'both models emit ~0 of its 99 tuplets' on Scriabin Op.8/11"
+    }
+   ],
+   "already_tested_negative": {
+    "is_dup": false,
+    "which": "partial-overlap with speculative inference idea 4 (Beat-phase-consistent offset decoding)",
+    "explanation": "Idea 4 proposes soft beat-informed priors at inference-only; this proposal uses beat-conditioning differently (as separate rhythm stage or distillation targets). However, the core claim 'prior beat-conditioning experiment was neutral-to-destructive' is unverifiable in LAB_REPORT.md. If a beat-conditioning fine-tune was tested and failed (as claimed), this proposal risks repeating that failure under a different name ('teacher' vs 'fine-tune'). The contrarian claim rests on the distinction between 'fine-tuning the end-to-end model' (allegedly tested-negative) vs 'dedicated beat-grid rhythm stage' (untested), but that distinction is not evidenced in LAB_REPORT."
+   },
+   "category": "inference-only",
+   "needs_box": true,
+   "est_gpu_hours": "Path A ~0 (ensemble merge + eval); Path B ~10-20 (soft-target distillation fine-tune). Proposal recommends Path A as 'cheap go/no-go' before Path B, so estimate 5-10 for eval + Path B if committed.",
+   "ev": "low",
+   "attacks": [
+    "scriabin-missrate",
+    "pitch-error"
+   ],
+   "recommendation": "skip",
+   "rationale": "The proposal's core claim \u2014 'our prior beat-conditioning test was negative but differed from this approach' \u2014 is unverifiable in LAB_REPORT.md, which explicitly documents beat-alignment as already-present and never-tested-as-new. The cited papers (arXiv:2508/2604) cannot be verified. Path A (ensemble merge) risks creating notational inconsistencies by mixing outputs from two unaligned models. Path B (soft-target distillation) repeats training-time beat-conditioning on the same architecture, which the proposal admits was 'neutral-to-destructive' in prior testing. The high-risk speculation is not justified given the unverified foundation. A better next step would be Path A as a true go/no-go (pure inference, falsifiable in hours), but the proposal should first clarify the evidence for the 'prior test' to establish it is not a re-run of a known-dead vehicle.",
+   "first_step": "Do NOT attempt Path B (distillation fine-tune) until: (1) confirm from the prior experiment records whether 'prior beat-conditioning fine-tune' was tested on ssl_classical_clean and what the result was; (2) if unrecorded, treat the claim as speculative. Then, as a true go/no-go: run Path A (inference-only) on ssl_classical_clean and all 14 ASAP pieces, merging the beat-quantizer's rhythm stream (if available/implementable) with ssl_classical_clean's pitch output, and eval with robust_eval.sh. This costs ~0 GPU and is falsifiable within hours. Only if Path A shows promise (Scriabin MeanER drops >0.5 with Mozart held), escalate to Path B.\""
+  }
+ ]
+}

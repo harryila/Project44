@@ -1,0 +1,347 @@
+{
+  "frozen": "V10.1",
+  "phase": "eval",
+  "selections_utc": "2026-08-18T03:41:02.968157+00:00",
+  "selections_sha256": "f1c4a6f184bc05724c4584864440149296f339fa03a1fb931178223c1fd7b9cc",
+  "metric": {
+    "tuplet_tag": "exact MusicXML <time-modification> joined by Fmt3x GtID",
+    "muster_tuplet_decompose_sha256": "01a979984c58423d9a5f59d67d4c88015028e0917dcd9b37f53f455d7762ac10",
+    "tuplet_metrics_v2_sha256": "46c539170918c57ea8360c63ef850d6e419c60ff81e3a96343511484a4809a1b"
+  },
+  "utc": "2026-08-21T21:30:28.008370+00:00",
+  "pieces": {
+    "Bach/Bach/Fugue/bwv_846": {
+      "gt_tuplets": 0,
+      "route": "baseline_easy",
+      "baseline": {
+        "meaner_overall": 5.61559,
+        "onset_err_tuplet": null,
+        "onset_err_nontuplet": 3.486750348675035,
+        "n_tuplet": 0,
+        "n_nontuplet": 717,
+        "n_onset_err_tuplet": 0,
+        "n_miss_tuplet": 0,
+        "n_gt_tuplet": 0,
+        "tpf": 0,
+        "tpf_missed": 0,
+        "tpf_onset": 0,
+        "kept_trip_emissions": 0
+      },
+      "selected": {
+        "meaner_overall": 5.61559,
+        "onset_err_tuplet": null,
+        "onset_err_nontuplet": 3.486750348675035,
+        "n_tuplet": 0,
+        "n_nontuplet": 717,
+        "n_onset_err_tuplet": 0,
+        "n_miss_tuplet": 0,
+        "n_gt_tuplet": 0,
+        "tpf": 0,
+        "tpf_missed": 0,
+        "tpf_onset": 0,
+        "kept_trip_emissions": 0
+      }
+    },
+    "Rachmaninoff/Rachmaninoff/Preludes_op_23/4": {
+      "gt_tuplets": 678,
+      "route": "deterministic_phase_duration",
+      "baseline": {
+        "meaner_overall": 16.4553,
+        "onset_err_tuplet": 26.625386996904023,
+        "onset_err_nontuplet": 26.221498371335503,
+        "n_tuplet": 646,
+        "n_nontuplet": 614,
+        "n_onset_err_tuplet": 172,
+        "n_miss_tuplet": 32,
+        "n_gt_tuplet": 678,
+        "tpf": 204,
+        "tpf_missed": 32,
+        "tpf_onset": 172,
+        "kept_trip_emissions": 376
+      },
+      "selected": {
+        "meaner_overall": 15.2639,
+        "onset_err_tuplet": 23.24159021406728,
+        "onset_err_nontuplet": 24.121405750798722,
+        "n_tuplet": 654,
+        "n_nontuplet": 626,
+        "n_onset_err_tuplet": 152,
+        "n_miss_tuplet": 24,
+        "n_gt_tuplet": 678,
+        "tpf": 176,
+        "tpf_missed": 24,
+        "tpf_onset": 152,
+        "kept_trip_emissions": 456
+      }
+    },
+    "Haydn/Haydn/Keyboard_Sonatas/31-1": {
+      "gt_tuplets": 856,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 4.91931,
+        "onset_err_tuplet": 4.342723004694836,
+        "onset_err_nontuplet": 9.389671361502348,
+        "n_tuplet": 852,
+        "n_nontuplet": 639,
+        "n_onset_err_tuplet": 37,
+        "n_miss_tuplet": 4,
+        "n_gt_tuplet": 856,
+        "tpf": 41,
+        "tpf_missed": 4,
+        "tpf_onset": 37,
+        "kept_trip_emissions": 478
+      },
+      "selected": {
+        "meaner_overall": 7.61452,
+        "onset_err_tuplet": 7.840772014475271,
+        "onset_err_nontuplet": 13.665594855305466,
+        "n_tuplet": 829,
+        "n_nontuplet": 622,
+        "n_onset_err_tuplet": 65,
+        "n_miss_tuplet": 27,
+        "n_gt_tuplet": 856,
+        "tpf": 92,
+        "tpf_missed": 27,
+        "tpf_onset": 65,
+        "kept_trip_emissions": 367
+      }
+    },
+    "Brahms/Brahms/Six_Pieces_op_118/2": {
+      "gt_tuplets": 153,
+      "route": "baseline_fallback",
+      "baseline": {
+        "meaner_overall": 6.62992,
+        "onset_err_tuplet": 8.053691275167786,
+        "onset_err_nontuplet": 2.1739130434782608,
+        "n_tuplet": 149,
+        "n_nontuplet": 1380,
+        "n_onset_err_tuplet": 12,
+        "n_miss_tuplet": 4,
+        "n_gt_tuplet": 153,
+        "tpf": 16,
+        "tpf_missed": 4,
+        "tpf_onset": 12,
+        "kept_trip_emissions": 153
+      },
+      "selected": {
+        "meaner_overall": 6.62992,
+        "onset_err_tuplet": 8.053691275167786,
+        "onset_err_nontuplet": 2.1739130434782608,
+        "n_tuplet": 149,
+        "n_nontuplet": 1380,
+        "n_onset_err_tuplet": 12,
+        "n_miss_tuplet": 4,
+        "n_gt_tuplet": 153,
+        "tpf": 16,
+        "tpf_missed": 4,
+        "tpf_onset": 12,
+        "kept_trip_emissions": 153
+      }
+    },
+    "Debussy/Debussy/Images_Book_1/1_Reflets_dans_lEau": {
+      "gt_tuplets": 894,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 16.9445,
+        "onset_err_tuplet": 40.51724137931034,
+        "onset_err_nontuplet": 22.307692307692307,
+        "n_tuplet": 812,
+        "n_nontuplet": 1040,
+        "n_onset_err_tuplet": 329,
+        "n_miss_tuplet": 82,
+        "n_gt_tuplet": 894,
+        "tpf": 411,
+        "tpf_missed": 82,
+        "tpf_onset": 329,
+        "kept_trip_emissions": 718
+      },
+      "selected": {
+        "meaner_overall": 18.5223,
+        "onset_err_tuplet": 42.8391959798995,
+        "onset_err_nontuplet": 21.41434262948207,
+        "n_tuplet": 796,
+        "n_nontuplet": 1004,
+        "n_onset_err_tuplet": 341,
+        "n_miss_tuplet": 98,
+        "n_gt_tuplet": 894,
+        "tpf": 439,
+        "tpf_missed": 98,
+        "tpf_onset": 341,
+        "kept_trip_emissions": 411
+      }
+    },
+    "Schumann/Schumann/Arabeske": {
+      "gt_tuplets": 8,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 16.0362,
+        "onset_err_tuplet": 50.0,
+        "onset_err_nontuplet": 19.653679653679653,
+        "n_tuplet": 6,
+        "n_nontuplet": 2310,
+        "n_onset_err_tuplet": 3,
+        "n_miss_tuplet": 2,
+        "n_gt_tuplet": 8,
+        "tpf": 5,
+        "tpf_missed": 2,
+        "tpf_onset": 3,
+        "kept_trip_emissions": 2
+      },
+      "selected": {
+        "meaner_overall": 14.1954,
+        "onset_err_tuplet": 57.142857142857146,
+        "onset_err_nontuplet": 13.983237759153067,
+        "n_tuplet": 7,
+        "n_nontuplet": 2267,
+        "n_onset_err_tuplet": 4,
+        "n_miss_tuplet": 1,
+        "n_gt_tuplet": 8,
+        "tpf": 5,
+        "tpf_missed": 1,
+        "tpf_onset": 4,
+        "kept_trip_emissions": 5
+      }
+    },
+    "Beethoven/Beethoven/Piano_Sonatas/10-1": {
+      "gt_tuplets": 364,
+      "route": "baseline_fallback",
+      "baseline": {
+        "meaner_overall": 8.82338,
+        "onset_err_tuplet": 41.785714285714285,
+        "onset_err_nontuplet": 8.169014084507042,
+        "n_tuplet": 280,
+        "n_nontuplet": 2130,
+        "n_onset_err_tuplet": 117,
+        "n_miss_tuplet": 84,
+        "n_gt_tuplet": 364,
+        "tpf": 201,
+        "tpf_missed": 84,
+        "tpf_onset": 117,
+        "kept_trip_emissions": 60
+      },
+      "selected": {
+        "meaner_overall": 8.82338,
+        "onset_err_tuplet": 41.785714285714285,
+        "onset_err_nontuplet": 8.169014084507042,
+        "n_tuplet": 280,
+        "n_nontuplet": 2130,
+        "n_onset_err_tuplet": 117,
+        "n_miss_tuplet": 84,
+        "n_gt_tuplet": 364,
+        "tpf": 201,
+        "tpf_missed": 84,
+        "tpf_onset": 117,
+        "kept_trip_emissions": 60
+      }
+    },
+    "Prokofiev/Prokofiev/Toccata": {
+      "gt_tuplets": 0,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 8.53877,
+        "onset_err_tuplet": null,
+        "onset_err_nontuplet": 2.058531746031746,
+        "n_tuplet": 0,
+        "n_nontuplet": 4032,
+        "n_onset_err_tuplet": 0,
+        "n_miss_tuplet": 0,
+        "n_gt_tuplet": 0,
+        "tpf": 0,
+        "tpf_missed": 0,
+        "tpf_onset": 0,
+        "kept_trip_emissions": 20
+      },
+      "selected": {
+        "meaner_overall": 9.15517,
+        "onset_err_tuplet": null,
+        "onset_err_nontuplet": 2.8636021100226072,
+        "n_tuplet": 0,
+        "n_nontuplet": 3981,
+        "n_onset_err_tuplet": 0,
+        "n_miss_tuplet": 0,
+        "n_gt_tuplet": 0,
+        "tpf": 0,
+        "tpf_missed": 0,
+        "tpf_onset": 0,
+        "kept_trip_emissions": 14
+      }
+    },
+    "Schubert/Schubert/Impromptu_op.90_D.899/1": {
+      "gt_tuplets": 1144,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 19.0113,
+        "onset_err_tuplet": 12.7134724857685,
+        "onset_err_nontuplet": 16.271186440677965,
+        "n_tuplet": 1054,
+        "n_nontuplet": 2065,
+        "n_onset_err_tuplet": 134,
+        "n_miss_tuplet": 90,
+        "n_gt_tuplet": 1144,
+        "tpf": 224,
+        "tpf_missed": 90,
+        "tpf_onset": 134,
+        "kept_trip_emissions": 0
+      },
+      "selected": {
+        "meaner_overall": 19.976,
+        "onset_err_tuplet": 13.813229571984436,
+        "onset_err_nontuplet": 18.318756073858115,
+        "n_tuplet": 1028,
+        "n_nontuplet": 2058,
+        "n_onset_err_tuplet": 142,
+        "n_miss_tuplet": 116,
+        "n_gt_tuplet": 1144,
+        "tpf": 258,
+        "tpf_missed": 116,
+        "tpf_onset": 142,
+        "kept_trip_emissions": 0
+      }
+    },
+    "Chopin/Chopin/Ballades/1": {
+      "gt_tuplets": 500,
+      "route": "guarded_bestofn",
+      "baseline": {
+        "meaner_overall": 8.551,
+        "onset_err_tuplet": 67.99116997792494,
+        "onset_err_nontuplet": 6.5227483751160635,
+        "n_tuplet": 453,
+        "n_nontuplet": 4308,
+        "n_onset_err_tuplet": 308,
+        "n_miss_tuplet": 47,
+        "n_gt_tuplet": 500,
+        "tpf": 355,
+        "tpf_missed": 47,
+        "tpf_onset": 308,
+        "kept_trip_emissions": 66
+      },
+      "selected": {
+        "meaner_overall": 9.89137,
+        "onset_err_tuplet": 70.54945054945055,
+        "onset_err_nontuplet": 8.300023512814484,
+        "n_tuplet": 455,
+        "n_nontuplet": 4253,
+        "n_onset_err_tuplet": 321,
+        "n_miss_tuplet": 45,
+        "n_gt_tuplet": 500,
+        "tpf": 366,
+        "tpf_missed": 45,
+        "tpf_onset": 321,
+        "kept_trip_emissions": 54
+      }
+    }
+  },
+  "decision_rule": {
+    "P1_pieces_improved_5pct": 1,
+    "P1_ok": false,
+    "P2_mean_rel_tpf": 0.193935098217649,
+    "P2_ok": false,
+    "P3_ok": false,
+    "G1_ok": false,
+    "G2_ok": true,
+    "n_bearing": 7,
+    "n_controls": 3,
+    "CONFIRMED": false
+  },
+  "elapsed_s": 389.6
+}

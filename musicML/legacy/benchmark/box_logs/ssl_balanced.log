@@ -1,0 +1,787 @@
+[ssl] tuplet-rate RESHAPE on: gamma=1.5 (upweight tuplet-rich unpaired scores in resampling)
+[ssl] real=822 unpaired=21402 real_frac=0.5 samples/epoch=22224
+2026-06-07 18:08:50,783 LR schedule: warmup=300 total_steps=10410 (cosine)
+2026-06-07 18:08:54,458 AUTOREGRESSIVE (causal decoder) from-scratch training ON
+2026-06-07 18:08:54,458 MASKED-SSL mode ON: 50/50 real-pair / unpaired-score; encoder dropout disabled (dataset builds surrogate), decoder prior-token dropout 75%% paired / 50%% unpaired
+2026-06-07 18:08:54,458 TUPLET-AWARE loss ON: non-dyadic (tuplet) buckets of duration/offset/downbeat upweighted x20.00 in CE (un-collapse the tuplet head)
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-06-07 18:08:55.153467: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-07 18:08:55.153556: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-07 18:08:55.154687: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-07 18:08:55.159621: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-07 18:08:56.133058: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+┏━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name             ┃ Type            ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ encoder          │ RoFormerModel   │ 13.8 M │ train │     0 │
+│ 1 │ decoder          │ RoFormerModel   │ 18.0 M │ train │     0 │
+│ 2 │ embeddings_enc   │ MIDIEmbeddings  │  278 K │ train │     0 │
+│ 3 │ embeddings_dec   │ MXLEmbeddings   │  295 K │ train │     0 │
+│ 4 │ unembeddings_dec │ MXLUnembeddings │  293 K │ train │     0 │
+│ 5 │ norm             │ LayerNorm       │  1.0 K │ train │     0 │
+└───┴──────────────────┴─────────────────┴────────┴───────┴───────┘
+Trainable params: 32.4 M                                                        
+Non-trainable params: 196 K                                                     
+Total params: 32.6 M                                                            
+Total estimated model params size (MB): 130.382                                 
+Modules in train mode: 204                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 114 in part Piano
+                    is overfull: 3.0102272727272728 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 86 in part Piano
+                    is overfull: 4.939583333333333 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5399: MusicXMLWarning: Unspecified beat-unit for metronome <Element 'metronome' at 0x70d60caf9800>, assuming quarter note.
+  warnings.warn(f'Unspecified beat-unit for metronome {mxMetronome}, assuming quarter note.', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 34 in part Piano
+                    is overfull: 4.09375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (7, 139/5-29.900000000000002, B4, start) → (8, 30.0-30.5, B4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (10, 39.5-39.875, A-4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (54, 1051/5-2103/10, C5, start) → (54, 210.5-211.5, C5, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (54, 2103/10-1052/5, E-5, start) → (54, 210.5-211.5, E-5, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 274.75-276.8333333333333, B4, start) → (71, 277.0-279.0, B4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 1649/6-276.91666666666663, F#5, start) → (71, 277.0-279.0, F#5, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 274.0-276.5, G1, start) → (71, 277.0-279.0, G1, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 274.0-276.5, G2, start) → (71, 277.0-279.0, G2, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 274.5-274.5833333333333, F#3, start) → (71, 275.0-277.0, F#3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 3295/12-276.66666666666663, B3, start) → (71, 277.0-279.0, B3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (71, 824/3-1099/4, F#4, start) → (71, 275.0-277.0, F#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 43 in part Piano
+                    is overfull: 3.004166666666667 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 23 in part Piano
+                    is overfull: 1.5041666666666667 > 1.5,
+                    assuming 1.5 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (141, 633.5-633.75, E4, start) → (141, 634.5-636.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-990.0, C#4, start) → (230, 990.5-991.5, C#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-989.75, E4, start) → (230, 990.5-991.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (141, 633.5-633.75, E4, start) → (141, 634.5-636.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-990.0, C#4, start) → (230, 990.5-991.5, C#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-989.75, E4, start) → (230, 990.5-991.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 44 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 46 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 177 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 44 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 46 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 177 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 52 in part Piano
+                    is overfull: 4.000355113636363 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 234 in part Piano
+                    is overfull: 4.000390625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 44 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 46 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 177 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, D1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, A1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, D1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, A1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (42, 122.0-124.0, A-3, start) → (47, 137.0-139.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (50, 146.0-151.0, C-5, start) → (218, 650.0-652.0, C-5, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (210, 626.0-628.0, A-3, start) → (215, 641.0-643.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 24 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, D1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, A1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 71 in part Piano
+                    is overfull: 6.066666666666666 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 84 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 106 in part Piano
+                    is overfull: 6.543055555555555 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 23 in part Piano
+                    is overfull: 1.5041666666666667 > 1.5,
+                    assuming 1.5 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (57, 235.75-236.0, F3, None) → (64, 244.0-244.5, F3, stop), ignoring9.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 24 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 71 in part Piano
+                    is overfull: 6.066666666666666 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 84 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 106 in part Piano
+                    is overfull: 6.543055555555555 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (10, 39.5-39.875, A-4, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 52 in part Piano
+                    is overfull: 4.000355113636363 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 234 in part Piano
+                    is overfull: 4.000390625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 218 in part Piano
+                    is overfull: 2.00625 > 2.0,
+                    assuming 2.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 99 in part Piano
+                    is overfull: 4.010416666666667 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (149, 5219/10-5221/10, B2, start) → (149, 522.5-523.5, B2, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (149, 5221/10-5223/10, D3, start) → (149, 522.5-523.5, D3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (149, 5219/10-5221/10, B2, start) → (149, 522.5-523.5, B2, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (149, 5221/10-5223/10, D3, start) → (149, 522.5-523.5, D3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 218 in part Piano
+                    is overfull: 2.00625 > 2.0,
+                    assuming 2.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (42, 122.0-124.0, A-3, start) → (47, 137.0-139.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (50, 146.0-151.0, C-5, start) → (218, 650.0-652.0, C-5, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (210, 626.0-628.0, A-3, start) → (215, 641.0-643.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 409/3-410/3, C4, start) → (45, 137.0-138.5, C4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 134.5-135.0, F2, start) → (45, 136.0-137.0, F2, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 135.0-135.5, C3, start) → (45, 136.0-137.0, C3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 136.0-136.33333333333334, A3, start) → (45, 137.0-138.5, A3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (3, 5.0-7.0, C#4, start) → (5, 13.0-15.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 39.0-41.0, F#5, start) → (16, 59.75-60.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (15, 53.0-55.0, C#4, start) → (17, 61.0-63.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (55, 211.0-213.0, C#5, start) → (59, 225.0-226.0, C#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (90, 351.0-353.0, F#5, start) → (92, 359.0-361.0, F#5, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, A4, start) → (94, 365.0-367.0, A4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 114 in part Piano
+                    is overfull: 3.0102272727272728 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (92, 359.0-361.0, F#5, start) → (96, 375.75-376.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (95, 369.0-371.0, C#4, start) → (97, 377.0-379.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (132, 513.0-515.0, C#4, start) → (133, 519.0-519.5, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (57, 217.0-219.0, B#1, start) → (65, 751/3-752/3, C2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (69, 267.0-268.0, C#4, start) → (70, 271.0-272.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (80, 311.0-313.0, F#2, start) → (91, 355.0-357.0, F#2, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, F#2, start) → (120, 469.0-470.0, F#2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, E3, start) → (94, 366.5-367.0, E3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (128, 501.0-503.0, E2, start) → (134, 521.0-523.0, E2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 409/3-410/3, C4, start) → (45, 137.0-138.5, C4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 134.5-135.0, F2, start) → (45, 136.0-137.0, F2, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 135.0-135.5, C3, start) → (45, 136.0-137.0, C3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (45, 136.0-136.33333333333334, A3, start) → (45, 137.0-138.5, A3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 86 in part Piano
+                    is overfull: 4.939583333333333 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 114 in part Piano
+                    is overfull: 3.0102272727272728 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 44 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 46 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 177 in part Piano
+                    is overfull: 3.015625 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 43 in part Piano
+                    is overfull: 3.004166666666667 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import wedge: Error in getting DynamicWedges
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import wedge: Error in getting DynamicWedges
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (132, 393.0-394.0, A-3, start) → (133, 394.5-394.75, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (212, 629.0-631.0, B-3, start) → (213, 633.5-634.0, B-3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (214, 635.0-637.0, B-3, start) → (215, 639.5-640.0, B-3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 188.875-189.04166666666666, E3, start) → (25, 189.375-190.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4537/24-4541/24, B-3, start) → (25, 189.375-190.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 192.375-192.54166666666666, E3, start) → (25, 192.875-193.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4621/24-4625/24, B-3, start) → (25, 192.875-193.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 188.875-189.04166666666666, E3, start) → (25, 189.375-190.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 195.875-196.04166666666666, F3, start) → (26, 196.375-197.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4537/24-4541/24, B-3, start) → (25, 189.375-190.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 192.375-192.54166666666666, E3, start) → (25, 192.875-193.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4705/24-4709/24, A-3, start) → (26, 196.375-197.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4621/24-4625/24, B-3, start) → (25, 192.875-193.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 199.375-199.54166666666666, F3, start) → (26, 199.875-200.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 195.875-196.04166666666666, F3, start) → (26, 196.375-197.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4789/24-4793/24, A-3, start) → (26, 199.875-200.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 202.875-203.04166666666666, E3, start) → (27, 203.375-204.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4705/24-4709/24, A-3, start) → (26, 196.375-197.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4873/24-4877/24, B-3, start) → (27, 203.375-204.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 199.375-199.54166666666666, F3, start) → (26, 199.875-200.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 206.375-206.54166666666666, E3, start) → (27, 206.875-207.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4957/24-4961/24, B-3, start) → (27, 206.875-207.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4789/24-4793/24, A-3, start) → (26, 199.875-200.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 202.875-203.04166666666666, E3, start) → (27, 203.375-204.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 209.875-210.04166666666666, F3, start) → (28, 210.375-211.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4873/24-4877/24, B-3, start) → (27, 203.375-204.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 206.375-206.54166666666666, E3, start) → (27, 206.875-207.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5041/24-5045/24, A-3, start) → (28, 210.375-211.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4957/24-4961/24, B-3, start) → (27, 206.875-207.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 213.375-213.54166666666666, F3, start) → (28, 213.875-214.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 209.875-210.04166666666666, F3, start) → (28, 210.375-211.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5125/24-5129/24, A-3, start) → (28, 213.875-214.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.375-241.625, A3, start) → (33, 241.875-242.375, A3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5041/24-5045/24, A-3, start) → (28, 210.375-211.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.5-241.75, D#4, start) → (33, 241.875-242.375, D#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 213.375-213.54166666666666, F3, start) → (28, 213.875-214.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5125/24-5129/24, A-3, start) → (28, 213.875-214.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.375-241.625, A3, start) → (33, 241.875-242.375, A3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.5-241.75, D#4, start) → (33, 241.875-242.375, D#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, D1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (228, 731.75-733.25, A1, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 39.5-40.5, A5, start) → (13, 45.0-45.5, A5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (13, 48.0-48.5, B4, start) → (14, 50.0-50.5, B4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (17, 64.0-64.5, B4, start) → (18, 66.0-66.5, B4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 111.5-112.5, A5, start) → (13, 117.0-117.5, A5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (13, 120.0-120.5, B4, start) → (14, 122.0-122.5, B4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (17, 136.0-136.5, B4, start) → (18, 138.0-138.5, B4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (26, 168.0-168.5, C5, start) → (27, 170.0-170.5, C5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import wedge: Error in getting DynamicWedges
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 114 in part Piano
+                    is overfull: 3.0102272727272728 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 188.875-189.04166666666666, E3, start) → (25, 189.375-190.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4537/24-4541/24, B-3, start) → (25, 189.375-190.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 192.375-192.54166666666666, E3, start) → (25, 192.875-193.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (25, 4621/24-4625/24, B-3, start) → (25, 192.875-193.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 195.875-196.04166666666666, F3, start) → (26, 196.375-197.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4705/24-4709/24, A-3, start) → (26, 196.375-197.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 199.375-199.54166666666666, F3, start) → (26, 199.875-200.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (26, 4789/24-4793/24, A-3, start) → (26, 199.875-200.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 202.875-203.04166666666666, E3, start) → (27, 203.375-204.375, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4873/24-4877/24, B-3, start) → (27, 203.375-204.375, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 206.375-206.54166666666666, E3, start) → (27, 206.875-207.875, E3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (27, 4957/24-4961/24, B-3, start) → (27, 206.875-207.875, B-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 209.875-210.04166666666666, F3, start) → (28, 210.375-211.375, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5041/24-5045/24, A-3, start) → (28, 210.375-211.375, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 213.375-213.54166666666666, F3, start) → (28, 213.875-214.875, F3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (28, 5125/24-5129/24, A-3, start) → (28, 213.875-214.875, A-3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.375-241.625, A3, start) → (33, 241.875-242.375, A3, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (33, 241.5-241.75, D#4, start) → (33, 241.875-242.375, D#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import wedge: Error in getting DynamicWedges
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 94 in part Piano
+                    is overfull: 3.0708333333333333 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 52 in part Piano
+                    is overfull: 4.000355113636363 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 78 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 82 in part Piano
+                    is overfull: 4.00530303030303 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 119 in part Piano
+                    is overfull: 4.00625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 234 in part Piano
+                    is overfull: 4.000390625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 95 in part Piano
+                    is overfull: 4.0375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 43 in part Piano
+                    is overfull: 3.004166666666667 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (141, 633.5-633.75, E4, start) → (141, 634.5-636.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-990.0, C#4, start) → (230, 990.5-991.5, C#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-989.75, E4, start) → (230, 990.5-991.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 52 in part Piano
+                    is overfull: 4.000355113636363 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 234 in part Piano
+                    is overfull: 4.000390625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (141, 633.5-633.75, E4, start) → (141, 634.5-636.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-990.0, C#4, start) → (230, 990.5-991.5, C#4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch exactly (230, 989.5-989.75, E4, start) → (230, 990.5-991.5, E4, stop), but will merge.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 52 in part Piano
+                    is overfull: 4.000355113636363 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (3, 5.0-7.0, C#4, start) → (5, 13.0-15.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 39.0-41.0, F#5, start) → (16, 59.75-60.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (15, 53.0-55.0, C#4, start) → (17, 61.0-63.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (55, 211.0-213.0, C#5, start) → (59, 225.0-226.0, C#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (90, 351.0-353.0, F#5, start) → (92, 359.0-361.0, F#5, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, A4, start) → (94, 365.0-367.0, A4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (92, 359.0-361.0, F#5, start) → (96, 375.75-376.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (95, 369.0-371.0, C#4, start) → (97, 377.0-379.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (132, 513.0-515.0, C#4, start) → (133, 519.0-519.5, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (57, 217.0-219.0, B#1, start) → (65, 751/3-752/3, C2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (69, 267.0-268.0, C#4, start) → (70, 271.0-272.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (80, 311.0-313.0, F#2, start) → (91, 355.0-357.0, F#2, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, F#2, start) → (120, 469.0-470.0, F#2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, E3, start) → (94, 366.5-367.0, E3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (128, 501.0-503.0, E2, start) → (134, 521.0-523.0, E2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 234 in part Piano
+                    is overfull: 4.000390625 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (3, 5.0-7.0, C#4, start) → (5, 13.0-15.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 39.0-41.0, F#5, start) → (16, 59.75-60.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (15, 53.0-55.0, C#4, start) → (17, 61.0-63.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (55, 211.0-213.0, C#5, start) → (59, 225.0-226.0, C#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (90, 351.0-353.0, F#5, start) → (92, 359.0-361.0, F#5, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, A4, start) → (94, 365.0-367.0, A4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (92, 359.0-361.0, F#5, start) → (96, 375.75-376.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (95, 369.0-371.0, C#4, start) → (97, 377.0-379.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (132, 513.0-515.0, C#4, start) → (133, 519.0-519.5, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 26 in part Midi_1
+                    is overfull: 4.065234375 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (57, 217.0-219.0, B#1, start) → (65, 751/3-752/3, C2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (69, 267.0-268.0, C#4, start) → (70, 271.0-272.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (80, 311.0-313.0, F#2, start) → (91, 355.0-357.0, F#2, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, F#2, start) → (120, 469.0-470.0, F#2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, E3, start) → (94, 366.5-367.0, E3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (128, 501.0-503.0, E2, start) → (134, 521.0-523.0, E2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:5251: MusicXMLWarning: Could not import octave-shift: Error in getting Ottava
+  warnings.warn(f'Could not import {tag}: {excep}', MusicXMLWarning)
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (84, 252.0-252.0, E5, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 24 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 71 in part Piano
+                    is overfull: 6.066666666666666 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 84 in part Piano
+                    is overfull: 6.072916666666667 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 106 in part Piano
+                    is overfull: 6.543055555555555 > 6.0,
+                    assuming 6.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: No end tie found for start tie (84, 252.0-252.0, E5, start) → (?, ?, ?), ignoring.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 81 in part Piano
+                    is overfull: 2.0053030303030304 > 2.0,
+                    assuming 2.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 86 in part Piano
+                    is overfull: 4.939583333333333 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (3, 5.0-7.0, C#4, start) → (5, 13.0-15.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (11, 39.0-41.0, F#5, start) → (16, 59.75-60.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (15, 53.0-55.0, C#4, start) → (17, 61.0-63.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (55, 211.0-213.0, C#5, start) → (59, 225.0-226.0, C#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (90, 351.0-353.0, F#5, start) → (92, 359.0-361.0, F#5, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, A4, start) → (94, 365.0-367.0, A4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (92, 359.0-361.0, F#5, start) → (96, 375.75-376.0, F#5, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (95, 369.0-371.0, C#4, start) → (97, 377.0-379.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (132, 513.0-515.0, C#4, start) → (133, 519.0-519.5, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (57, 217.0-219.0, B#1, start) → (65, 751/3-752/3, C2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (69, 267.0-268.0, C#4, start) → (70, 271.0-272.0, C#4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (80, 311.0-313.0, F#2, start) → (91, 355.0-357.0, F#2, continue), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, F#2, start) → (120, 469.0-470.0, F#2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (91, 355.0-357.0, E3, start) → (94, 366.5-367.0, E3, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (128, 501.0-503.0, E2, start) → (134, 521.0-523.0, E2, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 86 in part Piano
+                    is overfull: 4.939583333333333 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 114 in part Piano
+                    is overfull: 3.0102272727272728 > 3.0,
+                    assuming 3.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (42, 122.0-124.0, A-3, start) → (47, 137.0-139.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (50, 146.0-151.0, C-5, start) → (218, 650.0-652.0, C-5, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (210, 626.0-628.0, A-3, start) → (215, 641.0-643.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (42, 122.0-124.0, A-3, start) → (47, 137.0-139.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (50, 146.0-151.0, C-5, start) → (218, 650.0-652.0, C-5, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (210, 626.0-628.0, A-3, start) → (215, 641.0-643.0, A-3, start), ignoring1.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/stream/base.py:7486: UserWarning: Ties do not touch (6, 24.5-26.0, D4, start) → (6, 27.5-28.5, D4, stop), ignoring2.
+  warnings.warn(f"{information} {' → '.join(note_strings)}, {action}.")
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 42 in part Piano
+                    is overfull: 4.06875 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+/root/Music-ML-BayenLab/venv311/lib/python3.11/site-packages/music21/musicxml/xmlToM21.py:2215: MusicXMLWarning: Warning: measure 42 in part Piano
+                    is overfull: 4.06875 > 4.0,
+                    assuming 4.0 is correct.
+  warnings.warn(f"""Warning: measure {m.number} in part {self.stream.partName}
+`Trainer.fit` stopped: `max_epochs=15` reached.
+Epoch 14/14 ━━━━━━━━━━━━━━━━ 695/695 0:02:19 •        5.08it/s v_num: 0.000     
+                                     0:00:00                   train/total:     
+                                                               0.221 val/total: 
+                                                               0.575            
+2026-06-07 18:51:43,728 Stage ssl_balanced best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/ssl_balanced-epoch=00-val/total=0.5089.ckpt
+Best ckpt: /root/Music-ML-BayenLab/MIDI2ScoreTransformer/checkpoints/ssl_balanced/ssl_balanced-epoch=00-val/total=0.5089.ckpt
